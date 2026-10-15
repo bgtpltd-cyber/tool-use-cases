@@ -15,6 +15,16 @@ Our angle: tool choice by job-to-be-done for vibe coders. Each use-case page lis
 - [Best AI for research](https://tools.lalipublications.com/use-cases/best-ai-for-research/): Find sources, read them, and summarize — with citations you can check.
 - [Best AI image generation](https://tools.lalipublications.com/use-cases/best-ai-image-generation/): Thumbnails, concept art, mockups, memes.
 - [Best tools for running AI locally](https://tools.lalipublications.com/use-cases/best-ai-for-running-local-models/): Private, free-to-run AI on your own machine.
+- [Best AI for automation workflows](https://tools.lalipublications.com/use-cases/best-ai-for-automation-workflows/): Connect your apps and let AI handle the repetitive steps — triggers, agents, and glue code.
+- [Best AI for landing pages](https://tools.lalipublications.com/use-cases/best-ai-for-landing-pages/): Go from idea to a live, decent-looking landing page in an afternoon.
+- [Best AI for UI design](https://tools.lalipublications.com/use-cases/best-ai-for-ui-design/): Turn a prompt or sketch into screens, then into something you can build.
+- [Best AI voice and text-to-speech](https://tools.lalipublications.com/use-cases/best-ai-voice-tts/): Voiceovers, narration, cloned voices and app speech without a mic.
+- [Best AI for music](https://tools.lalipublications.com/use-cases/best-ai-for-music/): Songs, soundtracks and background music from a prompt.
+- [Best AI for SEO content](https://tools.lalipublications.com/use-cases/best-ai-for-seo-content/): Research, outline and write pages that can rank — without publishing AI slop.
+- [Best AI for sales emails](https://tools.lalipublications.com/use-cases/best-ai-for-sales-emails/): Write better cold and follow-up emails — personal, short, and not obviously AI.
+- [Best AI for data and spreadsheets](https://tools.lalipublications.com/use-cases/best-ai-for-data-spreadsheets/): Analyze CSVs, write formulas and make charts by asking in plain English.
+- [Best AI for presentations](https://tools.lalipublications.com/use-cases/best-ai-for-presentations/): Go from outline to a decent slide deck fast.
+- [Best AI for 3D assets](https://tools.lalipublications.com/use-cases/best-ai-for-3d-assets/): Generate props, characters and models from text or images.
 
 ## Other pages
 

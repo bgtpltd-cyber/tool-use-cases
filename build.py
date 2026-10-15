@@ -52,6 +52,25 @@ T = {  # slug: (name, url, what it is)
  "kling": ("Kling", "https://klingai.com", "Kuaishou's text/image-to-video generator."),
  "grok": ("Grok", "https://grok.com", "xAI's assistant with real-time X/web search."),
  "mcp": ("Model Context Protocol", "https://modelcontextprotocol.io", "Open standard for connecting AI agents to tools and data."),
+ "n8n": ("n8n", "https://n8n.io", "Open-source workflow automation with AI agent nodes; self-host free or use their cloud."),
+ "make": ("Make", "https://www.make.com", "Visual no-code automation builder for multi-step scenarios across thousands of apps."),
+ "zapier": ("Zapier", "https://zapier.com", "The most widely connected no-code automation platform, now with AI steps and agents."),
+ "framer": ("Framer", "https://www.framer.com", "Website builder for designers with AI page generation, CMS and hosting."),
+ "stitch": ("Google Stitch", "https://stitch.withgoogle.com", "Google's prompt-to-UI design tool (formerly Galileo AI) that exports to Figma and code."),
+ "uizard": ("Uizard", "https://uizard.io", "Beginner-friendly AI UI mockup tool; turns prompts and sketches into app screens."),
+ "figma": ("Figma", "https://www.figma.com", "The standard UI design tool, with built-in AI features and Figma Make for prompt-to-prototype."),
+ "openai-tts": ("OpenAI Text-to-Speech", "https://platform.openai.com/docs/guides/text-to-speech", "OpenAI's speech API: cheap, natural voices you can steer with instructions."),
+ "udio": ("Udio", "https://www.udio.com", "AI song generator known for high-fidelity vocals and fine-grained remixing."),
+ "aiva": ("AIVA", "https://www.aiva.ai", "AI composer for instrumental, orchestral and soundtrack music, with MIDI export."),
+ "surfer": ("Surfer", "https://surferseo.com", "SEO content editor that scores drafts against top-ranking pages."),
+ "clearscope": ("Clearscope", "https://www.clearscope.io", "Premium content-optimization tool for keyword coverage and content grading."),
+ "lavender": ("Lavender", "https://www.lavender.ai", "Sales email coach that scores and rewrites cold emails inside your inbox."),
+ "julius": ("Julius AI", "https://julius.ai", "Chat with spreadsheets and data files to get analysis and charts."),
+ "excel-copilot": ("Microsoft 365 Copilot (Excel)", "https://www.microsoft.com/en-us/microsoft-365/copilot", "Copilot inside Excel for formulas, analysis and charts on your workbooks."),
+ "gamma": ("Gamma", "https://gamma.app", "Generates presentations, docs and web pages from a prompt or outline."),
+ "beautiful-ai": ("Beautiful.ai", "https://www.beautiful.ai", "Slide software with smart templates that auto-format as you add content."),
+ "luma": ("Luma AI", "https://lumalabs.ai", "Luma's AI lab; Genie text-to-3D plus Dream Machine video generation."),
+ "tripo": ("Tripo", "https://www.tripo3d.ai", "Fast text/image-to-3D generator with auto-rigging and clean topology options."),
 }
 
 UC = [
@@ -116,6 +135,64 @@ UC = [
   ("deepseek","Strong open-weight models you can run locally or cheaply via API."),
   ("aider","Pair it with a local model for an offline coding assistant."),
   ("sd","The classic local image model ecosystem.")]),
+ ("best-ai-for-automation-workflows","Best AI for automation workflows","Connect your apps and let AI handle the repetitive steps — triggers, agents, and glue code.",[
+  ("n8n","Top pick for builders: AI agent nodes, code when you need it, and free to self-host."),
+  ("make","Best visual canvas for complex branching flows; cheaper per task than Zapier."),
+  ("zapier","Widest app coverage and easiest setup; skip it if you run high volume, since costs climb fast."),
+  ("claude-code","When no-code hits a wall, have it write the script or webhook handler instead."),
+  ("manus","For one-off multi-step web tasks; not a replacement for reliable scheduled workflows.")]),
+ ("best-ai-for-landing-pages","Best AI for landing pages","Go from idea to a live, decent-looking landing page in an afternoon.",[
+  ("lovable","Top pick: prompt a full page with forms and a database, then publish in one click."),
+  ("framer","Best if design polish and easy hosting matter more than custom logic; marketers can edit it later."),
+  ("v0","Great React/Tailwind output if you deploy on Vercel; you'll want some code comfort."),
+  ("bolt","Quick full-stack alternative to Lovable; good for testing an idea fast."),
+  ("cursor","Skip the builders when you already have a codebase — just add the page there.")]),
+ ("best-ai-for-ui-design","Best AI for UI design","Turn a prompt or sketch into screens, then into something you can build.",[
+  ("figma","Top pick if you're working with designers: the standard tool, now with AI and Figma Make built in."),
+  ("v0","Skips the mockup: generates working UI code you can ship right away."),
+  ("stitch","Free, fast prompt-to-UI exploration from Google (formerly Galileo AI); exports to Figma."),
+  ("uizard","Easiest for non-designers doing wireframes; skip it if you want pixel-level control."),
+  ("lovable","When the 'design' really needs to be a clickable working app.")]),
+ ("best-ai-voice-tts","Best AI voice and text-to-speech","Voiceovers, narration, cloned voices and app speech without a mic.",[
+  ("elevenlabs","Top pick: the most natural voices, cloning and dubbing. The default for creators."),
+  ("openai-tts","Cheapest good voices for apps and bulk narration via API; fewer voice choices."),
+  ("descript","Best when you're editing the recording too — fix flubbed words with your own cloned voice."),
+  ("heygen","When you also need a talking avatar or lip-synced translation.")]),
+ ("best-ai-for-music","Best AI for music","Songs, soundtracks and background music from a prompt.",[
+  ("suno","Top pick: complete songs with vocals in seconds; easiest to get something good."),
+  ("udio","Strong vocals and finer remix control; worth trying when Suno's output feels generic."),
+  ("aiva","Best for instrumental and orchestral scores with MIDI export you can edit in a DAW."),
+  ("elevenlabs","Has music and sound-effect generation alongside voice, handy if you already use it.")]),
+ ("best-ai-for-seo-content","Best AI for SEO content","Research, outline and write pages that can rank — without publishing AI slop.",[
+  ("claude","Top pick for the actual writing: the most natural drafts and the best editor of your own material."),
+  ("surfer","Scores your draft against what ranks; useful guardrails, but don't write to the score alone."),
+  ("clearscope","Premium content grading for teams and agencies; overkill for a solo site."),
+  ("perplexity","Fast cited research on a topic and on what competitors cover."),
+  ("chatgpt","Solid all-rounder for briefs, outlines and meta descriptions; deep research for topic gaps.")]),
+ ("best-ai-for-sales-emails","Best AI for sales emails","Write better cold and follow-up emails — personal, short, and not obviously AI.",[
+  ("claude","Top pick: give it the prospect's context and get a short, human-sounding draft. Always edit."),
+  ("chatgpt","Equally good for drafts and variants; use custom instructions to set your voice."),
+  ("lavender","Coaching and scoring right in Gmail/Outlook; worth it if you send cold email daily."),
+  ("perplexity","Quick prospect and company research before you write the first line."),
+  ("grammarly","Final polish on tone and clarity everywhere you type.")]),
+ ("best-ai-for-data-spreadsheets","Best AI for data and spreadsheets","Analyze CSVs, write formulas and make charts by asking in plain English.",[
+  ("chatgpt","Top pick: upload a file and it runs real Python to analyze and chart it."),
+  ("claude","Great at explaining data and writing formulas; can also run analysis on uploads."),
+  ("julius","Built only for data analysis, with a friendlier workflow for non-coders."),
+  ("excel-copilot","Best when the work lives in Excel already; requires a Microsoft 365 Copilot plan."),
+  ("gemini","The natural pick inside Google Sheets.")]),
+ ("best-ai-for-presentations","Best AI for presentations","Go from outline to a decent slide deck fast.",[
+  ("gamma","Top pick: prompt or paste notes and get a good-looking deck in a minute; exports to PowerPoint."),
+  ("beautiful-ai","Best for teams who want consistent on-brand slides that stay formatted."),
+  ("claude","Write the story and outline first, or have it generate slide content and code-based decks."),
+  ("chatgpt","Good for outlines and speaker notes, and it can produce a downloadable .pptx file."),
+  ("excel-copilot","Copilot in PowerPoint makes sense if your company already pays for Microsoft 365.")]),
+ ("best-ai-for-3d-assets","Best AI for 3D assets","Generate props, characters and models from text or images.",[
+  ("meshy","Top pick: solid text/image-to-3D with textures, and exports for game engines."),
+  ("tripo","Fast generation with auto-rigging; great for characters you need to animate."),
+  ("luma","Quick text-to-3D experiments; best for concepting rather than final production assets."),
+  ("scenario","Best for style-consistent game assets across a whole project."),
+  ("sd","Skip 3D entirely for 2.5D/sprite games — generate concept art and textures locally.")]),
 ]
 
 NEW = [
