@@ -1,0 +1,15 @@
+index.html
+use-cases/index.html
+tools/index.html
+new/index.html
+sponsor/index.html
+about/index.html
+use-cases/best-ai-for-vibe-coding/index.html
+use-cases/best-ai-coding-agents/index.html
+use-cases/best-ai-for-fixing-broken-code/index.html
+use-cases/best-ai-for-game-prototyping/index.html
+use-cases/best-ai-for-video-youtube/index.html
+use-cases/best-ai-writing-assistants/index.html
+use-cases/best-ai-for-research/index.html
+use-cases/best-ai-image-generation/index.html
+use-cases/best-ai-for-running-local-models/index.html

@@ -1,0 +1,2 @@
+document.querySelectorAll('[data-filter]').forEach(function(i){var t=document.querySelectorAll(i.dataset.filter);
+i.addEventListener('input',function(){var q=i.value.toLowerCase().trim();t.forEach(function(c){c.style.display=!q||c.textContent.toLowerCase().indexOf(q)>-1?'':'none'})})});
