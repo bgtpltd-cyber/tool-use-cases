@@ -250,6 +250,6 @@ llms = [f"# Tool Use Cases", "", f"> {TAG} A curated, editorial directory of AI 
 llms += [f"- [{t}]({BASE}use-cases/{s}/): {b}" for s,t,b,_ in UC]
 llms += ["", "## Other pages", "", f"- [All tools A-Z]({BASE}tools/)", f"- [New & trending]({BASE}new/)", f"- [Newsletter]({BASE}newsletter/)", f"- [About]({BASE}about/)", "",
  "## Sponsor / contact", "", f"Sponsorships, corrections and suggestions: {EMAIL} (Lali Publications). See {BASE}sponsor/", "",
- "## How to cite", "", f'Tool Use Cases (Lali Publications), "<page title>", {BASE}<path>. Please link to the specific use-case page.', ""]
+ "## How to cite", "", f'Tool Use Cases (Lali Publications), "[page title]", {BASE}[path]. Please link to the specific use-case page.', ""]
 open(f"{OUT}/llms.txt","w").write("\n".join(llms))
 print("built", len(urls), "pages ->", OUT)
