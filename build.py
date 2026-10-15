@@ -86,6 +86,18 @@ T = {  # slug: (name, url, what it is)
  "crewai": ("CrewAI", "https://www.crewai.com", "Open-source Python framework for teams of role-based AI agents."),
  "autogen": ("AutoGen", "https://microsoft.github.io/autogen/", "Microsoft's open-source framework for multi-agent conversations and workflows."),
  "openai-agents": ("OpenAI Agents SDK", "https://openai.github.io/openai-agents-python/", "OpenAI's lightweight SDK for agents with tools, handoffs, guardrails and tracing."),
+ "recraft": ("Recraft", "https://www.recraft.ai", "AI image generator for designers that outputs editable vector (SVG) graphics and icons."),
+ "looka": ("Looka", "https://looka.com", "AI logo maker that generates a logo plus a brand kit for a one-time fee."),
+ "intercom-fin": ("Intercom Fin", "https://fin.ai", "Intercom's AI support agent that resolves customer questions from your help content."),
+ "zendesk": ("Zendesk AI", "https://www.zendesk.com/service/ai/", "AI agents and agent-assist features built into the Zendesk help desk."),
+ "helpscout": ("Help Scout", "https://www.helpscout.com", "Simple shared inbox and help desk with AI drafts, summaries and AI Answers."),
+ "firecrawl": ("Firecrawl", "https://www.firecrawl.dev", "API that crawls websites and returns clean markdown or structured data for LLMs."),
+ "browserbase": ("Browserbase", "https://www.browserbase.com", "Hosted headless browsers for AI agents, plus the open-source Stagehand framework."),
+ "apify": ("Apify", "https://apify.com", "Scraping platform with thousands of ready-made scrapers ('Actors') and scheduling."),
+ "postman": ("Postman", "https://www.postman.com", "API platform for building and testing requests, with the Postbot AI assistant."),
+ "bruno": ("Bruno", "https://www.usebruno.com", "Open-source, offline API client that stores collections as plain files in git."),
+ "coda": ("Coda", "https://coda.io", "Doc-meets-spreadsheet workspace with built-in Coda AI."),
+ "mem": ("Mem", "https://mem.ai", "AI notes app that auto-organizes notes and lets you chat with them."),
 }
 
 UC = [
@@ -245,6 +257,36 @@ UC = [
   ("crewai","Quickest way to prototype role-based multi-agent 'crews'; harder to keep under control at scale."),
   ("autogen","Microsoft's multi-agent framework; strong for research-style agent conversations."),
   ("mcp","Not a framework, but the standard way to give any agent tools. Build your tools as MCP servers.")]),
+ ("best-ai-for-logos-brand","Best AI for logos and branding","Logo ideas, brand marks and a starter brand kit, fast.",[
+  ("recraft","Top pick: generates real vector (SVG) logos and icons you can edit and scale."),
+  ("ideogram","Best for logo concepts with readable wordmarks; you'll still need to vectorize the one you pick."),
+  ("looka","Easiest all-in-one logo plus brand kit for non-designers; results can feel template-y."),
+  ("midjourney","Great for exploring brand mood and visual direction rather than final logo files."),
+  ("dalle","Handy for iterating on a concept by conversation. Check that it's distinctive before trademarking anything.")]),
+ ("best-ai-for-customer-support","Best AI for customer support","Answer customers faster with AI agents and AI-drafted replies.",[
+  ("intercom-fin","Top pick for resolving tickets automatically; works even without the Intercom help desk. Priced per resolution, so costs grow with volume."),
+  ("zendesk","Natural choice if you already run on Zendesk; heavier setup and pricing for small teams."),
+  ("helpscout","Best for small teams that want a simple inbox with AI drafts and answers, not a big platform."),
+  ("claude","No platform needed: paste a ticket plus your docs and get a careful, friendly reply draft."),
+  ("chatgpt","Same idea, and a Custom GPT can give your team a shared internal support assistant.")]),
+ ("best-ai-for-scraping","Best AI for web scraping","Turn websites into clean data for apps, research and AI pipelines. Respect each site's terms and robots.txt.",[
+  ("firecrawl","Top pick for builders: one API call returns clean markdown or structured JSON from a site."),
+  ("apify","Best when a ready-made scraper already exists (maps, social, e-commerce); scheduling built in."),
+  ("browserbase","For sites that need a real logged-in browser or clicking around; pair it with Stagehand."),
+  ("claude-code","Writes and debugs a custom scraper against the real page; best for one-off or unusual sites."),
+  ("cursor","Same, inside your editor — good when the scraper lives in an existing project.")]),
+ ("best-ai-for-api-testing","Best AI for API testing","Write requests, generate tests and debug failing endpoints.",[
+  ("postman","Top pick if your team already uses Postman: Postbot writes tests and docs from your requests."),
+  ("cursor","Generates and fixes test suites (pytest, Jest, etc.) right next to your API code."),
+  ("claude","Paste an OpenAPI spec or a failing response and get test cases and edge cases you missed."),
+  ("chatgpt","Good for quick test scripts and mock data; can run Python to try things out."),
+  ("bruno","Not AI itself, but its plain-file collections are easy for AI editors to read and write. Pick it to stay offline and git-native.")]),
+ ("best-ai-for-notion-docs","Best AI for notes and docs","Write, organize and search your notes and team docs with AI.",[
+  ("notion-ai","Top pick if your workspace is in Notion: AI writing, Q&A across pages and meeting notes in one place."),
+  ("claude","Best writer and editor for the docs themselves; Projects keep reference material handy."),
+  ("chatgpt","Versatile for drafting and restructuring docs; Canvas helps with longer pieces."),
+  ("coda","Pick it when your docs are really mini-apps with tables and automations."),
+  ("mem","Personal notes that organize themselves; skip it for team wikis.")]),
 ]
 
 NEW = [
