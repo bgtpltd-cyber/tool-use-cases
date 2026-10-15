@@ -2,7 +2,7 @@
 
 > Which AI tool for which job — for vibe coders and builders. A curated, editorial directory of AI tools organized by the job you're trying to do. Published by Lali Publications.
 
-Each use-case page lists recommended tools with a one-line description and a plain-English verdict. Picks are editorial and not paid; sponsored slots are clearly labeled and separate.
+Our angle: tool choice by job-to-be-done for vibe coders. Each use-case page lists recommended tools with a one-line description and a plain-English verdict. Picks are editorial and not paid; sponsored slots are clearly labeled and separate.
 
 ## Use cases
 

@@ -202,7 +202,9 @@ for slug,title,blurb,tools in UC:
 <p><small><a href="@R/use-cases/index.html">Use cases</a> /</small></p><h1>{e(title)}</h1><p class="lede">{e(blurb)}</p>
 {SPONSOR_CARD}<h2>Our picks</h2><ol class="tools">{items}</ol>
 <p class="muted"><small>Picks are editorial and not paid. Pricing and features change often — check each official site.</small></p>""", ld=[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-     {"@type":"ListItem","position":1,"name":"Home","item":BASE},{"@type":"ListItem","position":2,"name":"Use cases","item":BASE+"use-cases/"},{"@type":"ListItem","position":3,"name":title,"item":f"{BASE}use-cases/{slug}/"}]}])
+     {"@type":"ListItem","position":1,"name":"Home","item":BASE},{"@type":"ListItem","position":2,"name":"Use cases","item":BASE+"use-cases/"},{"@type":"ListItem","position":3,"name":title,"item":f"{BASE}use-cases/{slug}/"}]},
+     {"@context":"https://schema.org","@type":"ItemList","name":title,"description":blurb,"url":f"{BASE}use-cases/{slug}/","itemListElement":[{"@type":"ListItem","position":i,"item":{"@type":"SoftwareApplication","name":T[t][0],"url":T[t][1],"description":T[t][2],"applicationCategory":"DeveloperApplication" if "cod" in slug or "vibe" in slug else "BusinessApplication",
+       "review":{"@type":"Review","name":f"{T[t][0]} for {title}","reviewBody":v,"author":{"@type":"Organization","name":"Tool Use Cases (Lali Publications)"}}}} for i,(t,v) in enumerate(tools,1)]}])
 
 uses = {}
 for slug,title,_,tools in UC:
@@ -228,13 +230,13 @@ page("about/index.html","About — Tool Use Cases","Tool Use Cases is an indepen
 <p>Tool Use Cases is an independent directory and is not affiliated with any of the tools listed or with other "use cases" channels or publications.</p>
 <p>Corrections, suggestions, or sponsorships: <a href="mailto:{EMAIL}">{EMAIL}</a></p>""")
 
-page("newsletter/index.html","Tool Use Cases Weekly — free AI tool newsletter","Weekly AI tool picks for vibe coders: new tools and which job they fit. Free, every Monday, from Lali Publications.",f"""
-<h1>Tool Use Cases Weekly</h1><p class="lede">One short email every Monday: new AI tools and which job they actually fit.</p>
+page("newsletter/index.html","Tool Picks Weekly — free AI tool newsletter","Weekly AI tool picks for vibe coders, by job-to-be-done: new tools and which job they fit. Free, every Monday, from Lali Publications.",f"""
+<h1>Tool Picks Weekly</h1><p class="lede">One short email every Monday: new AI tools and which job they actually fit.</p>
 {nl_form(' id="newsletter"')}
 <h2>What an issue covers</h2><ul><li><b>New &amp; notable:</b> 3–5 recent launches or big updates, each with the use case it fits.</li><li><b>Pick of the week:</b> one tool, one job, a plain-English verdict.</li><li><b>Workflow tip:</b> a concrete way to combine tools for vibe coding, video, or research.</li><li><b>Directory updates:</b> what changed on Tool Use Cases.</li></ul>
 <p class="muted"><small>Picks are editorial. Any sponsored item is clearly labeled.</small></p>""")
-page("thanks/index.html","Thanks for subscribing — Tool Use Cases","Your Tool Use Cases Weekly signup was received.",f"""
-<h1>You're on the list. Thanks!</h1><p class="lede">Your signup for Tool Use Cases Weekly was received. Look out for the next issue on Monday.</p>
+page("thanks/index.html","Thanks for subscribing — Tool Use Cases","Your Tool Picks Weekly signup was received.",f"""
+<h1>You're on the list. Thanks!</h1><p class="lede">Your signup for Tool Picks Weekly was received. Look out for the next issue on Monday.</p>
 <p><a class="btn" href="@R/index.html">Back to Tool Use Cases</a></p>""")
 
 urls = ["index.html","newsletter/index.html","use-cases/index.html","tools/index.html","new/index.html","sponsor/index.html","about/index.html"]+[f"use-cases/{u[0]}/index.html" for u in UC]
@@ -244,7 +246,7 @@ open(f"{OUT}/sitemap.txt","w").write("\n".join(full)+"\n")
 open(f"{OUT}/sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"  <url><loc>{u}</loc></url>\n" for u in full)+"</urlset>\n")
 open(f"{OUT}/robots.txt","w").write(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n")
 llms = [f"# Tool Use Cases", "", f"> {TAG} A curated, editorial directory of AI tools organized by the job you're trying to do. Published by Lali Publications.", "",
- "Each use-case page lists recommended tools with a one-line description and a plain-English verdict. Picks are editorial and not paid; sponsored slots are clearly labeled and separate.", "", "## Use cases", ""]
+ "Our angle: tool choice by job-to-be-done for vibe coders. Each use-case page lists recommended tools with a one-line description and a plain-English verdict. Picks are editorial and not paid; sponsored slots are clearly labeled and separate.", "", "## Use cases", ""]
 llms += [f"- [{t}]({BASE}use-cases/{s}/): {b}" for s,t,b,_ in UC]
 llms += ["", "## Other pages", "", f"- [All tools A-Z]({BASE}tools/)", f"- [New & trending]({BASE}new/)", f"- [Newsletter]({BASE}newsletter/)", f"- [About]({BASE}about/)", "",
  "## Sponsor / contact", "", f"Sponsorships, corrections and suggestions: {EMAIL} (Lali Publications). See {BASE}sponsor/", "",

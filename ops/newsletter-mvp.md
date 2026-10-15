@@ -1,9 +1,10 @@
-# Newsletter MVP — Tool Use Cases Weekly
+# Newsletter MVP — Tool Picks Weekly
 
 Owner: Larry Surroach (Lali Publications) · larrys@lalipublications.com · Spend: $0
 
 ## Name & cadence
-- Name: **Tool Use Cases Weekly**
+- Positioning: weekly tool picks organized by job-to-be-done (not a daily news digest). Sponsored items always labeled and separate from editorial picks.
+- Name: **Tool Picks Weekly**
 - Cadence: weekly, Monday morning (PT)
 - Promise: "Weekly AI tool picks for vibe coders — new tools + which job they fit. Free."
 
@@ -22,7 +23,7 @@ Owner: Larry Surroach (Lali Publications) · larrys@lalipublications.com · Spen
 
 ## Issue template
 ```
-Subject: Tool Use Cases Weekly #N — <hook>
+Subject: Tool Picks Weekly #N — <hook>
 
 Hi — here's this week's AI tool picks, sorted by the job they fit.
 

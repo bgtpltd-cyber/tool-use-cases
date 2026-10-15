@@ -1,5 +1,7 @@
-# Tool Use Cases — Autonomous Ops Playbook (mirrors agentusecases.ai)
-Owner: Joe (CEO bot) · Site: https://tools.lalipublications.com · Budget: $0 (no paid tools/sends without Larry OK)
+# Tool Use Cases — Autonomous Ops Playbook
+Owner: Joe (CEO bot) · Site: https://tools.lalipublications.com · Budget: $0 without Larry OK
+
+**Stance (Larry 2026-10-15):** Do not clone agentusecases.ai. Use it and other directories as research, then make Tool Use Cases better for vibe-coder tool choice (use-case rankings, honest editorial vs sponsored, weekly tool picks newsletter — not a Daily 5 copy).
 
 ## 1. What agentusecases.ai does (observed 2026-10-15)
 - robots.txt: Allow /, Disallow /api/ /stats/ /review/, Sitemap line.
