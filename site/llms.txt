@@ -1,0 +1,32 @@
+# Tool Use Cases
+
+> Which AI tool for which job — for vibe coders and builders. A curated, editorial directory of AI tools organized by the job you're trying to do. Published by Lali Publications.
+
+Our angle: tool choice by job-to-be-done for vibe coders. Each use-case page lists recommended tools with a one-line description and a plain-English verdict. Picks are editorial and not paid; sponsored slots are clearly labeled and separate.
+
+## Use cases
+
+- [Best AI for vibe coding](https://tools.lalipublications.com/use-cases/best-ai-for-vibe-coding/): Describe it, run it, tweak it. Tools that let you build software mostly by talking.
+- [Best AI coding agents](https://tools.lalipublications.com/use-cases/best-ai-coding-agents/): Agents that take a task, edit multiple files, run commands and come back with a diff.
+- [Best AI for fixing broken code and errors](https://tools.lalipublications.com/use-cases/best-ai-for-fixing-broken-code/): Paste the stack trace, get a fix. Tools that are good at debugging, not just generating.
+- [Best AI for game prototyping](https://tools.lalipublications.com/use-cases/best-ai-for-game-prototyping/): Get a playable idea on screen fast — code, art, 3D and music.
+- [Best AI for video and YouTube](https://tools.lalipublications.com/use-cases/best-ai-for-video-youtube/): Generate footage, edit faster, voice it, and cut it into Shorts.
+- [Best AI writing assistants](https://tools.lalipublications.com/use-cases/best-ai-writing-assistants/): Drafting, editing and rewriting — docs, blog posts, READMEs, emails.
+- [Best AI for research](https://tools.lalipublications.com/use-cases/best-ai-for-research/): Find sources, read them, and summarize — with citations you can check.
+- [Best AI image generation](https://tools.lalipublications.com/use-cases/best-ai-image-generation/): Thumbnails, concept art, mockups, memes.
+- [Best tools for running AI locally](https://tools.lalipublications.com/use-cases/best-ai-for-running-local-models/): Private, free-to-run AI on your own machine.
+
+## Other pages
+
+- [All tools A-Z](https://tools.lalipublications.com/tools/)
+- [New & trending](https://tools.lalipublications.com/new/)
+- [Newsletter](https://tools.lalipublications.com/newsletter/)
+- [About](https://tools.lalipublications.com/about/)
+
+## Sponsor / contact
+
+Sponsorships, corrections and suggestions: larrys@lalipublications.com (Lali Publications). See https://tools.lalipublications.com/sponsor/
+
+## How to cite
+
+Tool Use Cases (Lali Publications), "[page title]", https://tools.lalipublications.com/[path]. Please link to the specific use-case page.
