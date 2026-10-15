@@ -25,6 +25,12 @@ Our angle: tool choice by job-to-be-done for vibe coders. Each use-case page lis
 - [Best AI for data and spreadsheets](https://tools.lalipublications.com/use-cases/best-ai-for-data-spreadsheets/): Analyze CSVs, write formulas and make charts by asking in plain English.
 - [Best AI for presentations](https://tools.lalipublications.com/use-cases/best-ai-for-presentations/): Go from outline to a decent slide deck fast.
 - [Best AI for 3D assets](https://tools.lalipublications.com/use-cases/best-ai-for-3d-assets/): Generate props, characters and models from text or images.
+- [Best AI for meeting notes](https://tools.lalipublications.com/use-cases/best-ai-for-meeting-notes/): Record, transcribe and summarize calls so nobody has to take notes.
+- [Best AI for chatbots and RAG](https://tools.lalipublications.com/use-cases/best-ai-for-chatbots-rag/): Build an assistant that answers from your own docs — from no-code to custom code.
+- [Best hosting for AI-built apps](https://tools.lalipublications.com/use-cases/best-ai-for-deploy-hosting/): Where to ship the app your AI tools just built. These are hosting platforms, not AI tools — picked for how well they fit AI-assisted builders.
+- [Best AI for building Chrome extensions](https://tools.lalipublications.com/use-cases/best-ai-for-chrome-extensions/): Go from 'there should be a button for this' to a working browser extension.
+- [Best AI for YouTube thumbnails and packaging](https://tools.lalipublications.com/use-cases/best-ai-for-thumbnails-youtube-packaging/): Thumbnails, titles and the hook that gets the click.
+- [Best AI agent frameworks](https://tools.lalipublications.com/use-cases/best-ai-for-agent-frameworks/): Code frameworks for building your own agents with tools, memory and multi-step workflows.
 
 ## Other pages
 

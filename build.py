@@ -71,6 +71,21 @@ T = {  # slug: (name, url, what it is)
  "beautiful-ai": ("Beautiful.ai", "https://www.beautiful.ai", "Slide software with smart templates that auto-format as you add content."),
  "luma": ("Luma AI", "https://lumalabs.ai", "Luma's AI lab; Genie text-to-3D plus Dream Machine video generation."),
  "tripo": ("Tripo", "https://www.tripo3d.ai", "Fast text/image-to-3D generator with auto-rigging and clean topology options."),
+ "fireflies": ("Fireflies.ai", "https://fireflies.ai", "AI meeting bot that records, transcribes and summarizes Zoom/Meet/Teams calls."),
+ "otter": ("Otter.ai", "https://otter.ai", "Real-time meeting transcription and AI summaries, with a usable free tier."),
+ "grain": ("Grain", "https://grain.com", "Meeting recorder built around clips and highlights, popular with sales and customer teams."),
+ "langchain": ("LangChain", "https://www.langchain.com", "Open-source framework for building LLM apps: RAG, tools and integrations."),
+ "llamaindex": ("LlamaIndex", "https://www.llamaindex.ai", "Open-source framework focused on connecting LLMs to your documents and data (RAG)."),
+ "vercel": ("Vercel", "https://vercel.com", "Frontend and Next.js hosting with git-push deploys, previews and an AI SDK."),
+ "netlify": ("Netlify", "https://www.netlify.com", "Git-based hosting for static sites and web apps, with functions and forms."),
+ "railway": ("Railway", "https://railway.com", "Deploy backends, databases and workers from a repo with almost no config."),
+ "fly": ("Fly.io", "https://fly.io", "Run Docker containers close to users worldwide; good for full-stack apps and GPUs."),
+ "plasmo": ("Plasmo", "https://www.plasmo.com", "Open-source framework for building browser extensions with React and TypeScript."),
+ "canva": ("Canva", "https://www.canva.com", "Online design tool with Magic Studio AI features and ready-made templates."),
+ "langgraph": ("LangGraph", "https://www.langchain.com/langgraph", "LangChain's framework for stateful, controllable multi-step agent graphs."),
+ "crewai": ("CrewAI", "https://www.crewai.com", "Open-source Python framework for teams of role-based AI agents."),
+ "autogen": ("AutoGen", "https://microsoft.github.io/autogen/", "Microsoft's open-source framework for multi-agent conversations and workflows."),
+ "openai-agents": ("OpenAI Agents SDK", "https://openai.github.io/openai-agents-python/", "OpenAI's lightweight SDK for agents with tools, handoffs, guardrails and tracing."),
 }
 
 UC = [
@@ -193,6 +208,43 @@ UC = [
   ("luma","Quick text-to-3D experiments; best for concepting rather than final production assets."),
   ("scenario","Best for style-consistent game assets across a whole project."),
   ("sd","Skip 3D entirely for 2.5D/sprite games — generate concept art and textures locally.")]),
+ ("best-ai-for-meeting-notes","Best AI for meeting notes","Record, transcribe and summarize calls so nobody has to take notes.",[
+  ("fireflies","Top pick: joins your calls automatically, with solid summaries, search and CRM integrations."),
+  ("otter","Best free tier and live transcription; summaries are a bit more generic."),
+  ("grain","Best for sales and customer calls where you want to share clips, not just notes."),
+  ("notion-ai","Built-in meeting notes if your team already lives in Notion — no extra bot needed."),
+  ("claude","No bot at all: paste a transcript and get sharper summaries and action items. Skip it if you want automatic recording.")]),
+ ("best-ai-for-chatbots-rag","Best AI for chatbots and RAG","Build an assistant that answers from your own docs — from no-code to custom code.",[
+  ("chatgpt","Top pick to start: a Custom GPT with uploaded files takes minutes. Skip it if you need it on your own site."),
+  ("claude","Claude Projects are great for an internal team assistant grounded in your docs."),
+  ("llamaindex","Best code framework when the hard part is ingesting and retrieving your data well."),
+  ("langchain","Biggest ecosystem of integrations; more abstraction than you may need for simple bots."),
+  ("cursor","Have it write a lean custom RAG app, and use MCP to connect it to your tools."),
+  ("notebooklm","Zero-setup grounded Q&A over your sources, for personal use rather than embedding.")]),
+ ("best-ai-for-deploy-hosting","Best hosting for AI-built apps","Where to ship the app your AI tools just built. These are hosting platforms, not AI tools — picked for how well they fit AI-assisted builders.",[
+  ("vercel","Top pick for Next.js/React apps (and anything from v0): push to git, get a live URL with previews."),
+  ("netlify","Great for static sites and simple apps, with a generous free tier and built-in forms."),
+  ("railway","Easiest place for backends, databases and background workers. Skip it for purely static sites."),
+  ("fly","Best when you need Docker, multiple regions or GPUs; it takes a bit more setup."),
+  ("replit","Build and host in one place — simplest if you never want to touch deploy config.")]),
+ ("best-ai-for-chrome-extensions","Best AI for building Chrome extensions","Go from 'there should be a button for this' to a working browser extension.",[
+  ("cursor","Top pick: generates the manifest, scripts and popup, and fixes errors in context while you reload and test."),
+  ("claude-code","Great at scaffolding the whole extension and iterating on Manifest V3 permission issues."),
+  ("chatgpt","Fine for a tiny single-file extension. Check that it uses Manifest V3, since older examples are everywhere."),
+  ("plasmo","Not an AI tool, but pairs well with one: React/TS framework that removes extension boilerplate."),
+  ("copilot","Good autocomplete for Chrome APIs if you'd rather write it yourself.")]),
+ ("best-ai-for-thumbnails-youtube-packaging","Best AI for YouTube thumbnails and packaging","Thumbnails, titles and the hook that gets the click.",[
+  ("ideogram","Top pick for thumbnails with bold, readable text baked into the image."),
+  ("dalle","Best for edits by conversation (\"make the face more surprised\") and for brainstorming titles in the same chat."),
+  ("canva","Where you actually lay out the final thumbnail: templates, background removal and Magic tools."),
+  ("midjourney","Most striking backgrounds and scenes; add the text afterwards in Canva."),
+  ("claude","Brainstorm title and thumbnail-text pairs; it's honest when an idea is clickbait-y.")]),
+ ("best-ai-for-agent-frameworks","Best AI agent frameworks","Code frameworks for building your own agents with tools, memory and multi-step workflows.",[
+  ("openai-agents","Top pick for getting started: small API surface with tools, handoffs and tracing built in."),
+  ("langgraph","Best when you need explicit control: state, retries, human-in-the-loop and production reliability."),
+  ("crewai","Quickest way to prototype role-based multi-agent 'crews'; harder to keep under control at scale."),
+  ("autogen","Microsoft's multi-agent framework; strong for research-style agent conversations."),
+  ("mcp","Not a framework, but the standard way to give any agent tools. Build your tools as MCP servers.")]),
 ]
 
 NEW = [
