@@ -3,6 +3,7 @@
 import os, html, json, shutil
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "site")
 EMAIL = "larrys@lalipublications.com"
+BASE = "https://tools.lalipublications.com/"
 TAG = "Which AI tool for which job — for vibe coders and builders."
 
 T = {  # slug: (name, url, what it is)
@@ -142,21 +143,31 @@ h1{font-size:1.9rem;line-height:1.2;margin:28px 0 8px}.lede{color:#444;font-size
 .btn{display:inline-block;background:#0b5cad;color:#fff;padding:9px 16px;border-radius:6px;text-decoration:none;font-weight:600}
 input[type=search]{width:100%;padding:11px 14px;font-size:1rem;border:1px solid #bbb;border-radius:6px;margin:10px 0}
 ol.tools{list-style:none;padding:0}ol.tools li{margin-bottom:12px}footer{margin-top:48px;padding:18px 0;font-size:.9rem}
+.nl{background:#fff;border:2px solid #0b5cad;border-radius:8px;padding:16px;margin:28px 0}.nl h2{margin:0 0 4px}.nl form{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}.nl input[type=email]{flex:1;min-width:200px;padding:10px 12px;font-size:1rem;border:1px solid #bbb;border-radius:6px}.nl button{background:#0b5cad;color:#fff;border:0;padding:10px 18px;border-radius:6px;font-weight:600;font-size:1rem;cursor:pointer}footer .nl{background:#26384a;border-color:#4a6a8a;color:#eee}footer .nl small{color:#ccc}
 .cta{background:#eef4fb;border:1px solid #cbdcef;border-radius:8px;padding:16px;margin:28px 0}small,.muted{color:#666}"""
 
 JS = """document.querySelectorAll('[data-filter]').forEach(function(i){var t=document.querySelectorAll(i.dataset.filter);
 i.addEventListener('input',function(){var q=i.value.toLowerCase().trim();t.forEach(function(c){c.style.display=!q||c.textContent.toLowerCase().indexOf(q)>-1?'':'none'})})});"""
 
 e = html.escape
-def page(path, title, desc, body):
+def canon(path): return BASE + (path[:-len("index.html")] if path.endswith("index.html") else path)
+def nl_form(id_attr=""):
+    return f"""<section class="nl"{id_attr}><h2>Weekly AI tool picks for vibe coders</h2><p>New tools + which job they fit. Free.</p>
+<form action="https://formsubmit.co/{EMAIL}" method="POST"><input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
+<input type="hidden" name="_subject" value="Tool Use Cases newsletter signup"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_template" value="table"><input type="hidden" name="_next" value="{BASE}thanks/">
+<button type="submit">Subscribe</button></form><small>We email from Lali Publications. No spam, unsubscribe anytime.</small></section>"""
+def page(path, title, desc, body, ld=None):
     depth = path.count("/")
     r = "../" * depth
+    cu = canon(path)
+    lds = "".join(f'<script type="application/ld+json">{json.dumps(x)}</script>' for x in (ld or []))
     doc = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)}</title><meta name="description" content="{e(desc)}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}">
-<link rel="stylesheet" href="{r}style.css"></head><body>
-<header><div class="wrap"><a class="logo" href="{r}index.html">Tool Use Cases</a><nav><a href="{r}use-cases/index.html">Use cases</a> · <a href="{r}tools/index.html">Tools</a> · <a href="{r}new/index.html">New releases</a> · <a href="{r}sponsor/index.html">Sponsor</a> · <a href="{r}about/index.html">About</a></nav></div></header>
+<link rel="canonical" href="{cu}"><meta property="og:url" content="{cu}"><meta property="og:type" content="website"><meta property="og:site_name" content="Tool Use Cases"><meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="{r}style.css">{lds}</head><body>
+<header><div class="wrap"><a class="logo" href="{r}index.html">Tool Use Cases</a><nav><a href="{r}use-cases/index.html">Use cases</a> · <a href="{r}tools/index.html">Tools</a> · <a href="{r}new/index.html">New releases</a> · <a href="{r}newsletter/index.html">Newsletter</a> · <a href="{r}sponsor/index.html">Sponsor</a> · <a href="{r}about/index.html">About</a></nav></div></header>
 <main class="wrap">{body.replace('@R/', r)}</main>
-<footer><div class="wrap">Tool Use Cases · by Lali Publications · sponsorships: <a href="mailto:{EMAIL}">{EMAIL}</a></div></footer>
+<footer><div class="wrap">{nl_form()}Tool Use Cases · by Lali Publications · sponsorships: <a href="mailto:{EMAIL}">{EMAIL}</a></div></footer>
 <script src="{r}app.js"></script></body></html>"""
     f = os.path.join(OUT, path); os.makedirs(os.path.dirname(f), exist_ok=True)
     open(f, "w").write(doc)
@@ -175,8 +186,11 @@ page("index.html","Tool Use Cases — which AI tool for which job",TAG+" A curat
 <h1>Which AI tool for which job.</h1><p class="lede">Tool Use Cases is a directory of AI tools organized by the job you're trying to do — for vibe coders, builders, and anyone shipping with AI.</p>
 <input type="search" placeholder="Filter use cases (e.g. video, coding, research)…" data-filter=".f" aria-label="Filter use cases">
 <h2>Use cases</h2><div class="grid">{cards}</div>
+{nl_form(' id="newsletter"')}
 <h2>New releases &amp; trending</h2><ul>{newteaser}</ul><p><a href="@R/new/index.html">All new releases →</a></p>
-<div class="cta"><b>Make an AI tool?</b> Get featured at the top of the use case your tool is best at. <a class="btn" href="@R/sponsor/index.html">Sponsor a slot</a></div>""")
+<div class="cta"><b>Make an AI tool?</b> Get featured at the top of the use case your tool is best at. <a class="btn" href="@R/sponsor/index.html">Sponsor a slot</a></div>""", ld=[
+ {"@context":"https://schema.org","@type":"WebSite","name":"Tool Use Cases","url":BASE,"description":TAG,"publisher":{"@type":"Organization","name":"Lali Publications","email":EMAIL}},
+ {"@context":"https://schema.org","@type":"ItemList","name":"AI tool use cases","itemListElement":[{"@type":"ListItem","position":i,"name":u[1],"url":f"{BASE}use-cases/{u[0]}/"} for i,u in enumerate(UC,1)]}])
 
 page("use-cases/index.html","AI tool use cases — Tool Use Cases","Browse AI tools by use case: vibe coding, coding agents, debugging, game prototyping, video, writing, research, images and more.",f"""
 <h1>Use cases</h1><p class="lede">Pick the job. We list the tools worth trying and why.</p>
@@ -187,7 +201,8 @@ for slug,title,blurb,tools in UC:
     page(f"use-cases/{slug}/index.html",f"{title} (2026) — Tool Use Cases",f"{title}: {blurb} Plain-English verdicts on {', '.join(T[t][0] for t,_ in tools[:4])} and more.",f"""
 <p><small><a href="@R/use-cases/index.html">Use cases</a> /</small></p><h1>{e(title)}</h1><p class="lede">{e(blurb)}</p>
 {SPONSOR_CARD}<h2>Our picks</h2><ol class="tools">{items}</ol>
-<p class="muted"><small>Picks are editorial and not paid. Pricing and features change often — check each official site.</small></p>""")
+<p class="muted"><small>Picks are editorial and not paid. Pricing and features change often — check each official site.</small></p>""", ld=[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+     {"@type":"ListItem","position":1,"name":"Home","item":BASE},{"@type":"ListItem","position":2,"name":"Use cases","item":BASE+"use-cases/"},{"@type":"ListItem","position":3,"name":title,"item":f"{BASE}use-cases/{slug}/"}]}])
 
 uses = {}
 for slug,title,_,tools in UC:
@@ -213,7 +228,26 @@ page("about/index.html","About — Tool Use Cases","Tool Use Cases is an indepen
 <p>Tool Use Cases is an independent directory and is not affiliated with any of the tools listed or with other "use cases" channels or publications.</p>
 <p>Corrections, suggestions, or sponsorships: <a href="mailto:{EMAIL}">{EMAIL}</a></p>""")
 
-urls = ["index.html","use-cases/index.html","tools/index.html","new/index.html","sponsor/index.html","about/index.html"]+[f"use-cases/{u[0]}/index.html" for u in UC]
+page("newsletter/index.html","Tool Use Cases Weekly — free AI tool newsletter","Weekly AI tool picks for vibe coders: new tools and which job they fit. Free, every Monday, from Lali Publications.",f"""
+<h1>Tool Use Cases Weekly</h1><p class="lede">One short email every Monday: new AI tools and which job they actually fit.</p>
+{nl_form(' id="newsletter"')}
+<h2>What an issue covers</h2><ul><li><b>New &amp; notable:</b> 3–5 recent launches or big updates, each with the use case it fits.</li><li><b>Pick of the week:</b> one tool, one job, a plain-English verdict.</li><li><b>Workflow tip:</b> a concrete way to combine tools for vibe coding, video, or research.</li><li><b>Directory updates:</b> what changed on Tool Use Cases.</li></ul>
+<p class="muted"><small>Picks are editorial. Any sponsored item is clearly labeled.</small></p>""")
+page("thanks/index.html","Thanks for subscribing — Tool Use Cases","Your Tool Use Cases Weekly signup was received.",f"""
+<h1>You're on the list. Thanks!</h1><p class="lede">Your signup for Tool Use Cases Weekly was received. Look out for the next issue on Monday.</p>
+<p><a class="btn" href="@R/index.html">Back to Tool Use Cases</a></p>""")
+
+urls = ["index.html","newsletter/index.html","use-cases/index.html","tools/index.html","new/index.html","sponsor/index.html","about/index.html"]+[f"use-cases/{u[0]}/index.html" for u in UC]
 open(f"{OUT}/CNAME","w").write("tools.lalipublications.com\n")
-open(f"{OUT}/sitemap.txt","w").write("\n".join(urls)+"\n")
+full = [canon(u) for u in urls]
+open(f"{OUT}/sitemap.txt","w").write("\n".join(full)+"\n")
+open(f"{OUT}/sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"  <url><loc>{u}</loc></url>\n" for u in full)+"</urlset>\n")
+open(f"{OUT}/robots.txt","w").write(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n")
+llms = [f"# Tool Use Cases", "", f"> {TAG} A curated, editorial directory of AI tools organized by the job you're trying to do. Published by Lali Publications.", "",
+ "Each use-case page lists recommended tools with a one-line description and a plain-English verdict. Picks are editorial and not paid; sponsored slots are clearly labeled and separate.", "", "## Use cases", ""]
+llms += [f"- [{t}]({BASE}use-cases/{s}/): {b}" for s,t,b,_ in UC]
+llms += ["", "## Other pages", "", f"- [All tools A-Z]({BASE}tools/)", f"- [New & trending]({BASE}new/)", f"- [Newsletter]({BASE}newsletter/)", f"- [About]({BASE}about/)", "",
+ "## Sponsor / contact", "", f"Sponsorships, corrections and suggestions: {EMAIL} (Lali Publications). See {BASE}sponsor/", "",
+ "## How to cite", "", f'Tool Use Cases (Lali Publications), "<page title>", {BASE}<path>. Please link to the specific use-case page.', ""]
+open(f"{OUT}/llms.txt","w").write("\n".join(llms))
 print("built", len(urls), "pages ->", OUT)
