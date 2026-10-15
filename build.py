@@ -214,5 +214,6 @@ page("about/index.html","About — Tool Use Cases","Tool Use Cases is an indepen
 <p>Corrections, suggestions, or sponsorships: <a href="mailto:{EMAIL}">{EMAIL}</a></p>""")
 
 urls = ["index.html","use-cases/index.html","tools/index.html","new/index.html","sponsor/index.html","about/index.html"]+[f"use-cases/{u[0]}/index.html" for u in UC]
+open(f"{OUT}/CNAME","w").write("tools.lalipublications.com\n")
 open(f"{OUT}/sitemap.txt","w").write("\n".join(urls)+"\n")
 print("built", len(urls), "pages ->", OUT)
