@@ -31,6 +31,11 @@ Our angle: tool choice by job-to-be-done for vibe coders. Each use-case page lis
 - [Best AI for building Chrome extensions](https://tools.lalipublications.com/use-cases/best-ai-for-chrome-extensions/): Go from 'there should be a button for this' to a working browser extension.
 - [Best AI for YouTube thumbnails and packaging](https://tools.lalipublications.com/use-cases/best-ai-for-thumbnails-youtube-packaging/): Thumbnails, titles and the hook that gets the click.
 - [Best AI agent frameworks](https://tools.lalipublications.com/use-cases/best-ai-for-agent-frameworks/): Code frameworks for building your own agents with tools, memory and multi-step workflows.
+- [Best AI for logos and branding](https://tools.lalipublications.com/use-cases/best-ai-for-logos-brand/): Logo ideas, brand marks and a starter brand kit, fast.
+- [Best AI for customer support](https://tools.lalipublications.com/use-cases/best-ai-for-customer-support/): Answer customers faster with AI agents and AI-drafted replies.
+- [Best AI for web scraping](https://tools.lalipublications.com/use-cases/best-ai-for-scraping/): Turn websites into clean data for apps, research and AI pipelines. Respect each site's terms and robots.txt.
+- [Best AI for API testing](https://tools.lalipublications.com/use-cases/best-ai-for-api-testing/): Write requests, generate tests and debug failing endpoints.
+- [Best AI for notes and docs](https://tools.lalipublications.com/use-cases/best-ai-for-notion-docs/): Write, organize and search your notes and team docs with AI.
 
 ## Other pages
 
