@@ -3,6 +3,7 @@
 import os, html, json, shutil
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "site")
 EMAIL = "larrys@lalipublications.com"
+FORMSUBMIT = "126630f9e901132900d6d2cd89ad2705"  # FormSubmit hash; hides email in page source
 BASE = "https://tools.lalipublications.com/"
 TAG = "Which AI tool for which job — for vibe coders and builders."
 
@@ -153,7 +154,7 @@ e = html.escape
 def canon(path): return BASE + (path[:-len("index.html")] if path.endswith("index.html") else path)
 def nl_form(id_attr=""):
     return f"""<section class="nl"{id_attr}><h2>Weekly AI tool picks for vibe coders</h2><p>New tools + which job they fit. Free.</p>
-<form action="https://formsubmit.co/{EMAIL}" method="POST"><input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
+<form action="https://formsubmit.co/{FORMSUBMIT}" method="POST"><input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
 <input type="hidden" name="_subject" value="Tool Use Cases newsletter signup"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_template" value="table"><input type="hidden" name="_next" value="{BASE}thanks/">
 <button type="submit">Subscribe</button></form><small>We email from Lali Publications. No spam, unsubscribe anytime.</small></section>"""
 def page(path, title, desc, body, ld=None):
