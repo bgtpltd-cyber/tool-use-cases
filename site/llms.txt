@@ -29,4 +29,4 @@ Sponsorships, corrections and suggestions: larrys@lalipublications.com (Lali Pub
 
 ## How to cite
 
-Tool Use Cases (Lali Publications), "[page title]", https://tools.lalipublications.com/[path]. Please link to the specific use-case page.
+Tool Use Cases (Lali Publications). Cite the page name, then the full URL under https://tools.lalipublications.com//. Prefer the specific use-case page.
