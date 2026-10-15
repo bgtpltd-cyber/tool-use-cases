@@ -36,7 +36,7 @@ T = {  # slug: (name, url, what it is)
  "descript": ("Descript", "https://www.descript.com", "Edit video and podcasts by editing the transcript."),
  "heygen": ("HeyGen", "https://www.heygen.com", "AI avatar videos and video translation."),
  "capcut": ("CapCut", "https://www.capcut.com", "Free-tier video editor with auto-captions and AI effects."),
- "opus": ("Opus Clip", "https://www.opus.pro", "Turns long videos into short vertical clips automatically."),
+ "opus": ("OpusClip", "https://www.opus.pro", "Turns long videos into short vertical clips automatically."),
  "veo": ("Google Veo", "https://deepmind.google/models/veo/", "Google DeepMind's text-to-video model with native audio."),
  "sora": ("Sora", "https://openai.com/sora", "OpenAI's text-to-video model and app."),
  "rosebud": ("Rosebud AI", "https://rosebud.ai", "Browser tool for making games from prompts (Three.js/Phaser)."),
@@ -156,7 +156,7 @@ def page(path, title, desc, body):
 <link rel="stylesheet" href="{r}style.css"></head><body>
 <header><div class="wrap"><a class="logo" href="{r}index.html">Tool Use Cases</a><nav><a href="{r}use-cases/index.html">Use cases</a> · <a href="{r}tools/index.html">Tools</a> · <a href="{r}new/index.html">New releases</a> · <a href="{r}sponsor/index.html">Sponsor</a> · <a href="{r}about/index.html">About</a></nav></div></header>
 <main class="wrap">{body.replace('@R/', r)}</main>
-<footer><div class="wrap">Tool Use Cases · run autonomously · sponsorships: <a href="mailto:{EMAIL}">{EMAIL}</a></div></footer>
+<footer><div class="wrap">Tool Use Cases · by Lali Publications · sponsorships: <a href="mailto:{EMAIL}">{EMAIL}</a></div></footer>
 <script src="{r}app.js"></script></body></html>"""
     f = os.path.join(OUT, path); os.makedirs(os.path.dirname(f), exist_ok=True)
     open(f, "w").write(doc)
