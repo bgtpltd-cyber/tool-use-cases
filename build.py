@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Tiny static generator for Tool Use Cases. Run: python3 build.py -> ./site"""
 import os, html, json, shutil
+from nlmd import md_to_html
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "site")
 EMAIL = "larrys@lalipublications.com"
 FORMSUBMIT = "126630f9e901132900d6d2cd89ad2705"  # FormSubmit hash; hides email in page source
@@ -317,7 +318,8 @@ h1{font-size:1.9rem;line-height:1.2;margin:28px 0 8px}.lede{color:#444;font-size
 input[type=search]{width:100%;padding:11px 14px;font-size:1rem;border:1px solid #bbb;border-radius:6px;margin:10px 0}
 ol.tools{list-style:none;padding:0}ol.tools li{margin-bottom:12px}footer{margin-top:48px;padding:18px 0;font-size:.9rem}
 .nl{background:#fff;border:2px solid #0b5cad;border-radius:8px;padding:16px;margin:28px 0}.nl h2{margin:0 0 4px}.nl form{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}.nl input[type=email]{flex:1;min-width:200px;padding:10px 12px;font-size:1rem;border:1px solid #bbb;border-radius:6px}.nl button{background:#0b5cad;color:#fff;border:0;padding:10px 18px;border-radius:6px;font-weight:600;font-size:1rem;cursor:pointer}footer .nl{background:#26384a;border-color:#4a6a8a;color:#eee}footer .nl small{color:#ccc}
-.cta{background:#eef4fb;border:1px solid #cbdcef;border-radius:8px;padding:16px;margin:28px 0}small,.muted{color:#666}"""
+.cta{background:#eef4fb;border:1px solid #cbdcef;border-radius:8px;padding:16px;margin:28px 0}small,.muted{color:#666}
+.issue{background:#fff;border:1px solid #ddd;border-radius:8px;padding:6px 20px;margin:14px 0}.issue h2{font-size:1.3rem;margin:22px 0 6px}"""
 
 JS = """document.querySelectorAll('[data-filter]').forEach(function(i){var t=document.querySelectorAll(i.dataset.filter);
 i.addEventListener('input',function(){var q=i.value.toLowerCase().trim();t.forEach(function(c){c.style.display=!q||c.textContent.toLowerCase().indexOf(q)>-1?'':'none'})})});"""
@@ -462,16 +464,36 @@ page("about/index.html","About — Tool Use Cases","Tool Use Cases is an indepen
 <p>Tool Use Cases is an independent directory and is not affiliated with any of the tools listed or with other "use cases" channels or publications.</p>
 <p>Corrections, suggestions, or sponsorships: <a href="mailto:{EMAIL}">{EMAIL}</a></p>""")
 
+ISSUES = [  # (number, slug, iso date, display date, subject, preview, content file)
+ (1, "issue-1", "2026-10-19", "Oct 19, 2026", "Tool Picks Weekly #1: Your vibe-coded app can now talk, search and scrape",
+  'Five tools for the jobs that come right after "it works on my screen."', "content/newsletter/issue-1.md"),
+]
+SIGNOFF = "Larry Surroach\nTool Use Cases / Lali Publications\nlarrys@lalipublications.com"
+def issue_web_md(fn):
+    md = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), fn)).read()
+    a = "Reply to this email or write to larrys@lalipublications.com."
+    assert a in md; md = md.replace(a, "Write to larrys@lalipublications.com.")  # no "reply" on the web
+    return md.rstrip() + "\n\n" + SIGNOFF + "\n"
+for n, islug, iso, dd, subj, prev, fn in ISSUES:
+    page(f"newsletter/{islug}/index.html", subj, prev, f"""
+<p><small><a href="@R/newsletter/index.html">Tool Picks Weekly</a> / Issue #{n}</small></p><h1>{e(subj)}</h1>
+<p class="muted"><time datetime="{iso}">{dd}</time> · Tool Picks Weekly #{n}</p>
+<article class="issue">{md_to_html(issue_web_md(fn))}</article>
+<div class="cta"><b>Get Tool Picks Weekly in your inbox.</b> One short email every Monday: new AI tools and which job they fit. Free. <a class="btn" href="@R/newsletter/index.html">Subscribe</a></div>
+<p>Have a tool we should look at? Email <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>""", ld=[{"@context":"https://schema.org","@type":"Article","headline":subj,"description":prev,"datePublished":iso,"url":f"{BASE}newsletter/{islug}/",
+      "author":{"@type":"Person","name":"Larry Surroach"},"publisher":{"@type":"Organization","name":"Lali Publications"},"isPartOf":{"@type":"Periodical","name":"Tool Picks Weekly"}}])
+past = "".join(f'<li><a href="@R/newsletter/{islug}/index.html">{e(subj)}</a> <small class="muted">— {dd}</small></li>' for n,islug,iso,dd,subj,prev,fn in sorted(ISSUES, reverse=True))
 page("newsletter/index.html","Tool Picks Weekly — free AI tool newsletter","Weekly AI tool picks for vibe coders, by job-to-be-done: new tools and which job they fit. Free, every Monday, from Lali Publications.",f"""
 <h1>Tool Picks Weekly</h1><p class="lede">One short email every Monday: new AI tools and which job they actually fit.</p>
 {nl_form(' id="newsletter"')}
 <h2>What an issue covers</h2><ul><li><b>New &amp; notable:</b> 3–5 recent launches or big updates, each with the use case it fits.</li><li><b>Pick of the week:</b> one tool, one job, a plain-English verdict.</li><li><b>Workflow tip:</b> a concrete way to combine tools for vibe coding, video, or research.</li><li><b>Directory updates:</b> what changed on Tool Use Cases.</li></ul>
+<h2>Past issues</h2><ul>{past}</ul>
 <p class="muted"><small>Picks are editorial. Any sponsored item is clearly labeled.</small></p>""")
 page("thanks/index.html","Thanks for subscribing — Tool Use Cases","Your Tool Picks Weekly signup was received.",f"""
 <h1>You're on the list. Thanks!</h1><p class="lede">Your signup for Tool Picks Weekly was received. Look out for the next issue on Monday.</p>
 <p><a class="btn" href="@R/index.html">Back to Tool Use Cases</a></p>""", noindex=True)
 
-urls = ["index.html","newsletter/index.html","use-cases/index.html","tools/index.html","new/index.html","sponsor/index.html","about/index.html"]+[f"use-cases/{u[0]}/index.html" for u in UC]
+urls = ["index.html","newsletter/index.html","use-cases/index.html","tools/index.html","new/index.html","sponsor/index.html","about/index.html"]+[f"newsletter/{i[1]}/index.html" for i in ISSUES]+[f"use-cases/{u[0]}/index.html" for u in UC]
 open(f"{OUT}/CNAME","w").write("tools.lalipublications.com\n")
 full = [canon(u) for u in urls]
 open(f"{OUT}/sitemap.txt","w").write("\n".join(full)+"\n")
@@ -480,7 +502,7 @@ open(f"{OUT}/robots.txt","w").write(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}
 llms = [f"# Tool Use Cases", "", f"> {TAG} A curated, editorial directory of AI tools organized by the job you're trying to do. Published by Lali Publications.", "",
  "Our angle: tool choice by job-to-be-done for vibe coders. Each use-case page lists recommended tools with a one-line description and a plain-English verdict. Picks are editorial and not paid; sponsored slots are clearly labeled and separate.", "", "## Use cases", ""]
 llms += [f"- [{t}]({BASE}use-cases/{s}/): {b}" for s,t,b,_ in UC]
-llms += ["", "## Other pages", "", f"- [All tools A-Z]({BASE}tools/)", f"- [New & trending]({BASE}new/)", f"- [Newsletter]({BASE}newsletter/)", f"- [About]({BASE}about/)", "",
+llms += ["", "## Other pages", "", f"- [All tools A-Z]({BASE}tools/)", f"- [New & trending]({BASE}new/)", f"- [Newsletter]({BASE}newsletter/)", *[f"- [{i[4]}]({BASE}newsletter/{i[1]}/) ({i[3]})" for i in ISSUES], f"- [About]({BASE}about/)", "",
  "## Sponsor / contact", "", f"Sponsorships, corrections and suggestions: {EMAIL} (Lali Publications). See {BASE}sponsor/", "",
  "## How to cite", "", f"Tool Use Cases (Lali Publications). Cite the page name, then the full URL under {BASE.rstrip(chr(47))}/. Prefer the specific use-case page.", ""]
 open(f"{OUT}/llms.txt","w").write("\n".join(llms))
