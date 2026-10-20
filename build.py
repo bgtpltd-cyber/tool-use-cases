@@ -328,14 +328,14 @@ def nl_form(id_attr=""):
 <form action="https://formsubmit.co/{FORMSUBMIT}" method="POST"><input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
 <input type="hidden" name="_subject" value="Tool Use Cases newsletter signup"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_template" value="table"><input type="hidden" name="_next" value="{BASE}thanks/">
 <button type="submit">Subscribe</button></form><small>We email from Lali Publications. No spam, unsubscribe anytime.</small></section>"""
-def page(path, title, desc, body, ld=None):
+def page(path, title, desc, body, ld=None, noindex=False):
     depth = path.count("/")
     r = "../" * depth
     cu = canon(path)
     lds = "".join(f'<script type="application/ld+json">{json.dumps(x)}</script>' for x in (ld or []))
     doc = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)}</title><meta name="description" content="{e(desc)}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}">
-<link rel="canonical" href="{cu}"><meta property="og:url" content="{cu}"><meta property="og:type" content="website"><meta property="og:site_name" content="Tool Use Cases"><meta name="twitter:card" content="summary">
+{'<meta name="robots" content="noindex">' if noindex else ''}<link rel="canonical" href="{cu}"><meta property="og:url" content="{cu}"><meta property="og:type" content="website"><meta property="og:site_name" content="Tool Use Cases"><meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="{r}style.css">{lds}</head><body>
 <header><div class="wrap"><a class="logo" href="{r}index.html">Tool Use Cases</a><nav><a href="{r}use-cases/index.html">Use cases</a> · <a href="{r}tools/index.html">Tools</a> · <a href="{r}new/index.html">New releases</a> · <a href="{r}newsletter/index.html">Newsletter</a> · <a href="{r}sponsor/index.html">Sponsor</a> · <a href="{r}about/index.html">About</a></nav></div></header>
 <main class="wrap">{body.replace('@R/', r)}</main>
@@ -344,6 +344,62 @@ def page(path, title, desc, body, ld=None):
     f = os.path.join(OUT, path); os.makedirs(os.path.dirname(f), exist_ok=True)
     open(f, "w").write(doc)
 
+def fit(text, n=155):
+    if len(text) <= n: return text
+    cut = text[:n-1].rsplit(" ", 1)[0].rstrip(",;:—- ")
+    return cut + "…"
+def uc_title(title):
+    for t in (f"{title} (2026) — Tool Use Cases", f"{title} (2026)", title):
+        if len(t) <= 60: return t
+    return fit(title, 60)
+def uc_desc(blurb, tools):
+    names = [T[t][0] for t,_ in tools]
+    for k in range(min(4, len(names)), 1, -1):
+        d = f"{blurb} Verdicts on {', '.join(names[:k])} and more."
+        if len(d) <= 155: return d
+    return fit(blurb)
+REL_OVERRIDE = {  # hand-picked where shared tools give weak matches
+    "best-ai-for-agent-frameworks": ["best-ai-coding-agents","best-ai-for-chatbots-rag","best-ai-for-automation-workflows"],
+    "best-ai-for-ui-design": ["best-ai-for-vibe-coding","best-ai-for-landing-pages","best-ai-for-logos-brand"],
+    "best-ai-for-logos-brand": ["best-ai-image-generation","best-ai-for-thumbnails-youtube-packaging","best-ai-for-ui-design"],
+    "best-ai-coding-agents": ["best-ai-for-vibe-coding","best-ai-for-fixing-broken-code","best-ai-for-agent-frameworks","best-ai-for-api-testing"],
+    "best-ai-for-fixing-broken-code": ["best-ai-coding-agents","best-ai-for-api-testing","best-ai-for-vibe-coding"],
+    "best-ai-for-api-testing": ["best-ai-for-fixing-broken-code","best-ai-coding-agents","best-ai-for-deploy-hosting"],
+    "best-ai-for-automation-workflows": ["best-ai-for-agent-frameworks","best-ai-for-scraping","best-ai-for-data-spreadsheets","best-ai-for-customer-support"],
+    "best-ai-for-chatbots-rag": ["best-ai-for-agent-frameworks","best-ai-for-customer-support","best-ai-for-research","best-ai-for-running-local-models"],
+    "best-ai-for-customer-support": ["best-ai-for-chatbots-rag","best-ai-writing-assistants","best-ai-for-sales-emails","best-ai-for-automation-workflows"],
+    "best-ai-for-data-spreadsheets": ["best-ai-for-presentations","best-ai-for-research","best-ai-for-automation-workflows","best-ai-for-scraping"],
+    "best-ai-for-meeting-notes": ["best-ai-for-notion-docs","best-ai-writing-assistants","best-ai-for-presentations"],
+    "best-ai-for-notion-docs": ["best-ai-writing-assistants","best-ai-for-meeting-notes","best-ai-for-research","best-ai-for-presentations"],
+    "best-ai-for-presentations": ["best-ai-for-data-spreadsheets","best-ai-writing-assistants","best-ai-for-notion-docs","best-ai-image-generation"],
+    "best-ai-for-research": ["best-ai-for-chatbots-rag","best-ai-writing-assistants","best-ai-for-scraping","best-ai-for-notion-docs"],
+    "best-ai-for-running-local-models": ["best-ai-coding-agents","best-ai-for-chatbots-rag","best-ai-for-agent-frameworks","best-ai-image-generation"],
+    "best-ai-for-sales-emails": ["best-ai-writing-assistants","best-ai-for-seo-content","best-ai-for-customer-support","best-ai-for-research"],
+    "best-ai-for-seo-content": ["best-ai-writing-assistants","best-ai-for-sales-emails","best-ai-for-research","best-ai-for-landing-pages"],
+    "best-ai-for-thumbnails-youtube-packaging": ["best-ai-image-generation","best-ai-for-video-youtube","best-ai-for-logos-brand"],
+    "best-ai-for-scraping": ["best-ai-for-automation-workflows","best-ai-for-research","best-ai-for-chatbots-rag","best-ai-for-data-spreadsheets"],
+    "best-ai-writing-assistants": ["best-ai-for-sales-emails","best-ai-for-seo-content","best-ai-for-notion-docs","best-ai-for-research"],
+    "best-ai-for-chrome-extensions": ["best-ai-for-vibe-coding","best-ai-coding-agents","best-ai-for-scraping","best-ai-for-fixing-broken-code"],
+}
+def related(slug, tools, k=4):
+    if slug in REL_OVERRIDE:
+        tt = {u[0]: u[1] for u in UC}
+        return [(s2, tt[s2]) for s2 in REL_OVERRIDE[slug]]
+    mine = {t for t,_ in tools}
+    freq = {}
+    for _,_,_,ts in UC:
+        for t,_ in ts: freq[t] = freq.get(t, 0) + 1
+    scored = [(sum(1/freq[t] for t in mine & {t for t,_ in o_tools}), i, o_slug, o_title) for i,(o_slug,o_title,_,o_tools) in enumerate(UC) if o_slug != slug]
+    scored = [x for x in scored if x[0] > 0]
+    scored.sort(key=lambda x: (-x[0], x[1]))
+    strong = [x for x in scored if x[0] >= 0.15]
+    pick = strong[:k] if len(strong) >= 3 else scored[:3]
+    out = [(s2, t2) for _,_,s2,t2 in pick]
+    idx = [u[0] for u in UC].index(slug)
+    for j in (idx+1, idx-1, idx+2, idx-2):
+        if len(out) >= 3: break
+        if 0 <= j < len(UC) and UC[j][0] != slug and all(UC[j][0] != o for o,_ in out): out.append((UC[j][0], UC[j][1]))
+    return out
 def tool_link(s): n,u,_=T[s]; return f'<a href="{u}" rel="noopener" target="_blank">{e(n)}</a>'
 def uc_card(slug,title,blurb,tools):
     return f'<div class="card f"><h3><a href="@R/use-cases/{slug}/index.html">{e(title)}</a></h3><p class="what">{e(blurb)}</p><p><small>{", ".join(e(T[t][0]) for t,_ in tools)}</small></p></div>'
@@ -370,10 +426,13 @@ page("use-cases/index.html","AI tool use cases — Tool Use Cases","Browse AI to
 
 for slug,title,blurb,tools in UC:
     items = "".join(f'<li class="card f"><h3>{i}. {tool_link(t)}</h3><p class="what">{e(T[t][2])}</p><p class="verdict"><b>Verdict:</b> {e(v)}</p></li>' for i,(t,v) in enumerate(tools,1))
-    page(f"use-cases/{slug}/index.html",f"{title} (2026) — Tool Use Cases",f"{title}: {blurb} Plain-English verdicts on {', '.join(T[t][0] for t,_ in tools[:4])} and more.",f"""
+    rel = related(slug, tools)
+    relhtml = ('<h2>Related use cases</h2><ul>' + "".join(f'<li><a href="@R/use-cases/{s2}/index.html">{e(t2)}</a></li>' for s2,t2 in rel) + '</ul>') if rel else ""
+    page(f"use-cases/{slug}/index.html",uc_title(title),uc_desc(blurb,tools),f"""
 <p><small><a href="@R/use-cases/index.html">Use cases</a> /</small></p><h1>{e(title)}</h1><p class="lede">{e(blurb)}</p>
 {SPONSOR_CARD}<h2>Our picks</h2><ol class="tools">{items}</ol>
-<p class="muted"><small>Picks are editorial and not paid. Pricing and features change often — check each official site.</small></p>""", ld=[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+<p class="muted"><small>Picks are editorial and not paid. Pricing and features change often — check each official site.</small></p>
+{relhtml}<p><a href="@R/use-cases/index.html">Browse all use cases →</a></p>""", ld=[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
      {"@type":"ListItem","position":1,"name":"Home","item":BASE},{"@type":"ListItem","position":2,"name":"Use cases","item":BASE+"use-cases/"},{"@type":"ListItem","position":3,"name":title,"item":f"{BASE}use-cases/{slug}/"}]},
      {"@context":"https://schema.org","@type":"ItemList","name":title,"description":blurb,"url":f"{BASE}use-cases/{slug}/","itemListElement":[{"@type":"ListItem","position":i,"item":{"@type":"SoftwareApplication","name":T[t][0],"url":T[t][1],"description":T[t][2],"applicationCategory":"DeveloperApplication" if "cod" in slug or "vibe" in slug else "BusinessApplication",
        "review":{"@type":"Review","name":f"{T[t][0]} for {title}","reviewBody":v,"author":{"@type":"Organization","name":"Tool Use Cases (Lali Publications)"}}}} for i,(t,v) in enumerate(tools,1)]}])
@@ -409,7 +468,7 @@ page("newsletter/index.html","Tool Picks Weekly — free AI tool newsletter","We
 <p class="muted"><small>Picks are editorial. Any sponsored item is clearly labeled.</small></p>""")
 page("thanks/index.html","Thanks for subscribing — Tool Use Cases","Your Tool Picks Weekly signup was received.",f"""
 <h1>You're on the list. Thanks!</h1><p class="lede">Your signup for Tool Picks Weekly was received. Look out for the next issue on Monday.</p>
-<p><a class="btn" href="@R/index.html">Back to Tool Use Cases</a></p>""")
+<p><a class="btn" href="@R/index.html">Back to Tool Use Cases</a></p>""", noindex=True)
 
 urls = ["index.html","newsletter/index.html","use-cases/index.html","tools/index.html","new/index.html","sponsor/index.html","about/index.html"]+[f"use-cases/{u[0]}/index.html" for u in UC]
 open(f"{OUT}/CNAME","w").write("tools.lalipublications.com\n")
