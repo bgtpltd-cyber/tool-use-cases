@@ -22,6 +22,6 @@ def md_to_html(md, link_style="", h2_style="", p_style=""):
             out.append(f"<p{ps}>" + "<br>\n".join(inline(l, link_style) for l in lines) + "</p>")
     return "\n".join(out)
 def md_to_text(md):
-    t = re.sub(r'\[([^\]]+)\]\(([^)\s]+)\)', r'\1: \2', md.strip())
+    t = re.sub(r'\[([^\]]+)\]\(([^)\s]+)\)', lambda m: m.group(2) if m.group(1) in m.group(2) else f"{m.group(1)}: {m.group(2)}", md.strip())
     t = re.sub(r'\*\*(.+?)\*\*', r'\1', t)
     return re.sub(r'^## (.*)$', lambda m: m.group(1).upper(), t, flags=re.M)
