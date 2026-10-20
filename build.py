@@ -67,6 +67,7 @@ T = {  # slug: (name, url, what it is)
  "lavender": ("Lavender", "https://www.lavender.ai", "Sales email coach that scores and rewrites cold emails inside your inbox."),
  "julius": ("Julius AI", "https://julius.ai", "Chat with spreadsheets and data files to get analysis and charts."),
  "excel-copilot": ("Microsoft 365 Copilot (Excel)", "https://www.microsoft.com/en-us/microsoft-365/copilot", "Copilot inside Excel for formulas, analysis and charts on your workbooks."),
+ "powerpoint-copilot": ("Microsoft 365 Copilot (PowerPoint)", "https://www.microsoft.com/en-us/microsoft-365/powerpoint", "Copilot inside PowerPoint: drafts a deck from a prompt or file, adds slides and rewrites or reorganizes content."),
  "gamma": ("Gamma", "https://gamma.app", "Generates presentations, docs and web pages from a prompt or outline."),
  "beautiful-ai": ("Beautiful.ai", "https://www.beautiful.ai", "Slide software with smart templates that auto-format as you add content."),
  "luma": ("Luma AI", "https://lumalabs.ai", "Luma's AI lab; Genie text-to-3D plus Dream Machine video generation."),
@@ -213,7 +214,7 @@ UC = [
   ("beautiful-ai","Best for teams who want consistent on-brand slides that stay formatted."),
   ("claude","Write the story and outline first, or have it generate slide content and code-based decks."),
   ("chatgpt","Good for outlines and speaker notes, and it can produce a downloadable .pptx file."),
-  ("excel-copilot","Copilot in PowerPoint makes sense if your company already pays for Microsoft 365.")]),
+  ("powerpoint-copilot","Makes sense if your decks already live in PowerPoint and your Microsoft 365 plan includes Copilot.")]),
  ("best-ai-for-3d-assets","Best AI for 3D assets","Generate props, characters and models from text or images.",[
   ("meshy","Top pick: solid text/image-to-3D with textures, and exports for game engines."),
   ("tripo","Fast generation with auto-rigging; great for characters you need to animate."),
