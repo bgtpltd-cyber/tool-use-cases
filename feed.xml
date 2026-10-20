@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Tool Use Cases</title>
+  <link>https://tools.lalipublications.com/</link>
+  <atom:link href="https://tools.lalipublications.com/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>Which AI tool for which job — for vibe coders and builders. Tool Picks Weekly issues and notable new AI tool releases.</description>
+  <language>en-us</language>
+  <lastBuildDate>Mon, 19 Oct 2026 12:00:00 +0000</lastBuildDate>
+  <image><url>https://tools.lalipublications.com/og-image.png</url><title>Tool Use Cases</title><link>https://tools.lalipublications.com/</link></image>
+  <item><title>Tool Picks Weekly #1: Your vibe-coded app can now talk, search and scrape</title><link>https://tools.lalipublications.com/newsletter/issue-1/</link><guid isPermaLink="true">https://tools.lalipublications.com/newsletter/issue-1/</guid><pubDate>Mon, 19 Oct 2026 12:00:00 +0000</pubDate><category>Newsletter</category><description>Five tools for the jobs that come right after "it works on my screen."</description></item>
+  <item><title>New &amp; trending: Claude Code</title><link>https://tools.lalipublications.com/new/#new-claude-code</link><guid isPermaLink="true">https://tools.lalipublications.com/new/#new-claude-code</guid><category>New releases</category><description>Anthropic's terminal coding agent — one of the most talked-about dev tools.</description></item>
+  <item><title>New &amp; trending: OpenAI Codex</title><link>https://tools.lalipublications.com/new/#new-codex</link><guid isPermaLink="true">https://tools.lalipublications.com/new/#new-codex</guid><category>New releases</category><description>OpenAI's relaunched Codex coding agent (cloud + CLI).</description></item>
+  <item><title>New &amp; trending: Google Veo</title><link>https://tools.lalipublications.com/new/#new-veo</link><guid isPermaLink="true">https://tools.lalipublications.com/new/#new-veo</guid><category>New releases</category><description>Google's video model, now generating synced audio.</description></item>
+  <item><title>New &amp; trending: Sora</title><link>https://tools.lalipublications.com/new/#new-sora</link><guid isPermaLink="true">https://tools.lalipublications.com/new/#new-sora</guid><category>New releases</category><description>OpenAI's video model, now with its own social app.</description></item>
+  <item><title>New &amp; trending: Manus</title><link>https://tools.lalipublications.com/new/#new-manus</link><guid isPermaLink="true">https://tools.lalipublications.com/new/#new-manus</guid><category>New releases</category><description>Autonomous general agent that went viral for multi-step tasks.</description></item>
+  <item><title>New &amp; trending: Lovable</title><link>https://tools.lalipublications.com/new/#new-lovable</link><guid isPermaLink="true">https://tools.lalipublications.com/new/#new-lovable</guid><category>New releases</category><description>Fast-growing prompt-to-app builder.</description></item>
+  <item><title>New &amp; trending: NotebookLM</title><link>https://tools.lalipublications.com/new/#new-notebooklm</link><guid isPermaLink="true">https://tools.lalipublications.com/new/#new-notebooklm</guid><category>New releases</category><description>Audio Overviews turned research notes into podcasts.</description></item>
+  <item><title>New &amp; trending: Kling</title><link>https://tools.lalipublications.com/new/#new-kling</link><guid isPermaLink="true">https://tools.lalipublications.com/new/#new-kling</guid><category>New releases</category><description>Strong contender in AI video generation.</description></item>
+  <item><title>New &amp; trending: DeepSeek</title><link>https://tools.lalipublications.com/new/#new-deepseek</link><guid isPermaLink="true">https://tools.lalipublications.com/new/#new-deepseek</guid><category>New releases</category><description>Open-weight reasoning models that shook up pricing.</description></item>
+  <item><title>New &amp; trending: Model Context Protocol</title><link>https://tools.lalipublications.com/new/#new-mcp</link><guid isPermaLink="true">https://tools.lalipublications.com/new/#new-mcp</guid><category>New releases</category><description>The open protocol most agent tools now support for tool access.</description></item>
+  <item><title>New &amp; trending: Windsurf</title><link>https://tools.lalipublications.com/new/#new-windsurf</link><guid isPermaLink="true">https://tools.lalipublications.com/new/#new-windsurf</guid><category>New releases</category><description>Agentic editor competing directly with Cursor.</description></item>
+</channel>
+</rss>
