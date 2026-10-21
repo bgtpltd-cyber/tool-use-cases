@@ -422,6 +422,11 @@ for fn in os.listdir(STATIC): shutil.copy(os.path.join(STATIC, fn), os.path.join
 open(f"{OUT}/{INDEXNOW_KEY}.txt","w").write(INDEXNOW_KEY)
 
 cards = "".join(uc_card(*u) for u in UC)
+def crumbs(*pairs):  # BreadcrumbList from (name, path) pairs, Home first
+    items=[("Home","")]+list(pairs)
+    return {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":i,"name":n,"item":BASE+p} for i,(n,p) in enumerate(items,1)]}
+def coll(kind,name,desc,path):
+    return {"@context":"https://schema.org","@type":kind,"name":name,"description":desc,"url":BASE+path,"isPartOf":{"@type":"WebSite","name":"Tool Use Cases","url":BASE}}
 newteaser = "".join(f'<li>{tool_link(s)} — {e(n)}</li>' for s,n in NEW[:5])
 page("index.html","Tool Use Cases — which AI tool for which job",TAG+" A curated directory of AI tools organized by use case.",f"""
 <h1>Which AI tool for which job.</h1><p class="lede">Tool Use Cases is a directory of AI tools organized by the job you're trying to do — for vibe coders, builders, and anyone shipping with AI.</p>
@@ -435,7 +440,8 @@ page("index.html","Tool Use Cases — which AI tool for which job",TAG+" A curat
 
 page("use-cases/index.html","AI tool use cases — Tool Use Cases","Browse AI tools by use case: vibe coding, coding agents, debugging, game prototyping, video, writing, research, images and more.",f"""
 <h1>Use cases</h1><p class="lede">Pick the job. We list the tools worth trying and why.</p>
-<input type="search" placeholder="Filter use cases…" data-filter=".f" aria-label="Filter"><div class="grid">{cards}</div>""")
+<input type="search" placeholder="Filter use cases…" data-filter=".f" aria-label="Filter"><div class="grid">{cards}</div>""", ld=[crumbs(("Use cases","use-cases/")), coll("CollectionPage","AI tool use cases","Browse AI tools by use case.","use-cases/"),
+ {"@context":"https://schema.org","@type":"ItemList","name":"AI tool use cases","itemListElement":[{"@type":"ListItem","position":i,"name":u[1],"url":f"{BASE}use-cases/{u[0]}/"} for i,u in enumerate(UC,1)]}])
 
 for slug,title,blurb,tools in UC:
     items = "".join(f'<li class="card f"><h3>{i}. {tool_link(t)}</h3><p class="what">{e(T[t][2])}</p><p class="verdict"><b>Verdict:</b> {e(v)}</p></li>' for i,(t,v) in enumerate(tools,1))
@@ -455,24 +461,24 @@ for slug,title,_,tools in UC:
     for t,_ in tools: uses.setdefault(t,[]).append((slug,title))
 rows = "".join(f'<div class="card f"><h3>{tool_link(s)}</h3><p class="what">{e(T[s][2])}</p><p><small>{" · ".join(f"<a href=@R/use-cases/{u}/index.html>{e(n)}</a>" for u,n in uses.get(s,[]))}</small></p></div>' for s in sorted(T,key=lambda k:T[k][0].lower()))
 page("tools/index.html","All AI tools A–Z — Tool Use Cases","Every AI tool in the Tool Use Cases directory, with what it does and which use cases it fits.",f"""
-<h1>All tools</h1><input type="search" placeholder="Filter tools…" data-filter=".f" aria-label="Filter tools"><div class="grid">{rows}</div>""")
+<h1>All tools</h1><input type="search" placeholder="Filter tools…" data-filter=".f" aria-label="Filter tools"><div class="grid">{rows}</div>""", ld=[crumbs(("All tools","tools/")), coll("CollectionPage","All AI tools A-Z","Every AI tool in the Tool Use Cases directory.","tools/")])
 
 nl = "".join(f'<div class="card f" id="new-{s}"><span class="badge" style="background:#1d6b34">Notable / trending</span><h3>{tool_link(s)}</h3><p class="what">{e(T[s][2])}</p><p>{e(n)}</p></div>' for s,n in NEW)
 page("new/index.html","New & trending AI tools — Tool Use Cases","Notable and trending AI tool releases for builders: coding agents, video models, research tools and more.",f"""
-<h1>New releases &amp; trending</h1><p class="lede">Recently launched or recently relaunched AI tools worth a look. We label these "notable / trending" rather than guessing exact launch dates.</p><div class="grid">{nl}</div>""")
+<h1>New releases &amp; trending</h1><p class="lede">Recently launched or recently relaunched AI tools worth a look. We label these "notable / trending" rather than guessing exact launch dates.</p><div class="grid">{nl}</div>""", ld=[crumbs(("New & trending","new/")), coll("CollectionPage","New & trending AI tools","Notable and trending AI tool releases for builders.","new/")])
 
 page("sponsor/index.html","Sponsor Tool Use Cases — feature your AI tool","Tool makers can sponsor a clearly labeled featured slot at the top of relevant use-case pages.",f"""
 <h1>Sponsor a use case</h1><p class="lede">Reach vibe coders and builders at the moment they're choosing a tool.</p>
 <h2>How it works</h2><ul><li>One <b>Sponsored / Featured</b> slot sits at the top of each use-case page.</li><li>It's always clearly labeled "Sponsored" and kept separate from our editorial picks.</li><li>We only accept tools that genuinely fit the use case.</li><li>Sponsorship never changes our verdicts or rankings.</li></ul>
 <h2>Example</h2>{SPONSOR_CARD}
-<div class="cta">Pricing and availability on request. <a class="btn" href="mailto:{EMAIL}?subject=Sponsor%20Tool%20Use%20Cases">Email to sponsor</a></div>""")
+<div class="cta">Pricing and availability on request. <a class="btn" href="mailto:{EMAIL}?subject=Sponsor%20Tool%20Use%20Cases">Email to sponsor</a></div>""", ld=[crumbs(("Sponsor","sponsor/"))])
 
 page("about/index.html","About — Tool Use Cases","Tool Use Cases is an independent, autonomously run directory of AI tools organized by use case.",f"""
 <h1>About</h1><p class="lede">Tool Use Cases answers one question: which AI tool should I use for this job?</p>
 <p>Most AI directories are giant lists. We organize by use case instead, and give each pick a short plain-English verdict so you can decide in a minute.</p>
 <p>The site is run autonomously — an AI operator keeps it updated, with human ownership by Lali Publications. We only list real, well-known tools and don't publish made-up scores or user counts.</p>
 <p>Tool Use Cases is published by Lali Publications, which also runs <a href="https://agentusecases.ai">agentusecases.ai</a>. We're not affiliated with any tool we list, and sponsorships never change rankings.</p>
-<p>Corrections, suggestions, or sponsorships: <a href="mailto:{EMAIL}">{EMAIL}</a></p>""")
+<p>Corrections, suggestions, or sponsorships: <a href="mailto:{EMAIL}">{EMAIL}</a></p>""", ld=[crumbs(("About","about/")), coll("AboutPage","About Tool Use Cases","Independent, autonomously run directory of AI tools organized by use case, published by Lali Publications.","about/")])
 
 ISSUES = [  # (number, slug, iso date, display date, subject, preview, content file)
  (1, "issue-1", "2026-10-19", "Oct 19, 2026", "Tool Picks Weekly #1: Your vibe-coded app can now talk, search and scrape",
@@ -490,7 +496,7 @@ for n, islug, iso, dd, subj, prev, fn in ISSUES:
 <p class="muted"><time datetime="{iso}">{dd}</time> · Tool Picks Weekly #{n}</p>
 <article class="issue">{md_to_html(issue_web_md(fn))}</article>
 <div class="cta"><b>Get Tool Picks Weekly in your inbox.</b> One short email every Monday: new AI tools and which job they fit. Free. <a class="btn" href="@R/newsletter/index.html">Subscribe</a></div>
-<p>Have a tool we should look at? Email <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>""", ld=[{"@context":"https://schema.org","@type":"Article","headline":subj,"description":prev,"datePublished":iso,"url":f"{BASE}newsletter/{islug}/",
+<p>Have a tool we should look at? Email <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>""", ld=[crumbs(("Tool Picks Weekly","newsletter/"),(f"Issue #{n}",f"newsletter/{islug}/")), {"@context":"https://schema.org","@type":"Article","headline":subj,"description":prev,"datePublished":iso,"url":f"{BASE}newsletter/{islug}/",
       "author":{"@type":"Person","name":"Larry Surroach"},"publisher":{"@type":"Organization","name":"Lali Publications"},"isPartOf":{"@type":"Periodical","name":"Tool Picks Weekly"}}])
 past = "".join(f'<li><a href="@R/newsletter/{islug}/index.html">{e(subj)}</a> <small class="muted">— {dd}</small></li>' for n,islug,iso,dd,subj,prev,fn in sorted(ISSUES, reverse=True))
 page("newsletter/index.html","Tool Picks Weekly — free AI tool newsletter","Weekly AI tool picks for vibe coders, by job-to-be-done: new tools and which job they fit. Free, every Monday, from Lali Publications.",f"""
@@ -498,7 +504,7 @@ page("newsletter/index.html","Tool Picks Weekly — free AI tool newsletter","We
 {nl_form(' id="newsletter"')}
 <h2>What an issue covers</h2><ul><li><b>New &amp; notable:</b> 3–5 recent launches or big updates, each with the use case it fits.</li><li><b>Pick of the week:</b> one tool, one job, a plain-English verdict.</li><li><b>Workflow tip:</b> a concrete way to combine tools for vibe coding, video, or research.</li><li><b>Directory updates:</b> what changed on Tool Use Cases.</li></ul>
 <h2>Past issues</h2><ul>{past}</ul>
-<p class="muted"><small>Picks are editorial. Any sponsored item is clearly labeled.</small></p>""")
+<p class="muted"><small>Picks are editorial. Any sponsored item is clearly labeled.</small></p>""", ld=[crumbs(("Tool Picks Weekly","newsletter/")), coll("CollectionPage","Tool Picks Weekly","Free weekly AI tool newsletter for vibe coders.","newsletter/")])
 page("thanks/index.html","Thanks for subscribing — Tool Use Cases","Your Tool Picks Weekly signup was received.",f"""
 <h1>You're on the list. Thanks!</h1><p class="lede">Your signup for Tool Picks Weekly was received. Look out for the next issue on Monday.</p>
 <p><a class="btn" href="@R/index.html">Back to Tool Use Cases</a></p>""", noindex=True)
@@ -512,7 +518,7 @@ open(f"{OUT}/robots.txt","w").write(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}
 llms = [f"# Tool Use Cases", "", f"> {TAG} A curated, editorial directory of AI tools organized by the job you're trying to do. Published by Lali Publications.", "",
  "Our angle: tool choice by job-to-be-done for vibe coders. Each use-case page lists recommended tools with a one-line description and a plain-English verdict. Picks are editorial and not paid; sponsored slots are clearly labeled and separate.", "", "## Use cases", ""]
 llms += [f"- [{t}]({BASE}use-cases/{s}/): {b}" for s,t,b,_ in UC]
-llms += ["", "## Other pages", "", f"- [All tools A-Z]({BASE}tools/)", f"- [New & trending]({BASE}new/)", f"- [Newsletter]({BASE}newsletter/)", *[f"- [{i[4]}]({BASE}newsletter/{i[1]}/) ({i[3]})" for i in ISSUES], f"- [About]({BASE}about/)", "",
+llms += ["", "## Other pages", "", f"- [All tools A-Z]({BASE}tools/)", f"- [New & trending]({BASE}new/)", f"- [Newsletter]({BASE}newsletter/)", f"- [RSS feed]({BASE}feed.xml): newsletter issues and new releases", *[f"- [{i[4]}]({BASE}newsletter/{i[1]}/) ({i[3]})" for i in ISSUES], f"- [About]({BASE}about/)", "",
  "## Sponsor / contact", "", f"Sponsorships, corrections and suggestions: {EMAIL} (Lali Publications). See {BASE}sponsor/", "",
  "## How to cite", "", f"Tool Use Cases (Lali Publications). Cite the page name, then the full URL under {BASE.rstrip(chr(47))}/. Prefer the specific use-case page.", ""]
 open(f"{OUT}/llms.txt","w").write("\n".join(llms))
