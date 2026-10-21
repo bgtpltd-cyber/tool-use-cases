@@ -335,6 +335,7 @@ def nl_form(id_attr=""):
 <form action="https://formsubmit.co/{FORMSUBMIT}" method="POST"><input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
 <input type="hidden" name="_subject" value="Tool Use Cases newsletter signup"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_template" value="table"><input type="hidden" name="_next" value="{BASE}thanks/">
 <button type="submit">Subscribe</button></form><small>We email from Lali Publications. No spam, unsubscribe anytime.</small></section>"""
+CF_BEACON = """<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2c86988db1064ce6bde9822b0995a3d3"}'></script><!-- End Cloudflare Web Analytics -->"""
 def page(path, title, desc, body, ld=None, noindex=False):
     depth = path.count("/")
     r = "../" * depth
@@ -350,7 +351,7 @@ def page(path, title, desc, body, ld=None, noindex=False):
 <header><div class="wrap"><a class="logo" href="{r}index.html">Tool Use Cases</a><nav><a href="{r}use-cases/index.html">Use cases</a> · <a href="{r}tools/index.html">Tools</a> · <a href="{r}new/index.html">New releases</a> · <a href="{r}newsletter/index.html">Newsletter</a> · <a href="{r}sponsor/index.html">Sponsor</a> · <a href="{r}about/index.html">About</a></nav></div></header>
 <main class="wrap">{body.replace('@R/', r)}</main>
 <footer><div class="wrap">{nl_form()}Tool Use Cases · by Lali Publications · sponsorships: <a href="mailto:{EMAIL}">{EMAIL}</a></div></footer>
-<script src="{r}app.js"></script></body></html>"""
+<script src="{r}app.js"></script>{CF_BEACON}</body></html>"""
     f = os.path.join(OUT, path); os.makedirs(os.path.dirname(f), exist_ok=True)
     open(f, "w").write(doc)
 
