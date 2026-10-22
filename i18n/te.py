@@ -35,6 +35,7 @@ UI = {
  "sponsor_p": "ఈ ఫీచర్డ్ స్లాట్ ఈ use caseకి నిజంగా సరిపోయే టూల్స్ తయారు చేసేవారి కోసం. ఎప్పుడూ స్పష్టంగా లేబుల్ చేసి ఉంటుంది, మా ఎంపికల నుంచి వేరుగా ఉంటుంది.",
  "sponsor_link": "స్పాన్సర్ చేయడానికి ఈమెయిల్ చేయండి",
  "new_badge": "గమనించదగ్గవి / ట్రెండింగ్",
+ "last_updated": 'చివరి అప్\u200cడేట్: {date}', "earlier_h2": 'ఇంతకు ముందువి', "earlier_p": 'ఈ అప్\u200cడేట్\u200cకు ముందు మేం చూపించిన లాంచ్\u200cలు. ఇప్పుడు కొత్తవి కావు, కానీ తెలుసుకోదగ్గవి.', "fits": 'Use case:', "source": 'మూలం',
  "rss_title": "Tool Use Cases (తెలుగు)",
  "rss_desc": "Tool Picks Weekly ఇష్యూలు (ఇంగ్లీష్‌లో), ఒక్కసారి చూడాల్సిన కొత్త AI టూల్ లాంచ్‌లు.",
  "rss_new_prefix": "కొత్తగా, ట్రెండింగ్‌లో: ", "rss_issue_suffix": " (ఇంగ్లీష్‌లో)",
@@ -341,6 +342,25 @@ NEW = {
  "windsurf": "Cursor కి నేరుగా పోటీ ఇచ్చే agentic ఎడిటర్.",
 }
 
+# Dated releases on /new/ (same keys/order as RELEASES in build.py). Product names stay in English.
+MONTHS = ['జనవరి', 'ఫిబ్రవరి', 'మార్చి', 'ఏప్రిల్', 'మే', 'జూన్', 'జులై', 'ఆగస్టు', 'సెప్టెంబర్', 'అక్టోబర్', 'నవంబర్', 'డిసెంబర్']
+DATE_MD = '{m} {d}'
+DATE_MDY = '{m} {d}, {y}'
+RELEASES = {
+ 'voxtral-3': 'Mistral కొత్త speech-to-text, text-to-speech models, దానితో పాటు ఫోన్, వెబ్\u200cలో real-time voice agents కోసం SDK. Mistral API (EU-hosted ఆప్షన్\u200cతో) ద్వారా లేదా self-hosted.',
+ 'kling-4': 'Kuaishou కొత్త వీడియో model: ఒకే పాస్\u200cలో 30 సెకన్ల వరకు clips, వేగమైన కదలికలు, కెమెరా మూవ్స్\u200cలో ఎక్కువ స్థిరత్వం, ఒక్కో పనికి 15 వరకు reference assets, 10 keyframes.',
+ 'muse-spark-open': 'Coding, agent పనుల కోసం Meta open-weight model (816B parameters, 42B active, 1M-token context). Meta దీన్ని రెండు Mac Studios మీద నడుపుతుంది; చాలామందికి hosted APIs సులువైన దారి.',
+ 'claude-haiku-5-5': 'Anthropic అత్యంత చౌకైన, వేగమైన model, ఎక్కువ వాల్యూమ్ పనుల కోసం: support bots, summaries, coding subagents. Haiku 4.5 కంటే నడపడానికి దాదాపు 75% తక్కువ ఖర్చు అని Anthropic చెబుతోంది.',
+ 'nano-banana-2-1': 'Google అప్\u200cడేట్ చేసిన image generation, editing model: మెరుగైన edits, పాత్రల్లో ఎక్కువ consistency, ఇమేజ్\u200cలలో స్పష్టమైన టెక్స్ట్. Gemini యాప్, AI Studio, Gemini API, Flow, Stitch లో అందుబాటులో ఉంది.',
+ 'copilot-dynamic-workflows': 'Multi-agent పనులను code లో నిర్వచించండి (parallel steps, ఒకదాన్నొకటి చెక్ చేసే subagents, మీరు రివ్యూ చేయడానికి checkpoints) — Copilot CLI, Copilot యాప్, Copilot SDK లో. Public preview, అన్ని plans లో.',
+ 'heygen-video': 'HeyGen మొదటి general-purpose వీడియో model: టెక్స్ట్, ఇమేజ్ లేదా reference media నుంచి 5 నుంచి 15 సెకన్ల clips, డైలాగ్, సౌండ్ కలిసే తయారవుతాయి. HeyGen API ద్వారా అందుబాటులో ఉంది.',
+ 'gpt-6-1-sol': 'OpenAI DevDay లో వచ్చిన GPT-6 Sol అప్\u200cగ్రేడ్, agentic coding, computer use, ప్రొఫెషనల్ పనులపై ఫోకస్. చాలా తక్కువ ధరకే GPT-6 Astra కు దగ్గరగా ఉంటుందని OpenAI చెబుతోంది.',
+ 'openai-agents-api-computer-use': 'Agents API ఇప్పుడు computer use తో software ను నడపగలదు, Codex multi-agent ఫీచర్లు, tool search, context compaction ను మీ యాప్\u200cలోకి తెస్తుంది. Infrastructure ను OpenAI నడుపుతుంది.',
+ 'claude-sonnet-5-5': 'Anthropic వేగమైన, చౌకైన Sonnet; స్పష్టమైన పరిధి ఉన్న రోజువారీ పనులు, bug fixing లో బలమైనది. Sonnet 5 కంటే 30%+ వేగం, అదే $2/$10 per million tokens ధరకు.',
+ 'lovable-free-chat': 'Lovable తో chat ఇప్పుడు రోజువారీ free పరిమితిలో ఉచితం: features ప్లాన్ చేయండి, మీ యాప్ code, database గురించి అడగండి, లేదా లాంచ్ టెక్స్ట్ డ్రాఫ్ట్ చేయించండి. Build చేయడానికి ఇంకా credits ఖర్చవుతాయి.',
+ 'cursor-projects': 'ఒక feature లేదా migration లాంటి పెద్ద పనుల కోసం beta: ఒక coordinator agent cloud లో నడుస్తూ, పనిని ప్లాన్ చేసి, చాలా subagents కు పంచి, కాలక్రమేణా shared context ను కాపాడుతుంది.',
+}
+
 PAGES = {  # key: (title, meta description, body)
  "home": ("Tool Use Cases — ఏ పనికి ఏ AI టూల్", TAG + " Use case ప్రకారం సర్దిన AI టూల్స్ డైరెక్టరీ.", """
 <h1>ఏ పనికి ఏ AI టూల్.</h1><p class="lede">Tool Use Cases అనేది మీరు చేయాలనుకుంటున్న పనిని బట్టి సర్దిన AI టూల్స్ డైరెక్టరీ — vibe coders, builders, AI తో ఏదైనా ship చేసే ప్రతి ఒక్కరి కోసం.</p>
@@ -355,7 +375,9 @@ PAGES = {  # key: (title, meta description, body)
  "tools": ("అన్ని AI టూల్స్ A నుంచి Z — Tool Use Cases", "Tool Use Cases డైరెక్టరీలోని ప్రతి AI టూల్, అది ఏం చేస్తుంది, ఏ use cases కి సరిపోతుంది.", """
 <h1>అన్ని టూల్స్</h1><input type="search" placeholder="టూల్స్ ఫిల్టర్ చేయండి…" data-filter=".f" aria-label="టూల్స్ ఫిల్టర్ చేయండి"><div class="grid">{ROWS}</div>"""),
  "new": ("కొత్త, ట్రెండింగ్ AI టూల్స్ — Tool Use Cases", "Builders కోసం గమనించదగ్గ, ట్రెండింగ్ AI టూల్ లాంచ్‌లు: coding agents, వీడియో models, రీసెర్చ్ టూల్స్ ఇంకా ఎన్నో.", """
-<h1>కొత్త లాంచ్‌లు, ట్రెండింగ్</h1><p class="lede">ఇటీవల లాంచ్ అయిన లేదా మళ్లీ లాంచ్ అయిన, ఒకసారి చూడదగ్గ AI టూల్స్. కచ్చితమైన లాంచ్ తేదీలు ఊహించకుండా, వీటికి "గమనించదగ్గవి / ట్రెండింగ్" అని లేబుల్ పెడతాం.</p><div class="grid">{NEWCARDS}</div>"""),
+<h1>కొత్త లాంచ్‌లు, ట్రెండింగ్</h1><p class="lede">గత ఆరు వారాల్లో వచ్చిన, builders కి ముఖ్యమైన AI టూల్ లాంచ్‌లు, పెద్ద అప్‌డేట్‌లు. ప్రతిదానికీ తేదీ, అధికారిక ప్రకటన లింక్, అది సరిపోయే use case ఇచ్చాం.</p>
+<p class="muted">{LAST_UPDATED}</p><div class="grid">{NEWCARDS}</div>
+<h2>{EARLIER_H2}</h2><p class="muted"><small>{EARLIER_P}</small></p><ul>{EARLIER}</ul>"""),
  "sponsor": ("Tool Use Cases ని స్పాన్సర్ చేయండి — మీ AI టూల్‌ను ఫీచర్ చేయండి", "టూల్ తయారీదారులు సంబంధిత use-case పేజీల పైన స్పష్టంగా లేబుల్ చేసిన ఫీచర్డ్ స్లాట్‌ను స్పాన్సర్ చేయొచ్చు.", """
 <h1>ఒక use case ని స్పాన్సర్ చేయండి</h1><p class="lede">Vibe coders, builders టూల్ ఎంచుకుంటున్న సరిగ్గా ఆ సమయంలోనే వాళ్లను చేరుకోండి.</p>
 <h2>ఇది ఎలా పని చేస్తుంది</h2><ul><li>ప్రతి use-case పేజీ పైన ఒక <b>Sponsored / Featured</b> స్లాట్ ఉంటుంది.</li><li>దానిపై ఎప్పుడూ స్పష్టంగా "Sponsored" అని ఉంటుంది, మా editorial ఎంపికల నుంచి వేరుగా ఉంటుంది.</li><li>ఆ use case కి నిజంగా సరిపోయే టూల్స్‌ని మాత్రమే తీసుకుంటాం.</li><li>స్పాన్సర్‌షిప్ వల్ల మా అభిప్రాయాలు, ర్యాంకింగ్‌లు ఎప్పుడూ మారవు.</li></ul>

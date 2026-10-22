@@ -35,6 +35,7 @@ UI = {
  "sponsor_p": "இந்த featured slot, இந்த use case-க்கு உண்மையிலேயே பொருந்தும் tools-ஐ உருவாக்குபவர்களுக்கானது. எப்போதும் தெளிவாக label செய்யப்பட்டிருக்கும், எங்கள் தேர்வுகளிலிருந்து தனியாக இருக்கும்.",
  "sponsor_link": "Sponsor செய்ய email அனுப்புங்கள்",
  "new_badge": "கவனிக்க வேண்டியவை / Trending",
+ "last_updated": 'கடைசியாக update செய்தது: {date}', "earlier_h2": 'முந்தையவை', "earlier_p": 'இந்த update-க்கு முன் நாங்கள் காட்டிய launches. இப்போது இவை புதியவை அல்ல, ஆனால் தெரிந்துகொள்ள வேண்டியவை.', "fits": 'Use case:', "source": 'ஆதாரம்',
  "rss_title": "Tool Use Cases (தமிழ்)",
  "rss_desc": "Tool Picks Weekly issues (ஆங்கிலத்தில்) மற்றும் கவனிக்க வேண்டிய புதிய AI tool launches.",
  "rss_new_prefix": "புதியது, trending: ", "rss_issue_suffix": " (ஆங்கிலத்தில்)",
@@ -341,6 +342,25 @@ NEW = {
  "windsurf": "Cursor-உடன் நேரடியாகப் போட்டியிடும் agentic editor.",
 }
 
+# Dated releases on /new/ (same keys/order as RELEASES in build.py). Product names stay in English.
+MONTHS = ['ஜனவரி', 'பிப்ரவரி', 'மார்ச்', 'ஏப்ரல்', 'மே', 'ஜூன்', 'ஜூலை', 'ஆகஸ்ட்', 'செப்டம்பர்', 'அக்டோபர்', 'நவம்பர்', 'டிசம்பர்']
+DATE_MD = '{m} {d}'
+DATE_MDY = '{m} {d}, {y}'
+RELEASES = {
+ 'voxtral-3': 'Mistral-இன் புதிய speech-to-text, text-to-speech models, கூடவே phone, web-இல் real-time voice agents உருவாக்க ஒரு SDK. Mistral API (EU-hosted option உடன்) வழியாக அல்லது self-hosted.',
+ 'kling-4': 'Kuaishou-வின் புதிய video model: ஒரே pass-இல் 30 வினாடிகள் வரை clips, வேகமான அசைவுகள், camera moves-இல் அதிக நிலைத்தன்மை, ஒவ்வொரு வேலைக்கும் 15 வரை reference assets, 10 keyframes.',
+ 'muse-spark-open': 'Coding, agent வேலைகளுக்கான Meta-வின் open-weight model (816B parameters, 42B active, 1M-token context). Meta இதை இரண்டு Mac Studios-இல் இயக்குகிறது; பெரும்பாலானோருக்கு hosted APIs-தான் எளிய வழி.',
+ 'claude-haiku-5-5': 'Anthropic-இன் மிக மலிவான, மிக வேகமான model; support bots, summaries, coding subagents போன்ற அதிக அளவு வேலைகளுக்கானது. Haiku 4.5-ஐ விட இயக்க சுமார் 75% குறைவான செலவு என்கிறது Anthropic.',
+ 'nano-banana-2-1': 'Google-இன் update செய்யப்பட்ட image generation, editing model: சிறந்த edits, கதாபாத்திரங்களில் அதிக consistency, images-இல் தெளிவான text. Gemini app, AI Studio, Gemini API, Flow, Stitch-இல் கிடைக்கிறது.',
+ 'copilot-dynamic-workflows': 'Multi-agent வேலைகளை code-இல் வரையறுக்கலாம் (parallel steps, ஒன்றையொன்று சரிபார்க்கும் subagents, நீங்கள் review செய்ய checkpoints) — Copilot CLI, Copilot app, Copilot SDK-இல். Public preview, எல்லா plans-இலும்.',
+ 'heygen-video': 'HeyGen-இன் முதல் general-purpose video model: text, image அல்லது reference media-விலிருந்து 5 முதல் 15 வினாடி clips; வசனமும் ஒலியும் சேர்ந்தே உருவாகின்றன. HeyGen API வழியாகக் கிடைக்கிறது.',
+ 'gpt-6-1-sol': 'OpenAI DevDay-இல் வந்த GPT-6 Sol upgrade; agentic coding, computer use, professional வேலைகளில் கவனம். மிகக் குறைந்த விலையில் GPT-6 Astra-வுக்கு நெருக்கமாக வருகிறது என்கிறது OpenAI.',
+ 'openai-agents-api-computer-use': 'Agents API இப்போது computer use மூலம் software-ஐ இயக்க முடியும்; Codex-இன் multi-agent features, tool search, context compaction-ஐ உங்கள் app-க்குக் கொண்டு வருகிறது. Infrastructure-ஐ OpenAI இயக்குகிறது.',
+ 'claude-sonnet-5-5': 'Anthropic-இன் வேகமான, மலிவான Sonnet; தெளிவான எல்லை கொண்ட அன்றாட வேலைகள், bug fixing-இல் வலிமையானது. Sonnet 5-ஐ விட 30%+ வேகம், அதே $2/$10 per million tokens விலையில்.',
+ 'lovable-free-chat': 'Lovable உடன் chat இப்போது தினசரி free அளவுக்குள் இலவசம்: features-ஐ plan செய்யலாம், app-இன் code, database பற்றிக் கேட்கலாம், launch text-ஐ draft செய்யலாம். Build செய்ய இன்னும் credits தேவை.',
+ 'cursor-projects': 'ஒரு feature அல்லது migration போன்ற பெரிய வேலைகளுக்கான beta: ஒரு coordinator agent cloud-இல் இயங்கி, வேலையை plan செய்து, பல subagents-க்குப் பிரித்துக் கொடுத்து, காலப்போக்கில் shared context-ஐப் பராமரிக்கிறது.',
+}
+
 PAGES = {  # key: (title, meta description, body)
  "home": ("Tool Use Cases — எந்த வேலைக்கு எந்த AI tool", TAG + " Use case வாரியாக ஒழுங்குபடுத்திய AI tools directory.", """
 <h1>எந்த வேலைக்கு எந்த AI tool.</h1><p class="lede">Tool Use Cases என்பது நீங்கள் செய்ய விரும்பும் வேலையை வைத்து ஒழுங்குபடுத்திய AI tools directory — vibe coders, builders, AI மூலம் எதையாவது ship செய்யும் எல்லோருக்கும்.</p>
@@ -355,7 +375,9 @@ PAGES = {  # key: (title, meta description, body)
  "tools": ("எல்லா AI tools A முதல் Z வரை — Tool Use Cases", "Tool Use Cases directory-யில் உள்ள ஒவ்வொரு AI tool-உம், அது என்ன செய்யும், எந்த use cases-க்குப் பொருந்தும்.", """
 <h1>எல்லா tools</h1><input type="search" placeholder="Tools-ஐ filter செய்யுங்கள்…" data-filter=".f" aria-label="Tools-ஐ filter செய்யுங்கள்"><div class="grid">{ROWS}</div>"""),
  "new": ("புதிய, trending AI tools — Tool Use Cases", "Builders-க்கான கவனிக்க வேண்டிய, trending AI tool launches: coding agents, video models, research tools இன்னும் பல.", """
-<h1>புதிய launches, trending</h1><p class="lede">சமீபத்தில் launch அல்லது re-launch ஆன, ஒருமுறை பார்க்கத் தகுந்த AI tools. சரியான launch தேதிகளை ஊகிக்காமல், இவற்றுக்கு "கவனிக்க வேண்டியவை / Trending" என்று label தருகிறோம்.</p><div class="grid">{NEWCARDS}</div>"""),
+<h1>புதிய launches, trending</h1><p class="lede">கடந்த ஆறு வாரங்களில் வந்த, builders-க்கு முக்கியமான AI tool launches மற்றும் பெரிய updates. ஒவ்வொன்றுக்கும் தேதி, அதிகாரப்பூர்வ அறிவிப்பின் link, அது பொருந்தும் use case ஆகியவற்றைக் கொடுத்துள்ளோம்.</p>
+<p class="muted">{LAST_UPDATED}</p><div class="grid">{NEWCARDS}</div>
+<h2>{EARLIER_H2}</h2><p class="muted"><small>{EARLIER_P}</small></p><ul>{EARLIER}</ul>"""),
  "sponsor": ("Tool Use Cases-ஐ sponsor செய்யுங்கள் — உங்கள் AI tool-ஐ feature செய்யுங்கள்", "Tool உருவாக்குபவர்கள், தொடர்புடைய use-case pages-இன் மேலே தெளிவாக label செய்யப்பட்ட featured slot-ஐ sponsor செய்யலாம்.", """
 <h1>ஒரு use case-ஐ sponsor செய்யுங்கள்</h1><p class="lede">Vibe coders, builders tool-ஐத் தேர்ந்தெடுக்கும் அந்த நேரத்திலேயே அவர்களைச் சென்றடையுங்கள்.</p>
 <h2>இது எப்படி வேலை செய்கிறது</h2><ul><li>ஒவ்வொரு use-case page-இன் மேலேயும் ஒரு <b>Sponsored / Featured</b> slot இருக்கும்.</li><li>அதில் எப்போதும் தெளிவாக "Sponsored" என்று இருக்கும், எங்கள் editorial தேர்வுகளிலிருந்து தனியாக வைக்கப்படும்.</li><li>அந்த use case-க்கு உண்மையிலேயே பொருந்தும் tools-ஐ மட்டுமே ஏற்றுக்கொள்கிறோம்.</li><li>Sponsorship எங்கள் கருத்துகளையோ rankings-ஐயோ ஒருபோதும் மாற்றாது.</li></ul>

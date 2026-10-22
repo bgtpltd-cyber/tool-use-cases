@@ -35,6 +35,7 @@ UI = {
  "sponsor_p": "এই ফিচার্ড স্লটটা সেইসব টুল নির্মাতাদের জন্য, যাদের টুল এই use case-এ সত্যিই মানানসই। সবসময় পরিষ্কারভাবে লেবেল করা থাকে এবং আমাদের বাছাই থেকে আলাদা রাখা হয়।",
  "sponsor_link": "স্পনসর করতে ইমেল করুন",
  "new_badge": "উল্লেখযোগ্য / ট্রেন্ডিং",
+ "last_updated": 'সর্বশেষ আপডেট: {date}', "earlier_h2": 'আগের লঞ্চ', "earlier_p": 'এই আপডেটের আগে আমরা যে লঞ্চগুলো দেখিয়েছিলাম। এগুলো আর নতুন নয়, তবে জেনে রাখার মতো।', "fits": 'Use case:', "source": 'সূত্র',
  "rss_title": "Tool Use Cases (বাংলা)",
  "rss_desc": "Tool Picks Weekly-র ইস্যু (ইংরেজিতে) আর নজর রাখার মতো নতুন AI টুল লঞ্চ।",
  "rss_new_prefix": "নতুন ও ট্রেন্ডিং: ", "rss_issue_suffix": " (ইংরেজিতে)",
@@ -341,6 +342,25 @@ NEW = {
  "windsurf": "Agentic এডিটর, যা সরাসরি Cursor-এর সঙ্গে টক্কর দেয়।",
 }
 
+# Dated releases on /new/ (same keys/order as RELEASES in build.py). Product names stay in English.
+MONTHS = ['জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর']
+DATE_MD = '{d} {m}'
+DATE_MDY = '{d} {m}, {y}'
+RELEASES = {
+ 'voxtral-3': 'Mistral-এর নতুন speech-to-text আর text-to-speech models, সঙ্গে ফোন ও ওয়েবে real-time voice agents বানানোর SDK। Mistral-এর API (EU-hosted অপশনসহ) দিয়ে বা self-hosted।',
+ 'kling-4': 'Kuaishou-র নতুন ভিডিও model: এক পাসে 30 সেকেন্ড পর্যন্ত clips, দ্রুত মুভমেন্ট আর ক্যামেরা মুভে বেশি স্থিরতা, আর প্রতি কাজে 15টা পর্যন্ত reference assets ও 10টা keyframes।',
+ 'muse-spark-open': 'Meta-র open-weight model, coding আর agent-এর কাজের জন্য (816B parameters, 42B active, 1M-token context)। Meta এটা দুটো Mac Studio-তে চালায়; বেশিরভাগ মানুষের জন্য hosted APIs-ই সহজ পথ।',
+ 'claude-haiku-5-5': 'Anthropic-এর সবচেয়ে সস্তা আর দ্রুত model, বেশি ভলিউমের কাজের জন্য তৈরি: support bots, summaries আর coding subagents। Anthropic বলছে, এটা চালাতে Haiku 4.5-এর চেয়ে প্রায় 75% কম খরচ।',
+ 'nano-banana-2-1': 'Google-এর আপডেটেড image generation আর editing model: আরও ভালো edits, চরিত্রে বেশি consistency আর ছবিতে পরিষ্কার লেখা। Gemini অ্যাপ, AI Studio, Gemini API, Flow আর Stitch-এ পাওয়া যায়।',
+ 'copilot-dynamic-workflows': 'Multi-agent কাজ code-এ সাজিয়ে নিন (parallel steps, একে অপরকে যাচাই করা subagents, রিভিউয়ের জন্য checkpoints) — Copilot CLI, Copilot অ্যাপ আর Copilot SDK-তে। Public preview, সব plan-এ।',
+ 'heygen-video': 'HeyGen-এর প্রথম general-purpose ভিডিও model: টেক্সট, ছবি বা reference media থেকে 5 থেকে 15 সেকেন্ডের clips, যেখানে সংলাপ আর শব্দ একসঙ্গে তৈরি হয়। HeyGen API দিয়ে পাওয়া যায়।',
+ 'gpt-6-1-sol': 'OpenAI DevDay-তে আসা GPT-6 Sol-এর আপগ্রেড, যার ফোকাস agentic coding, computer use আর পেশাদার কাজ। OpenAI বলছে, অনেক কম দামে এটা GPT-6 Astra-র কাছাকাছি পৌঁছায়।',
+ 'openai-agents-api-computer-use': 'Agents API এখন computer use দিয়ে software চালাতে পারে, আর Codex-এর multi-agent ফিচার, tool search ও context compaction আপনার অ্যাপে নিয়ে আসে। Infrastructure চালায় OpenAI।',
+ 'claude-sonnet-5-5': 'Anthropic-এর দ্রুত আর সস্তা Sonnet, নির্দিষ্ট পরিসরের রোজকার কাজ আর bug fixing-এ সবচেয়ে ভালো। Sonnet 5-এর চেয়ে 30%+ দ্রুত, একই $2/$10 প্রতি million tokens দামে।',
+ 'lovable-free-chat': 'Lovable-এর সঙ্গে chat এখন রোজকার free সীমার মধ্যে বিনামূল্যে: features প্ল্যান করুন, অ্যাপের code আর database নিয়ে প্রশ্ন করুন বা লঞ্চের লেখা ড্রাফট করুন। Build করতে এখনও credits লাগে।',
+ 'cursor-projects': 'কোনো feature বা migration-এর মতো বড় কাজের জন্য beta: একটা coordinator agent cloud-এ চলে, কাজ প্ল্যান করে, অনেক subagents-কে ভাগ করে দেয় আর সময়ের সঙ্গে shared context ধরে রাখে।',
+}
+
 PAGES = {  # key: (title, meta description, body)
  "home": ("Tool Use Cases — কোন কাজের জন্য কোন AI টুল", TAG + " Use case অনুযায়ী সাজানো AI টুলসের বাছাই করা ডিরেক্টরি।", """
 <h1>কোন কাজের জন্য কোন AI টুল।</h1><p class="lede">Tool Use Cases হলো AI টুলসের একটা ডিরেক্টরি, যা সাজানো হয়েছে আপনি কোন কাজটা করতে চাইছেন সেই অনুযায়ী — vibe coders, builders আর AI দিয়ে কিছু ship করা প্রত্যেকের জন্য।</p>
@@ -355,7 +375,9 @@ PAGES = {  # key: (title, meta description, body)
  "tools": ("সব AI টুলস A থেকে Z — Tool Use Cases", "Tool Use Cases ডিরেক্টরির প্রতিটা AI টুল, সেটা কী করে আর কোন কোন use case-এ মানানসই।", """
 <h1>সব টুলস</h1><input type="search" placeholder="টুলস ফিল্টার করুন…" data-filter=".f" aria-label="টুলস ফিল্টার করুন"><div class="grid">{ROWS}</div>"""),
  "new": ("নতুন আর ট্রেন্ডিং AI টুলস — Tool Use Cases", "Builders-দের জন্য উল্লেখযোগ্য আর ট্রেন্ডিং AI টুল লঞ্চ: coding agents, ভিডিও models, রিসার্চ টুলস আর আরও অনেক কিছু।", """
-<h1>নতুন লঞ্চ ও ট্রেন্ডিং</h1><p class="lede">সম্প্রতি লঞ্চ বা নতুন করে লঞ্চ হওয়া AI টুলস, যেগুলো একবার দেখে নেওয়ার মতো। ঠিক কবে লঞ্চ হয়েছে আন্দাজ না করে আমরা এগুলোকে "উল্লেখযোগ্য / ট্রেন্ডিং" লেবেল দিই।</p><div class="grid">{NEWCARDS}</div>"""),
+<h1>নতুন লঞ্চ ও ট্রেন্ডিং</h1><p class="lede">গত ছয় সপ্তাহের AI টুল লঞ্চ আর বড় আপডেট, যেগুলো builders-দের কাজে লাগে। প্রতিটির সঙ্গে তারিখ, অফিসিয়াল ঘোষণার লিংক আর কোন use case-এ এটা মানানসই, সেটা দেওয়া আছে।</p>
+<p class="muted">{LAST_UPDATED}</p><div class="grid">{NEWCARDS}</div>
+<h2>{EARLIER_H2}</h2><p class="muted"><small>{EARLIER_P}</small></p><ul>{EARLIER}</ul>"""),
  "sponsor": ("Tool Use Cases স্পনসর করুন — আপনার AI টুল ফিচার করান", "টুল নির্মাতারা মানানসই use-case পেজের একদম উপরে পরিষ্কারভাবে লেবেল করা একটা ফিচার্ড স্লট স্পনসর করতে পারেন।", """
 <h1>একটা use case স্পনসর করুন</h1><p class="lede">Vibe coders আর builders-দের কাছে ঠিক সেই মুহূর্তে পৌঁছান, যখন তারা টুল বাছছেন।</p>
 <h2>কীভাবে কাজ করে</h2><ul><li>প্রতিটা use-case পেজের একদম উপরে একটা <b>Sponsored / Featured</b> স্লট থাকে।</li><li>এতে সবসময় পরিষ্কারভাবে "Sponsored" লেখা থাকে আর এটা আমাদের editorial বাছাই থেকে আলাদা রাখা হয়।</li><li>আমরা শুধু সেইসব টুল নিই যা সত্যিই ওই use case-এ মানানসই।</li><li>স্পনসরশিপে আমাদের মত বা র‍্যাঙ্কিং কখনো বদলায় না।</li></ul>

@@ -297,6 +297,47 @@ UC = [
   ("mem","Personal notes that organize themselves; skip it for team wikis.")]),
 ]
 
+NEW_UPDATED = "2026-10-22"  # shown as "Last updated" on /new/ (all locales)
+# Dated launches / major releases for /new/, newest first. Every entry was checked against the linked source on NEW_UPDATED.
+# (key, name, product/official url, iso date, source url, use-case slug, one-line description). Not catalog tools: T and UC stay frozen.
+RELEASES = [
+ ("voxtral-3", "Mistral Voxtral 3", "https://mistral.ai/news/voxtral-3/", "2026-10-20", "https://docs.mistral.ai/resources/changelogs", "best-ai-voice-tts",
+  "Mistral's new speech-to-text and text-to-speech models, plus a voice-agent SDK for real-time phone and web agents. Via Mistral's API (EU-hosted option) or self-hosted."),
+ ("kling-4", "Kling 4.0", "https://klingai.com", "2026-10-15", "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-officially-launches-next-generation-kling-40-raising/", "best-ai-for-video-youtube",
+  "Kuaishou's new video model: clips up to 30 seconds in one pass, steadier fast motion and camera moves, and up to 15 reference assets and 10 keyframes per job."),
+ ("muse-spark-open", "Meta Muse Spark Open", "https://huggingface.co/collections/meta-models/muse-spark-open", "2026-10-15", "https://research.meta.ai/blog/muse-spark-open", "best-ai-for-running-local-models",
+  "Meta's open-weight model for coding and agent work (816B parameters, 42B active, 1M-token context). Meta runs it on two Mac Studios; for most people, hosted APIs are the practical way in."),
+ ("claude-haiku-5-5", "Claude Haiku 5.5", "https://www.anthropic.com/claude-haiku-5-5", "2026-10-07", "https://www.anthropic.com/claude-haiku-5-5", "best-ai-for-chatbots-rag",
+  "Anthropic's cheapest, fastest model, built for high-volume work like support bots, summaries and coding subagents. Anthropic says it costs about 75% less to run than Haiku 4.5."),
+ ("nano-banana-2-1", "Nano Banana 2.1 (Google)", "https://gemini.google.com", "2026-10-06", "https://deepmind.google/models/model-cards/nano-banana-2-1/", "best-ai-image-generation",
+  "Google's updated image generation and editing model, with better edits, character consistency and text in images. In the Gemini app, AI Studio, the Gemini API, Flow and Stitch."),
+ ("copilot-dynamic-workflows", "GitHub Copilot dynamic workflows", "https://github.com/features/copilot", "2026-10-01", "https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app/", "best-ai-coding-agents",
+  "Define multi-agent jobs in code (parallel steps, subagents checking each other, checkpoints where you review) in Copilot CLI, the Copilot app and the Copilot SDK. Public preview, all plans."),
+ ("heygen-video", "HeyGen Video", "https://www.heygen.com/blog/introducing-heygen-video", "2026-09-30", "https://help.heygen.com/en/articles/17272995-introducing-heygen-video-generate-cinematic-clips-from-a-prompt", "best-ai-for-video-youtube",
+  "HeyGen's first general-purpose video model: 5 to 15-second clips with dialogue and sound generated together, from text, an image or reference media. Available through the HeyGen API."),
+ ("gpt-6-1-sol", "GPT-6.1 Sol", "https://openai.com/index/devday-2026-recap/", "2026-09-29", "https://openai.com/index/devday-2026-recap/", "best-ai-coding-agents",
+  "OpenAI's DevDay upgrade to GPT-6 Sol, focused on agentic coding, computer use and professional work. OpenAI says it gets close to GPT-6 Astra at a much lower price."),
+ ("openai-agents-api-computer-use", "OpenAI Agents API: computer use", "https://openai.com/index/devday-2026-recap/", "2026-09-29", "https://openai.com/index/devday-2026-recap/", "best-ai-for-agent-frameworks",
+  "The Agents API can now operate software through computer use, and brings Codex's multi-agent features, tool search and context compaction into your own app. OpenAI runs the infrastructure."),
+ ("claude-sonnet-5-5", "Claude Sonnet 5.5", "https://www.anthropic.com/claude-sonnet-5-5", "2026-09-28", "https://www.anthropic.com/claude-sonnet-5-5", "best-ai-for-fixing-broken-code",
+  "Anthropic's faster, cheaper Sonnet, strongest at well-scoped everyday tasks and bug fixes. 30%+ faster than Sonnet 5 at the same $2/$10 per million tokens."),
+ ("lovable-free-chat", "Lovable: free chat", "https://lovable.dev", "2026-09-24", "https://lovable.dev/blog/chat-for-free", "best-ai-for-vibe-coding",
+  "Chatting with Lovable is now free within a daily allowance: plan features, ask about your app's code and database, or draft launch copy. Building still uses credits."),
+ ("cursor-projects", "Cursor Projects", "https://cursor.com", "2026-09-10", "https://cursor.com/changelog/projects", "best-ai-coding-agents",
+  "Beta for big jobs like a feature or a migration: a coordinator agent runs in the cloud, plans the work, hands it to many subagents and keeps shared context over time."),
+]
+EN_MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+def date_md(iso, L=None):
+    y, m, d = (int(x) for x in iso.split("-"))
+    if L is None: return f"{EN_MONTHS[m-1]} {d}"
+    return L.DATE_MD.format(d=d, m=L.MONTHS[m-1], y=y)
+def date_mdy(iso, L=None):
+    y, m, d = (int(x) for x in iso.split("-"))
+    if L is None: return f"{EN_MONTHS[m-1]} {d}, {y}"
+    return L.DATE_MDY.format(d=d, m=L.MONTHS[m-1], y=y)
+assert [r[3] for r in RELEASES] == sorted((r[3] for r in RELEASES), reverse=True), "releases must be newest first"
+
+# "Earlier" section on /new/: launches featured before the dated list (kept undated; no longer new)
 NEW = [
  ("claude-code","Anthropic's terminal coding agent — one of the most talked-about dev tools."),
  ("codex","OpenAI's relaunched Codex coding agent (cloud + CLI)."),
@@ -484,7 +525,9 @@ def crumbs(*pairs):  # BreadcrumbList from (name, path) pairs, Home first
     return {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":i,"name":n,"item":BASE+p} for i,(n,p) in enumerate(items,1)]}
 def coll(kind,name,desc,path):
     return {"@context":"https://schema.org","@type":kind,"name":name,"description":desc,"url":BASE+path,"isPartOf":{"@type":"WebSite","name":"Tool Use Cases","url":BASE}}
-newteaser = "".join(f'<li>{tool_link(s)} — {e(n)}</li>' for s,n in NEW[:5])
+UCT = {u[0]: u[1] for u in UC}
+def ext_link(url, name): return f'<a href="{url}" rel="noopener" target="_blank">{e(name)}</a>'
+newteaser = "".join(f'<li>{ext_link(r[2], r[1])} <small class="muted">({date_md(r[3])})</small> — {e(r[6])}</li>' for r in RELEASES[:5])
 page("index.html","Tool Use Cases — which AI tool for which job",TAG+" A curated directory of AI tools organized by use case.",f"""
 <h1>Which AI tool for which job.</h1><p class="lede">Tool Use Cases is a directory of AI tools organized by the job you're trying to do — for vibe coders, builders, and anyone shipping with AI.</p>
 <input type="search" placeholder="Filter use cases (e.g. video, coding, research)…" data-filter=".f" aria-label="Filter use cases">
@@ -520,9 +563,16 @@ rows = "".join(f'<div class="card f"><h3>{tool_link(s)}</h3><p class="what">{e(T
 page("tools/index.html","All AI tools A–Z — Tool Use Cases","Every AI tool in the Tool Use Cases directory, with what it does and which use cases it fits.",f"""
 <h1>All tools</h1><input type="search" placeholder="Filter tools…" data-filter=".f" aria-label="Filter tools"><div class="grid">{rows}</div>""", ld=[crumbs(("All tools","tools/")), coll("CollectionPage","All AI tools A-Z","Every AI tool in the Tool Use Cases directory.","tools/")])
 
-nl = "".join(f'<div class="card f" id="new-{s}"><span class="badge" style="background:#1d6b34">Notable / trending</span><h3>{tool_link(s)}</h3><p class="what">{e(T[s][2])}</p><p>{e(n)}</p></div>' for s,n in NEW)
-page("new/index.html","New & trending AI tools — Tool Use Cases","Notable and trending AI tool releases for builders: coding agents, video models, research tools and more.",f"""
-<h1>New releases &amp; trending</h1><p class="lede">Recently launched or recently relaunched AI tools worth a look. We label these "notable / trending" rather than guessing exact launch dates.</p><div class="grid">{nl}</div>""", ld=[crumbs(("New & trending","new/")), coll("CollectionPage","New & trending AI tools","Notable and trending AI tool releases for builders.","new/")])
+def release_card(r, desc, fits, src, uc_title, P=""):
+    k, name, url, iso, srcurl, uc = r[:6]
+    return (f'<div class="card f" id="rel-{k}"><span class="badge" style="background:#1d6b34"><time datetime="{iso}">{{DATE}}</time></span><h3>{ext_link(url, name)}</h3><p>{e(desc)}</p>'
+            f'<p><small>{e(fits)}{"" if fits.endswith("：") else " "}<a href="@R/{P}use-cases/{uc}/index.html">{e(uc_title)}</a> · <a href="{srcurl}" rel="noopener" target="_blank">{e(src)}</a></small></p></div>')
+nl = "".join(release_card(r, r[6], "Fits:", "Source", UCT[r[5]]).replace("{DATE}", date_md(r[3])) for r in RELEASES)
+earlier = "".join(f'<li id="new-{s}">{tool_link(s)} — {e(n)}</li>' for s,n in NEW)
+page("new/index.html","New & trending AI tools — Tool Use Cases","New AI tool releases for builders, dated and sourced: coding agents, models, video, image and voice tools, matched to the job they fit.",f"""
+<h1>New releases &amp; trending</h1><p class="lede">AI tool launches and major releases from the last six weeks that matter to builders. Each one is dated, linked to its official announcement and matched to the use case it fits.</p>
+<p class="muted">Last updated: <time datetime="{NEW_UPDATED}">{date_mdy(NEW_UPDATED)}</time></p><div class="grid">{nl}</div>
+<h2>Earlier</h2><p class="muted"><small>Launches we featured before this update. They're no longer new, but still worth knowing.</small></p><ul>{earlier}</ul>""", ld=[crumbs(("New & trending","new/")), coll("CollectionPage","New & trending AI tools","Dated, sourced AI tool releases for builders.","new/")])
 
 page("sponsor/index.html","Sponsor Tool Use Cases — feature your AI tool","Tool makers can sponsor a clearly labeled featured slot at the top of relevant use-case pages.",f"""
 <h1>Sponsor a use case</h1><p class="lede">Reach vibe coders and builders at the moment they're choosing a tool.</p>
@@ -570,7 +620,10 @@ def check_locale(L):  # translations must cover the frozen catalog exactly; neve
     assert set(L.TOOLS) == set(T), ("tools", set(T) ^ set(L.TOOLS))
     assert list(L.UC) == [u[0] for u in UC], "use-case slugs/order differ"
     for slug,_,_,tools in UC: assert len(L.UC[slug][2]) == len(tools), ("verdict count", slug)
-    assert list(L.NEW) == [s for s,_ in NEW], "new-release list differs"
+    assert list(L.NEW) == [s for s,_ in NEW], "new-release (earlier) list differs"
+    assert list(L.RELEASES) == [r[0] for r in RELEASES], "dated releases differ"
+    for k in ("last_updated","earlier_h2","earlier_p","fits","source"): assert k in L.UI, ("UI key", k)
+    assert len(L.MONTHS) == 12 and "{NEWCARDS}" in L.PAGES["new"][2] and "{EARLIER}" in L.PAGES["new"][2] and "{LAST_UPDATED}" in L.PAGES["new"][2]
     assert set(L.PAGES) == {"home","use-cases","tools","new","sponsor","about","thanks"}
 def build_locale(L):
     check_locale(L); U, P, LD = L.UI, L.PREFIX, L.LD
@@ -600,7 +653,7 @@ def build_locale(L):
         t, d, b = L.PAGES[key]
         page(P+path, t, d, fill(b, EMAIL=EMAIL, SPONSOR_CARD=scard, SPONSOR_MAILTO=mailto, NL_FORM=nl_form(' id="newsletter"', L), **kw), ld=ld, noindex=noindex, L=L)
     itemlist = {"@context":"https://schema.org","@type":"ItemList","name":LD["itemlist_home"],"inLanguage":L.CODE,"itemListElement":[{"@type":"ListItem","position":i,"name":ut[u[0]][0],"url":f"{BASE}{P}use-cases/{u[0]}/"} for i,u in enumerate(UC,1)]}
-    newteaser = "".join(f'<li>{tool_link(s)} — {e(L.NEW[s])}</li>' for s,_ in NEW[:5])
+    newteaser = "".join(f'<li>{ext_link(r[2], r[1])} <small class="muted">({e(date_md(r[3], L))})</small> — {e(L.RELEASES[r[0]])}</li>' for r in RELEASES[:5])
     pg("home", "index.html", CARDS=cards, NEWTEASER=newteaser, ld=[
         {"@context":"https://schema.org","@type":"WebSite","name":"Tool Use Cases","url":BASE+P,"inLanguage":L.CODE,"description":L.TAG,"publisher":{"@type":"Organization","name":"Lali Publications","email":EMAIL}}, itemlist])
     pg("use-cases", "use-cases/index.html", CARDS=cards, ld=[crumbs_l((U["use_cases"],"use-cases/")), coll_l("CollectionPage",*LD["uc_coll"],"use-cases/"), itemlist])
@@ -618,15 +671,17 @@ def build_locale(L):
            "review":{"@type":"Review","name":U["review_name"].format(tool=T[t][0], title=title),"reviewBody":v,"inLanguage":L.CODE,"author":{"@type":"Organization","name":"Tool Use Cases (Lali Publications)"}}}} for i,((t,_),v) in enumerate(zip(tools,verdicts),1)]}])
     rows = "".join(f'<div class="card f"><h3>{tool_link(s)}</h3><p class="what">{e(L.TOOLS[s])}</p><p><small>{" · ".join(f"<a href=@R/{P}use-cases/{u}/index.html>{e(ut[u][0])}</a>" for u,_ in uses.get(s,[]))}</small></p></div>' for s in sorted(T,key=lambda k:T[k][0].lower()))
     pg("tools", "tools/index.html", ROWS=rows, ld=[crumbs_l((LD["tools_crumb"],"tools/")), coll_l("CollectionPage",*LD["tools_coll"],"tools/")])
-    newcards = "".join(f'<div class="card f" id="new-{s}"><span class="badge" style="background:#1d6b34">{e(U["new_badge"])}</span><h3>{tool_link(s)}</h3><p class="what">{e(L.TOOLS[s])}</p><p>{e(L.NEW[s])}</p></div>' for s,_ in NEW)
-    pg("new", "new/index.html", NEWCARDS=newcards, ld=[crumbs_l((LD["new_crumb"],"new/")), coll_l("CollectionPage",*LD["new_coll"],"new/")])
+    newcards = "".join(release_card(r, L.RELEASES[r[0]], U["fits"], U["source"], ut[r[5]][0], P).replace("{DATE}", e(date_md(r[3], L))) for r in RELEASES)
+    earlier_l = "".join(f'<li id="new-{s}">{tool_link(s)} — {e(L.NEW[s])}</li>' for s,_ in NEW)
+    lastup = e(U["last_updated"]).replace("{date}", f'<time datetime="{NEW_UPDATED}">{e(date_mdy(NEW_UPDATED, L))}</time>')
+    pg("new", "new/index.html", NEWCARDS=newcards, EARLIER=earlier_l, LAST_UPDATED=lastup, EARLIER_H2=e(U["earlier_h2"]), EARLIER_P=e(U["earlier_p"]), ld=[crumbs_l((LD["new_crumb"],"new/")), coll_l("CollectionPage",*LD["new_coll"],"new/")])
     pg("sponsor", "sponsor/index.html", ld=[crumbs_l((LD["sponsor_crumb"],"sponsor/"))])
     pg("about", "about/index.html", ld=[crumbs_l((LD["about_crumb"],"about/")), coll_l("AboutPage",*LD["about_coll"],"about/")])
     pg("thanks", "thanks/index.html", noindex=True)
     # per-locale RSS: newsletter issues (English, labeled) + translated new releases
     x = lambda t: html.escape(t, quote=False)
     its = [f"""  <item><title>{x(subj + U["rss_issue_suffix"])}</title><link>{BASE}newsletter/{islug}/</link><guid isPermaLink="true">{BASE}newsletter/{islug}/</guid><pubDate>{rfc822(iso)}</pubDate><category>{x(U["rss_cat_newsletter"])}</category><description>{x(prev)}</description></item>\n""" for n,islug,iso,dd,subj,prev,fn in sorted(ISSUES, reverse=True)]
-    its += [f"""  <item><title>{x(U["rss_new_prefix"] + T[s][0])}</title><link>{BASE}{P}new/#new-{s}</link><guid isPermaLink="true">{BASE}{P}new/#new-{s}</guid><category>{x(U["rss_cat_new"])}</category><description>{x(L.NEW[s])}</description></item>\n""" for s,_ in NEW]
+    its += [f"""  <item><title>{x(U["rss_new_prefix"] + r[1])}</title><link>{BASE}{P}new/#rel-{r[0]}</link><guid isPermaLink="true">{BASE}{P}new/#rel-{r[0]}</guid><pubDate>{rfc822(r[3])}</pubDate><category>{x(U["rss_cat_new"])}</category><description>{x(L.RELEASES[r[0]])}</description></item>\n""" for r in RELEASES]
     open(f"{OUT}/{P}feed.xml","w").write(f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
@@ -635,7 +690,7 @@ def build_locale(L):
   <atom:link href="{BASE}{P}feed.xml" rel="self" type="application/rss+xml"/>
   <description>{x(L.TAG)} {x(U["rss_desc"])}</description>
   <language>{L.RSS_LANG}</language>
-  <lastBuildDate>{rfc822(max(i[2] for i in ISSUES))}</lastBuildDate>
+  <lastBuildDate>{rfc822(max([i[2] for i in ISSUES] + [NEW_UPDATED]))}</lastBuildDate>
   <image><url>{OG_IMAGE}</url><title>{x(U["rss_title"])}</title><link>{BASE}{P}</link></image>
 {"".join(its)}</channel>
 </rss>
@@ -652,12 +707,12 @@ llms += [f"- [{t}]({BASE}use-cases/{s}/): {b}" for s,t,b,_ in UC]
 llms += ["", "## Other pages", "", f"- [All tools A-Z]({BASE}tools/)", f"- [New & trending]({BASE}new/)", f"- [Newsletter]({BASE}newsletter/)", f"- [RSS feed]({BASE}feed.xml): newsletter issues and new releases", *[f"- [{i[4]}]({BASE}newsletter/{i[1]}/) ({i[3]})" for i in ISSUES], f"- [About]({BASE}about/)", "",
  "## Sponsor / contact", "", f"Sponsorships, corrections and suggestions: {EMAIL} (Lali Publications). See {BASE}sponsor/", "",
  "## How to cite", "", f"Tool Use Cases (Lali Publications). Cite the page name, then the full URL under {BASE.rstrip(chr(47))}/. Prefer the specific use-case page.", ""]
-# RSS 2.0 feed: newsletter issues (dated) + new-releases items (undated; we don't guess launch dates)
+# RSS 2.0 feed: newsletter issues (dated) + dated new releases
 x = lambda t: html.escape(t, quote=False)
 def rfc822(iso): return format_datetime(datetime.strptime(iso, "%Y-%m-%d").replace(hour=12, tzinfo=timezone.utc))
 items = [f"""  <item><title>{x(subj)}</title><link>{BASE}newsletter/{islug}/</link><guid isPermaLink="true">{BASE}newsletter/{islug}/</guid><pubDate>{rfc822(iso)}</pubDate><category>Newsletter</category><description>{x(prev)}</description></item>\n""" for n,islug,iso,dd,subj,prev,fn in sorted(ISSUES, reverse=True)]
-items += [f"""  <item><title>{x("New & trending: " + T[s][0])}</title><link>{BASE}new/#new-{s}</link><guid isPermaLink="true">{BASE}new/#new-{s}</guid><category>New releases</category><description>{x(n)}</description></item>\n""" for s,n in NEW]
-last = rfc822(max(i[2] for i in ISSUES))
+items += [f"""  <item><title>{x("New: " + r[1])}</title><link>{BASE}new/#rel-{r[0]}</link><guid isPermaLink="true">{BASE}new/#rel-{r[0]}</guid><pubDate>{rfc822(r[3])}</pubDate><category>New releases</category><description>{x(r[6])}</description></item>\n""" for r in RELEASES]
+last = rfc822(max([i[2] for i in ISSUES] + [NEW_UPDATED]))
 open(f"{OUT}/feed.xml","w").write(f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>

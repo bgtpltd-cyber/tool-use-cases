@@ -31,6 +31,7 @@ UI = {
  "sponsor_p": "Este espacio destacado está disponible para creadores de herramientas que encajan en este caso de uso. Siempre identificado con claridad y siempre separado de nuestras recomendaciones.",
  "sponsor_link": "Patrocinar por email",
  "new_badge": "Destacado / en tendencia",
+ "last_updated": 'Última actualización: {date}', "earlier_h2": 'Anteriores', "earlier_p": 'Lanzamientos que destacamos antes de esta actualización. Ya no son novedad, pero vale la pena conocerlos.', "fits": 'Caso de uso:', "source": 'Fuente',
  "rss_title": "Tool Use Cases (español)",
  "rss_desc": "Ediciones de Tool Picks Weekly (en inglés) y lanzamientos de herramientas de IA que vale la pena conocer.",
  "rss_new_prefix": "Nuevo y en tendencia: ", "rss_issue_suffix": " (en inglés)",
@@ -337,6 +338,25 @@ NEW = {
  "windsurf": "Editor agéntico que compite directamente con Cursor.",
 }
 
+# Dated releases on /new/ (same keys/order as RELEASES in build.py). Product names stay in English.
+MONTHS = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre']
+DATE_MD = '{d} de {m}'
+DATE_MDY = '{d} de {m} de {y}'
+RELEASES = {
+ 'voxtral-3': 'Nuevos modelos de speech-to-text y text-to-speech de Mistral, más un SDK de agentes de voz en tiempo real para teléfono y web. Por la API de Mistral (con opción alojada en la UE) o self-hosted.',
+ 'kling-4': 'Nuevo modelo de video de Kuaishou: clips de hasta 30 segundos de una sola vez, movimientos rápidos y de cámara más estables, y hasta 15 referencias y 10 keyframes por tarea.',
+ 'muse-spark-open': 'Modelo open-weight de Meta para código y agentes (816B parámetros, 42B activos, contexto de 1M de tokens). Meta lo corre en dos Mac Studio; para la mayoría, las APIs alojadas son la vía práctica.',
+ 'claude-haiku-5-5': 'El modelo más barato y rápido de Anthropic, pensado para trabajo de alto volumen como bots de soporte, resúmenes y subagentes de código. Según Anthropic, cuesta cerca de un 75% menos que Haiku 4.5.',
+ 'nano-banana-2-1': 'Modelo actualizado de generación y edición de imágenes de Google, con mejores ediciones, consistencia de personajes y texto en las imágenes. En la app de Gemini, AI Studio, la Gemini API, Flow y Stitch.',
+ 'copilot-dynamic-workflows': 'Define en código trabajos con varios agentes (pasos en paralelo, subagentes que revisan a otros, checkpoints para que revises) en Copilot CLI, la app de Copilot y el Copilot SDK. Public preview, en todos los planes.',
+ 'heygen-video': 'El primer modelo de video de uso general de HeyGen: clips de 5 a 15 segundos con diálogo y sonido generados juntos, a partir de texto, una imagen o material de referencia. Disponible por la API de HeyGen.',
+ 'gpt-6-1-sol': 'La mejora de GPT-6 Sol presentada en el DevDay de OpenAI, enfocada en programación con agentes, computer use y trabajo profesional. OpenAI dice que se acerca a GPT-6 Astra a un precio mucho menor.',
+ 'openai-agents-api-computer-use': 'La Agents API ahora maneja software con computer use y trae a tu app las funciones multiagente de Codex, tool search y compactación de contexto. OpenAI se encarga de la infraestructura.',
+ 'claude-sonnet-5-5': 'El Sonnet más rápido y barato de Anthropic, fuerte en tareas cotidianas bien acotadas y en corregir bugs. Más de un 30% más rápido que Sonnet 5, al mismo precio de US$2/US$10 por millón de tokens.',
+ 'lovable-free-chat': 'Chatear con Lovable ahora es gratis dentro de un cupo diario: planifica funciones, pregunta por el código y la base de datos de tu app o redacta textos de lanzamiento. Construir sigue usando créditos.',
+ 'cursor-projects': 'Beta para trabajos grandes, como una función o una migración: un agente coordinador corre en la nube, planifica el trabajo, lo reparte entre muchos subagentes y mantiene un contexto compartido con el tiempo.',
+}
+
 PAGES = {  # key: (title, meta description, body)
  "home": ("Tool Use Cases — qué herramienta de IA usar para cada tarea", TAG + " Un directorio curado de herramientas de IA organizadas por caso de uso.", """
 <h1>Qué herramienta de IA usar para cada tarea.</h1><p class="lede">Tool Use Cases es un directorio de herramientas de IA organizadas según la tarea que quieres resolver: para vibe coders, builders y cualquiera que lanza proyectos con IA.</p>
@@ -351,7 +371,9 @@ PAGES = {  # key: (title, meta description, body)
  "tools": ("Todas las herramientas de IA de la A a la Z — Tool Use Cases", "Todas las herramientas de IA del directorio Tool Use Cases, con lo que hace cada una y en qué casos de uso encaja.", """
 <h1>Todas las herramientas</h1><input type="search" placeholder="Filtra herramientas…" data-filter=".f" aria-label="Filtrar herramientas"><div class="grid">{ROWS}</div>"""),
  "new": ("Herramientas de IA nuevas y en tendencia — Tool Use Cases", "Lanzamientos de herramientas de IA destacados y en tendencia para builders: agentes de código, modelos de video, investigación y más.", """
-<h1>Lanzamientos y tendencias</h1><p class="lede">Herramientas de IA lanzadas o relanzadas hace poco que vale la pena mirar. Las marcamos como "destacado / en tendencia" en lugar de adivinar fechas exactas de lanzamiento.</p><div class="grid">{NEWCARDS}</div>"""),
+<h1>Lanzamientos y tendencias</h1><p class="lede">Lanzamientos y actualizaciones importantes de herramientas de IA de las últimas seis semanas que importan a quienes construyen. Cada uno lleva su fecha, el enlace al anuncio oficial y el caso de uso en el que encaja.</p>
+<p class="muted">{LAST_UPDATED}</p><div class="grid">{NEWCARDS}</div>
+<h2>{EARLIER_H2}</h2><p class="muted"><small>{EARLIER_P}</small></p><ul>{EARLIER}</ul>"""),
  "sponsor": ("Patrocina Tool Use Cases — destaca tu herramienta de IA", "Los creadores de herramientas pueden patrocinar un espacio destacado, siempre identificado, en lo alto de las páginas de casos de uso relevantes.", """
 <h1>Patrocina un caso de uso</h1><p class="lede">Llega a vibe coders y builders justo cuando están eligiendo una herramienta.</p>
 <h2>Cómo funciona</h2><ul><li>Un espacio <b>Patrocinado / Destacado</b> aparece en lo alto de cada página de caso de uso.</li><li>Siempre está identificado claramente como "Patrocinado" y separado de nuestras recomendaciones editoriales.</li><li>Solo aceptamos herramientas que realmente encajan en el caso de uso.</li><li>El patrocinio nunca cambia nuestros veredictos ni nuestros rankings.</li></ul>

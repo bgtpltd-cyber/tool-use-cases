@@ -35,6 +35,7 @@ UI = {
  "sponsor_p": "ഈ use case-ന് ശരിക്കും യോജിക്കുന്ന ടൂളുകൾ ഉണ്ടാക്കുന്നവർക്കുള്ളതാണ് ഈ ഫീച്ചേർഡ് സ്ലോട്ട്. എപ്പോഴും വ്യക്തമായി ലേബൽ ചെയ്തിരിക്കും, ഞങ്ങളുടെ തിരഞ്ഞെടുപ്പുകളിൽ നിന്ന് വേറിട്ടുനിൽക്കും.",
  "sponsor_link": "സ്പോൺസർ ചെയ്യാൻ ഇമെയിൽ അയയ്ക്കൂ",
  "new_badge": "ശ്രദ്ധേയം / ട്രെൻഡിങ്",
+ "last_updated": 'അവസാനം അപ്\u200cഡേറ്റ് ചെയ്തത്: {date}', "earlier_h2": 'മുമ്പത്തേവ', "earlier_p": 'ഈ അപ്\u200cഡേറ്റിന് മുമ്പ് ഞങ്ങൾ കാണിച്ചിരുന്ന ലോഞ്ചുകൾ. ഇപ്പോൾ ഇവ പുതിയതല്ല, പക്ഷേ അറിഞ്ഞിരിക്കേണ്ടവ.', "fits": 'Use case:', "source": 'ഉറവിടം',
  "rss_title": "Tool Use Cases (മലയാളം)",
  "rss_desc": "Tool Picks Weekly ലക്കങ്ങൾ (ഇംഗ്ലീഷിൽ), ശ്രദ്ധിക്കേണ്ട പുതിയ AI ടൂൾ ലോഞ്ചുകൾ.",
  "rss_new_prefix": "പുതിയതും ട്രെൻഡിങ്ങും: ", "rss_issue_suffix": " (ഇംഗ്ലീഷിൽ)",
@@ -341,6 +342,25 @@ NEW = {
  "windsurf": "Cursor-നോട് നേരിട്ട് മത്സരിക്കുന്ന agentic എഡിറ്റർ.",
 }
 
+# Dated releases on /new/ (same keys/order as RELEASES in build.py). Product names stay in English.
+MONTHS = ['ജനുവരി', 'ഫെബ്രുവരി', 'മാർച്ച്', 'ഏപ്രിൽ', 'മേയ്', 'ജൂൺ', 'ജൂലൈ', 'ഓഗസ്റ്റ്', 'സെപ്റ്റംബർ', 'ഒക്ടോബർ', 'നവംബർ', 'ഡിസംബർ']
+DATE_MD = '{m} {d}'
+DATE_MDY = '{y} {m} {d}'
+RELEASES = {
+ 'voxtral-3': 'Mistral-ന്റെ പുതിയ speech-to-text, text-to-speech models, ഒപ്പം ഫോണിലും വെബിലും real-time voice agents നിർമിക്കാൻ ഒരു SDK. Mistral API വഴി (EU-hosted ഓപ്ഷനോടെ) അല്ലെങ്കിൽ self-hosted.',
+ 'kling-4': 'Kuaishou-ന്റെ പുതിയ വീഡിയോ model: ഒറ്റ പാസിൽ 30 സെക്കൻഡ് വരെ clips, വേഗമേറിയ ചലനങ്ങളിലും ക്യാമറ മൂവുകളിലും കൂടുതൽ സ്ഥിരത, ഓരോ ജോലിക്കും 15 വരെ reference assets, 10 keyframes.',
+ 'muse-spark-open': 'Coding, agent ജോലികൾക്കായുള്ള Meta-യുടെ open-weight model (816B parameters, 42B active, 1M-token context). Meta ഇത് രണ്ട് Mac Studios-ൽ ഓടിക്കുന്നു; മിക്കവർക്കും hosted APIs ആണ് എളുപ്പവഴി.',
+ 'claude-haiku-5-5': 'Anthropic-ന്റെ ഏറ്റവും വിലകുറഞ്ഞ, ഏറ്റവും വേഗമേറിയ model; support bots, summaries, coding subagents പോലുള്ള വലിയ അളവിലുള്ള ജോലികൾക്കായി. Haiku 4.5-നെക്കാൾ ഓടിക്കാൻ ഏകദേശം 75% കുറവ് ചെലവെന്ന് Anthropic പറയുന്നു.',
+ 'nano-banana-2-1': 'Google-ന്റെ അപ്\u200cഡേറ്റ് ചെയ്ത image generation, editing model: മികച്ച edits, കഥാപാത്രങ്ങളിൽ കൂടുതൽ consistency, ചിത്രങ്ങളിൽ വ്യക്തമായ ടെക്സ്റ്റ്. Gemini ആപ്പ്, AI Studio, Gemini API, Flow, Stitch എന്നിവയിൽ ലഭ്യം.',
+ 'copilot-dynamic-workflows': 'Multi-agent ജോലികൾ code-ൽ നിർവചിക്കാം (parallel steps, പരസ്പരം പരിശോധിക്കുന്ന subagents, നിങ്ങൾക്ക് review ചെയ്യാൻ checkpoints) — Copilot CLI, Copilot ആപ്പ്, Copilot SDK എന്നിവയിൽ. Public preview, എല്ലാ plans-ലും.',
+ 'heygen-video': 'HeyGen-ന്റെ ആദ്യ general-purpose വീഡിയോ model: ടെക്സ്റ്റ്, ചിത്രം അല്ലെങ്കിൽ reference media-യിൽ നിന്ന് 5 മുതൽ 15 സെക്കൻഡ് വരെയുള്ള clips; സംഭാഷണവും ശബ്ദവും ഒരുമിച്ച് ഉണ്ടാകുന്നു. HeyGen API വഴി ലഭ്യം.',
+ 'gpt-6-1-sol': 'OpenAI DevDay-യിൽ വന്ന GPT-6 Sol അപ്\u200cഗ്രേഡ്; agentic coding, computer use, പ്രൊഫഷണൽ ജോലികൾ എന്നിവയിൽ ശ്രദ്ധ. വളരെ കുറഞ്ഞ വിലയിൽ GPT-6 Astra-യോട് അടുത്തെത്തുന്നുവെന്ന് OpenAI പറയുന്നു.',
+ 'openai-agents-api-computer-use': 'Agents API-ക്ക് ഇപ്പോൾ computer use വഴി software പ്രവർത്തിപ്പിക്കാം; Codex-ന്റെ multi-agent ഫീച്ചറുകൾ, tool search, context compaction എന്നിവ നിങ്ങളുടെ ആപ്പിലേക്ക് കൊണ്ടുവരുന്നു. Infrastructure OpenAI നോക്കുന്നു.',
+ 'claude-sonnet-5-5': 'Anthropic-ന്റെ വേഗമേറിയ, വിലകുറഞ്ഞ Sonnet; വ്യക്തമായ പരിധിയുള്ള ദൈനംദിന ജോലികളിലും bug fixing-ലും ഏറ്റവും മികച്ചത്. Sonnet 5-നെക്കാൾ 30%+ വേഗം, അതേ $2/$10 per million tokens വിലയിൽ.',
+ 'lovable-free-chat': 'Lovable-മായി chat ഇപ്പോൾ ദിവസേനയുള്ള free പരിധിക്കുള്ളിൽ സൗജന്യം: features പ്ലാൻ ചെയ്യാം, ആപ്പിന്റെ code, database എന്നിവയെക്കുറിച്ച് ചോദിക്കാം, ലോഞ്ച് ടെക്സ്റ്റ് ഡ്രാഫ്റ്റ് ചെയ്യാം. Build ചെയ്യാൻ ഇപ്പോഴും credits വേണം.',
+ 'cursor-projects': 'ഒരു feature അല്ലെങ്കിൽ migration പോലുള്ള വലിയ ജോലികൾക്കുള്ള beta: ഒരു coordinator agent cloud-ൽ ഓടി, ജോലി പ്ലാൻ ചെയ്ത്, പല subagents-ന് വീതിച്ചുനൽകി, കാലക്രമേണ shared context നിലനിർത്തുന്നു.',
+}
+
 PAGES = {  # key: (title, meta description, body)
  "home": ("Tool Use Cases — ഏത് ജോലിക്ക് ഏത് AI ടൂൾ", TAG + " Use case അനുസരിച്ച് ക്രമീകരിച്ച AI ടൂളുകളുടെ തിരഞ്ഞെടുത്ത ഡയറക്ടറി.", """
 <h1>ഏത് ജോലിക്ക് ഏത് AI ടൂൾ.</h1><p class="lede">നിങ്ങൾ ചെയ്യാൻ ഉദ്ദേശിക്കുന്ന ജോലി അനുസരിച്ച് ക്രമീകരിച്ച AI ടൂളുകളുടെ ഒരു ഡയറക്ടറിയാണ് Tool Use Cases — vibe coders, builders, AI ഉപയോഗിച്ച് എന്തെങ്കിലും ship ചെയ്യുന്ന എല്ലാവർക്കും വേണ്ടി.</p>
@@ -355,7 +375,9 @@ PAGES = {  # key: (title, meta description, body)
  "tools": ("എല്ലാ AI ടൂളുകളും A മുതൽ Z വരെ — Tool Use Cases", "Tool Use Cases ഡയറക്ടറിയിലെ ഓരോ AI ടൂളും, അത് എന്ത് ചെയ്യുന്നു, ഏതൊക്കെ use cases-ന് യോജിക്കുന്നു.", """
 <h1>എല്ലാ ടൂളുകളും</h1><input type="search" placeholder="ടൂളുകൾ ഫിൽട്ടർ ചെയ്യൂ…" data-filter=".f" aria-label="ടൂളുകൾ ഫിൽട്ടർ ചെയ്യൂ"><div class="grid">{ROWS}</div>"""),
  "new": ("പുതിയതും ട്രെൻഡിങ്ങുമായ AI ടൂളുകൾ — Tool Use Cases", "Builders-നുള്ള ശ്രദ്ധേയവും ട്രെൻഡിങ്ങുമായ AI ടൂൾ ലോഞ്ചുകൾ: coding agents, വീഡിയോ models, റിസർച്ച് ടൂളുകൾ എന്നിങ്ങനെ പലതും.", """
-<h1>പുതിയ ലോഞ്ചുകൾ, ട്രെൻഡിങ്</h1><p class="lede">അടുത്തിടെ ലോഞ്ച് ചെയ്തതോ വീണ്ടും ലോഞ്ച് ചെയ്തതോ ആയ, ഒന്ന് നോക്കേണ്ട AI ടൂളുകൾ. കൃത്യമായ ലോഞ്ച് തീയതികൾ ഊഹിക്കുന്നതിന് പകരം ഇവയ്ക്ക് "ശ്രദ്ധേയം / ട്രെൻഡിങ്" എന്ന് ലേബൽ നൽകുന്നു.</p><div class="grid">{NEWCARDS}</div>"""),
+<h1>പുതിയ ലോഞ്ചുകൾ, ട്രെൻഡിങ്</h1><p class="lede">കഴിഞ്ഞ ആറ് ആഴ്ചയ്ക്കിടെ വന്ന, builders-ന് പ്രധാനപ്പെട്ട AI ടൂൾ ലോഞ്ചുകളും വലിയ അപ്‌ഡേറ്റുകളും. ഓരോന്നിനും തീയതി, ഔദ്യോഗിക അറിയിപ്പിന്റെ ലിങ്ക്, അത് ചേരുന്ന use case എന്നിവ നൽകിയിട്ടുണ്ട്.</p>
+<p class="muted">{LAST_UPDATED}</p><div class="grid">{NEWCARDS}</div>
+<h2>{EARLIER_H2}</h2><p class="muted"><small>{EARLIER_P}</small></p><ul>{EARLIER}</ul>"""),
  "sponsor": ("Tool Use Cases സ്പോൺസർ ചെയ്യൂ — നിങ്ങളുടെ AI ടൂൾ feature ചെയ്യൂ", "ടൂൾ നിർമാതാക്കൾക്ക് ബന്ധപ്പെട്ട use-case പേജുകളുടെ മുകളിൽ വ്യക്തമായി ലേബൽ ചെയ്ത ഫീച്ചേർഡ് സ്ലോട്ട് സ്പോൺസർ ചെയ്യാം.", """
 <h1>ഒരു use case സ്പോൺസർ ചെയ്യൂ</h1><p class="lede">Vibe coders-ഉം builders-ഉം ടൂൾ തിരഞ്ഞെടുക്കുന്ന അതേ നിമിഷത്തിൽ അവരിലേക്കെത്തൂ.</p>
 <h2>ഇത് എങ്ങനെ പ്രവർത്തിക്കുന്നു</h2><ul><li>ഓരോ use-case പേജിന്റെയും മുകളിൽ ഒരു <b>Sponsored / Featured</b> സ്ലോട്ട് ഉണ്ടാകും.</li><li>അതിൽ എപ്പോഴും വ്യക്തമായി "Sponsored" എന്ന് ഉണ്ടാകും, ഞങ്ങളുടെ editorial തിരഞ്ഞെടുപ്പുകളിൽ നിന്ന് വേറിട്ടുനിൽക്കും.</li><li>ആ use case-ന് ശരിക്കും യോജിക്കുന്ന ടൂളുകൾ മാത്രമേ ഞങ്ങൾ സ്വീകരിക്കൂ.</li><li>സ്പോൺസർഷിപ്പ് ഞങ്ങളുടെ അഭിപ്രായങ്ങളെയോ റാങ്കിങ്ങുകളെയോ ഒരിക്കലും മാറ്റില്ല.</li></ul>

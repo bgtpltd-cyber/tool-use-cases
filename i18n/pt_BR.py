@@ -4,7 +4,7 @@ To add a language: copy this file (e.g. es.py), translate every value, keep ever
 and register it in LOCALES in build.py. build.py checks that every tool, use case,
 verdict and new-release note is present and in the same order as the English source.
 Body templates may use: @R/ (site root), @P (this locale's prefix, e.g. "pt/"),
-{EMAIL}, {SPONSOR_CARD}, {NL_FORM}, {CARDS}, {NEWTEASER}, {ROWS}, {NEWCARDS}, {SPONSOR_MAILTO}.
+{EMAIL}, {SPONSOR_CARD}, {NL_FORM}, {CARDS}, {NEWTEASER}, {ROWS}, {NEWCARDS}, {LAST_UPDATED}, {EARLIER_H2}, {EARLIER_P}, {EARLIER}, {SPONSOR_MAILTO}.
 """
 CODE = "pt-BR"            # <html lang> and hreflang
 PREFIX = "pt/"            # URL prefix
@@ -37,6 +37,7 @@ UI = {
  "sponsor_p": "Este espaço em destaque está disponível para criadores de ferramentas que se encaixam neste caso de uso. Sempre identificado com clareza e sempre separado das nossas escolhas.",
  "sponsor_link": "Patrocinar por e-mail",
  "new_badge": "Em destaque / em alta",
+ "last_updated": 'Atualizado em {date}', "earlier_h2": 'Anteriores', "earlier_p": 'Lançamentos que destacamos antes desta atualização. Não são mais novidade, mas ainda vale conhecer.', "fits": 'Caso de uso:', "source": 'Fonte',
  "rss_title": "Tool Use Cases (português)",
  "rss_desc": "Edições da Tool Picks Weekly (em inglês) e lançamentos de ferramentas de IA que merecem atenção.",
  "rss_new_prefix": "Novo e em alta: ", "rss_issue_suffix": " (em inglês)",
@@ -343,6 +344,25 @@ NEW = {
  "windsurf": "Editor agêntico que concorre diretamente com o Cursor.",
 }
 
+# Dated releases on /new/ (same keys/order as RELEASES in build.py). Product names stay in English.
+MONTHS = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
+DATE_MD = '{d} de {m}'
+DATE_MDY = '{d} de {m} de {y}'
+RELEASES = {
+ 'voxtral-3': 'Novos modelos de speech-to-text e text-to-speech da Mistral, mais um SDK para agentes de voz em tempo real por telefone e na web. Pela API da Mistral (com opção hospedada na UE) ou self-hosted.',
+ 'kling-4': 'Novo modelo de vídeo da Kuaishou: clipes de até 30 segundos de uma vez, movimentos rápidos e de câmera mais estáveis e até 15 referências e 10 keyframes por tarefa.',
+ 'muse-spark-open': 'Modelo open-weight da Meta para código e agentes (816B de parâmetros, 42B ativos, contexto de 1M de tokens). A Meta roda em dois Mac Studios; para a maioria, APIs hospedadas são o caminho prático.',
+ 'claude-haiku-5-5': 'O modelo mais barato e rápido da Anthropic, feito para trabalho em alto volume como bots de suporte, resumos e subagentes de código. Segundo a Anthropic, custa cerca de 75% menos que o Haiku 4.5.',
+ 'nano-banana-2-1': 'Modelo atualizado de geração e edição de imagens do Google, com edições melhores, mais consistência de personagens e texto nas imagens. No app Gemini, AI Studio, Gemini API, Flow e Stitch.',
+ 'copilot-dynamic-workflows': 'Defina em código tarefas com vários agentes (etapas em paralelo, subagentes conferindo uns aos outros, checkpoints para você revisar) no Copilot CLI, no app do Copilot e no Copilot SDK. Public preview, em todos os planos.',
+ 'heygen-video': 'Primeiro modelo de vídeo de uso geral da HeyGen: clipes de 5 a 15 segundos com falas e som gerados juntos, a partir de texto, imagem ou mídia de referência. Disponível pela API da HeyGen.',
+ 'gpt-6-1-sol': 'Upgrade do GPT-6 Sol anunciado no DevDay da OpenAI, focado em código com agentes, computer use e trabalho profissional. A OpenAI diz que chega perto do GPT-6 Astra por um preço bem menor.',
+ 'openai-agents-api-computer-use': 'A Agents API agora opera softwares via computer use e traz para o seu app os recursos multiagente do Codex, tool search e compactação de contexto. A OpenAI cuida da infraestrutura.',
+ 'claude-sonnet-5-5': 'O Sonnet mais rápido e mais barato da Anthropic, melhor em tarefas do dia a dia bem definidas e correção de bugs. Mais de 30% mais rápido que o Sonnet 5, pelo mesmo preço de US$ 2/US$ 10 por milhão de tokens.',
+ 'lovable-free-chat': 'Conversar com o Lovable agora é grátis dentro de uma cota diária: planeje features, pergunte sobre o código e o banco de dados do app ou rascunhe textos de lançamento. Construir ainda consome créditos.',
+ 'cursor-projects': 'Beta para trabalhos grandes, como uma feature ou uma migração: um agente coordenador roda na nuvem, planeja o trabalho, distribui para muitos subagentes e mantém um contexto compartilhado ao longo do tempo.',
+}
+
 PAGES = {  # key: (title, meta description, body)
  "home": ("Tool Use Cases — qual ferramenta de IA para cada tarefa", TAG + " Um diretório curado de ferramentas de IA organizadas por caso de uso.", """
 <h1>Qual ferramenta de IA para cada tarefa.</h1><p class="lede">O Tool Use Cases é um diretório de ferramentas de IA organizadas pela tarefa que você quer resolver — para vibe coders, builders e qualquer pessoa que coloca projetos no ar com IA.</p>
@@ -357,7 +377,9 @@ PAGES = {  # key: (title, meta description, body)
  "tools": ("Todas as ferramentas de IA de A a Z — Tool Use Cases", "Todas as ferramentas de IA do diretório Tool Use Cases, com o que cada uma faz e em quais casos de uso ela se encaixa.", """
 <h1>Todas as ferramentas</h1><input type="search" placeholder="Filtrar ferramentas…" data-filter=".f" aria-label="Filtrar ferramentas"><div class="grid">{ROWS}</div>"""),
  "new": ("Ferramentas de IA novas e em alta — Tool Use Cases", "Lançamentos de ferramentas de IA que merecem atenção e estão em alta entre builders: agentes de código, modelos de vídeo, pesquisa e mais.", """
-<h1>Lançamentos e tendências</h1><p class="lede">Ferramentas de IA lançadas ou relançadas recentemente que valem uma olhada. Marcamos essas como "em destaque / em alta" em vez de chutar datas exatas de lançamento.</p><div class="grid">{NEWCARDS}</div>"""),
+<h1>Lançamentos e tendências</h1><p class="lede">Lançamentos e grandes atualizações de ferramentas de IA das últimas seis semanas que importam para quem constrói. Cada um tem data, link para o anúncio oficial e o caso de uso em que se encaixa.</p>
+<p class="muted">{LAST_UPDATED}</p><div class="grid">{NEWCARDS}</div>
+<h2>{EARLIER_H2}</h2><p class="muted"><small>{EARLIER_P}</small></p><ul>{EARLIER}</ul>"""),
  "sponsor": ("Patrocine o Tool Use Cases — destaque sua ferramenta de IA", "Criadores de ferramentas podem patrocinar um espaço em destaque, sempre identificado, no topo das páginas de casos de uso relevantes.", """
 <h1>Patrocine um caso de uso</h1><p class="lede">Alcance vibe coders e builders no momento em que eles estão escolhendo uma ferramenta.</p>
 <h2>Como funciona</h2><ul><li>Um espaço <b>Patrocinado / Em destaque</b> fica no topo de cada página de caso de uso.</li><li>Ele é sempre identificado com clareza como "Patrocinado" e fica separado das nossas escolhas editoriais.</li><li>Só aceitamos ferramentas que realmente se encaixam no caso de uso.</li><li>O patrocínio nunca muda nossos vereditos nem nossos rankings.</li></ul>

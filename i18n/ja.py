@@ -35,6 +35,7 @@ UI = {
  "sponsor_p": "この注目枠は、このユースケースに本当に合うツールを作っている方向けです。必ず明記し、編集部のおすすめとは常に分けて表示します。",
  "sponsor_link": "メールでスポンサーを申し込む",
  "new_badge": "注目 / 話題",
+ "last_updated": '最終更新：{date}', "earlier_h2": '以前の掲載', "earlier_p": '今回の更新より前に紹介していたリリースです。もう新着ではありませんが、知っておく価値があります。', "fits": 'ユースケース：', "source": '出典',
  "rss_title": "Tool Use Cases（日本語）",
  "rss_desc": "Tool Picks Weeklyの各号（英語）と、チェックしておきたいAIツールの新着情報。",
  "rss_new_prefix": "新着・話題：", "rss_issue_suffix": "（英語）",
@@ -341,6 +342,25 @@ NEW = {
  "windsurf": "Cursorと真っ向から競うagenticなエディタ。",
 }
 
+# Dated releases on /new/ (same keys/order as RELEASES in build.py). Product names stay in English.
+MONTHS = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+DATE_MD = '{m}{d}日'
+DATE_MDY = '{y}年{m}{d}日'
+RELEASES = {
+ 'voxtral-3': 'Mistralの新しいspeech-to-textとtext-to-speechのモデルに加え、電話やWebでリアルタイムに動くvoice agentを作るためのSDK。Mistral API（EU内ホスティングも選べる）またはセルフホストで使えます。',
+ 'kling-4': 'Kuaishouの新しい動画モデル。1回で最長30秒のクリップを生成でき、速い動きやカメラワークが安定し、1つのタスクで最大15個の参照素材と10個のキーフレームを使えます。',
+ 'muse-spark-open': 'coding・agent用途のMetaのopen weightsモデル（816Bパラメータ、42Bアクティブ、1Mトークンのコンテキスト）。Metaは2台のMac Studioで動かしていますが、多くの人にはホスティングされたAPIが現実的です。',
+ 'claude-haiku-5-5': 'Anthropicで最も安くて速いモデル。サポートbot、要約、codingのsubagentなど、大量にこなす処理向け。Anthropicによると、Haiku 4.5より約75%安く動かせます。',
+ 'nano-banana-2-1': 'Googleの画像生成・編集モデルのアップデート。編集の精度、キャラクターの一貫性、画像内の文字が改善。Geminiアプリ、AI Studio、Gemini API、Flow、Stitchで使えます。',
+ 'copilot-dynamic-workflows': '複数のagentを使う作業をコードで定義（並列ステップ、subagent同士の相互チェック、レビュー用のチェックポイント）。Copilot CLI、Copilotアプリ、Copilot SDKで利用可能。Public preview、全プラン対象。',
+ 'heygen-video': 'HeyGen初の汎用動画モデル。テキスト、画像、参照メディアから5〜15秒のクリップを作り、セリフと音も一緒に生成します。HeyGen API経由で利用できます。',
+ 'gpt-6-1-sol': 'OpenAIがDevDayで発表したGPT-6 Solのアップグレード。agenticなcoding、computer use、プロの仕事に重点。OpenAIによると、ずっと安い価格でGPT-6 Astraに近い性能です。',
+ 'openai-agents-api-computer-use': 'Agents APIがcomputer useでソフトウェアを操作できるようになり、Codexのmulti-agent機能、tool search、コンテキストの圧縮も自分のアプリで使えます。インフラはOpenAIが運用します。',
+ 'claude-sonnet-5-5': 'Anthropicのより速く安いSonnet。範囲のはっきりした日常タスクとバグ修正が得意。Sonnet 5より30%以上速く、価格は同じ100万トークンあたり$2/$10。',
+ 'lovable-free-chat': 'Lovableとのチャットが1日の無料枠内で無料に。機能の計画、アプリのコードやデータベースについての質問、ローンチ用の文章の下書きができます。ビルドには引き続きクレジットを使います。',
+ 'cursor-projects': '機能追加や移行のような大きな作業向けのベータ。coordinator agentがクラウドで動き、作業を計画して多数のsubagentに割り振り、共有コンテキストを保ち続けます。',
+}
+
 PAGES = {  # key: (title, meta description, body)
  "home": ("Tool Use Cases — やりたいこと別に選ぶAIツール", TAG + " ユースケースごとに整理した、厳選AIツールのディレクトリです。", """
 <h1>やりたいことに合わせて選ぶAIツール。</h1><p class="lede">Tool Use Casesは、やりたいことに合わせて整理したAIツールのディレクトリです。vibe coder、builder、そしてAIで何かをshipするすべての人のために。</p>
@@ -355,7 +375,9 @@ PAGES = {  # key: (title, meta description, body)
  "tools": ("AIツール一覧（A〜Z） — Tool Use Cases", "Tool Use Casesに掲載しているすべてのAIツールと、それぞれの機能、合うユースケースの一覧です。", """
 <h1>ツール一覧</h1><input type="search" placeholder="ツールを絞り込む…" data-filter=".f" aria-label="ツールを絞り込む"><div class="grid">{ROWS}</div>"""),
  "new": ("新着・話題のAIツール — Tool Use Cases", "builder向けの注目・話題のAIツールの新着情報。coding agent、動画モデル、リサーチなど。", """
-<h1>新着・話題のツール</h1><p class="lede">最近リリース、または再リリースされた、チェックしておきたいAIツールです。正確なリリース日を推測するのではなく、「注目 / 話題」として紹介しています。</p><div class="grid">{NEWCARDS}</div>"""),
+<h1>新着・話題のツール</h1><p class="lede">ここ6週間に出た、builderにとって重要なAIツールのリリースと大型アップデートです。それぞれに日付、公式発表へのリンク、合うユースケースを付けています。</p>
+<p class="muted">{LAST_UPDATED}</p><div class="grid">{NEWCARDS}</div>
+<h2>{EARLIER_H2}</h2><p class="muted"><small>{EARLIER_P}</small></p><ul>{EARLIER}</ul>"""),
  "sponsor": ("Tool Use Casesのスポンサー — AIツールを紹介しませんか", "ツールの開発者は、関連するユースケースのページ上部にある、必ず明記された注目枠のスポンサーになれます。", """
 <h1>ユースケースのスポンサーになる</h1><p class="lede">vibe coderやbuilderがまさにツールを選んでいるタイミングで届けられます。</p>
 <h2>仕組み</h2><ul><li>各ユースケースのページ上部に<b>スポンサー / 注目</b>枠を1つ表示します。</li><li>必ず「スポンサー」と明記し、編集部のおすすめとは分けて表示します。</li><li>そのユースケースに本当に合うツールだけをお受けします。</li><li>スポンサーによって評価やランキングが変わることはありません。</li></ul>
