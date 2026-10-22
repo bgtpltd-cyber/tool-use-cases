@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Tool Use Cases (मराठी)</title>
+  <link>https://tools.lalipublications.com/mr/</link>
+  <atom:link href="https://tools.lalipublications.com/mr/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>कोणत्या कामासाठी कोणतं AI टूल — vibe coders आणि builders साठी. Tool Picks Weekly चे अंक (इंग्रजीत) आणि लक्ष देण्यासारखे नवीन AI टूल लाँच.</description>
+  <language>mr</language>
+  <lastBuildDate>Mon, 19 Oct 2026 12:00:00 +0000</lastBuildDate>
+  <image><url>https://tools.lalipublications.com/og-image.png</url><title>Tool Use Cases (मराठी)</title><link>https://tools.lalipublications.com/mr/</link></image>
+  <item><title>Tool Picks Weekly #1: Your vibe-coded app can now talk, search and scrape (इंग्रजीत)</title><link>https://tools.lalipublications.com/newsletter/issue-1/</link><guid isPermaLink="true">https://tools.lalipublications.com/newsletter/issue-1/</guid><pubDate>Mon, 19 Oct 2026 12:00:00 +0000</pubDate><category>न्यूजलेटर</category><description>Five tools for the jobs that come right after "it works on my screen."</description></item>
+  <item><title>नवीन आणि ट्रेंडिंग: Claude Code</title><link>https://tools.lalipublications.com/mr/new/#new-claude-code</link><guid isPermaLink="true">https://tools.lalipublications.com/mr/new/#new-claude-code</guid><category>नवीन लाँच</category><description>Anthropic चा terminal coding agent — सगळ्यात जास्त चर्चेत असलेल्या dev टूल्सपैकी एक.</description></item>
+  <item><title>नवीन आणि ट्रेंडिंग: OpenAI Codex</title><link>https://tools.lalipublications.com/mr/new/#new-codex</link><guid isPermaLink="true">https://tools.lalipublications.com/mr/new/#new-codex</guid><category>नवीन लाँच</category><description>OpenAI ने पुन्हा लाँच केलेला Codex coding agent (cloud + CLI).</description></item>
+  <item><title>नवीन आणि ट्रेंडिंग: Google Veo</title><link>https://tools.lalipublications.com/mr/new/#new-veo</link><guid isPermaLink="true">https://tools.lalipublications.com/mr/new/#new-veo</guid><category>नवीन लाँच</category><description>Google चं व्हिडिओ model, जे आता synced audio पण बनवतं.</description></item>
+  <item><title>नवीन आणि ट्रेंडिंग: Sora</title><link>https://tools.lalipublications.com/mr/new/#new-sora</link><guid isPermaLink="true">https://tools.lalipublications.com/mr/new/#new-sora</guid><category>नवीन लाँच</category><description>OpenAI चं व्हिडिओ model, आता स्वतःच्या social ॲपसह.</description></item>
+  <item><title>नवीन आणि ट्रेंडिंग: Manus</title><link>https://tools.lalipublications.com/mr/new/#new-manus</link><guid isPermaLink="true">https://tools.lalipublications.com/mr/new/#new-manus</guid><category>नवीन लाँच</category><description>Autonomous general agent, जो multi-step कामांमुळे व्हायरल झाला.</description></item>
+  <item><title>नवीन आणि ट्रेंडिंग: Lovable</title><link>https://tools.lalipublications.com/mr/new/#new-lovable</link><guid isPermaLink="true">https://tools.lalipublications.com/mr/new/#new-lovable</guid><category>नवीन लाँच</category><description>वेगाने वाढणारा prompt-to-app builder.</description></item>
+  <item><title>नवीन आणि ट्रेंडिंग: NotebookLM</title><link>https://tools.lalipublications.com/mr/new/#new-notebooklm</link><guid isPermaLink="true">https://tools.lalipublications.com/mr/new/#new-notebooklm</guid><category>नवीन लाँच</category><description>Audio Overviews नी research notes ना podcasts मध्ये बदललं.</description></item>
+  <item><title>नवीन आणि ट्रेंडिंग: Kling</title><link>https://tools.lalipublications.com/mr/new/#new-kling</link><guid isPermaLink="true">https://tools.lalipublications.com/mr/new/#new-kling</guid><category>नवीन लाँच</category><description>AI व्हिडिओ generation मधला तगडा स्पर्धक.</description></item>
+  <item><title>नवीन आणि ट्रेंडिंग: DeepSeek</title><link>https://tools.lalipublications.com/mr/new/#new-deepseek</link><guid isPermaLink="true">https://tools.lalipublications.com/mr/new/#new-deepseek</guid><category>नवीन लाँच</category><description>Open-weight reasoning models, ज्यांनी pricing मध्ये खळबळ उडवली.</description></item>
+  <item><title>नवीन आणि ट्रेंडिंग: Model Context Protocol</title><link>https://tools.lalipublications.com/mr/new/#new-mcp</link><guid isPermaLink="true">https://tools.lalipublications.com/mr/new/#new-mcp</guid><category>नवीन लाँच</category><description>ते open protocol जे आता बहुतेक agent टूल्स tools access साठी सपोर्ट करतात.</description></item>
+  <item><title>नवीन आणि ट्रेंडिंग: Windsurf</title><link>https://tools.lalipublications.com/mr/new/#new-windsurf</link><guid isPermaLink="true">https://tools.lalipublications.com/mr/new/#new-windsurf</guid><category>नवीन लाँच</category><description>Agentic एडिटर, जो थेट Cursor ला टक्कर देतो.</description></item>
+</channel>
+</rss>

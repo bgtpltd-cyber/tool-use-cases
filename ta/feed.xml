@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Tool Use Cases (தமிழ்)</title>
+  <link>https://tools.lalipublications.com/ta/</link>
+  <atom:link href="https://tools.lalipublications.com/ta/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>எந்த வேலைக்கு எந்த AI tool — vibe coders, builders-க்காக. Tool Picks Weekly issues (ஆங்கிலத்தில்) மற்றும் கவனிக்க வேண்டிய புதிய AI tool launches.</description>
+  <language>ta</language>
+  <lastBuildDate>Mon, 19 Oct 2026 12:00:00 +0000</lastBuildDate>
+  <image><url>https://tools.lalipublications.com/og-image.png</url><title>Tool Use Cases (தமிழ்)</title><link>https://tools.lalipublications.com/ta/</link></image>
+  <item><title>Tool Picks Weekly #1: Your vibe-coded app can now talk, search and scrape (ஆங்கிலத்தில்)</title><link>https://tools.lalipublications.com/newsletter/issue-1/</link><guid isPermaLink="true">https://tools.lalipublications.com/newsletter/issue-1/</guid><pubDate>Mon, 19 Oct 2026 12:00:00 +0000</pubDate><category>Newsletter</category><description>Five tools for the jobs that come right after "it works on my screen."</description></item>
+  <item><title>புதியது, trending: Claude Code</title><link>https://tools.lalipublications.com/ta/new/#new-claude-code</link><guid isPermaLink="true">https://tools.lalipublications.com/ta/new/#new-claude-code</guid><category>புதிய launches</category><description>Anthropic-இன் terminal coding agent — அதிகம் பேசப்படும் dev tools-இல் ஒன்று.</description></item>
+  <item><title>புதியது, trending: OpenAI Codex</title><link>https://tools.lalipublications.com/ta/new/#new-codex</link><guid isPermaLink="true">https://tools.lalipublications.com/ta/new/#new-codex</guid><category>புதிய launches</category><description>OpenAI மீண்டும் launch செய்த Codex coding agent (cloud + CLI).</description></item>
+  <item><title>புதியது, trending: Google Veo</title><link>https://tools.lalipublications.com/ta/new/#new-veo</link><guid isPermaLink="true">https://tools.lalipublications.com/ta/new/#new-veo</guid><category>புதிய launches</category><description>Google-இன் video model, இப்போது synced audio-வும் உருவாக்கும்.</description></item>
+  <item><title>புதியது, trending: Sora</title><link>https://tools.lalipublications.com/ta/new/#new-sora</link><guid isPermaLink="true">https://tools.lalipublications.com/ta/new/#new-sora</guid><category>புதிய launches</category><description>OpenAI-இன் video model, இப்போது அதற்கென்றே ஒரு social app உடன்.</description></item>
+  <item><title>புதியது, trending: Manus</title><link>https://tools.lalipublications.com/ta/new/#new-manus</link><guid isPermaLink="true">https://tools.lalipublications.com/ta/new/#new-manus</guid><category>புதிய launches</category><description>Multi-step tasks-ஆல் viral ஆன autonomous general agent.</description></item>
+  <item><title>புதியது, trending: Lovable</title><link>https://tools.lalipublications.com/ta/new/#new-lovable</link><guid isPermaLink="true">https://tools.lalipublications.com/ta/new/#new-lovable</guid><category>புதிய launches</category><description>வேகமாக வளரும் prompt-to-app builder.</description></item>
+  <item><title>புதியது, trending: NotebookLM</title><link>https://tools.lalipublications.com/ta/new/#new-notebooklm</link><guid isPermaLink="true">https://tools.lalipublications.com/ta/new/#new-notebooklm</guid><category>புதிய launches</category><description>Audio Overviews, research notes-ஐ podcasts-ஆக மாற்றியது.</description></item>
+  <item><title>புதியது, trending: Kling</title><link>https://tools.lalipublications.com/ta/new/#new-kling</link><guid isPermaLink="true">https://tools.lalipublications.com/ta/new/#new-kling</guid><category>புதிய launches</category><description>AI video generation-இல் வலுவான போட்டியாளர்.</description></item>
+  <item><title>புதியது, trending: DeepSeek</title><link>https://tools.lalipublications.com/ta/new/#new-deepseek</link><guid isPermaLink="true">https://tools.lalipublications.com/ta/new/#new-deepseek</guid><category>புதிய launches</category><description>Pricing-ஐயே அசைத்துப் பார்த்த open-weight reasoning models.</description></item>
+  <item><title>புதியது, trending: Model Context Protocol</title><link>https://tools.lalipublications.com/ta/new/#new-mcp</link><guid isPermaLink="true">https://tools.lalipublications.com/ta/new/#new-mcp</guid><category>புதிய launches</category><description>இப்போது பெரும்பாலான agent tools, tools access-க்கு support செய்யும் open protocol.</description></item>
+  <item><title>புதியது, trending: Windsurf</title><link>https://tools.lalipublications.com/ta/new/#new-windsurf</link><guid isPermaLink="true">https://tools.lalipublications.com/ta/new/#new-windsurf</guid><category>புதிய launches</category><description>Cursor-உடன் நேரடியாகப் போட்டியிடும் agentic editor.</description></item>
+</channel>
+</rss>
