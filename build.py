@@ -359,7 +359,7 @@ a{color:#0b5cad}header,footer{background:#1d2a36;color:#eee}header a,footer a{co
 h1{font-size:1.9rem;line-height:1.2;margin:28px 0 8px}.lede{color:#444;font-size:1.1rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin:18px 0}
 .card{background:#fff;border:1px solid #ddd;border-radius:8px;padding:14px 16px}.card h3{margin:0 0 4px;font-size:1.08rem}
-.card p{margin:4px 0}.what{color:#555;font-size:.93rem}.verdict b{color:#1d6b34}
+.card p{margin:4px 0}.what{color:#555;font-size:.93rem}.verdict b{color:#1d6b34}.quick{background:#f1f8f3;border-left:3px solid #1d6b34;padding:8px 12px}
 .sponsored{border:2px dashed #c08a00;background:#fffaf0}.badge{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;background:#c08a00;color:#fff;padding:2px 7px;border-radius:4px;margin-bottom:6px}
 .btn{display:inline-block;background:#0b5cad;color:#fff;padding:9px 16px;border-radius:6px;text-decoration:none;font-weight:600}
 input[type=search]{width:100%;padding:11px 14px;font-size:1rem;border:1px solid #bbb;border-radius:6px;margin:10px 0}
@@ -508,6 +508,12 @@ def related(slug, tools, k=4):
         if len(out) >= 3: break
         if 0 <= j < len(UC) and UC[j][0] != slug and all(UC[j][0] != o for o,_ in out): out.append((UC[j][0], UC[j][1]))
     return out
+def uc_faq(title, tools):  # English Q&A built only from our own picks and verdicts (no invented facts)
+    top, v1 = tools[0]
+    alts = "; ".join(f"{T[t][0]}: {v}" for t,v in tools[1:])
+    return [(f"{title}: what is the top pick?", f"{T[top][0]}. {v1}"),
+            (f"{title}: what are the alternatives?", f"In ranked order: {alts}"),
+            ("Are these picks paid placements?", "No. Picks are editorial and not paid. Any sponsored slot is clearly labeled and kept separate, and sponsorship never changes our verdicts or rankings.")]
 def tool_link(s): n,u,_=T[s]; return f'<a href="{u}" rel="noopener" target="_blank">{e(n)}</a>'
 def uc_card(slug,title,blurb,tools):
     return f'<div class="card f"><h3><a href="@R/use-cases/{slug}/index.html">{e(title)}</a></h3><p class="what">{e(blurb)}</p><p><small>{", ".join(e(T[t][0]) for t,_ in tools)}</small></p></div>'
@@ -549,12 +555,15 @@ for slug,title,blurb,tools in UC:
     relhtml = ('<h2>Related use cases</h2><ul>' + "".join(f'<li><a href="@R/use-cases/{s2}/index.html">{e(t2)}</a></li>' for s2,t2 in rel) + '</ul>') if rel else ""
     page(f"use-cases/{slug}/index.html",uc_title(title),uc_desc(blurb,tools),f"""
 <p><small><a href="@R/use-cases/index.html">Use cases</a> /</small></p><h1>{e(title)}</h1><p class="lede">{e(blurb)}</p>
+<p class="quick"><b>Quick answer:</b> {e(T[tools[0][0]][0])}{"." if tools[0][1].startswith(("Top pick","The default pick")) else " is our top pick."} {e(tools[0][1])}</p>
 {SPONSOR_CARD}<h2>Our picks</h2><ol class="tools">{items}</ol>
 <p class="muted"><small>Picks are editorial and not paid. Pricing and features change often — check each official site.</small></p>
+<h2>FAQ</h2>{"".join(f'<h3>{e(q)}</h3><p>{e(a)}</p>' for q,a in uc_faq(title,tools))}
 {relhtml}<p><a href="@R/use-cases/index.html">Browse all use cases →</a></p>""", ld=[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
      {"@type":"ListItem","position":1,"name":"Home","item":BASE},{"@type":"ListItem","position":2,"name":"Use cases","item":BASE+"use-cases/"},{"@type":"ListItem","position":3,"name":title,"item":f"{BASE}use-cases/{slug}/"}]},
      {"@context":"https://schema.org","@type":"ItemList","name":title,"description":blurb,"url":f"{BASE}use-cases/{slug}/","itemListElement":[{"@type":"ListItem","position":i,"item":{"@type":"SoftwareApplication","name":T[t][0],"url":T[t][1],"description":T[t][2],"applicationCategory":"DeveloperApplication" if "cod" in slug or "vibe" in slug else "BusinessApplication",
-       "review":{"@type":"Review","name":f"{T[t][0]} for {title}","reviewBody":v,"author":{"@type":"Organization","name":"Tool Use Cases (Lali Publications)"}}}} for i,(t,v) in enumerate(tools,1)]}])
+       "review":{"@type":"Review","name":f"{T[t][0]} for {title}","reviewBody":v,"author":{"@type":"Organization","name":"Tool Use Cases (Lali Publications)"}}}} for i,(t,v) in enumerate(tools,1)]},
+     {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in uc_faq(title,tools)]}])
 
 uses = {}
 for slug,title,_,tools in UC:
