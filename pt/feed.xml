@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Tool Use Cases (português)</title>
+  <link>https://tools.lalipublications.com/pt/</link>
+  <atom:link href="https://tools.lalipublications.com/pt/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>Qual ferramenta de IA usar para cada tarefa — para vibe coders e builders. Edições da Tool Picks Weekly (em inglês) e lançamentos de ferramentas de IA que merecem atenção.</description>
+  <language>pt-br</language>
+  <lastBuildDate>Mon, 19 Oct 2026 12:00:00 +0000</lastBuildDate>
+  <image><url>https://tools.lalipublications.com/og-image.png</url><title>Tool Use Cases (português)</title><link>https://tools.lalipublications.com/pt/</link></image>
+  <item><title>Tool Picks Weekly #1: Your vibe-coded app can now talk, search and scrape (em inglês)</title><link>https://tools.lalipublications.com/newsletter/issue-1/</link><guid isPermaLink="true">https://tools.lalipublications.com/newsletter/issue-1/</guid><pubDate>Mon, 19 Oct 2026 12:00:00 +0000</pubDate><category>Newsletter</category><description>Five tools for the jobs that come right after "it works on my screen."</description></item>
+  <item><title>Novo e em alta: Claude Code</title><link>https://tools.lalipublications.com/pt/new/#new-claude-code</link><guid isPermaLink="true">https://tools.lalipublications.com/pt/new/#new-claude-code</guid><category>Lançamentos</category><description>O agente de código da Anthropic que roda no terminal — uma das ferramentas de dev mais comentadas.</description></item>
+  <item><title>Novo e em alta: OpenAI Codex</title><link>https://tools.lalipublications.com/pt/new/#new-codex</link><guid isPermaLink="true">https://tools.lalipublications.com/pt/new/#new-codex</guid><category>Lançamentos</category><description>O agente de código Codex, relançado pela OpenAI (nuvem + CLI).</description></item>
+  <item><title>Novo e em alta: Google Veo</title><link>https://tools.lalipublications.com/pt/new/#new-veo</link><guid isPermaLink="true">https://tools.lalipublications.com/pt/new/#new-veo</guid><category>Lançamentos</category><description>O modelo de vídeo do Google, que agora gera áudio sincronizado.</description></item>
+  <item><title>Novo e em alta: Sora</title><link>https://tools.lalipublications.com/pt/new/#new-sora</link><guid isPermaLink="true">https://tools.lalipublications.com/pt/new/#new-sora</guid><category>Lançamentos</category><description>O modelo de vídeo da OpenAI, agora com seu próprio app social.</description></item>
+  <item><title>Novo e em alta: Manus</title><link>https://tools.lalipublications.com/pt/new/#new-manus</link><guid isPermaLink="true">https://tools.lalipublications.com/pt/new/#new-manus</guid><category>Lançamentos</category><description>Agente autônomo de uso geral que viralizou com tarefas de várias etapas.</description></item>
+  <item><title>Novo e em alta: Lovable</title><link>https://tools.lalipublications.com/pt/new/#new-lovable</link><guid isPermaLink="true">https://tools.lalipublications.com/pt/new/#new-lovable</guid><category>Lançamentos</category><description>Construtor de apps a partir de prompts que está crescendo rápido.</description></item>
+  <item><title>Novo e em alta: NotebookLM</title><link>https://tools.lalipublications.com/pt/new/#new-notebooklm</link><guid isPermaLink="true">https://tools.lalipublications.com/pt/new/#new-notebooklm</guid><category>Lançamentos</category><description>Os resumos em áudio (Audio Overviews) transformaram notas de pesquisa em podcasts.</description></item>
+  <item><title>Novo e em alta: Kling</title><link>https://tools.lalipublications.com/pt/new/#new-kling</link><guid isPermaLink="true">https://tools.lalipublications.com/pt/new/#new-kling</guid><category>Lançamentos</category><description>Concorrente forte em geração de vídeo com IA.</description></item>
+  <item><title>Novo e em alta: DeepSeek</title><link>https://tools.lalipublications.com/pt/new/#new-deepseek</link><guid isPermaLink="true">https://tools.lalipublications.com/pt/new/#new-deepseek</guid><category>Lançamentos</category><description>Modelos de raciocínio com pesos abertos que mexeram com os preços do mercado.</description></item>
+  <item><title>Novo e em alta: Model Context Protocol</title><link>https://tools.lalipublications.com/pt/new/#new-mcp</link><guid isPermaLink="true">https://tools.lalipublications.com/pt/new/#new-mcp</guid><category>Lançamentos</category><description>O protocolo aberto que a maioria das ferramentas de agentes já suporta para acesso a ferramentas.</description></item>
+  <item><title>Novo e em alta: Windsurf</title><link>https://tools.lalipublications.com/pt/new/#new-windsurf</link><guid isPermaLink="true">https://tools.lalipublications.com/pt/new/#new-windsurf</guid><category>Lançamentos</category><description>Editor agêntico que concorre diretamente com o Cursor.</description></item>
+</channel>
+</rss>
