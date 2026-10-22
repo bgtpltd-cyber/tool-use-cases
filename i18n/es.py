@@ -3,6 +3,7 @@ Same structure and conventions as i18n/pt_BR.py; see that file's docstring."""
 CODE = "es"
 PREFIX = "es/"
 SHORT = "ES"
+NATIVE = "Español"           # language switcher label (own script)
 OG_LOCALE = "es_LA"
 RSS_LANG = "es"
 

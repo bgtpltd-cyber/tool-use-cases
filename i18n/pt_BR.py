@@ -9,6 +9,7 @@ Body templates may use: @R/ (site root), @P (this locale's prefix, e.g. "pt/"),
 CODE = "pt-BR"            # <html lang> and hreflang
 PREFIX = "pt/"            # URL prefix
 SHORT = "PT"              # language switcher label
+NATIVE = "Português"           # language switcher label (own script)
 OG_LOCALE = "pt_BR"
 RSS_LANG = "pt-br"
 
