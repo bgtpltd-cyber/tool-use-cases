@@ -548,7 +548,7 @@ def issue_web_md(fn):
     assert a in md; md = md.replace(a, "Write to larrys@lalipublications.com.")  # no "reply" on the web
     return md.rstrip() + "\n\n" + SIGNOFF + "\n"
 for n, islug, iso, dd, subj, prev, fn in ISSUES:
-    page(f"newsletter/{islug}/index.html", subj, prev, f"""
+    page(f"newsletter/{islug}/index.html", subj.split(": ",1)[1] + f" | Tool Picks #{n}" if len(subj) > 60 and ": " in subj else subj, prev, f"""
 <p><small><a href="@R/newsletter/index.html">Tool Picks Weekly</a> / Issue #{n}</small></p><h1>{e(subj)}</h1>
 <p class="muted"><time datetime="{iso}">{dd}</time> · Tool Picks Weekly #{n}</p>
 <article class="issue">{md_to_html(issue_web_md(fn))}</article>
