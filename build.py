@@ -342,6 +342,7 @@ def page(path, title, desc, body, ld=None, noindex=False):
     cu = canon(path)
     lds = "".join(f'<script type="application/ld+json">{json.dumps(x)}</script>' for x in (ld or []))
     doc = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="google-site-verification" content="x6GUDzV6xZINlmNUaA_rPOZxDO1QdZypVq7u_91onuM" />
 <title>{e(title)}</title><meta name="description" content="{e(desc)}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}">
 {'<meta name="robots" content="noindex">' if noindex else ''}<link rel="canonical" href="{cu}"><meta property="og:url" content="{cu}"><meta property="og:type" content="website"><meta property="og:site_name" content="Tool Use Cases">
 <meta property="og:image" content="{OG_IMAGE}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Tool Use Cases: AI tools ranked by the job you need done">
