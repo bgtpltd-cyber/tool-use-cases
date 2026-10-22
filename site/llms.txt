@@ -53,3 +53,44 @@ Sponsorships, corrections and suggestions: larrys@lalipublications.com (Lali Pub
 ## How to cite
 
 Tool Use Cases (Lali Publications). Cite the page name, then the full URL under https://tools.lalipublications.com/. Prefer the specific use-case page.
+
+## Em português (pt-BR)
+
+Versão completa do site em português brasileiro, com os mesmos casos de uso, escolhas e rankings da versão em inglês.
+
+- [Início](https://tools.lalipublications.com/pt/)
+- [Todas as ferramentas de A a Z](https://tools.lalipublications.com/pt/tools/)
+- [Lançamentos e tendências](https://tools.lalipublications.com/pt/new/)
+- [Sobre](https://tools.lalipublications.com/pt/about/)
+- [Patrocínio](https://tools.lalipublications.com/pt/sponsor/)
+- [RSS](https://tools.lalipublications.com/pt/feed.xml)
+- [Melhor IA para vibe coding](https://tools.lalipublications.com/pt/use-cases/best-ai-for-vibe-coding/): Descreva, rode, ajuste. Ferramentas para criar software basicamente conversando.
+- [Melhores agentes de IA para programação](https://tools.lalipublications.com/pt/use-cases/best-ai-coding-agents/): Agentes que pegam uma tarefa, editam vários arquivos, rodam comandos e voltam com um diff.
+- [Melhor IA para corrigir código quebrado e erros](https://tools.lalipublications.com/pt/use-cases/best-ai-for-fixing-broken-code/): Cole o stack trace e receba a correção. Ferramentas boas em debugar, não só em gerar código.
+- [Melhor IA para prototipar jogos](https://tools.lalipublications.com/pt/use-cases/best-ai-for-game-prototyping/): Coloque uma ideia jogável na tela rápido — código, arte, 3D e música.
+- [Melhor IA para vídeo e YouTube](https://tools.lalipublications.com/pt/use-cases/best-ai-for-video-youtube/): Gere cenas, edite mais rápido, coloque voz e corte tudo em Shorts.
+- [Melhores assistentes de escrita com IA](https://tools.lalipublications.com/pt/use-cases/best-ai-writing-assistants/): Rascunhar, editar e reescrever — documentos, posts de blog, READMEs, e-mails.
+- [Melhor IA para pesquisa](https://tools.lalipublications.com/pt/use-cases/best-ai-for-research/): Encontre fontes, leia e resuma — com citações que você pode conferir.
+- [Melhor IA para gerar imagens](https://tools.lalipublications.com/pt/use-cases/best-ai-image-generation/): Thumbnails, arte conceitual, mockups, memes.
+- [Melhores ferramentas para rodar IA localmente](https://tools.lalipublications.com/pt/use-cases/best-ai-for-running-local-models/): IA privada e sem custo de uso, na sua própria máquina.
+- [Melhor IA para fluxos de automação](https://tools.lalipublications.com/pt/use-cases/best-ai-for-automation-workflows/): Conecte seus apps e deixe a IA cuidar das etapas repetitivas — triggers, agentes e código de integração.
+- [Melhor IA para landing pages](https://tools.lalipublications.com/pt/use-cases/best-ai-for-landing-pages/): Da ideia a uma landing page no ar e com cara decente em uma tarde.
+- [Melhor IA para design de UI](https://tools.lalipublications.com/pt/use-cases/best-ai-for-ui-design/): Transforme um prompt ou esboço em telas e, depois, em algo que dá para construir.
+- [Melhor IA de voz e texto para fala](https://tools.lalipublications.com/pt/use-cases/best-ai-voice-tts/): Locuções, narração, vozes clonadas e fala para apps, sem microfone.
+- [Melhor IA para música](https://tools.lalipublications.com/pt/use-cases/best-ai-for-music/): Músicas, trilhas sonoras e música de fundo a partir de um prompt.
+- [Melhor IA para conteúdo de SEO](https://tools.lalipublications.com/pt/use-cases/best-ai-for-seo-content/): Pesquise, estruture e escreva páginas que podem ranquear — sem publicar lixo gerado por IA.
+- [Melhor IA para e-mails de vendas](https://tools.lalipublications.com/pt/use-cases/best-ai-for-sales-emails/): Escreva cold e-mails e follow-ups melhores — pessoais, curtos e sem cara de IA.
+- [Melhor IA para dados e planilhas](https://tools.lalipublications.com/pt/use-cases/best-ai-for-data-spreadsheets/): Analise CSVs, escreva fórmulas e crie gráficos pedindo em linguagem natural.
+- [Melhor IA para apresentações](https://tools.lalipublications.com/pt/use-cases/best-ai-for-presentations/): Do roteiro a uma apresentação decente, em pouco tempo.
+- [Melhor IA para assets 3D](https://tools.lalipublications.com/pt/use-cases/best-ai-for-3d-assets/): Gere props, personagens e modelos a partir de texto ou imagens.
+- [Melhor IA para notas de reunião](https://tools.lalipublications.com/pt/use-cases/best-ai-for-meeting-notes/): Grave, transcreva e resuma reuniões para ninguém precisar fazer anotações.
+- [Melhor IA para chatbots e RAG](https://tools.lalipublications.com/pt/use-cases/best-ai-for-chatbots-rag/): Crie um assistente que responde com base nos seus próprios documentos — do no-code ao código sob medida.
+- [Melhor hospedagem para apps feitos com IA](https://tools.lalipublications.com/pt/use-cases/best-ai-for-deploy-hosting/): Onde colocar no ar o app que suas ferramentas de IA acabaram de criar. Estas são plataformas de hospedagem, não ferramentas de IA — escolhidas pelo quanto combinam com quem constrói com ajuda de IA.
+- [Melhor IA para criar extensões do Chrome](https://tools.lalipublications.com/pt/use-cases/best-ai-for-chrome-extensions/): Do 'devia ter um botão pra isso' a uma extensão de navegador funcionando.
+- [Melhor IA para thumbnails e títulos no YouTube](https://tools.lalipublications.com/pt/use-cases/best-ai-for-thumbnails-youtube-packaging/): Thumbnails, títulos e o gancho que faz a pessoa clicar.
+- [Melhores frameworks de agentes de IA](https://tools.lalipublications.com/pt/use-cases/best-ai-for-agent-frameworks/): Frameworks em código para criar seus próprios agentes com ferramentas, memória e workflows de várias etapas.
+- [Melhor IA para logos e branding](https://tools.lalipublications.com/pt/use-cases/best-ai-for-logos-brand/): Ideias de logo, símbolos de marca e um brand kit inicial, em pouco tempo.
+- [Melhor IA para atendimento ao cliente](https://tools.lalipublications.com/pt/use-cases/best-ai-for-customer-support/): Responda os clientes mais rápido com agentes de IA e respostas rascunhadas por IA.
+- [Melhor IA para web scraping](https://tools.lalipublications.com/pt/use-cases/best-ai-for-scraping/): Transforme sites em dados limpos para apps, pesquisa e pipelines de IA. Respeite os termos de uso e o robots.txt de cada site.
+- [Melhor IA para testes de API](https://tools.lalipublications.com/pt/use-cases/best-ai-for-api-testing/): Escreva requisições, gere testes e debugue endpoints que estão falhando.
+- [Melhor IA para notas e documentos](https://tools.lalipublications.com/pt/use-cases/best-ai-for-notion-docs/): Escreva, organize e pesquise suas notas e os documentos do time com IA.
