@@ -20,7 +20,7 @@ A Lali Publications site · Contact: Larry Surroach, larrys@lalipublications.com
 
 | Use-case page | Price |
 |---|---|
-| Best AI for vibe coding | $199 / month |
+| Best AI for vibe coding | $399 / month |
 | Best AI coding agents | $199 / month |
 | Best AI image generation | $149 / month |
 | Best AI for video and YouTube | $149 / month |
