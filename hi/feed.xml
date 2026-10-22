@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Tool Use Cases (हिन्दी)</title>
+  <link>https://tools.lalipublications.com/hi/</link>
+  <atom:link href="https://tools.lalipublications.com/hi/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>किस काम के लिए कौन-सा AI टूल — vibe coders और builders के लिए। Tool Picks Weekly के इश्यू (अंग्रेज़ी में) और ध्यान देने लायक नए AI टूल लॉन्च।</description>
+  <language>hi</language>
+  <lastBuildDate>Mon, 19 Oct 2026 12:00:00 +0000</lastBuildDate>
+  <image><url>https://tools.lalipublications.com/og-image.png</url><title>Tool Use Cases (हिन्दी)</title><link>https://tools.lalipublications.com/hi/</link></image>
+  <item><title>Tool Picks Weekly #1: Your vibe-coded app can now talk, search and scrape (अंग्रेज़ी में)</title><link>https://tools.lalipublications.com/newsletter/issue-1/</link><guid isPermaLink="true">https://tools.lalipublications.com/newsletter/issue-1/</guid><pubDate>Mon, 19 Oct 2026 12:00:00 +0000</pubDate><category>न्यूज़लेटर</category><description>Five tools for the jobs that come right after "it works on my screen."</description></item>
+  <item><title>नया और ट्रेंडिंग: Claude Code</title><link>https://tools.lalipublications.com/hi/new/#new-claude-code</link><guid isPermaLink="true">https://tools.lalipublications.com/hi/new/#new-claude-code</guid><category>नए लॉन्च</category><description>Anthropic का terminal coding agent — सबसे ज़्यादा चर्चा में रहने वाले dev टूल्स में से एक।</description></item>
+  <item><title>नया और ट्रेंडिंग: OpenAI Codex</title><link>https://tools.lalipublications.com/hi/new/#new-codex</link><guid isPermaLink="true">https://tools.lalipublications.com/hi/new/#new-codex</guid><category>नए लॉन्च</category><description>OpenAI का दोबारा लॉन्च हुआ Codex coding agent (cloud + CLI)।</description></item>
+  <item><title>नया और ट्रेंडिंग: Google Veo</title><link>https://tools.lalipublications.com/hi/new/#new-veo</link><guid isPermaLink="true">https://tools.lalipublications.com/hi/new/#new-veo</guid><category>नए लॉन्च</category><description>Google का वीडियो model, जो अब synced audio भी बनाता है।</description></item>
+  <item><title>नया और ट्रेंडिंग: Sora</title><link>https://tools.lalipublications.com/hi/new/#new-sora</link><guid isPermaLink="true">https://tools.lalipublications.com/hi/new/#new-sora</guid><category>नए लॉन्च</category><description>OpenAI का वीडियो model, अब अपने social ऐप के साथ।</description></item>
+  <item><title>नया और ट्रेंडिंग: Manus</title><link>https://tools.lalipublications.com/hi/new/#new-manus</link><guid isPermaLink="true">https://tools.lalipublications.com/hi/new/#new-manus</guid><category>नए लॉन्च</category><description>Autonomous general agent, जो multi-step टास्क की वजह से वायरल हुआ।</description></item>
+  <item><title>नया और ट्रेंडिंग: Lovable</title><link>https://tools.lalipublications.com/hi/new/#new-lovable</link><guid isPermaLink="true">https://tools.lalipublications.com/hi/new/#new-lovable</guid><category>नए लॉन्च</category><description>तेज़ी से बढ़ता prompt-to-app builder।</description></item>
+  <item><title>नया और ट्रेंडिंग: NotebookLM</title><link>https://tools.lalipublications.com/hi/new/#new-notebooklm</link><guid isPermaLink="true">https://tools.lalipublications.com/hi/new/#new-notebooklm</guid><category>नए लॉन्च</category><description>Audio Overviews ने research notes को podcasts में बदल दिया।</description></item>
+  <item><title>नया और ट्रेंडिंग: Kling</title><link>https://tools.lalipublications.com/hi/new/#new-kling</link><guid isPermaLink="true">https://tools.lalipublications.com/hi/new/#new-kling</guid><category>नए लॉन्च</category><description>AI वीडियो generation में मज़बूत दावेदार।</description></item>
+  <item><title>नया और ट्रेंडिंग: DeepSeek</title><link>https://tools.lalipublications.com/hi/new/#new-deepseek</link><guid isPermaLink="true">https://tools.lalipublications.com/hi/new/#new-deepseek</guid><category>नए लॉन्च</category><description>Open-weight reasoning models, जिन्होंने pricing में हलचल मचा दी।</description></item>
+  <item><title>नया और ट्रेंडिंग: Model Context Protocol</title><link>https://tools.lalipublications.com/hi/new/#new-mcp</link><guid isPermaLink="true">https://tools.lalipublications.com/hi/new/#new-mcp</guid><category>नए लॉन्च</category><description>वह open protocol जिसे अब ज़्यादातर agent टूल्स tools access के लिए सपोर्ट करते हैं।</description></item>
+  <item><title>नया और ट्रेंडिंग: Windsurf</title><link>https://tools.lalipublications.com/hi/new/#new-windsurf</link><guid isPermaLink="true">https://tools.lalipublications.com/hi/new/#new-windsurf</guid><category>नए लॉन्च</category><description>Agentic एडिटर, जो सीधे Cursor को टक्कर देता है।</description></item>
+</channel>
+</rss>

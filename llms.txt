@@ -134,3 +134,47 @@ Versión completa del sitio en español, con los mismos casos de uso, recomendac
 - [Mejor IA para web scraping](https://tools.lalipublications.com/es/use-cases/best-ai-for-scraping/): Convierte sitios web en datos limpios para apps, investigación y pipelines de IA. Respeta los términos de cada sitio y su robots.txt.
 - [Mejor IA para pruebas de API](https://tools.lalipublications.com/es/use-cases/best-ai-for-api-testing/): Escribe solicitudes, genera pruebas y depura endpoints que fallan.
 - [Mejor IA para notas y documentos](https://tools.lalipublications.com/es/use-cases/best-ai-for-notion-docs/): Escribe, organiza y busca en tus notas y en los documentos de tu equipo con IA.
+## हिन्दी में (hi)
+
+पूरी साइट हिन्दी में, वही use cases, वही पसंद और वही रैंकिंग जो अंग्रेज़ी वर्ज़न में है।
+
+- [होम](https://tools.lalipublications.com/hi/)
+- [सारे AI टूल्स A से Z](https://tools.lalipublications.com/hi/tools/)
+- [नए लॉन्च और ट्रेंडिंग](https://tools.lalipublications.com/hi/new/)
+- [हमारे बारे में](https://tools.lalipublications.com/hi/about/)
+- [स्पॉन्सर](https://tools.lalipublications.com/hi/sponsor/)
+- [RSS](https://tools.lalipublications.com/hi/feed.xml)
+- [Vibe coding के लिए बेस्ट AI](https://tools.lalipublications.com/hi/use-cases/best-ai-for-vibe-coding/): बताइए, चलाइए, सुधारिए। ऐसे टूल्स जिनसे आप ज़्यादातर बातचीत करके ही सॉफ़्टवेयर बना लेते हैं।
+- [बेस्ट AI coding agents](https://tools.lalipublications.com/hi/use-cases/best-ai-coding-agents/): ऐसे agents जो टास्क लेते हैं, कई फ़ाइलें एडिट करते हैं, commands चलाते हैं और diff के साथ लौटते हैं।
+- [टूटा कोड और errors ठीक करने के लिए बेस्ट AI](https://tools.lalipublications.com/hi/use-cases/best-ai-for-fixing-broken-code/): Stack trace पेस्ट करें, fix पाएँ। ऐसे टूल्स जो सिर्फ़ कोड बनाने में नहीं, debugging में भी अच्छे हैं।
+- [गेम prototyping के लिए बेस्ट AI](https://tools.lalipublications.com/hi/use-cases/best-ai-for-game-prototyping/): खेलने लायक आइडिया जल्दी स्क्रीन पर लाएँ — कोड, art, 3D और म्यूज़िक।
+- [वीडियो और YouTube के लिए बेस्ट AI](https://tools.lalipublications.com/hi/use-cases/best-ai-for-video-youtube/): Footage बनाएँ, तेज़ी से एडिट करें, voice डालें और Shorts काटें।
+- [बेस्ट AI writing assistants](https://tools.lalipublications.com/hi/use-cases/best-ai-writing-assistants/): Drafting, editing और rewriting — docs, blog posts, READMEs, emails।
+- [रिसर्च के लिए बेस्ट AI](https://tools.lalipublications.com/hi/use-cases/best-ai-for-research/): Sources ढूँढें, पढ़ें और summarize करें — ऐसे citations के साथ जिन्हें आप चेक कर सकें।
+- [Image generation के लिए बेस्ट AI](https://tools.lalipublications.com/hi/use-cases/best-ai-image-generation/): Thumbnails, concept art, mockups, memes।
+- [AI को लोकली चलाने के लिए बेस्ट टूल्स](https://tools.lalipublications.com/hi/use-cases/best-ai-for-running-local-models/): आपकी अपनी मशीन पर प्राइवेट AI, जिसे चलाने का कोई खर्च नहीं।
+- [Automation workflows के लिए बेस्ट AI](https://tools.lalipublications.com/hi/use-cases/best-ai-for-automation-workflows/): अपने ऐप्स जोड़ें और बार-बार वाले स्टेप्स AI को संभालने दें — triggers, agents और glue code।
+- [Landing pages के लिए बेस्ट AI](https://tools.lalipublications.com/hi/use-cases/best-ai-for-landing-pages/): एक दोपहर में आइडिया से live और ठीक-ठाक दिखने वाले landing page तक।
+- [UI design के लिए बेस्ट AI](https://tools.lalipublications.com/hi/use-cases/best-ai-for-ui-design/): Prompt या sketch को screens में बदलें, फिर ऐसी चीज़ में जिसे आप बना सकें।
+- [बेस्ट AI voice और text-to-speech](https://tools.lalipublications.com/hi/use-cases/best-ai-voice-tts/): बिना mic के voiceovers, narration, cloned voices और ऐप speech।
+- [म्यूज़िक के लिए बेस्ट AI](https://tools.lalipublications.com/hi/use-cases/best-ai-for-music/): Prompt से गाने, soundtracks और background म्यूज़िक।
+- [SEO content के लिए बेस्ट AI](https://tools.lalipublications.com/hi/use-cases/best-ai-for-seo-content/): ऐसे पेजों की रिसर्च, outline और लिखाई जो rank कर सकें — बिना AI वाला कचरा publish किए।
+- [Sales emails के लिए बेस्ट AI](https://tools.lalipublications.com/hi/use-cases/best-ai-for-sales-emails/): बेहतर cold और follow-up emails लिखें — personal, छोटे, और साफ़-साफ़ AI जैसे नहीं।
+- [डेटा और spreadsheets के लिए बेस्ट AI](https://tools.lalipublications.com/hi/use-cases/best-ai-for-data-spreadsheets/): CSVs analyze करें, formulas लिखें और charts बनाएँ — बस आसान अंग्रेज़ी में पूछकर।
+- [Presentations के लिए बेस्ट AI](https://tools.lalipublications.com/hi/use-cases/best-ai-for-presentations/): Outline से ठीक-ठाक slide deck तक, जल्दी।
+- [3D assets के लिए बेस्ट AI](https://tools.lalipublications.com/hi/use-cases/best-ai-for-3d-assets/): Text या images से props, characters और models बनाएँ।
+- [मीटिंग notes के लिए बेस्ट AI](https://tools.lalipublications.com/hi/use-cases/best-ai-for-meeting-notes/): कॉल्स रिकॉर्ड, transcribe और summarize करें, ताकि किसी को notes न लेने पड़ें।
+- [Chatbots और RAG के लिए बेस्ट AI](https://tools.lalipublications.com/hi/use-cases/best-ai-for-chatbots-rag/): ऐसा असिस्टेंट बनाएँ जो आपके अपने docs से जवाब दे — no-code से लेकर custom कोड तक।
+- [AI से बने ऐप्स के लिए बेस्ट hosting](https://tools.lalipublications.com/hi/use-cases/best-ai-for-deploy-hosting/): आपके AI टूल्स ने जो ऐप अभी बनाया, उसे कहाँ ship करें। ये AI टूल्स नहीं, hosting प्लेटफ़ॉर्म हैं — इन्हें इस हिसाब से चुना है कि ये AI की मदद से बनाने वालों के लिए कितने फ़िट हैं।
+- [Chrome extensions बनाने के लिए बेस्ट AI](https://tools.lalipublications.com/hi/use-cases/best-ai-for-chrome-extensions/): 'इसके लिए एक बटन होना चाहिए' से एक चालू browser extension तक।
+- [YouTube thumbnails और packaging के लिए बेस्ट AI](https://tools.lalipublications.com/hi/use-cases/best-ai-for-thumbnails-youtube-packaging/): Thumbnails, titles और वो hook जो क्लिक दिलाता है।
+- [बेस्ट AI agent frameworks](https://tools.lalipublications.com/hi/use-cases/best-ai-for-agent-frameworks/): Tools, memory और multi-step workflows वाले अपने agents बनाने के लिए code frameworks।
+- [Logos और branding के लिए बेस्ट AI](https://tools.lalipublications.com/hi/use-cases/best-ai-for-logos-brand/): Logo आइडियाज़, brand marks और शुरुआती brand kit, जल्दी।
+- [Customer support के लिए बेस्ट AI](https://tools.lalipublications.com/hi/use-cases/best-ai-for-customer-support/): AI agents और AI से लिखे replies के साथ कस्टमर्स को जल्दी जवाब दें।
+- [Web scraping के लिए बेस्ट AI](https://tools.lalipublications.com/hi/use-cases/best-ai-for-scraping/): वेबसाइट्स को ऐप्स, रिसर्च और AI pipelines के लिए साफ़ डेटा में बदलें। हर साइट की terms और robots.txt का सम्मान करें।
+- [API testing के लिए बेस्ट AI](https://tools.lalipublications.com/hi/use-cases/best-ai-for-api-testing/): Requests लिखें, tests बनाएँ और फ़ेल हो रहे endpoints debug करें।
+- [Notes और docs के लिए बेस्ट AI](https://tools.lalipublications.com/hi/use-cases/best-ai-for-notion-docs/): AI से अपने notes और टीम docs लिखें, organize करें और सर्च करें।
+## India
+
+- [Best AI tools for Indian builders, by use case](https://tools.lalipublications.com/in/): English hub linking to every Indian-language edition (Hindi).
+
