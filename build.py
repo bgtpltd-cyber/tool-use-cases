@@ -323,7 +323,6 @@ input[type=search]{width:100%;padding:11px 14px;font-size:1rem;border:1px solid 
 ol.tools{list-style:none;padding:0}ol.tools li{margin-bottom:12px}footer{margin-top:48px;padding:18px 0;font-size:.9rem}
 .nl{background:#fff;border:2px solid #0b5cad;border-radius:8px;padding:16px;margin:28px 0}.nl h2{margin:0 0 4px}.nl form{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}.nl input[type=email]{flex:1;min-width:200px;padding:10px 12px;font-size:1rem;border:1px solid #bbb;border-radius:6px}.nl button{background:#0b5cad;color:#fff;border:0;padding:10px 18px;border-radius:6px;font-weight:600;font-size:1rem;cursor:pointer}footer .nl{background:#26384a;border-color:#4a6a8a;color:#eee}footer .nl small{color:#ccc}
 .cta{background:#eef4fb;border:1px solid #cbdcef;border-radius:8px;padding:16px;margin:28px 0}small,.muted{color:#666}
-.offer{background:#fff8e6;border:1px solid #e3b341;border-left:5px solid #c08a00;border-radius:8px;padding:12px 16px;margin:16px 0}
 .issue{background:#fff;border:1px solid #ddd;border-radius:8px;padding:6px 20px;margin:14px 0}.issue h2{font-size:1.3rem;margin:22px 0 6px}"""
 
 JS = """document.querySelectorAll('[data-filter]').forEach(function(i){var t=document.querySelectorAll(i.dataset.filter);
@@ -470,13 +469,8 @@ nl = "".join(f'<div class="card f" id="new-{s}"><span class="badge" style="backg
 page("new/index.html","New & trending AI tools — Tool Use Cases","Notable and trending AI tool releases for builders: coding agents, video models, research tools and more.",f"""
 <h1>New releases &amp; trending</h1><p class="lede">Recently launched or recently relaunched AI tools worth a look. We label these "notable / trending" rather than guessing exact launch dates.</p><div class="grid">{nl}</div>""", ld=[crumbs(("New & trending","new/")), coll("CollectionPage","New & trending AI tools","Notable and trending AI tool releases for builders.","new/")])
 
-from zoneinfo import ZoneInfo
-OFFER_END = "2026-10-30"  # launch offer shows only while the LA build date is on/before this
-OFFER_ON = datetime.now(ZoneInfo("America/Los_Angeles")).date().isoformat() <= OFFER_END
-OFFER_MAILTO = f"mailto:{EMAIL}?subject=Sponsor%20launch%20offer"
-OFFER = (f'<div class="offer"><b>Launch offer:</b> 33% off any sponsor slot booked by October 30, 2026. <a href="{OFFER_MAILTO}">Email {EMAIL}</a> to claim it.</div>') if OFFER_ON else ""
 page("sponsor/index.html","Sponsor Tool Use Cases — feature your AI tool","Tool makers can sponsor a clearly labeled featured slot at the top of relevant use-case pages.",f"""
-<h1>Sponsor a use case</h1><p class="lede">Reach vibe coders and builders at the moment they're choosing a tool.</p>{OFFER}
+<h1>Sponsor a use case</h1><p class="lede">Reach vibe coders and builders at the moment they're choosing a tool.</p>
 <h2>How it works</h2><ul><li>One <b>Sponsored / Featured</b> slot sits at the top of each use-case page.</li><li>It's always clearly labeled "Sponsored" and kept separate from our editorial picks.</li><li>We only accept tools that genuinely fit the use case.</li><li>Sponsorship never changes our verdicts or rankings.</li></ul>
 <h2>Example</h2>{SPONSOR_CARD}
 <div class="cta">Pricing and availability on request. <a class="btn" href="mailto:{EMAIL}?subject=Sponsor%20Tool%20Use%20Cases">Email to sponsor</a></div>""", ld=[crumbs(("Sponsor","sponsor/"))])
