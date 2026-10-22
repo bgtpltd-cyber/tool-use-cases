@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Tool Use Cases (ಕನ್ನಡ)</title>
+  <link>https://tools.lalipublications.com/kn/</link>
+  <atom:link href="https://tools.lalipublications.com/kn/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>ಯಾವ ಕೆಲಸಕ್ಕೆ ಯಾವ AI ಟೂಲ್ — vibe coders ಮತ್ತು builders ಗಾಗಿ. Tool Picks Weekly ಸಂಚಿಕೆಗಳು (ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ) ಮತ್ತು ಗಮನಿಸಬೇಕಾದ ಹೊಸ AI ಟೂಲ್ ಲಾಂಚ್‌ಗಳು.</description>
+  <language>kn</language>
+  <lastBuildDate>Mon, 19 Oct 2026 12:00:00 +0000</lastBuildDate>
+  <image><url>https://tools.lalipublications.com/og-image.png</url><title>Tool Use Cases (ಕನ್ನಡ)</title><link>https://tools.lalipublications.com/kn/</link></image>
+  <item><title>Tool Picks Weekly #1: Your vibe-coded app can now talk, search and scrape (ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ)</title><link>https://tools.lalipublications.com/newsletter/issue-1/</link><guid isPermaLink="true">https://tools.lalipublications.com/newsletter/issue-1/</guid><pubDate>Mon, 19 Oct 2026 12:00:00 +0000</pubDate><category>ನ್ಯೂಸ್‌ಲೆಟರ್</category><description>Five tools for the jobs that come right after "it works on my screen."</description></item>
+  <item><title>ಹೊಸದು, ಟ್ರೆಂಡಿಂಗ್: Claude Code</title><link>https://tools.lalipublications.com/kn/new/#new-claude-code</link><guid isPermaLink="true">https://tools.lalipublications.com/kn/new/#new-claude-code</guid><category>ಹೊಸ ಲಾಂಚ್‌ಗಳು</category><description>Anthropic ನ terminal coding agent — ಅತಿ ಹೆಚ್ಚು ಚರ್ಚೆಯಲ್ಲಿರುವ dev ಟೂಲ್‌ಗಳಲ್ಲಿ ಒಂದು.</description></item>
+  <item><title>ಹೊಸದು, ಟ್ರೆಂಡಿಂಗ್: OpenAI Codex</title><link>https://tools.lalipublications.com/kn/new/#new-codex</link><guid isPermaLink="true">https://tools.lalipublications.com/kn/new/#new-codex</guid><category>ಹೊಸ ಲಾಂಚ್‌ಗಳು</category><description>OpenAI ಮತ್ತೆ ಲಾಂಚ್ ಮಾಡಿದ Codex coding agent (cloud + CLI).</description></item>
+  <item><title>ಹೊಸದು, ಟ್ರೆಂಡಿಂಗ್: Google Veo</title><link>https://tools.lalipublications.com/kn/new/#new-veo</link><guid isPermaLink="true">https://tools.lalipublications.com/kn/new/#new-veo</guid><category>ಹೊಸ ಲಾಂಚ್‌ಗಳು</category><description>Google ನ ವಿಡಿಯೋ model, ಈಗ synced audio ಕೂಡ ತಯಾರಿಸುತ್ತದೆ.</description></item>
+  <item><title>ಹೊಸದು, ಟ್ರೆಂಡಿಂಗ್: Sora</title><link>https://tools.lalipublications.com/kn/new/#new-sora</link><guid isPermaLink="true">https://tools.lalipublications.com/kn/new/#new-sora</guid><category>ಹೊಸ ಲಾಂಚ್‌ಗಳು</category><description>OpenAI ನ ವಿಡಿಯೋ model, ಈಗ ತನ್ನದೇ social ಆ್ಯಪ್ ಜೊತೆ.</description></item>
+  <item><title>ಹೊಸದು, ಟ್ರೆಂಡಿಂಗ್: Manus</title><link>https://tools.lalipublications.com/kn/new/#new-manus</link><guid isPermaLink="true">https://tools.lalipublications.com/kn/new/#new-manus</guid><category>ಹೊಸ ಲಾಂಚ್‌ಗಳು</category><description>Multi-step ಕೆಲಸಗಳಿಂದ viral ಆದ autonomous general agent.</description></item>
+  <item><title>ಹೊಸದು, ಟ್ರೆಂಡಿಂಗ್: Lovable</title><link>https://tools.lalipublications.com/kn/new/#new-lovable</link><guid isPermaLink="true">https://tools.lalipublications.com/kn/new/#new-lovable</guid><category>ಹೊಸ ಲಾಂಚ್‌ಗಳು</category><description>ವೇಗವಾಗಿ ಬೆಳೆಯುತ್ತಿರುವ prompt-to-app builder.</description></item>
+  <item><title>ಹೊಸದು, ಟ್ರೆಂಡಿಂಗ್: NotebookLM</title><link>https://tools.lalipublications.com/kn/new/#new-notebooklm</link><guid isPermaLink="true">https://tools.lalipublications.com/kn/new/#new-notebooklm</guid><category>ಹೊಸ ಲಾಂಚ್‌ಗಳು</category><description>Audio Overviews ಮೂಲಕ research notes ಅನ್ನು podcasts ಆಗಿ ಬದಲಾಯಿಸಿತು.</description></item>
+  <item><title>ಹೊಸದು, ಟ್ರೆಂಡಿಂಗ್: Kling</title><link>https://tools.lalipublications.com/kn/new/#new-kling</link><guid isPermaLink="true">https://tools.lalipublications.com/kn/new/#new-kling</guid><category>ಹೊಸ ಲಾಂಚ್‌ಗಳು</category><description>AI ವಿಡಿಯೋ generation ನಲ್ಲಿ ಬಲಿಷ್ಠ ಸ್ಪರ್ಧಿ.</description></item>
+  <item><title>ಹೊಸದು, ಟ್ರೆಂಡಿಂಗ್: DeepSeek</title><link>https://tools.lalipublications.com/kn/new/#new-deepseek</link><guid isPermaLink="true">https://tools.lalipublications.com/kn/new/#new-deepseek</guid><category>ಹೊಸ ಲಾಂಚ್‌ಗಳು</category><description>Pricing ಅನ್ನೇ ಅಲ್ಲಾಡಿಸಿದ open-weight reasoning models.</description></item>
+  <item><title>ಹೊಸದು, ಟ್ರೆಂಡಿಂಗ್: Model Context Protocol</title><link>https://tools.lalipublications.com/kn/new/#new-mcp</link><guid isPermaLink="true">https://tools.lalipublications.com/kn/new/#new-mcp</guid><category>ಹೊಸ ಲಾಂಚ್‌ಗಳು</category><description>ಈಗ ಬಹುತೇಕ agent ಟೂಲ್‌ಗಳು tools access ಗಾಗಿ support ಮಾಡುವ open protocol.</description></item>
+  <item><title>ಹೊಸದು, ಟ್ರೆಂಡಿಂಗ್: Windsurf</title><link>https://tools.lalipublications.com/kn/new/#new-windsurf</link><guid isPermaLink="true">https://tools.lalipublications.com/kn/new/#new-windsurf</guid><category>ಹೊಸ ಲಾಂಚ್‌ಗಳು</category><description>Cursor ಗೆ ನೇರ ಪೈಪೋಟಿ ಕೊಡುವ agentic ಎಡಿಟರ್.</description></item>
+</channel>
+</rss>

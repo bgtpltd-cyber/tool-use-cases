@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Tool Use Cases (বাংলা)</title>
+  <link>https://tools.lalipublications.com/bn/</link>
+  <atom:link href="https://tools.lalipublications.com/bn/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>কোন কাজের জন্য কোন AI টুল — vibe coders আর builders-দের জন্য। Tool Picks Weekly-র ইস্যু (ইংরেজিতে) আর নজর রাখার মতো নতুন AI টুল লঞ্চ।</description>
+  <language>bn</language>
+  <lastBuildDate>Mon, 19 Oct 2026 12:00:00 +0000</lastBuildDate>
+  <image><url>https://tools.lalipublications.com/og-image.png</url><title>Tool Use Cases (বাংলা)</title><link>https://tools.lalipublications.com/bn/</link></image>
+  <item><title>Tool Picks Weekly #1: Your vibe-coded app can now talk, search and scrape (ইংরেজিতে)</title><link>https://tools.lalipublications.com/newsletter/issue-1/</link><guid isPermaLink="true">https://tools.lalipublications.com/newsletter/issue-1/</guid><pubDate>Mon, 19 Oct 2026 12:00:00 +0000</pubDate><category>নিউজলেটার</category><description>Five tools for the jobs that come right after "it works on my screen."</description></item>
+  <item><title>নতুন ও ট্রেন্ডিং: Claude Code</title><link>https://tools.lalipublications.com/bn/new/#new-claude-code</link><guid isPermaLink="true">https://tools.lalipublications.com/bn/new/#new-claude-code</guid><category>নতুন লঞ্চ</category><description>Anthropic-এর terminal coding agent — সবচেয়ে বেশি আলোচিত dev টুলসের একটা।</description></item>
+  <item><title>নতুন ও ট্রেন্ডিং: OpenAI Codex</title><link>https://tools.lalipublications.com/bn/new/#new-codex</link><guid isPermaLink="true">https://tools.lalipublications.com/bn/new/#new-codex</guid><category>নতুন লঞ্চ</category><description>OpenAI-এর নতুন করে লঞ্চ করা Codex coding agent (cloud + CLI)।</description></item>
+  <item><title>নতুন ও ট্রেন্ডিং: Google Veo</title><link>https://tools.lalipublications.com/bn/new/#new-veo</link><guid isPermaLink="true">https://tools.lalipublications.com/bn/new/#new-veo</guid><category>নতুন লঞ্চ</category><description>Google-এর ভিডিও model, এখন synced audio-ও বানায়।</description></item>
+  <item><title>নতুন ও ট্রেন্ডিং: Sora</title><link>https://tools.lalipublications.com/bn/new/#new-sora</link><guid isPermaLink="true">https://tools.lalipublications.com/bn/new/#new-sora</guid><category>নতুন লঞ্চ</category><description>OpenAI-এর ভিডিও model, এখন নিজস্ব social অ্যাপ সহ।</description></item>
+  <item><title>নতুন ও ট্রেন্ডিং: Manus</title><link>https://tools.lalipublications.com/bn/new/#new-manus</link><guid isPermaLink="true">https://tools.lalipublications.com/bn/new/#new-manus</guid><category>নতুন লঞ্চ</category><description>Autonomous general agent, multi-step কাজের জন্য যা ভাইরাল হয়েছিল।</description></item>
+  <item><title>নতুন ও ট্রেন্ডিং: Lovable</title><link>https://tools.lalipublications.com/bn/new/#new-lovable</link><guid isPermaLink="true">https://tools.lalipublications.com/bn/new/#new-lovable</guid><category>নতুন লঞ্চ</category><description>দ্রুত বেড়ে চলা prompt-to-app builder।</description></item>
+  <item><title>নতুন ও ট্রেন্ডিং: NotebookLM</title><link>https://tools.lalipublications.com/bn/new/#new-notebooklm</link><guid isPermaLink="true">https://tools.lalipublications.com/bn/new/#new-notebooklm</guid><category>নতুন লঞ্চ</category><description>Audio Overviews research notes-কে podcasts-এ বদলে দিয়েছে।</description></item>
+  <item><title>নতুন ও ট্রেন্ডিং: Kling</title><link>https://tools.lalipublications.com/bn/new/#new-kling</link><guid isPermaLink="true">https://tools.lalipublications.com/bn/new/#new-kling</guid><category>নতুন লঞ্চ</category><description>AI ভিডিও generation-এ জোরালো প্রতিযোগী।</description></item>
+  <item><title>নতুন ও ট্রেন্ডিং: DeepSeek</title><link>https://tools.lalipublications.com/bn/new/#new-deepseek</link><guid isPermaLink="true">https://tools.lalipublications.com/bn/new/#new-deepseek</guid><category>নতুন লঞ্চ</category><description>Open-weight reasoning models, যা pricing-এ নাড়া দিয়েছে।</description></item>
+  <item><title>নতুন ও ট্রেন্ডিং: Model Context Protocol</title><link>https://tools.lalipublications.com/bn/new/#new-mcp</link><guid isPermaLink="true">https://tools.lalipublications.com/bn/new/#new-mcp</guid><category>নতুন লঞ্চ</category><description>সেই open protocol, যা এখন বেশিরভাগ agent টুলস tools access-এর জন্য সাপোর্ট করে।</description></item>
+  <item><title>নতুন ও ট্রেন্ডিং: Windsurf</title><link>https://tools.lalipublications.com/bn/new/#new-windsurf</link><guid isPermaLink="true">https://tools.lalipublications.com/bn/new/#new-windsurf</guid><category>নতুন লঞ্চ</category><description>Agentic এডিটর, যা সরাসরি Cursor-এর সঙ্গে টক্কর দেয়।</description></item>
+</channel>
+</rss>
