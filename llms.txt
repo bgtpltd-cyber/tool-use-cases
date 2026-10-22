@@ -414,6 +414,46 @@ Versión completa del sitio en español, con los mismos casos de uso, recomendac
 - [Web scraping-ന് മികച്ച AI](https://tools.lalipublications.com/ml/use-cases/best-ai-for-scraping/): വെബ്‌സൈറ്റുകളെ ആപ്പുകൾക്കും റിസർച്ചിനും AI pipelines-നുമുള്ള clean ഡാറ്റയാക്കി മാറ്റൂ. ഓരോ സൈറ്റിന്റെയും terms-ഉം robots.txt-ഉം മാനിക്കൂ.
 - [API testing-ന് മികച്ച AI](https://tools.lalipublications.com/ml/use-cases/best-ai-for-api-testing/): Requests എഴുതൂ, tests ഉണ്ടാക്കൂ, fail ആകുന്ന endpoints debug ചെയ്യൂ.
 - [Notes-നും docs-നും മികച്ച AI](https://tools.lalipublications.com/ml/use-cases/best-ai-for-notion-docs/): AI ഉപയോഗിച്ച് നിങ്ങളുടെ notes-ഉം ടീം docs-ഉം എഴുതൂ, ക്രമീകരിക്കൂ, search ചെയ്യൂ.
+## 日本語版 (ja)
+
+サイト全体の日本語版。ユースケース、おすすめ、ランキングは英語版とまったく同じです。
+
+- [ホーム](https://tools.lalipublications.com/ja/)
+- [AIツール一覧（A〜Z）](https://tools.lalipublications.com/ja/tools/)
+- [新着・話題のツール](https://tools.lalipublications.com/ja/new/)
+- [このサイトについて](https://tools.lalipublications.com/ja/about/)
+- [スポンサー](https://tools.lalipublications.com/ja/sponsor/)
+- [RSS](https://tools.lalipublications.com/ja/feed.xml)
+- [Vibe codingにおすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-for-vibe-coding/): 説明して、動かして、調整する。ほぼ会話だけでソフトウェアを作れるツール。
+- [おすすめのAI coding agent](https://tools.lalipublications.com/ja/use-cases/best-ai-coding-agents/): タスクを受け取り、複数のファイルを編集し、コマンドを実行してdiffを返してくれるagent。
+- [壊れたコードやエラーの修正におすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-for-fixing-broken-code/): stack traceを貼れば修正が返ってくる。コード生成だけでなく、debuggingに強いツール。
+- [ゲームのプロトタイピングにおすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-for-game-prototyping/): 遊べるアイデアを素早く画面に。コード、アート、3D、音楽まで。
+- [動画・YouTubeにおすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-for-video-youtube/): 映像を生成し、編集を速くし、声を入れて、Shortsに切り出す。
+- [おすすめのAIライティングアシスタント](https://tools.lalipublications.com/ja/use-cases/best-ai-writing-assistants/): 下書き、編集、書き直し。ドキュメント、ブログ記事、README、メールに。
+- [リサーチにおすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-for-research/): ソースを見つけ、読み、要約する。確認できる引用つきで。
+- [画像生成におすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-image-generation/): サムネイル、コンセプトアート、モックアップ、ミームに。
+- [AIをローカルで動かすためのおすすめツール](https://tools.lalipublications.com/ja/use-cases/best-ai-for-running-local-models/): 自分のマシンで、プライベートに、従量課金なしで使えるAI。
+- [自動化ワークフローにおすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-for-automation-workflows/): アプリ同士をつないで、繰り返しの作業はAIに任せる。トリガー、agent、つなぎのコードまで。
+- [ランディングページ作りにおすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-for-landing-pages/): アイデアから、公開できるきれいなランディングページまで午後のうちに。
+- [UIデザインにおすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-for-ui-design/): promptやスケッチを画面に、そして実際に作れるものに。
+- [音声・text-to-speechにおすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-voice-tts/): マイクなしで、ナレーション、読み上げ、ボイスクローン、アプリの音声を。
+- [音楽におすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-for-music/): promptから、曲、サウンドトラック、BGMを。
+- [SEOコンテンツにおすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-for-seo-content/): AIの粗製コンテンツを公開せずに、上位表示を狙えるページを調べ、構成し、書く。
+- [営業メールにおすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-for-sales-emails/): パーソナルで短く、AIっぽさのないcold emailとフォローアップを書く。
+- [データ・スプレッドシートにおすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-for-data-spreadsheets/): 普通の言葉で頼むだけで、CSVを分析し、数式を書き、グラフを作る。
+- [プレゼン資料作りにおすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-for-presentations/): アウトラインからちゃんとしたスライドまで、素早く。
+- [3DアセットにおすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-for-3d-assets/): テキストや画像から、小物、キャラクター、モデルを生成。
+- [議事録におすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-for-meeting-notes/): 通話を録音・文字起こし・要約して、誰もメモを取らなくていいように。
+- [チャットボット・RAGにおすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-for-chatbots-rag/): 自分のドキュメントをもとに答えるアシスタントを作る。ノーコードからカスタムコードまで。
+- [AIで作ったアプリにおすすめのホスティング](https://tools.lalipublications.com/ja/use-cases/best-ai-for-deploy-hosting/): AIツールで作ったばかりのアプリをどこで公開するか。これらはAIツールではなくホスティング基盤で、AIを使って作る人との相性で選んでいます。
+- [Chrome拡張機能作りにおすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-for-chrome-extensions/): 「これ用のボタンがあればいいのに」から、動くブラウザ拡張機能へ。
+- [YouTubeのサムネイル・タイトルにおすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-for-thumbnails-youtube-packaging/): クリックを生むサムネイル、タイトル、つかみ。
+- [おすすめのAI agent framework](https://tools.lalipublications.com/ja/use-cases/best-ai-for-agent-frameworks/): ツール、メモリ、複数ステップのワークフローを持つ自分だけのagentを作るための、コード向けframework。
+- [ロゴ・ブランディングにおすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-for-logos-brand/): ロゴのアイデア、ブランドマーク、最初のブランドキットを素早く。
+- [カスタマーサポートにおすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-for-customer-support/): AI agentとAIが下書きした返信で、顧客への対応を速く。
+- [WebスクレイピングにおすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-for-scraping/): Webサイトを、アプリ、リサーチ、AIパイプライン向けのきれいなデータに。各サイトの利用規約とrobots.txtは守りましょう。
+- [APIテストにおすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-for-api-testing/): リクエストを書き、テストを生成し、失敗するendpointをdebugする。
+- [メモ・ドキュメントにおすすめのAI](https://tools.lalipublications.com/ja/use-cases/best-ai-for-notion-docs/): AIで、自分のメモやチームのドキュメントを書き、整理し、検索する。
 ## India
 
 - [Best AI tools for Indian builders, by use case](https://tools.lalipublications.com/in/): English hub linking to every Indian-language edition (Hindi, Bengali, Telugu, Marathi, Tamil, Kannada and Malayalam).

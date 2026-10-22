@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Tool Use Cases（日本語）</title>
+  <link>https://tools.lalipublications.com/ja/</link>
+  <atom:link href="https://tools.lalipublications.com/ja/feed.xml" rel="self" type="application/rss+xml"/>
+  <description>やりたいことに合わせて選ぶAIツール — vibe coderとbuilderのために。 Tool Picks Weeklyの各号（英語）と、チェックしておきたいAIツールの新着情報。</description>
+  <language>ja</language>
+  <lastBuildDate>Mon, 19 Oct 2026 12:00:00 +0000</lastBuildDate>
+  <image><url>https://tools.lalipublications.com/og-image.png</url><title>Tool Use Cases（日本語）</title><link>https://tools.lalipublications.com/ja/</link></image>
+  <item><title>Tool Picks Weekly #1: Your vibe-coded app can now talk, search and scrape（英語）</title><link>https://tools.lalipublications.com/newsletter/issue-1/</link><guid isPermaLink="true">https://tools.lalipublications.com/newsletter/issue-1/</guid><pubDate>Mon, 19 Oct 2026 12:00:00 +0000</pubDate><category>ニュースレター</category><description>Five tools for the jobs that come right after "it works on my screen."</description></item>
+  <item><title>新着・話題：Claude Code</title><link>https://tools.lalipublications.com/ja/new/#new-claude-code</link><guid isPermaLink="true">https://tools.lalipublications.com/ja/new/#new-claude-code</guid><category>新着</category><description>Anthropicのターミナル向けcoding agent。いま最も話題の開発ツールの1つです。</description></item>
+  <item><title>新着・話題：OpenAI Codex</title><link>https://tools.lalipublications.com/ja/new/#new-codex</link><guid isPermaLink="true">https://tools.lalipublications.com/ja/new/#new-codex</guid><category>新着</category><description>OpenAIが再始動させたcoding agent、Codex（クラウド + CLI）。</description></item>
+  <item><title>新着・話題：Google Veo</title><link>https://tools.lalipublications.com/ja/new/#new-veo</link><guid isPermaLink="true">https://tools.lalipublications.com/ja/new/#new-veo</guid><category>新着</category><description>Googleの動画モデル。同期した音声も生成できるようになりました。</description></item>
+  <item><title>新着・話題：Sora</title><link>https://tools.lalipublications.com/ja/new/#new-sora</link><guid isPermaLink="true">https://tools.lalipublications.com/ja/new/#new-sora</guid><category>新着</category><description>OpenAIの動画モデル。専用のソーシャルアプリも登場しました。</description></item>
+  <item><title>新着・話題：Manus</title><link>https://tools.lalipublications.com/ja/new/#new-manus</link><guid isPermaLink="true">https://tools.lalipublications.com/ja/new/#new-manus</guid><category>新着</category><description>複数ステップのタスクをこなしてバズった汎用の自律型agent。</description></item>
+  <item><title>新着・話題：Lovable</title><link>https://tools.lalipublications.com/ja/new/#new-lovable</link><guid isPermaLink="true">https://tools.lalipublications.com/ja/new/#new-lovable</guid><category>新着</category><description>急成長しているpromptベースのアプリビルダー。</description></item>
+  <item><title>新着・話題：NotebookLM</title><link>https://tools.lalipublications.com/ja/new/#new-notebooklm</link><guid isPermaLink="true">https://tools.lalipublications.com/ja/new/#new-notebooklm</guid><category>新着</category><description>音声の要約（Audio Overviews）で、リサーチメモをポッドキャストに変えました。</description></item>
+  <item><title>新着・話題：Kling</title><link>https://tools.lalipublications.com/ja/new/#new-kling</link><guid isPermaLink="true">https://tools.lalipublications.com/ja/new/#new-kling</guid><category>新着</category><description>AI動画生成の有力な競合。</description></item>
+  <item><title>新着・話題：DeepSeek</title><link>https://tools.lalipublications.com/ja/new/#new-deepseek</link><guid isPermaLink="true">https://tools.lalipublications.com/ja/new/#new-deepseek</guid><category>新着</category><description>市場の価格を揺るがしたopen weightsの推論モデル。</description></item>
+  <item><title>新着・話題：Model Context Protocol</title><link>https://tools.lalipublications.com/ja/new/#new-mcp</link><guid isPermaLink="true">https://tools.lalipublications.com/ja/new/#new-mcp</guid><category>新着</category><description>ほとんどのagentツールがツール利用のために対応しているオープンなプロトコル。</description></item>
+  <item><title>新着・話題：Windsurf</title><link>https://tools.lalipublications.com/ja/new/#new-windsurf</link><guid isPermaLink="true">https://tools.lalipublications.com/ja/new/#new-windsurf</guid><category>新着</category><description>Cursorと真っ向から競うagenticなエディタ。</description></item>
+</channel>
+</rss>
