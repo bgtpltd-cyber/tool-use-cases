@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Tiny static generator for Tool Use Cases. Run: python3 build.py -> ./site"""
-import os, html, json, shutil
+import os, re, html, json, shutil
 from email.utils import format_datetime
 from datetime import datetime, timezone
 from nlmd import md_to_html
@@ -301,6 +301,10 @@ UC = [
 ]
 
 NEW_UPDATED = "2026-10-22"  # shown as "Last updated" on /new/ (all locales)
+REVIEWED = "2026-10-22"  # date every pick on every use-case page was last re-verified (full scan, Oct 22, 2026); bump only after a full re-check
+SITE_UPDATED = "2026-10-22"  # sitemap <lastmod> for pages without their own date; bump when you redeploy changed content
+SHOW_SPONSOR_SLOT = False  # no sponsor box above the picks until a real sponsor is booked (the /sponsor/ page still shows the example)
+OWNER = "Larry Surroach"  # verified owner/publisher (ops/newsletter-mvp.md); the picks are researched by the AI operator, not hands-on tested by him
 # Dated launches / major releases for /new/, newest first. Every entry was checked against the linked source on NEW_UPDATED.
 # (key, name, product/official url, iso date, source url, use-case slug, one-line description). Not catalog tools: T and UC stay frozen.
 RELEASES = [
@@ -454,6 +458,8 @@ def page(path, title, desc, body, ld=None, noindex=False, L=None, lang="en", sw_
 <footer><div class="wrap">{nl_form(L=L).replace('@R/', r)}{e(U["footer"])} <a href="mailto:{EMAIL}">{EMAIL}</a> · <a href="{r}in/index.html" lang="en">India</a></div></footer>
 <script src="{r}app.js"></script>{CF_BEACON}</body></html>"""
     f = os.path.join(OUT, path); os.makedirs(os.path.dirname(f), exist_ok=True)
+    doc = re.sub(r'href="(?![a-z]+:)([^"#:]*?)index\.html(#[^"]*)?"', lambda m: f'href="{m.group(1) or "./"}{m.group(2) or ""}"', doc)  # link to canonical directory URLs, not /index.html
+    doc = re.sub(r'href=(?!["a-z]+:)([^\s">]*?)index\.html>', lambda m: f'href="{m.group(1) or "./"}">', doc)
     open(f, "w").write(doc)
 
 def fit(text, n=155):
@@ -518,6 +524,22 @@ def uc_faq(title, tools):  # English Q&A built only from our own picks and verdi
     return [(f"{title}: what is the top pick?", f"{T[top][0]}. {v1}"),
             (f"{title}: what are the alternatives?", f"In ranked order: {alts}"),
             ("Are these picks paid placements?", "No. Picks are editorial and not paid. Any sponsored slot is clearly labeled and kept separate, and sponsorship never changes our verdicts or rankings.")]
+BYLINE_EN = {"last_checked":"Last checked","byline":"Published by Lali Publications ({owner}). Picks researched by our AI editor and checked against each tool's official site.","how_we_pick":"How we pick"}
+def byline(L=None):
+    U = L.UI if L else {}
+    ok = all(k in U for k in BYLINE_EN)
+    g = (lambda k: U[k]) if ok else (lambda k: BYLINE_EN[k])
+    lng = "" if ok or L is None else ' lang="en"'
+    P = L.PREFIX if (L and ok) else ""
+    d = date_mdy(REVIEWED, L if ok else None)
+    return (f'<p class="byline muted"{lng}><small>{e(g("last_checked"))}: <time datetime="{REVIEWED}">{e(d)}</time> · {e(g("byline").format(owner=OWNER))} '
+            f'<a href="@R/{P}about/index.html#how-we-pick">{e(g("how_we_pick"))}</a></small></p>')
+def page_ld(name, url, lang=None):  # dated WebPage node (dateModified = last full re-check of the picks)
+    d = {"@context":"https://schema.org","@type":"WebPage","name":name,"url":url,"dateModified":REVIEWED,
+         "author":{"@type":"Organization","name":"Tool Use Cases (Lali Publications)","url":BASE+"about/"},
+         "publisher":{"@type":"Organization","name":"Lali Publications","email":EMAIL,"founder":{"@type":"Person","name":OWNER}}}
+    if lang: d["inLanguage"] = lang
+    return d
 def tool_link(s): n,u,_=T[s]; return f'<a href="{u}" rel="noopener" target="_blank">{e(n)}</a>'
 def uc_card(slug,title,blurb,tools):
     return f'<div class="card f"><h3><a href="@R/use-cases/{slug}/index.html">{e(title)}</a></h3><p class="what">{e(blurb)}</p><p><small>{", ".join(e(T[t][0]) for t,_ in tools)}</small></p></div>'
@@ -538,7 +560,7 @@ def coll(kind,name,desc,path):
 UCT = {u[0]: u[1] for u in UC}
 def ext_link(url, name): return f'<a href="{url}" rel="noopener" target="_blank">{e(name)}</a>'
 newteaser = "".join(f'<li>{ext_link(r[2], r[1])} <small class="muted">({date_md(r[3])})</small> — {e(r[6])}</li>' for r in RELEASES[:5])
-page("index.html","Tool Use Cases — which AI tool for which job",TAG+" A curated directory of AI tools organized by use case.",f"""
+page("index.html","Which AI is best for what? Vibe coding & AI tools (2026)",TAG+" A curated directory of AI tools organized by use case, every pick re-checked Oct 2026.",f"""
 <h1>Which AI tool for which job.</h1><p class="lede">Tool Use Cases is a directory of AI tools organized by the job you're trying to do — for vibe coders, builders, and anyone shipping with AI.</p>
 <input type="search" placeholder="Filter use cases (e.g. video, coding, research)…" data-filter=".f" aria-label="Filter use cases">
 <h2>Use cases</h2><div class="grid">{cards}</div>
@@ -559,14 +581,13 @@ for slug,title,blurb,tools in UC:
     relhtml = ('<h2>Related use cases</h2><ul>' + "".join(f'<li><a href="@R/use-cases/{s2}/index.html">{e(t2)}</a></li>' for s2,t2 in rel) + '</ul>') if rel else ""
     page(f"use-cases/{slug}/index.html",uc_title(title),uc_desc(blurb,tools),f"""
 <p><small><a href="@R/use-cases/index.html">Use cases</a> /</small></p><h1>{e(title)}</h1><p class="lede">{e(blurb)}</p>
-<p class="quick"><b>Quick answer:</b> {e(T[tools[0][0]][0])}{"." if tools[0][1].startswith(("Top pick","The default pick")) else " is our top pick."} {e(tools[0][1])}</p>
-{SPONSOR_CARD}<h2>Our picks</h2><ol class="tools">{items}</ol>
+{byline()}<p class="quick"><b>Quick answer:</b> {e(T[tools[0][0]][0])}{"." if tools[0][1].startswith(("Top pick","The default pick")) else " is our top pick."} {e(tools[0][1])}</p>
+{SPONSOR_CARD if SHOW_SPONSOR_SLOT else ""}<h2>Our picks</h2><ol class="tools">{items}</ol>
 <p class="muted"><small>Picks are editorial and not paid. Pricing and features change often — check each official site.</small></p>
 <h2>FAQ</h2>{"".join(f'<h3>{e(q)}</h3><p>{e(a)}</p>' for q,a in uc_faq(title,tools))}
 {relhtml}<p><a href="@R/use-cases/index.html">Browse all use cases →</a></p>""", ld=[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
      {"@type":"ListItem","position":1,"name":"Home","item":BASE},{"@type":"ListItem","position":2,"name":"Use cases","item":BASE+"use-cases/"},{"@type":"ListItem","position":3,"name":title,"item":f"{BASE}use-cases/{slug}/"}]},
-     {"@context":"https://schema.org","@type":"ItemList","name":title,"description":blurb,"url":f"{BASE}use-cases/{slug}/","itemListElement":[{"@type":"ListItem","position":i,"item":{"@type":"SoftwareApplication","name":T[t][0],"url":T[t][1],"description":T[t][2],"applicationCategory":"DeveloperApplication" if "cod" in slug or "vibe" in slug else "BusinessApplication",
-       "review":{"@type":"Review","name":f"{T[t][0]} for {title}","reviewBody":v,"author":{"@type":"Organization","name":"Tool Use Cases (Lali Publications)"}}}} for i,(t,v) in enumerate(tools,1)]},
+     {"@context":"https://schema.org","@type":"ItemList","name":title,"description":blurb,"url":f"{BASE}use-cases/{slug}/","itemListElement":[{"@type":"ListItem","position":i,"name":T[t][0],"url":T[t][1]} for i,(t,v) in enumerate(tools,1)]}, page_ld(uc_title(title), f"{BASE}use-cases/{slug}/"),
      {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in uc_faq(title,tools)]}])
 
 uses = {}
@@ -598,6 +619,15 @@ page("about/index.html","About — Tool Use Cases","Tool Use Cases is an indepen
 <p>Most AI directories are giant lists. We organize by use case instead, and give each pick a short plain-English verdict so you can decide in a minute.</p>
 <p>The site is run autonomously — an AI operator keeps it updated, with human ownership by Lali Publications. We only list real, well-known tools and don't publish made-up scores or user counts.</p>
 <p>Tool Use Cases is published by Lali Publications, which also runs <a href="https://agentusecases.ai">agentusecases.ai</a>. We're not affiliated with any tool we list, and sponsorships never change rankings.</p>
+<h2 id="how-we-pick">How we pick</h2><ul>
+<li><b>One page per job.</b> Each use-case page lists 5–7 tools that are widely used for that job, ranked by how well they fit it. The top pick comes first, with a one-line verdict that says who it suits.</li>
+<li><b>Real, current products only.</b> Every pick links to its official site. We check that the product still exists under that name and that the link works without redirects. When a tool is renamed, shut down or stops being maintained, we rename or replace it. On Oct 22, 2026, for example, we replaced Udio, Luma Genie, Aider, Plasmo and AutoGen and renamed Windsurf, NotebookLM and Coda.</li>
+<li><b>Sources.</b> We rely on official product pages, docs, changelogs and pricing pages. We don't publish scores, benchmarks, user counts or quotes we haven't verified.</li>
+<li><b>What we don't claim.</b> We haven't run formal head-to-head tests. Verdicts summarize what each tool is built for, based on its official documentation.</li>
+<li><b>Prices.</b> Where a page shows a price or free tier, it was copied from the official pricing page on the date shown. Prices change often, so the official page always wins.</li>
+<li><b>Dates.</b> Each use-case page shows "Last checked": the date we last re-verified every pick on it.</li>
+<li><b>Who.</b> An AI editor does the research and updates. The site is owned and published by Larry Surroach at Lali Publications, who sets these rules. Picks aren't paid and there are no affiliate links.</li>
+</ul>
 <p>Corrections, suggestions, or sponsorships: <a href="mailto:{EMAIL}">{EMAIL}</a></p>""", ld=[crumbs(("About","about/")), coll("AboutPage","About Tool Use Cases","Independent, autonomously run directory of AI tools organized by use case, published by Lali Publications.","about/")])
 
 ISSUES = [  # (number, slug, iso date, display date, subject, preview, content file)
@@ -677,11 +707,10 @@ def build_locale(L):
         relhtml = (f'<h2>{e(U["related"])}</h2><ul>' + "".join(f'<li><a href="@R/{P}use-cases/{s2}/index.html">{e(ut[s2][0])}</a></li>' for s2,_ in rel) + '</ul>') if rel else ""
         page(f"{P}use-cases/{slug}/index.html", title_l(title), desc_l(blurb, tools), f"""
 <p><small><a href="@R/{P}use-cases/index.html">{e(U["use_cases"])}</a> /</small></p><h1>{e(title)}</h1><p class="lede">{e(blurb)}</p>
-{scard}<h2>{e(U["our_picks"])}</h2><ol class="tools">{items}</ol>
+{byline(L)}{scard if SHOW_SPONSOR_SLOT else ""}<h2>{e(U["our_picks"])}</h2><ol class="tools">{items}</ol>
 <p class="muted"><small>{e(U["disclaimer"])}</small></p>
 {relhtml}<p><a href="@R/{P}use-cases/index.html">{e(U["browse_all"])}</a></p>""", L=L, ld=[crumbs_l((U["use_cases"],"use-cases/"),(title,f"use-cases/{slug}/")),
-         {"@context":"https://schema.org","@type":"ItemList","name":title,"description":blurb,"url":f"{BASE}{P}use-cases/{slug}/","inLanguage":L.CODE,"itemListElement":[{"@type":"ListItem","position":i,"item":{"@type":"SoftwareApplication","name":T[t][0],"url":T[t][1],"description":L.TOOLS[t],"applicationCategory":"DeveloperApplication" if "cod" in slug or "vibe" in slug else "BusinessApplication",
-           "review":{"@type":"Review","name":U["review_name"].format(tool=T[t][0], title=title),"reviewBody":v,"inLanguage":L.CODE,"author":{"@type":"Organization","name":"Tool Use Cases (Lali Publications)"}}}} for i,((t,_),v) in enumerate(zip(tools,verdicts),1)]}])
+         {"@context":"https://schema.org","@type":"ItemList","name":title,"description":blurb,"url":f"{BASE}{P}use-cases/{slug}/","inLanguage":L.CODE,"itemListElement":[{"@type":"ListItem","position":i,"name":T[t][0],"url":T[t][1]} for i,((t,_),v) in enumerate(zip(tools,verdicts),1)]}, page_ld(title_l(title), f"{BASE}{P}use-cases/{slug}/", L.CODE)])
     rows = "".join(f'<div class="card f"><h3>{tool_link(s)}</h3><p class="what">{e(L.TOOLS[s])}</p><p><small>{" · ".join(f"<a href=@R/{P}use-cases/{u}/index.html>{e(ut[u][0])}</a>" for u,_ in uses.get(s,[]))}</small></p></div>' for s in sorted(T,key=lambda k:T[k][0].lower()))
     pg("tools", "tools/index.html", ROWS=rows, ld=[crumbs_l((LD["tools_crumb"],"tools/")), coll_l("CollectionPage",*LD["tools_coll"],"tools/")])
     newcards = "".join(release_card(r, L.RELEASES[r[0]], U["fits"], U["source"], ut[r[5]][0], P).replace("{DATE}", e(date_md(r[3], L))) for r in RELEASES)
@@ -766,7 +795,8 @@ def sm_entry(u):  # u: site path; alternates for localized pages (Google's xhtml
     for L in LOCALES:
         if u.startswith(L.PREFIX): key = u[len(L.PREFIX):]
     alts = alternates(key)
-    return f"  <url><loc>{canon(u)}</loc>" + "".join(f'<xhtml:link rel="alternate" hreflang="{h}" href="{a}"/>' for h,a in alts) + "</url>\n"
+    lm = next((iso for n,islug,iso,*_ in ISSUES if u == f"newsletter/{islug}/index.html"), SITE_UPDATED)
+    return f"  <url><loc>{canon(u)}</loc><lastmod>{lm}</lastmod>" + "".join(f'<xhtml:link rel="alternate" hreflang="{h}" href="{a}"/>' for h,a in alts) + "</url>\n"
 open(f"{OUT}/sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'+"".join(sm_entry(u) for u in urls+loc_urls)+"</urlset>\n")
 for L in [L for L in LOCALES if indexable(L)]:
     U = L.UI

@@ -31,6 +31,7 @@ UI = {
  "sponsor_p": "Este espacio destacado está disponible para creadores de herramientas que encajan en este caso de uso. Siempre identificado con claridad y siempre separado de nuestras recomendaciones.",
  "sponsor_link": "Patrocinar por email",
  "new_badge": "Destacado / en tendencia",
+ "last_checked": 'Última revisión', "byline": 'Publicado por Lali Publications ({owner}). Recomendaciones investigadas por nuestro editor de IA y verificadas en el sitio oficial de cada herramienta.', "how_we_pick": 'Cómo elegimos',
  "last_updated": 'Última actualización: {date}', "earlier_h2": 'Anteriores', "earlier_p": 'Lanzamientos que destacamos antes de esta actualización. Ya no son novedad, pero vale la pena conocerlos.', "fits": 'Caso de uso:', "source": 'Fuente',
  "rss_title": "Tool Use Cases (español)",
  "rss_desc": "Ediciones de Tool Picks Weekly (en inglés) y lanzamientos de herramientas de IA que vale la pena conocer.",
@@ -383,6 +384,15 @@ PAGES = {  # key: (title, meta description, body)
 <p>El sitio se gestiona de forma autónoma: un operador de IA lo mantiene actualizado, y la responsabilidad humana del proyecto es de Lali Publications. Solo incluimos herramientas reales y conocidas, y no publicamos puntuaciones ni cifras de usuarios inventadas.</p>
 <p>Tool Use Cases es una publicación de Lali Publications, que también gestiona <a href="https://agentusecases.ai">agentusecases.ai</a>. Nadie paga por aparecer en nuestras recomendaciones: no tenemos relación con ninguna de las herramientas que listamos, y los patrocinios nunca cambian los rankings.</p>
 <p>Esta es la versión en español del sitio, con los mismos casos de uso, recomendaciones y rankings que la <a href="@R/about/index.html" hreflang="en">versión en inglés</a>.</p>
+<h2 id="how-we-pick">Cómo elegimos</h2><ul>
+<li><b>Una página por tarea.</b> Cada caso de uso lista entre 5 y 7 herramientas muy usadas para esa tarea, ordenadas según lo bien que encajan. La primera es nuestra recomendación principal, con un veredicto de una línea que dice para quién es.</li>
+<li><b>Solo productos reales y vigentes.</b> Cada recomendación enlaza a su sitio oficial. Comprobamos que el producto sigue existiendo con ese nombre y que el enlace funciona sin redirecciones. Si una herramienta cambia de nombre, cierra o deja de mantenerse, la renombramos o la sustituimos. Por ejemplo, el 22 de octubre de 2026 sustituimos Udio, Luma Genie, Aider, Plasmo y AutoGen, y renombramos Windsurf, NotebookLM y Coda.</li>
+<li><b>Fuentes.</b> Usamos páginas oficiales de producto, documentación, changelogs y páginas de precios. No publicamos puntuaciones, benchmarks, cifras de usuarios ni citas que no hayamos verificado.</li>
+<li><b>Lo que no afirmamos.</b> No hemos hecho pruebas formales comparativas. Los veredictos resumen para qué está pensada cada herramienta según su documentación oficial.</li>
+<li><b>Precios.</b> Cuando una página muestra un precio o un plan gratuito, lo copiamos de la página oficial de precios en la fecha indicada. Los precios cambian a menudo: manda siempre la página oficial.</li>
+<li><b>Fechas.</b> Cada caso de uso muestra la «Última revisión»: la fecha en que volvimos a verificar todas sus recomendaciones.</li>
+<li><b>Quién.</b> Un editor de IA hace la investigación y las actualizaciones. El sitio es propiedad de Larry Surroach, de Lali Publications, que lo publica y fija estas reglas. Nadie paga por las recomendaciones y no usamos enlaces de afiliado.</li>
+</ul>
 <p>Correcciones, sugerencias o patrocinios: <a href="mailto:{EMAIL}">{EMAIL}</a></p>"""),
  "thanks": ("Gracias por suscribirte — Tool Use Cases", "Recibimos tu suscripción a Tool Picks Weekly.", """
 <h1>Ya estás en la lista. ¡Gracias!</h1><p class="lede">Recibimos tu suscripción a Tool Picks Weekly. La próxima edición llega el lunes. Por ahora, la enviamos en inglés.</p>
