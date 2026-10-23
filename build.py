@@ -4,6 +4,7 @@ import os, re, html, json, shutil
 from email.utils import format_datetime
 from datetime import datetime, timezone
 from nlmd import md_to_html
+import extras  # verified, dated prices + 'how to choose' guides (en, pt-BR, es)
 from i18n import pt_BR, es, hi, bn, te, mr, ta, kn, ml, ja
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "site")
 EMAIL = "larrys@lalipublications.com"
@@ -365,7 +366,7 @@ a{color:#0b5cad}header,footer{background:#1d2a36;color:#eee}header a,footer a{co
 h1{font-size:1.9rem;line-height:1.2;margin:28px 0 8px}.lede{color:#444;font-size:1.1rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin:18px 0}
 .card{background:#fff;border:1px solid #ddd;border-radius:8px;padding:14px 16px}.card h3{margin:0 0 4px;font-size:1.08rem}
-.card p{margin:4px 0}.what{color:#555;font-size:.93rem}.verdict b{color:#1d6b34}.quick{background:#f1f8f3;border-left:3px solid #1d6b34;padding:8px 12px}
+.card p{margin:4px 0}.what{color:#555;font-size:.93rem}.verdict b{color:#1d6b34}.price{font-size:.9rem;margin:.3rem 0 0}.byline{margin:.2rem 0 .8rem}.quick{background:#f1f8f3;border-left:3px solid #1d6b34;padding:8px 12px}
 .sponsored{border:2px dashed #c08a00;background:#fffaf0}.badge{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;background:#c08a00;color:#fff;padding:2px 7px;border-radius:4px;margin-bottom:6px}
 .btn{display:inline-block;background:#0b5cad;color:#fff;padding:9px 16px;border-radius:6px;text-decoration:none;font-weight:600}
 input[type=search]{width:100%;padding:11px 14px;font-size:1rem;border:1px solid #bbb;border-radius:6px;margin:10px 0}
@@ -540,6 +541,18 @@ def page_ld(name, url, lang=None):  # dated WebPage node (dateModified = last fu
          "publisher":{"@type":"Organization","name":"Lali Publications","email":EMAIL,"founder":{"@type":"Person","name":OWNER}}}
     if lang: d["inLanguage"] = lang
     return d
+XL = {"en":0, "pt-BR":1, "es":2}
+def price_html(t, lang):  # one dated price line for a pick, from extras.PRICES (en/pt-BR/es only)
+    if lang not in XL or t not in extras.PRICES: return ""
+    return f'<p class="price"><b>{e(extras.LABELS[lang][0])}:</b> {e(extras.PRICES[t][XL[lang]])}</p>'
+def guide_html(slug, tools, lang, L=None):  # 'How to choose' block + price-check note
+    out = ""
+    g = extras.GUIDES.get(slug, {}).get(lang)
+    if g: out += f'<h2 id="how-to-choose">{e(extras.LABELS[lang][3])}</h2>' + re.sub(r"@T\(([a-z0-9-]+)\)", lambda m: tool_link(m.group(1)), g)
+    if lang in XL and any(t in extras.PRICES for t,_ in tools):
+        lb = extras.LABELS[lang]
+        out += f'<p class="muted"><small>{e(lb[1])} <time datetime="{extras.PRICES_CHECKED}">{e(date_mdy(extras.PRICES_CHECKED, L))}</time> {e(lb[2])}</small></p>'
+    return out
 def tool_link(s): n,u,_=T[s]; return f'<a href="{u}" rel="noopener" target="_blank">{e(n)}</a>'
 def uc_card(slug,title,blurb,tools):
     return f'<div class="card f"><h3><a href="@R/use-cases/{slug}/index.html">{e(title)}</a></h3><p class="what">{e(blurb)}</p><p><small>{", ".join(e(T[t][0]) for t,_ in tools)}</small></p></div>'
@@ -576,13 +589,14 @@ page("use-cases/index.html","AI tool use cases — Tool Use Cases","Browse AI to
  {"@context":"https://schema.org","@type":"ItemList","name":"AI tool use cases","itemListElement":[{"@type":"ListItem","position":i,"name":u[1],"url":f"{BASE}use-cases/{u[0]}/"} for i,u in enumerate(UC,1)]}])
 
 for slug,title,blurb,tools in UC:
-    items = "".join(f'<li class="card f"><h3>{i}. {tool_link(t)}</h3><p class="what">{e(T[t][2])}</p><p class="verdict"><b>Verdict:</b> {e(v)}</p></li>' for i,(t,v) in enumerate(tools,1))
+    items = "".join(f'<li class="card f"><h3>{i}. {tool_link(t)}</h3><p class="what">{e(T[t][2])}</p><p class="verdict"><b>Verdict:</b> {e(v)}</p>{price_html(t,"en")}</li>' for i,(t,v) in enumerate(tools,1))
     rel = related(slug, tools)
     relhtml = ('<h2>Related use cases</h2><ul>' + "".join(f'<li><a href="@R/use-cases/{s2}/index.html">{e(t2)}</a></li>' for s2,t2 in rel) + '</ul>') if rel else ""
     page(f"use-cases/{slug}/index.html",uc_title(title),uc_desc(blurb,tools),f"""
 <p><small><a href="@R/use-cases/index.html">Use cases</a> /</small></p><h1>{e(title)}</h1><p class="lede">{e(blurb)}</p>
 {byline()}<p class="quick"><b>Quick answer:</b> {e(T[tools[0][0]][0])}{"." if tools[0][1].startswith(("Top pick","The default pick")) else " is our top pick."} {e(tools[0][1])}</p>
 {SPONSOR_CARD if SHOW_SPONSOR_SLOT else ""}<h2>Our picks</h2><ol class="tools">{items}</ol>
+{guide_html(slug, tools, "en")}
 <p class="muted"><small>Picks are editorial and not paid. Pricing and features change often — check each official site.</small></p>
 <h2>FAQ</h2>{"".join(f'<h3>{e(q)}</h3><p>{e(a)}</p>' for q,a in uc_faq(title,tools))}
 {relhtml}<p><a href="@R/use-cases/index.html">Browse all use cases →</a></p>""", ld=[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
@@ -702,12 +716,13 @@ def build_locale(L):
     pg("use-cases", "use-cases/index.html", CARDS=cards, ld=[crumbs_l((U["use_cases"],"use-cases/")), coll_l("CollectionPage",*LD["uc_coll"],"use-cases/"), itemlist])
     for (slug,_,_,tools) in UC:
         title, blurb, verdicts = L.UC[slug]
-        items = "".join(f'<li class="card f"><h3>{i}. {tool_link(t)}</h3><p class="what">{e(L.TOOLS[t])}</p><p class="verdict"><b>{e(U["verdict"])}</b> {e(v)}</p></li>' for i,((t,_),v) in enumerate(zip(tools,verdicts),1))
+        items = "".join(f'<li class="card f"><h3>{i}. {tool_link(t)}</h3><p class="what">{e(L.TOOLS[t])}</p><p class="verdict"><b>{e(U["verdict"])}</b> {e(v)}</p>{price_html(t, L.CODE)}</li>' for i,((t,_),v) in enumerate(zip(tools,verdicts),1))
         rel = related(slug, tools)
         relhtml = (f'<h2>{e(U["related"])}</h2><ul>' + "".join(f'<li><a href="@R/{P}use-cases/{s2}/index.html">{e(ut[s2][0])}</a></li>' for s2,_ in rel) + '</ul>') if rel else ""
         page(f"{P}use-cases/{slug}/index.html", title_l(title), desc_l(blurb, tools), f"""
 <p><small><a href="@R/{P}use-cases/index.html">{e(U["use_cases"])}</a> /</small></p><h1>{e(title)}</h1><p class="lede">{e(blurb)}</p>
 {byline(L)}{scard if SHOW_SPONSOR_SLOT else ""}<h2>{e(U["our_picks"])}</h2><ol class="tools">{items}</ol>
+{guide_html(slug, tools, L.CODE, L)}
 <p class="muted"><small>{e(U["disclaimer"])}</small></p>
 {relhtml}<p><a href="@R/{P}use-cases/index.html">{e(U["browse_all"])}</a></p>""", L=L, ld=[crumbs_l((U["use_cases"],"use-cases/"),(title,f"use-cases/{slug}/")),
          {"@context":"https://schema.org","@type":"ItemList","name":title,"description":blurb,"url":f"{BASE}{P}use-cases/{slug}/","inLanguage":L.CODE,"itemListElement":[{"@type":"ListItem","position":i,"name":T[t][0],"url":T[t][1]} for i,((t,_),v) in enumerate(zip(tools,verdicts),1)]}, page_ld(title_l(title), f"{BASE}{P}use-cases/{slug}/", L.CODE)])
