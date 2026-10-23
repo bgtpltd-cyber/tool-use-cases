@@ -303,7 +303,7 @@ UC = [
 
 NEW_UPDATED = "2026-10-22"  # shown as "Last updated" on /new/ (all locales)
 REVIEWED = "2026-10-22"  # date every pick on every use-case page was last re-verified (full scan, Oct 22, 2026); bump only after a full re-check
-SITE_UPDATED = "2026-10-22"  # sitemap <lastmod> for pages without their own date; bump when you redeploy changed content
+SITE_UPDATED = "2026-10-23"  # sitemap <lastmod> for pages without their own date; bump when you redeploy changed content
 SHOW_SPONSOR_SLOT = False  # no sponsor box above the picks until a real sponsor is booked (the /sponsor/ page still shows the example)
 # Dated launches / major releases for /new/, newest first. Every entry was checked against the linked source on NEW_UPDATED.
 # (key, name, product/official url, iso date, source url, use-case slug, one-line description). Not catalog tools: T and UC stay frozen.
@@ -520,7 +520,7 @@ def related(slug, tools, k=4):
     return out
 def uc_faq(title, tools):  # English Q&A built only from our own picks and verdicts (no invented facts)
     top, v1 = tools[0]
-    alts = "; ".join(f"{T[t][0]}: {v}" for t,v in tools[1:])
+    alts = "; ".join(f"{T[t][0]}: {v.rstrip('.')}" for t,v in tools[1:]) + "."
     return [(f"{title}: what is the top pick?", f"{T[top][0]}. {v1}"),
             (f"{title}: what are the alternatives?", f"In ranked order: {alts}"),
             ("Are these picks paid placements?", "No. Picks are editorial and not paid. Any sponsored slot is clearly labeled and kept separate, and sponsorship never changes our verdicts or rankings.")]
@@ -550,7 +550,9 @@ def guide_html(slug, tools, lang, L=None):  # 'How to choose' block + price-chec
     if g: out += f'<h2 id="how-to-choose">{e(extras.LABELS[lang][3])}</h2>' + re.sub(r"@T\(([a-z0-9-]+)\)", lambda m: tool_link(m.group(1)), g)
     if lang in XL and any(t in extras.PRICES for t,_ in tools):
         lb = extras.LABELS[lang]
-        out += f'<p class="muted"><small>{e(lb[1])} <time datetime="{extras.PRICES_CHECKED}">{e(date_mdy(extras.PRICES_CHECKED, L))}</time> {e(lb[2])}</small></p>'
+        ds = sorted({extras.price_date(t) for t,_ in tools if t in extras.PRICES})  # each price line's own check date
+        dt = {"en":" and ","pt-BR":" e ","es":" y "}[lang].join(f'<time datetime="{d}">{e(date_mdy(d, L))}</time>' for d in ds)
+        out += f'<p class="muted"><small>{e(lb[1])} {dt} {e(lb[2])}</small></p>'
     return out
 def tool_link(s): n,u,_=T[s]; return f'<a href="{u}" rel="noopener" target="_blank">{e(n)}</a>'
 def uc_card(slug,title,blurb,tools):
@@ -681,6 +683,25 @@ def check_locale(L):  # translations must cover the frozen catalog exactly; neve
     for k in ("last_updated","earlier_h2","earlier_p","fits","source"): assert k in L.UI, ("UI key", k)
     assert len(L.MONTHS) == 12 and "{NEWCARDS}" in L.PAGES["new"][2] and "{EARLIER}" in L.PAGES["new"][2] and "{LAST_UPDATED}" in L.PAGES["new"][2]
     assert set(L.PAGES) == {"home","use-cases","tools","new","sponsor","about","thanks"}
+FAQ_KEYS = ("quick_label","quick_top","faq_h2","faq_q_top","faq_q_alts","faq_a_alts","faq_q_paid","faq_a_paid")
+def has_faq(L): return all(k in L.UI for k in FAQ_KEYS)
+def quick_l(L, tools, verdicts):  # localized Quick answer, same logic as English, only for locales with translated strings
+    if not has_faq(L): return ""
+    U = L.UI; n = T[tools[0][0]][0]
+    lead = f"{n}." if tools[0][1].startswith(("Top pick","The default pick")) else U["quick_top"].format(tool=n)
+    return f'<p class="quick"><b>{e(U["quick_label"])}:</b> {e(lead)} {e(verdicts[0])}</p>'
+def uc_faq_l(L, title, tools, verdicts):  # localized Q&A built only from our translated picks and verdicts
+    U = L.UI
+    alts = "; ".join(f"{T[t][0]}: {v.rstrip('.')}" for (t,_),v in zip(tools[1:], verdicts[1:])) + "."
+    return [(U["faq_q_top"].format(title=title), f"{T[tools[0][0]][0]}. {verdicts[0]}"),
+            (U["faq_q_alts"].format(title=title), U["faq_a_alts"].format(alts=alts)),
+            (U["faq_q_paid"], U["faq_a_paid"])]
+def faq_html_l(L, title, tools, verdicts):
+    if not has_faq(L): return ""
+    return f'<h2>{e(L.UI["faq_h2"])}</h2>' + "".join(f'<h3>{e(q)}</h3><p>{e(a)}</p>' for q,a in uc_faq_l(L, title, tools, verdicts)) + "\n"
+def faq_ld_l(L, title, tools, verdicts):
+    if not has_faq(L): return []
+    return [{"@context":"https://schema.org","@type":"FAQPage","inLanguage":L.CODE,"mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in uc_faq_l(L, title, tools, verdicts)]}]
 def build_locale(L):
     check_locale(L); U, P, LD = L.UI, L.PREFIX, L.LD
     def crumbs_l(*pairs):
@@ -720,11 +741,11 @@ def build_locale(L):
         relhtml = (f'<h2>{e(U["related"])}</h2><ul>' + "".join(f'<li><a href="@R/{P}use-cases/{s2}/index.html">{e(ut[s2][0])}</a></li>' for s2,_ in rel) + '</ul>') if rel else ""
         page(f"{P}use-cases/{slug}/index.html", title_l(title), desc_l(blurb, tools), f"""
 <p><small><a href="@R/{P}use-cases/index.html">{e(U["use_cases"])}</a> /</small></p><h1>{e(title)}</h1><p class="lede">{e(blurb)}</p>
-{byline(L)}{scard if SHOW_SPONSOR_SLOT else ""}<h2>{e(U["our_picks"])}</h2><ol class="tools">{items}</ol>
+{byline(L)}{quick_l(L, tools, verdicts)}{scard if SHOW_SPONSOR_SLOT else ""}<h2>{e(U["our_picks"])}</h2><ol class="tools">{items}</ol>
 {guide_html(slug, tools, L.CODE, L)}
 <p class="muted"><small>{e(U["disclaimer"])}</small></p>
-{relhtml}<p><a href="@R/{P}use-cases/index.html">{e(U["browse_all"])}</a></p>""", L=L, ld=[crumbs_l((U["use_cases"],"use-cases/"),(title,f"use-cases/{slug}/")),
-         {"@context":"https://schema.org","@type":"ItemList","name":title,"description":blurb,"url":f"{BASE}{P}use-cases/{slug}/","inLanguage":L.CODE,"itemListElement":[{"@type":"ListItem","position":i,"name":T[t][0],"url":T[t][1]} for i,((t,_),v) in enumerate(zip(tools,verdicts),1)]}, page_ld(title_l(title), f"{BASE}{P}use-cases/{slug}/", L.CODE)])
+{faq_html_l(L, title, tools, verdicts)}{relhtml}<p><a href="@R/{P}use-cases/index.html">{e(U["browse_all"])}</a></p>""", L=L, ld=[crumbs_l((U["use_cases"],"use-cases/"),(title,f"use-cases/{slug}/")),
+         {"@context":"https://schema.org","@type":"ItemList","name":title,"description":blurb,"url":f"{BASE}{P}use-cases/{slug}/","inLanguage":L.CODE,"itemListElement":[{"@type":"ListItem","position":i,"name":T[t][0],"url":T[t][1]} for i,((t,_),v) in enumerate(zip(tools,verdicts),1)]}, page_ld(title_l(title), f"{BASE}{P}use-cases/{slug}/", L.CODE)] + faq_ld_l(L, title, tools, verdicts))
     rows = "".join(f'<div class="card f"><h3>{tool_link(s)}</h3><p class="what">{e(L.TOOLS[s])}</p><p><small>{" · ".join(f"<a href=@R/{P}use-cases/{u}/index.html>{e(ut[u][0])}</a>" for u,_ in uses.get(s,[]))}</small></p></div>' for s in sorted(T,key=lambda k:T[k][0].lower()))
     pg("tools", "tools/index.html", ROWS=rows, ld=[crumbs_l((LD["tools_crumb"],"tools/")), coll_l("CollectionPage",*LD["tools_coll"],"tools/")])
     newcards = "".join(release_card(r, L.RELEASES[r[0]], U["fits"], U["source"], ut[r[5]][0], P).replace("{DATE}", e(date_md(r[3], L))) for r in RELEASES)
@@ -758,7 +779,7 @@ open(f"{OUT}/CNAME","w").write("tools.lalipublications.com\n")
 full = [canon(u) for u in urls]
 open(f"{OUT}/robots.txt","w").write(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n")
 llms = [f"# Tool Use Cases", "", f"> {TAG} A curated, editorial directory of AI tools organized by the job you're trying to do. Published by Lali Publications.", "",
- "Our angle: tool choice by job-to-be-done for vibe coders. Each use-case page lists recommended tools with a one-line description and a plain-English verdict. Picks are editorial and not paid; sponsored slots are clearly labeled and separate.", "", "## Use cases", ""]
+ "Our angle: tool choice by job-to-be-done for vibe coders. Each use-case page lists recommended tools with a one-line description and a plain-English verdict. Picks are editorial and not paid; sponsored slots are clearly labeled and separate. English, Portuguese (Brazil) and Spanish use-case pages also carry a Quick answer, an FAQ and, for most picks, a dated price/free-tier line copied from the tool's official pricing page.", "", "## Use cases", ""]
 llms += [f"- [{t}]({BASE}use-cases/{s}/): {b}" for s,t,b,_ in UC]
 llms += ["", "## Other pages", "", f"- [All tools A-Z]({BASE}tools/)", f"- [New & trending]({BASE}new/)", f"- [Newsletter]({BASE}newsletter/)", f"- [RSS feed]({BASE}feed.xml): newsletter issues and new releases", *[f"- [{i[4]}]({BASE}newsletter/{i[1]}/) ({i[3]})" for i in ISSUES], f"- [About]({BASE}about/)", "",
  "## Sponsor / contact", "", f"Sponsorships, corrections and suggestions: {EMAIL} (Lali Publications). See {BASE}sponsor/", "",

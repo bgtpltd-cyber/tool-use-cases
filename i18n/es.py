@@ -10,6 +10,9 @@ RSS_LANG = "es"
 TAG = "Qué herramienta de IA usar para cada tarea — para vibe coders y builders."
 
 UI = {
+ "quick_label": "Respuesta rápida", "quick_top": "{tool} es nuestra opción principal.", "faq_h2": "Preguntas frecuentes",
+ "faq_q_top": "{title}: ¿cuál es la opción principal?", "faq_q_alts": "{title}: ¿qué alternativas hay?", "faq_a_alts": "En orden de ranking: {alts}",
+ "faq_q_paid": "¿Alguien paga por aparecer en estas recomendaciones?", "faq_a_paid": "No. Las recomendaciones son editoriales y nadie paga por ellas. Cualquier espacio patrocinado está claramente identificado y separado, y el patrocinio nunca cambia nuestros veredictos ni el orden del ranking.",
  "nav_use_cases": "Casos de uso", "nav_tools": "Herramientas", "nav_new": "Lanzamientos",
  "nav_newsletter": "Newsletter", "nav_sponsor": "Patrocinio", "nav_about": "Acerca de",
  "home": "Inicio", "use_cases": "Casos de uso",
