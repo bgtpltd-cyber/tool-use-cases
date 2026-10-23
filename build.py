@@ -305,7 +305,6 @@ NEW_UPDATED = "2026-10-22"  # shown as "Last updated" on /new/ (all locales)
 REVIEWED = "2026-10-22"  # date every pick on every use-case page was last re-verified (full scan, Oct 22, 2026); bump only after a full re-check
 SITE_UPDATED = "2026-10-22"  # sitemap <lastmod> for pages without their own date; bump when you redeploy changed content
 SHOW_SPONSOR_SLOT = False  # no sponsor box above the picks until a real sponsor is booked (the /sponsor/ page still shows the example)
-OWNER = "Larry Surroach"  # verified owner/publisher (ops/newsletter-mvp.md); the picks are researched by the AI operator, not hands-on tested by him
 # Dated launches / major releases for /new/, newest first. Every entry was checked against the linked source on NEW_UPDATED.
 # (key, name, product/official url, iso date, source url, use-case slug, one-line description). Not catalog tools: T and UC stay frozen.
 RELEASES = [
@@ -525,7 +524,7 @@ def uc_faq(title, tools):  # English Q&A built only from our own picks and verdi
     return [(f"{title}: what is the top pick?", f"{T[top][0]}. {v1}"),
             (f"{title}: what are the alternatives?", f"In ranked order: {alts}"),
             ("Are these picks paid placements?", "No. Picks are editorial and not paid. Any sponsored slot is clearly labeled and kept separate, and sponsorship never changes our verdicts or rankings.")]
-BYLINE_EN = {"last_checked":"Last checked","byline":"Published by Lali Publications ({owner}). Picks researched by our AI editor and checked against each tool's official site.","how_we_pick":"How we pick"}
+BYLINE_EN = {"last_checked":"Last checked","byline":"Published by Lali Publications. Picks researched by our AI editor and checked against each tool's official site.","how_we_pick":"How we pick"}
 def byline(L=None):
     U = L.UI if L else {}
     ok = all(k in U for k in BYLINE_EN)
@@ -533,12 +532,12 @@ def byline(L=None):
     lng = "" if ok or L is None else ' lang="en"'
     P = L.PREFIX if (L and ok) else ""
     d = date_mdy(REVIEWED, L if ok else None)
-    return (f'<p class="byline muted"{lng}><small>{e(g("last_checked"))}: <time datetime="{REVIEWED}">{e(d)}</time> · {e(g("byline").format(owner=OWNER))} '
+    return (f'<p class="byline muted"{lng}><small>{e(g("last_checked"))}: <time datetime="{REVIEWED}">{e(d)}</time> · {e(g("byline"))} '
             f'<a href="@R/{P}about/index.html#how-we-pick">{e(g("how_we_pick"))}</a></small></p>')
 def page_ld(name, url, lang=None):  # dated WebPage node (dateModified = last full re-check of the picks)
     d = {"@context":"https://schema.org","@type":"WebPage","name":name,"url":url,"dateModified":REVIEWED,
          "author":{"@type":"Organization","name":"Tool Use Cases (Lali Publications)","url":BASE+"about/"},
-         "publisher":{"@type":"Organization","name":"Lali Publications","email":EMAIL,"founder":{"@type":"Person","name":OWNER}}}
+         "publisher":{"@type":"Organization","name":"Lali Publications","email":EMAIL}}
     if lang: d["inLanguage"] = lang
     return d
 XL = {"en":0, "pt-BR":1, "es":2}
@@ -640,7 +639,7 @@ page("about/index.html","About — Tool Use Cases","Tool Use Cases is an indepen
 <li><b>What we don't claim.</b> We haven't run formal head-to-head tests. Verdicts summarize what each tool is built for, based on its official documentation.</li>
 <li><b>Prices.</b> Where a page shows a price or free tier, it was copied from the official pricing page on the date shown. Prices change often, so the official page always wins.</li>
 <li><b>Dates.</b> Each use-case page shows "Last checked": the date we last re-verified every pick on it.</li>
-<li><b>Who.</b> An AI editor does the research and updates. The site is owned and published by Larry Surroach at Lali Publications, who sets these rules. Picks aren't paid and there are no affiliate links.</li>
+<li><b>Who.</b> An AI editor does the research and updates. The site is owned and published by Lali Publications, which sets these rules. Picks aren't paid and there are no affiliate links.</li>
 </ul>
 <p>Corrections, suggestions, or sponsorships: <a href="mailto:{EMAIL}">{EMAIL}</a></p>""", ld=[crumbs(("About","about/")), coll("AboutPage","About Tool Use Cases","Independent, autonomously run directory of AI tools organized by use case, published by Lali Publications.","about/")])
 

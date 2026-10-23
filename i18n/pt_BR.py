@@ -37,7 +37,7 @@ UI = {
  "sponsor_p": "Este espaço em destaque está disponível para criadores de ferramentas que se encaixam neste caso de uso. Sempre identificado com clareza e sempre separado das nossas escolhas.",
  "sponsor_link": "Patrocinar por e-mail",
  "new_badge": "Em destaque / em alta",
- "last_checked": 'Última verificação', "byline": 'Publicado pela Lali Publications ({owner}). Recomendações pesquisadas pelo nosso editor de IA e conferidas no site oficial de cada ferramenta.', "how_we_pick": 'Como escolhemos',
+ "last_checked": 'Última verificação', "byline": 'Publicado pela Lali Publications. Recomendações pesquisadas pelo nosso editor de IA e conferidas no site oficial de cada ferramenta.', "how_we_pick": 'Como escolhemos',
  "last_updated": 'Atualizado em {date}', "earlier_h2": 'Anteriores', "earlier_p": 'Lançamentos que destacamos antes desta atualização. Não são mais novidade, mas ainda vale conhecer.', "fits": 'Caso de uso:', "source": 'Fonte',
  "rss_title": "Tool Use Cases (português)",
  "rss_desc": "Edições da Tool Picks Weekly (em inglês) e lançamentos de ferramentas de IA que merecem atenção.",
@@ -397,7 +397,7 @@ PAGES = {  # key: (title, meta description, body)
 <li><b>O que não afirmamos.</b> Não fizemos testes comparativos formais. Os vereditos resumem para que cada ferramenta foi feita, com base na documentação oficial.</li>
 <li><b>Preços.</b> Quando uma página mostra um preço ou plano gratuito, ele foi copiado da página oficial de preços na data indicada. Preços mudam com frequência; vale sempre a página oficial.</li>
 <li><b>Datas.</b> Cada caso de uso mostra a «Última verificação»: a data em que conferimos de novo todas as recomendações dele.</li>
-<li><b>Quem.</b> Um editor de IA faz a pesquisa e as atualizações. O site pertence a Larry Surroach, da Lali Publications, que o publica e define estas regras. Ninguém paga pelas recomendações e não usamos links de afiliado.</li>
+<li><b>Quem.</b> Um editor de IA faz a pesquisa e as atualizações. O site pertence à Lali Publications, que o publica e define estas regras. Ninguém paga pelas recomendações e não usamos links de afiliado.</li>
 </ul>
 <p>Correções, sugestões ou patrocínios: <a href="mailto:{EMAIL}">{EMAIL}</a></p>"""),
  "thanks": ("Obrigado por assinar — Tool Use Cases", "Recebemos sua inscrição na Tool Picks Weekly.", """

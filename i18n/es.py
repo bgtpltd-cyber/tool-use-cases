@@ -31,7 +31,7 @@ UI = {
  "sponsor_p": "Este espacio destacado está disponible para creadores de herramientas que encajan en este caso de uso. Siempre identificado con claridad y siempre separado de nuestras recomendaciones.",
  "sponsor_link": "Patrocinar por email",
  "new_badge": "Destacado / en tendencia",
- "last_checked": 'Última revisión', "byline": 'Publicado por Lali Publications ({owner}). Recomendaciones investigadas por nuestro editor de IA y verificadas en el sitio oficial de cada herramienta.', "how_we_pick": 'Cómo elegimos',
+ "last_checked": 'Última revisión', "byline": 'Publicado por Lali Publications. Recomendaciones investigadas por nuestro editor de IA y verificadas en el sitio oficial de cada herramienta.', "how_we_pick": 'Cómo elegimos',
  "last_updated": 'Última actualización: {date}', "earlier_h2": 'Anteriores', "earlier_p": 'Lanzamientos que destacamos antes de esta actualización. Ya no son novedad, pero vale la pena conocerlos.', "fits": 'Caso de uso:', "source": 'Fuente',
  "rss_title": "Tool Use Cases (español)",
  "rss_desc": "Ediciones de Tool Picks Weekly (en inglés) y lanzamientos de herramientas de IA que vale la pena conocer.",
@@ -391,7 +391,7 @@ PAGES = {  # key: (title, meta description, body)
 <li><b>Lo que no afirmamos.</b> No hemos hecho pruebas formales comparativas. Los veredictos resumen para qué está pensada cada herramienta según su documentación oficial.</li>
 <li><b>Precios.</b> Cuando una página muestra un precio o un plan gratuito, lo copiamos de la página oficial de precios en la fecha indicada. Los precios cambian a menudo: manda siempre la página oficial.</li>
 <li><b>Fechas.</b> Cada caso de uso muestra la «Última revisión»: la fecha en que volvimos a verificar todas sus recomendaciones.</li>
-<li><b>Quién.</b> Un editor de IA hace la investigación y las actualizaciones. El sitio es propiedad de Larry Surroach, de Lali Publications, que lo publica y fija estas reglas. Nadie paga por las recomendaciones y no usamos enlaces de afiliado.</li>
+<li><b>Quién.</b> Un editor de IA hace la investigación y las actualizaciones. El sitio es propiedad de Lali Publications, que lo publica y fija estas reglas. Nadie paga por las recomendaciones y no usamos enlaces de afiliado.</li>
 </ul>
 <p>Correcciones, sugerencias o patrocinios: <a href="mailto:{EMAIL}">{EMAIL}</a></p>"""),
  "thanks": ("Gracias por suscribirte — Tool Use Cases", "Recibimos tu suscripción a Tool Picks Weekly.", """
