@@ -3,7 +3,6 @@ https://tools.lalipublications.com/newsletter/
 https://tools.lalipublications.com/use-cases/
 https://tools.lalipublications.com/tools/
 https://tools.lalipublications.com/new/
-https://tools.lalipublications.com/sponsor/
 https://tools.lalipublications.com/about/
 https://tools.lalipublications.com/newsletter/issue-1/
 https://tools.lalipublications.com/use-cases/best-ai-for-vibe-coding/
@@ -41,7 +40,6 @@ https://tools.lalipublications.com/pt/
 https://tools.lalipublications.com/pt/use-cases/
 https://tools.lalipublications.com/pt/tools/
 https://tools.lalipublications.com/pt/new/
-https://tools.lalipublications.com/pt/sponsor/
 https://tools.lalipublications.com/pt/about/
 https://tools.lalipublications.com/pt/use-cases/best-ai-for-vibe-coding/
 https://tools.lalipublications.com/pt/use-cases/best-ai-coding-agents/
@@ -77,7 +75,6 @@ https://tools.lalipublications.com/es/
 https://tools.lalipublications.com/es/use-cases/
 https://tools.lalipublications.com/es/tools/
 https://tools.lalipublications.com/es/new/
-https://tools.lalipublications.com/es/sponsor/
 https://tools.lalipublications.com/es/about/
 https://tools.lalipublications.com/es/use-cases/best-ai-for-vibe-coding/
 https://tools.lalipublications.com/es/use-cases/best-ai-coding-agents/
