@@ -18,7 +18,7 @@ UI = {
  "nav_newsletter": "Newsletter", "nav_sponsor": "Sponsor", "nav_about": "எங்களைப் பற்றி",
  "home": "முகப்பு", "use_cases": "Use cases",
  "og_alt": "Tool Use Cases: உங்கள் வேலைக்கு ஏற்ப rank செய்யப்பட்ட AI tools",
- "footer": "Tool Use Cases · Lali Publications வழங்குவது · sponsorship-க்கு:",
+ "footer": "Tool Use Cases · Lali Publications வழங்குவது ·",
  "nl_h2": "Vibe coders-க்கு ஒவ்வொரு வாரமும் தேர்ந்தெடுத்த AI tools",
  "nl_p": "புதிய tools + எந்த tool எந்த வேலைக்குப் பொருந்தும். முற்றிலும் இலவசம். இப்போதைக்கு newsletter ஆங்கிலத்தில் வருகிறது.",
  "nl_placeholder": "neengal@example.com", "nl_aria": "Email முகவரி", "nl_button": "Subscribe செய்யுங்கள்",
@@ -365,8 +365,7 @@ PAGES = {  # key: (title, meta description, body)
 <input type="search" placeholder="Use cases-ஐ filter செய்யுங்கள் (உதா. video, coding, research)…" data-filter=".f" aria-label="Use cases-ஐ filter செய்யுங்கள்">
 <h2>Use cases</h2><div class="grid">{CARDS}</div>
 {NL_FORM}
-<h2>புதிய launches, trending</h2><ul>{NEWTEASER}</ul><p><a href="@R/@Pnew/index.html">எல்லா புதிய launches →</a></p>
-<div class="cta"><b>AI tool உருவாக்குகிறீர்களா?</b> உங்கள் tool எந்த use case-இல் சிறப்பாக வேலை செய்கிறதோ, அங்கே மேலே feature ஆகுங்கள். <a class="btn" href="@R/@Psponsor/index.html">Slot-ஐ sponsor செய்யுங்கள்</a></div>"""),
+<h2>புதிய launches, trending</h2><ul>{NEWTEASER}</ul><p><a href="@R/@Pnew/index.html">எல்லா புதிய launches →</a></p>"""),
  "use-cases": ("Use case வாரியாக AI tools — Tool Use Cases", "Use case வாரியாக AI tools-ஐப் பாருங்கள்: vibe coding, coding agents, debugging, game prototyping, video, writing, research, images இன்னும் பல.", """
 <h1>Use cases</h1><p class="lede">வேலையைத் தேர்ந்தெடுங்கள். எந்த tools try செய்யத் தகுந்தவை, ஏன் என்று நாங்கள் சொல்கிறோம்.</p>
 <input type="search" placeholder="Use cases-ஐ filter செய்யுங்கள்…" data-filter=".f" aria-label="Filter"><div class="grid">{CARDS}</div>"""),
@@ -385,9 +384,9 @@ PAGES = {  # key: (title, meta description, body)
 <h1>எங்களைப் பற்றி</h1><p class="lede">Tool Use Cases ஒரே ஒரு கேள்விக்குப் பதில் சொல்கிறது: இந்த வேலைக்கு நான் எந்த AI tool-ஐப் பயன்படுத்த வேண்டும்?</p>
 <p>பெரும்பாலான AI directories வெறும் பெரிய lists தான். நாங்கள் use case வாரியாக ஒழுங்குபடுத்துகிறோம், ஒவ்வொரு தேர்வுக்கும் எளிய மொழியில் ஒரு சின்னக் கருத்தைத் தருகிறோம், அதனால் நீங்கள் ஒரு நிமிடத்தில் முடிவெடுக்கலாம்.</p>
 <p>இந்த site autonomous-ஆக இயங்குகிறது — ஒரு AI operator இதை update செய்கிறது, இதற்கான மனிதப் பொறுப்பு Lali Publications-இடம் உள்ளது. உண்மையான, நன்கு அறியப்பட்ட tools-ஐ மட்டுமே list செய்கிறோம், கற்பனையான scores அல்லது user எண்ணிக்கைகளை publish செய்வதில்லை.</p>
-<p>Tool Use Cases-ஐ Lali Publications வெளியிடுகிறது, அவர்களே <a href="https://agentusecases.ai">agentusecases.ai</a>-ஐயும் நடத்துகிறார்கள். நாங்கள் list செய்யும் எந்த tool-உடனும் எங்களுக்குத் தொடர்பு இல்லை, sponsorships rankings-ஐ ஒருபோதும் மாற்றாது.</p>
+<p>Tool Use Cases-ஐ Lali Publications வெளியிடுகிறது, அவர்களே <a href="https://agentusecases.ai">agentusecases.ai</a>-ஐயும் நடத்துகிறார்கள். நாங்கள் list செய்யும் எந்த tool-உடனும் எங்களுக்குத் தொடர்பு இல்லை.</p>
 <p>இது site-இன் தமிழ் version, <a href="@R/about/index.html" hreflang="en">ஆங்கில version</a>-இல் உள்ள அதே use cases, அதே தேர்வுகள், அதே rankings-உடன்.</p>
-<p>திருத்தங்கள், பரிந்துரைகள் அல்லது sponsorships-க்கு: <a href="mailto:{EMAIL}">{EMAIL}</a></p>"""),
+<p>திருத்தங்கள் அல்லது பரிந்துரைகளுக்கு: <a href="mailto:{EMAIL}">{EMAIL}</a></p>"""),
  "thanks": ("Subscribe செய்ததற்கு நன்றி — Tool Use Cases", "Tool Picks Weekly-க்கான உங்கள் signup கிடைத்துவிட்டது.", """
 <h1>நீங்கள் list-இல் சேர்ந்துவிட்டீர்கள். நன்றி!</h1><p class="lede">Tool Picks Weekly-க்கான உங்கள் signup கிடைத்துவிட்டது. அடுத்த issue திங்கட்கிழமை வரும். இப்போதைக்கு newsletter ஆங்கிலத்தில் வருகிறது.</p>
 <p><a class="btn" href="@R/@Pindex.html">Tool Use Cases-க்குத் திரும்புங்கள்</a></p>"""),

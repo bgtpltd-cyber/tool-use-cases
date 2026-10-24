@@ -18,12 +18,12 @@ TAG = "Qual ferramenta de IA usar para cada tarefa — para vibe coders e builde
 UI = {
  "quick_label": "Resposta rápida", "quick_top": "{tool} é a nossa escolha principal.", "faq_h2": "Perguntas frequentes",
  "faq_q_top": "{title}: qual é a escolha principal?", "faq_q_alts": "{title}: quais são as alternativas?", "faq_a_alts": "Em ordem de ranking: {alts}",
- "faq_q_paid": "Alguém paga para aparecer nestas recomendações?", "faq_a_paid": "Não. As recomendações são editoriais e ninguém paga por elas. Qualquer espaço patrocinado é identificado com clareza e fica separado, e o patrocínio nunca muda nossos veredictos nem a ordem do ranking.",
+ "faq_q_paid": "Alguém paga para aparecer nestas recomendações?", "faq_a_paid": "Não. As recomendações são editoriais, ninguém paga por elas e não há links de afiliado.",
  "nav_use_cases": "Casos de uso", "nav_tools": "Ferramentas", "nav_new": "Lançamentos",
  "nav_newsletter": "Newsletter", "nav_sponsor": "Patrocínio", "nav_about": "Sobre",
  "home": "Início", "use_cases": "Casos de uso",
  "og_alt": "Tool Use Cases: ferramentas de IA ranqueadas pela tarefa que você precisa resolver",
- "footer": "Tool Use Cases · por Lali Publications · patrocínios:",
+ "footer": "Tool Use Cases · por Lali Publications ·",
  "nl_h2": "Indicações semanais de ferramentas de IA para vibe coders",
  "nl_p": "Ferramentas novas + para qual tarefa cada uma serve. Grátis. Por enquanto, a newsletter é enviada em inglês.",
  "nl_placeholder": "voce@exemplo.com", "nl_aria": "Endereço de e-mail", "nl_button": "Assinar",
@@ -371,8 +371,7 @@ PAGES = {  # key: (title, meta description, body)
 <input type="search" placeholder="Filtrar casos de uso (ex.: vídeo, código, pesquisa)…" data-filter=".f" aria-label="Filtrar casos de uso">
 <h2>Casos de uso</h2><div class="grid">{CARDS}</div>
 {NL_FORM}
-<h2>Lançamentos e tendências</h2><ul>{NEWTEASER}</ul><p><a href="@R/@Pnew/index.html">Todos os lançamentos →</a></p>
-<div class="cta"><b>Criou uma ferramenta de IA?</b> Apareça em destaque no topo do caso de uso em que a sua ferramenta é melhor. <a class="btn" href="@R/@Psponsor/index.html">Patrocinar um espaço</a></div>"""),
+<h2>Lançamentos e tendências</h2><ul>{NEWTEASER}</ul><p><a href="@R/@Pnew/index.html">Todos os lançamentos →</a></p>"""),
  "use-cases": ("Casos de uso de ferramentas de IA — Tool Use Cases", "Encontre ferramentas de IA por caso de uso: vibe coding, agentes de código, debug, protótipos de jogos, vídeo, escrita, pesquisa, imagens e mais.", """
 <h1>Casos de uso</h1><p class="lede">Escolha a tarefa. A gente lista as ferramentas que valem a pena testar e explica por quê.</p>
 <input type="search" placeholder="Filtrar casos de uso…" data-filter=".f" aria-label="Filtrar"><div class="grid">{CARDS}</div>"""),
@@ -391,7 +390,7 @@ PAGES = {  # key: (title, meta description, body)
 <h1>Sobre</h1><p class="lede">O Tool Use Cases responde a uma pergunta: qual ferramenta de IA eu uso para esta tarefa?</p>
 <p>A maioria dos diretórios de IA é uma lista gigante. A gente organiza por caso de uso e dá a cada escolha um veredito curto e em linguagem simples, para você decidir em um minuto.</p>
 <p>O site é operado de forma autônoma — um operador de IA mantém tudo atualizado, e a responsabilidade humana pelo projeto é da Lali Publications. Só listamos ferramentas reais e conhecidas, e não publicamos notas inventadas nem números de usuários.</p>
-<p>O Tool Use Cases é publicado pela Lali Publications, que também mantém o <a href="https://agentusecases.ai">agentusecases.ai</a>. As escolhas não são pagas: não temos vínculo com nenhuma ferramenta que listamos, e patrocínios nunca mudam os rankings.</p>
+<p>O Tool Use Cases é publicado pela Lali Publications, que também mantém o <a href="https://agentusecases.ai">agentusecases.ai</a>. As escolhas não são pagas e não temos vínculo com nenhuma ferramenta que listamos.</p>
 <p>Esta é a versão em português do site, com os mesmos casos de uso, escolhas e rankings da <a href="@R/about/index.html" hreflang="en">versão em inglês</a>.</p>
 <h2 id="how-we-pick">Como escolhemos</h2><ul>
 <li><b>Uma página por tarefa.</b> Cada caso de uso lista de 5 a 7 ferramentas muito usadas para aquela tarefa, em ordem de quanto se encaixam nela. A primeira é a nossa recomendação principal, com um veredito de uma linha dizendo para quem ela serve.</li>
@@ -402,7 +401,7 @@ PAGES = {  # key: (title, meta description, body)
 <li><b>Datas.</b> Cada caso de uso mostra a «Última verificação»: a data em que conferimos de novo todas as recomendações dele.</li>
 <li><b>Quem.</b> Um editor de IA faz a pesquisa e as atualizações. O site pertence à Lali Publications, que o publica e define estas regras. Ninguém paga pelas recomendações e não usamos links de afiliado.</li>
 </ul>
-<p>Correções, sugestões ou patrocínios: <a href="mailto:{EMAIL}">{EMAIL}</a></p>"""),
+<p>Correções ou sugestões: <a href="mailto:{EMAIL}">{EMAIL}</a></p>"""),
  "thanks": ("Obrigado por assinar — Tool Use Cases", "Recebemos sua inscrição na Tool Picks Weekly.", """
 <h1>Você está na lista. Obrigado!</h1><p class="lede">Recebemos sua inscrição na Tool Picks Weekly. Fique de olho na próxima edição, na segunda-feira. Por enquanto, a newsletter é enviada em inglês.</p>
 <p><a class="btn" href="@R/@Pindex.html">Voltar para o Tool Use Cases</a></p>"""),

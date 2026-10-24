@@ -18,7 +18,7 @@ UI = {
  "nav_newsletter": "ന്യൂസ്‌ലെറ്റർ", "nav_sponsor": "സ്പോൺസർ", "nav_about": "ഞങ്ങളെക്കുറിച്ച്",
  "home": "ഹോം", "use_cases": "Use cases",
  "og_alt": "Tool Use Cases: നിങ്ങളുടെ ജോലിക്കനുസരിച്ച് rank ചെയ്ത AI ടൂളുകൾ",
- "footer": "Tool Use Cases · Lali Publications-ൽ നിന്ന് · സ്പോൺസർഷിപ്പിന്:",
+ "footer": "Tool Use Cases · Lali Publications-ൽ നിന്ന് ·",
  "nl_h2": "Vibe coders-ന് എല്ലാ ആഴ്ചയും തിരഞ്ഞെടുത്ത AI ടൂളുകൾ",
  "nl_p": "പുതിയ ടൂളുകൾ + ഏത് ടൂൾ ഏത് ജോലിക്ക് പറ്റും. പൂർണമായും ഫ്രീ. തൽക്കാലം ന്യൂസ്‌ലെറ്റർ ഇംഗ്ലീഷിലാണ് വരുന്നത്.",
  "nl_placeholder": "ningal@example.com", "nl_aria": "ഇമെയിൽ വിലാസം", "nl_button": "സബ്സ്ക്രൈബ് ചെയ്യൂ",
@@ -365,8 +365,7 @@ PAGES = {  # key: (title, meta description, body)
 <input type="search" placeholder="Use cases ഫിൽട്ടർ ചെയ്യൂ (ഉദാ. video, coding, research)…" data-filter=".f" aria-label="Use cases ഫിൽട്ടർ ചെയ്യൂ">
 <h2>Use cases</h2><div class="grid">{CARDS}</div>
 {NL_FORM}
-<h2>പുതിയ ലോഞ്ചുകൾ, ട്രെൻഡിങ്</h2><ul>{NEWTEASER}</ul><p><a href="@R/@Pnew/index.html">എല്ലാ പുതിയ ലോഞ്ചുകളും →</a></p>
-<div class="cta"><b>AI ടൂൾ ഉണ്ടാക്കുന്നുണ്ടോ?</b> നിങ്ങളുടെ ടൂൾ ഏറ്റവും മികച്ചതായ use case-ന്റെ ഏറ്റവും മുകളിൽ feature ചെയ്യൂ. <a class="btn" href="@R/@Psponsor/index.html">സ്ലോട്ട് സ്പോൺസർ ചെയ്യൂ</a></div>"""),
+<h2>പുതിയ ലോഞ്ചുകൾ, ട്രെൻഡിങ്</h2><ul>{NEWTEASER}</ul><p><a href="@R/@Pnew/index.html">എല്ലാ പുതിയ ലോഞ്ചുകളും →</a></p>"""),
  "use-cases": ("AI ടൂൾ use cases — Tool Use Cases", "Use case അനുസരിച്ച് AI ടൂളുകൾ കാണൂ: vibe coding, coding agents, debugging, ഗെയിം prototyping, വീഡിയോ, എഴുത്ത്, റിസർച്ച്, images എന്നിങ്ങനെ പലതും.", """
 <h1>Use cases</h1><p class="lede">ജോലി തിരഞ്ഞെടുക്കൂ. ഏതൊക്കെ ടൂളുകൾ ട്രൈ ചെയ്യാൻ കൊള്ളാം, എന്തുകൊണ്ട് എന്ന് ഞങ്ങൾ പറഞ്ഞുതരാം.</p>
 <input type="search" placeholder="Use cases ഫിൽട്ടർ ചെയ്യൂ…" data-filter=".f" aria-label="ഫിൽട്ടർ"><div class="grid">{CARDS}</div>"""),
@@ -385,9 +384,9 @@ PAGES = {  # key: (title, meta description, body)
 <h1>ഞങ്ങളെക്കുറിച്ച്</h1><p class="lede">Tool Use Cases ഒരൊറ്റ ചോദ്യത്തിനാണ് ഉത്തരം നൽകുന്നത്: ഈ ജോലിക്ക് ഞാൻ ഏത് AI ടൂൾ ഉപയോഗിക്കണം?</p>
 <p>മിക്ക AI ഡയറക്ടറികളും വെറും വലിയ ലിസ്റ്റുകളാണ്. ഞങ്ങൾ use case അനുസരിച്ച് ക്രമീകരിക്കുന്നു, ഓരോ തിരഞ്ഞെടുപ്പിനും ലളിതമായ ഭാഷയിൽ ഒരു ചെറിയ അഭിപ്രായവും നൽകുന്നു, അതുകൊണ്ട് ഒരു മിനിറ്റിൽ തീരുമാനമെടുക്കാം.</p>
 <p>ഈ സൈറ്റ് autonomous ആയാണ് പ്രവർത്തിക്കുന്നത് — ഒരു AI operator ഇത് അപ്ഡേറ്റ് ചെയ്യുന്നു, ഇതിന്റെ മനുഷ്യ ഉത്തരവാദിത്തം Lali Publications-നാണ്. യഥാർത്ഥവും അറിയപ്പെടുന്നതുമായ ടൂളുകൾ മാത്രമേ ഞങ്ങൾ ലിസ്റ്റ് ചെയ്യൂ, കെട്ടിച്ചമച്ച സ്കോറുകളോ യൂസർ എണ്ണങ്ങളോ publish ചെയ്യില്ല.</p>
-<p>Tool Use Cases പ്രസിദ്ധീകരിക്കുന്നത് Lali Publications ആണ്, അവർ തന്നെയാണ് <a href="https://agentusecases.ai">agentusecases.ai</a>-ഉം നടത്തുന്നത്. ഞങ്ങൾ ലിസ്റ്റ് ചെയ്യുന്ന ഒരു ടൂളുമായും ഞങ്ങൾക്ക് ബന്ധമില്ല, സ്പോൺസർഷിപ്പുകൾ റാങ്കിങ്ങുകളെ ഒരിക്കലും മാറ്റില്ല.</p>
+<p>Tool Use Cases പ്രസിദ്ധീകരിക്കുന്നത് Lali Publications ആണ്, അവർ തന്നെയാണ് <a href="https://agentusecases.ai">agentusecases.ai</a>-ഉം നടത്തുന്നത്. ഞങ്ങൾ ലിസ്റ്റ് ചെയ്യുന്ന ഒരു ടൂളുമായും ഞങ്ങൾക്ക് ബന്ധമില്ല.</p>
 <p>ഇത് സൈറ്റിന്റെ മലയാളം പതിപ്പാണ്, <a href="@R/about/index.html" hreflang="en">ഇംഗ്ലീഷ് പതിപ്പി</a>ലെ അതേ use cases, അതേ തിരഞ്ഞെടുപ്പുകൾ, അതേ റാങ്കിങ്ങുകൾ.</p>
-<p>തിരുത്തലുകൾക്കും നിർദേശങ്ങൾക്കും സ്പോൺസർഷിപ്പുകൾക്കും: <a href="mailto:{EMAIL}">{EMAIL}</a></p>"""),
+<p>തിരുത്തലുകൾക്കും നിർദേശങ്ങൾക്കും: <a href="mailto:{EMAIL}">{EMAIL}</a></p>"""),
  "thanks": ("സബ്സ്ക്രൈബ് ചെയ്തതിന് നന്ദി — Tool Use Cases", "Tool Picks Weekly-ലേക്കുള്ള നിങ്ങളുടെ സൈൻഅപ്പ് കിട്ടി.", """
 <h1>നിങ്ങൾ ലിസ്റ്റിൽ ചേർന്നു. നന്ദി!</h1><p class="lede">Tool Picks Weekly-ലേക്കുള്ള നിങ്ങളുടെ സൈൻഅപ്പ് കിട്ടി. അടുത്ത ലക്കം തിങ്കളാഴ്ച വരും. തൽക്കാലം ന്യൂസ്‌ലെറ്റർ ഇംഗ്ലീഷിലാണ് വരുന്നത്.</p>
 <p><a class="btn" href="@R/@Pindex.html">Tool Use Cases-ലേക്ക് തിരികെ പോകൂ</a></p>"""),

@@ -18,7 +18,7 @@ UI = {
  "nav_newsletter": "న్యూస్‌లెటర్", "nav_sponsor": "స్పాన్సర్", "nav_about": "మా గురించి",
  "home": "హోమ్", "use_cases": "Use cases",
  "og_alt": "Tool Use Cases: మీ పనిని బట్టి ర్యాంక్ చేసిన AI టూల్స్",
- "footer": "Tool Use Cases · Lali Publications నుంచి · స్పాన్సర్‌షిప్ కోసం:",
+ "footer": "Tool Use Cases · Lali Publications నుంచి ·",
  "nl_h2": "Vibe coders కోసం ప్రతి వారం ఎంచుకున్న AI టూల్స్",
  "nl_p": "కొత్త టూల్స్ + ఏ టూల్ ఏ పనికి పనికొస్తుందో. పూర్తిగా ఫ్రీ. ప్రస్తుతానికి న్యూస్‌లెటర్ ఇంగ్లీష్‌లో వస్తుంది.",
  "nl_placeholder": "meeru@example.com", "nl_aria": "ఈమెయిల్ అడ్రస్", "nl_button": "సబ్‌స్క్రైబ్ చేయండి",
@@ -365,8 +365,7 @@ PAGES = {  # key: (title, meta description, body)
 <input type="search" placeholder="Use cases ఫిల్టర్ చేయండి (ఉదా. video, coding, research)…" data-filter=".f" aria-label="Use cases ఫిల్టర్ చేయండి">
 <h2>Use cases</h2><div class="grid">{CARDS}</div>
 {NL_FORM}
-<h2>కొత్త లాంచ్‌లు, ట్రెండింగ్</h2><ul>{NEWTEASER}</ul><p><a href="@R/@Pnew/index.html">అన్ని కొత్త లాంచ్‌లు →</a></p>
-<div class="cta"><b>AI టూల్ తయారు చేస్తారా?</b> మీ టూల్ ఏ use case లో బెస్ట్‌గా పని చేస్తుందో, అక్కడ పైన ఫీచర్ అవ్వండి. <a class="btn" href="@R/@Psponsor/index.html">స్లాట్ స్పాన్సర్ చేయండి</a></div>"""),
+<h2>కొత్త లాంచ్‌లు, ట్రెండింగ్</h2><ul>{NEWTEASER}</ul><p><a href="@R/@Pnew/index.html">అన్ని కొత్త లాంచ్‌లు →</a></p>"""),
  "use-cases": ("AI టూల్ use cases — Tool Use Cases", "Use case ప్రకారం AI టూల్స్ చూడండి: vibe coding, coding agents, debugging, గేమ్ prototyping, వీడియో, writing, రీసెర్చ్, images ఇంకా ఎన్నో.", """
 <h1>Use cases</h1><p class="lede">పని ఎంచుకోండి. ఏ టూల్స్ ట్రై చేయదగ్గవో, ఎందుకో మేం చెబుతాం.</p>
 <input type="search" placeholder="Use cases ఫిల్టర్ చేయండి…" data-filter=".f" aria-label="ఫిల్టర్"><div class="grid">{CARDS}</div>"""),
@@ -385,9 +384,9 @@ PAGES = {  # key: (title, meta description, body)
 <h1>మా గురించి</h1><p class="lede">Tool Use Cases ఒకే ప్రశ్నకు సమాధానం ఇస్తుంది: ఈ పనికి నేను ఏ AI టూల్ వాడాలి?</p>
 <p>చాలా AI డైరెక్టరీలు పెద్ద పెద్ద లిస్ట్‌లు మాత్రమే. మేం use case ప్రకారం సర్దుతాం, ప్రతి ఎంపికకు సింపుల్ భాషలో చిన్న అభిప్రాయం ఇస్తాం, అప్పుడు మీరు ఒక్క నిమిషంలో నిర్ణయం తీసుకోవచ్చు.</p>
 <p>ఈ సైట్ autonomous గా నడుస్తుంది — ఒక AI operator దీన్ని అప్‌డేట్ చేస్తుంటుంది, దీని బాధ్యత వహించే మనుషులు Lali Publications. మేం నిజమైన, పేరున్న టూల్స్‌ని మాత్రమే లిస్ట్ చేస్తాం, కల్పిత స్కోర్‌లు లేదా యూజర్ సంఖ్యలు publish చేయం.</p>
-<p>Tool Use Cases ని Lali Publications ప్రచురిస్తుంది, వాళ్లే <a href="https://agentusecases.ai">agentusecases.ai</a> కూడా నడుపుతారు. మేం లిస్ట్ చేసే ఏ టూల్‌తోనూ మాకు సంబంధం లేదు, స్పాన్సర్‌షిప్ వల్ల ర్యాంకింగ్‌లు ఎప్పుడూ మారవు.</p>
+<p>Tool Use Cases ని Lali Publications ప్రచురిస్తుంది, వాళ్లే <a href="https://agentusecases.ai">agentusecases.ai</a> కూడా నడుపుతారు. మేం లిస్ట్ చేసే ఏ టూల్‌తోనూ మాకు సంబంధం లేదు.</p>
 <p>ఇది సైట్ తెలుగు వెర్షన్, <a href="@R/about/index.html" hreflang="en">ఇంగ్లీష్ వెర్షన్‌</a>లో ఉన్న అవే use cases, అవే ఎంపికలు, అవే ర్యాంకింగ్‌లతో.</p>
-<p>సవరణలు, సూచనలు లేదా స్పాన్సర్‌షిప్‌ల కోసం: <a href="mailto:{EMAIL}">{EMAIL}</a></p>"""),
+<p>సవరణలు లేదా సూచనల కోసం: <a href="mailto:{EMAIL}">{EMAIL}</a></p>"""),
  "thanks": ("సబ్‌స్క్రైబ్ చేసినందుకు ధన్యవాదాలు — Tool Use Cases", "Tool Picks Weekly కి మీ సైన్‌అప్ అందింది.", """
 <h1>మీరు లిస్ట్‌లో చేరిపోయారు. ధన్యవాదాలు!</h1><p class="lede">Tool Picks Weekly కి మీ సైన్‌అప్ అందింది. తర్వాతి ఇష్యూ సోమవారం వస్తుంది. ప్రస్తుతానికి న్యూస్‌లెటర్ ఇంగ్లీష్‌లో వస్తుంది.</p>
 <p><a class="btn" href="@R/@Pindex.html">Tool Use Cases కి తిరిగి వెళ్లండి</a></p>"""),

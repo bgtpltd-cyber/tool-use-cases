@@ -18,7 +18,7 @@ UI = {
  "nav_newsletter": "ニュースレター", "nav_sponsor": "スポンサー", "nav_about": "このサイトについて",
  "home": "ホーム", "use_cases": "ユースケース",
  "og_alt": "Tool Use Cases：やりたいこと別にランク付けしたAIツール",
- "footer": "Tool Use Cases · 運営：Lali Publications · スポンサーのお問い合わせ：",
+ "footer": "Tool Use Cases · 運営：Lali Publications ·",
  "nl_h2": "vibe coder向け、毎週のおすすめAIツール",
  "nl_p": "新しいツールと、それぞれ何に使えるか。無料です。現在は英語で配信しています。",
  "nl_placeholder": "you@example.com", "nl_aria": "メールアドレス", "nl_button": "登録する",
@@ -365,8 +365,7 @@ PAGES = {  # key: (title, meta description, body)
 <input type="search" placeholder="ユースケースを絞り込む（例：動画、コード、リサーチ）…" data-filter=".f" aria-label="ユースケースを絞り込む">
 <h2>ユースケース</h2><div class="grid">{CARDS}</div>
 {NL_FORM}
-<h2>新着・話題のツール</h2><ul>{NEWTEASER}</ul><p><a href="@R/@Pnew/index.html">新着をすべて見る →</a></p>
-<div class="cta"><b>AIツールを作っていますか？</b> いちばん合うユースケースのページの上部で紹介できます。 <a class="btn" href="@R/@Psponsor/index.html">スポンサー枠を申し込む</a></div>"""),
+<h2>新着・話題のツール</h2><ul>{NEWTEASER}</ul><p><a href="@R/@Pnew/index.html">新着をすべて見る →</a></p>"""),
  "use-cases": ("ユースケース別のAIツール — Tool Use Cases", "ユースケース別にAIツールを探せます。vibe coding、coding agent、debugging、ゲーム、動画、ライティング、リサーチ、画像など。", """
 <h1>ユースケース</h1><p class="lede">やりたいことを選んでください。試す価値のあるツールと、その理由を紹介します。</p>
 <input type="search" placeholder="ユースケースを絞り込む…" data-filter=".f" aria-label="絞り込む"><div class="grid">{CARDS}</div>"""),
@@ -385,9 +384,9 @@ PAGES = {  # key: (title, meta description, body)
 <h1>このサイトについて</h1><p class="lede">Tool Use Casesが答えるのは、たった1つの質問です。「この作業には、どのAIツールを使えばいい？」</p>
 <p>ほとんどのAIディレクトリは巨大なリストです。私たちはユースケースごとに整理し、おすすめのそれぞれに短くわかりやすい評価をつけているので、1分で決められます。</p>
 <p>このサイトは自律的に運営されています。AIオペレーターが内容を最新に保ち、人間としての責任はLali Publicationsが負っています。掲載するのは実在するよく知られたツールだけで、でっちあげのスコアやユーザー数は載せません。</p>
-<p>Tool Use CasesはLali Publicationsが発行しており、<a href="https://agentusecases.ai">agentusecases.ai</a>も運営しています。おすすめへの掲載料は受け取っていません。掲載しているどのツールとも提携関係はなく、スポンサーによってランキングが変わることもありません。</p>
+<p>Tool Use CasesはLali Publicationsが発行しており、<a href="https://agentusecases.ai">agentusecases.ai</a>も運営しています。おすすめへの掲載料は受け取っておらず、掲載しているどのツールとも提携関係はありません。</p>
 <p>これはサイトの日本語版で、ユースケース、おすすめ、ランキングは<a href="@R/about/index.html" hreflang="en">英語版</a>とまったく同じです。</p>
-<p>修正、ご提案、スポンサーのお問い合わせ：<a href="mailto:{EMAIL}">{EMAIL}</a></p>"""),
+<p>修正・ご提案のお問い合わせ：<a href="mailto:{EMAIL}">{EMAIL}</a></p>"""),
  "thanks": ("ご登録ありがとうございます — Tool Use Cases", "Tool Picks Weeklyへのご登録を受け付けました。", """
 <h1>登録が完了しました。ありがとうございます！</h1><p class="lede">Tool Picks Weeklyへのご登録を受け付けました。次の号は月曜日に届きます。現在は英語で配信しています。</p>
 <p><a class="btn" href="@R/@Pindex.html">Tool Use Casesに戻る</a></p>"""),

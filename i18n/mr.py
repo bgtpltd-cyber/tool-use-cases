@@ -18,7 +18,7 @@ UI = {
  "nav_newsletter": "न्यूजलेटर", "nav_sponsor": "स्पॉन्सर", "nav_about": "आमच्याबद्दल",
  "home": "होम", "use_cases": "Use cases",
  "og_alt": "Tool Use Cases: तुमच्या कामानुसार रँक केलेली AI टूल्स",
- "footer": "Tool Use Cases · Lali Publications कडून · स्पॉन्सरशिपसाठी:",
+ "footer": "Tool Use Cases · Lali Publications कडून ·",
  "nl_h2": "Vibe coders साठी दर आठवड्याला निवडक AI टूल्स",
  "nl_p": "नवीन टूल्स + कोणतं टूल कोणत्या कामाचं. पूर्णपणे फ्री. सध्या न्यूजलेटर इंग्रजीत पाठवलं जातं.",
  "nl_placeholder": "tumhi@example.com", "nl_aria": "ईमेल पत्ता", "nl_button": "सबस्क्राइब करा",
@@ -365,8 +365,7 @@ PAGES = {  # key: (title, meta description, body)
 <input type="search" placeholder="Use cases फिल्टर करा (उदा. video, coding, research)…" data-filter=".f" aria-label="Use cases फिल्टर करा">
 <h2>Use cases</h2><div class="grid">{CARDS}</div>
 {NL_FORM}
-<h2>नवीन लाँच आणि ट्रेंडिंग</h2><ul>{NEWTEASER}</ul><p><a href="@R/@Pnew/index.html">सगळे नवीन लाँच पाहा →</a></p>
-<div class="cta"><b>AI टूल बनवता?</b> तुमचं टूल ज्या use case मध्ये सगळ्यात चांगलं आहे, तिथे सगळ्यात वर फीचर करा. <a class="btn" href="@R/@Psponsor/index.html">स्लॉट स्पॉन्सर करा</a></div>"""),
+<h2>नवीन लाँच आणि ट्रेंडिंग</h2><ul>{NEWTEASER}</ul><p><a href="@R/@Pnew/index.html">सगळे नवीन लाँच पाहा →</a></p>"""),
  "use-cases": ("AI टूल use cases — Tool Use Cases", "Use case नुसार AI टूल्स पाहा: vibe coding, coding agents, debugging, गेम prototyping, व्हिडिओ, लेखन, रिसर्च, images आणि बरंच काही.", """
 <h1>Use cases</h1><p class="lede">काम निवडा. कोणती टूल्स वापरून पाहण्यासारखी आहेत आणि का, ते आम्ही सांगतो.</p>
 <input type="search" placeholder="Use cases फिल्टर करा…" data-filter=".f" aria-label="फिल्टर करा"><div class="grid">{CARDS}</div>"""),
@@ -385,9 +384,9 @@ PAGES = {  # key: (title, meta description, body)
 <h1>आमच्याबद्दल</h1><p class="lede">Tool Use Cases एकाच प्रश्नाचं उत्तर देतं: या कामासाठी मी कोणतं AI टूल वापरू?</p>
 <p>बहुतेक AI डिरेक्टरीज म्हणजे फक्त भलीमोठी लिस्ट. आम्ही use case नुसार मांडणी करतो, आणि प्रत्येक निवडीसोबत सोप्या भाषेत छोटंसं मत देतो, म्हणजे तुम्ही एका मिनिटात निर्णय घेऊ शकता.</p>
 <p>ही साइट autonomously चालते — एक AI operator ती अपडेट ठेवतो, आणि तिची मानवी जबाबदारी Lali Publications ची आहे. आम्ही फक्त खरी, नावाजलेली टूल्सच लिस्ट करतो आणि बनावट स्कोर किंवा युजर्सचे आकडे publish करत नाही.</p>
-<p>Tool Use Cases हे Lali Publications प्रकाशित करतं, जे <a href="https://agentusecases.ai">agentusecases.ai</a> पण चालवतं. आम्ही लिस्ट करत असलेल्या कोणत्याही टूलशी आमचा संबंध नाही, आणि स्पॉन्सरशिपमुळे रँकिंग कधीच बदलत नाही.</p>
+<p>Tool Use Cases हे Lali Publications प्रकाशित करतं, जे <a href="https://agentusecases.ai">agentusecases.ai</a> पण चालवतं. आम्ही लिस्ट करत असलेल्या कोणत्याही टूलशी आमचा संबंध नाही.</p>
 <p>हे साइटचं मराठी व्हर्जन आहे, ज्यात <a href="@R/about/index.html" hreflang="en">इंग्रजी व्हर्जन</a>सारखेच use cases, तीच निवड आणि तेच रँकिंग आहे.</p>
-<p>दुरुस्त्या, सूचना किंवा स्पॉन्सरशिपसाठी: <a href="mailto:{EMAIL}">{EMAIL}</a></p>"""),
+<p>दुरुस्त्या किंवा सूचनांसाठी: <a href="mailto:{EMAIL}">{EMAIL}</a></p>"""),
  "thanks": ("सबस्क्राइब केल्याबद्दल धन्यवाद — Tool Use Cases", "Tool Picks Weekly साठी तुमचा साइनअप मिळाला आहे.", """
 <h1>तुम्ही लिस्टमध्ये आलात. धन्यवाद!</h1><p class="lede">Tool Picks Weekly साठी तुमचा साइनअप मिळाला आहे. पुढचा अंक सोमवारी येईल. सध्या न्यूजलेटर इंग्रजीत पाठवलं जातं.</p>
 <p><a class="btn" href="@R/@Pindex.html">Tool Use Cases वर परत जा</a></p>"""),

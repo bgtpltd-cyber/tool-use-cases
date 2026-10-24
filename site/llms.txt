@@ -2,7 +2,7 @@
 
 > Which AI tool for which job — for vibe coders and builders. A curated, editorial directory of AI tools organized by the job you're trying to do. Published by Lali Publications.
 
-Our angle: tool choice by job-to-be-done for vibe coders. Each use-case page lists recommended tools with a one-line description and a plain-English verdict. Picks are editorial and not paid; sponsored slots are clearly labeled and separate. English, Portuguese (Brazil) and Spanish use-case pages also carry a Quick answer, an FAQ and, for most picks, a dated price/free-tier line copied from the tool's official pricing page.
+Our angle: tool choice by job-to-be-done for vibe coders. Each use-case page lists recommended tools with a one-line description and a plain-English verdict. Picks are editorial and not paid; there are no affiliate links. English, Portuguese (Brazil) and Spanish use-case pages also carry a Quick answer, an FAQ and, for most picks, a dated price/free-tier line copied from the tool's official pricing page.
 
 ## Use cases
 
@@ -46,9 +46,9 @@ Our angle: tool choice by job-to-be-done for vibe coders. Each use-case page lis
 - [Tool Picks Weekly #1: Your vibe-coded app can now talk, search and scrape](https://tools.lalipublications.com/newsletter/issue-1/) (Oct 19, 2026)
 - [About](https://tools.lalipublications.com/about/)
 
-## Sponsor / contact
+## Contact
 
-Sponsorships, corrections and suggestions: larrys@lalipublications.com (Lali Publications). See https://tools.lalipublications.com/sponsor/
+Corrections and suggestions: larrys@lalipublications.com (Lali Publications).
 
 ## How to cite
 
@@ -62,7 +62,6 @@ Versão completa do site em português brasileiro, com os mesmos casos de uso, e
 - [Todas as ferramentas de A a Z](https://tools.lalipublications.com/pt/tools/)
 - [Lançamentos e tendências](https://tools.lalipublications.com/pt/new/)
 - [Sobre](https://tools.lalipublications.com/pt/about/)
-- [Patrocínio](https://tools.lalipublications.com/pt/sponsor/)
 - [RSS](https://tools.lalipublications.com/pt/feed.xml)
 - [Melhor IA para vibe coding](https://tools.lalipublications.com/pt/use-cases/best-ai-for-vibe-coding/): Descreva, rode, ajuste. Ferramentas para criar software basicamente conversando.
 - [Melhores agentes de IA para programação](https://tools.lalipublications.com/pt/use-cases/best-ai-coding-agents/): Agentes que pegam uma tarefa, editam vários arquivos, rodam comandos e voltam com um diff.
@@ -102,7 +101,6 @@ Versión completa del sitio en español, con los mismos casos de uso, recomendac
 - [Todas las herramientas de la A a la Z](https://tools.lalipublications.com/es/tools/)
 - [Lanzamientos y tendencias](https://tools.lalipublications.com/es/new/)
 - [Acerca de](https://tools.lalipublications.com/es/about/)
-- [Patrocinio](https://tools.lalipublications.com/es/sponsor/)
 - [RSS](https://tools.lalipublications.com/es/feed.xml)
 - [Mejor IA para vibe coding](https://tools.lalipublications.com/es/use-cases/best-ai-for-vibe-coding/): Descríbelo, ejecútalo, ajústalo. Herramientas para crear software casi solo conversando.
 - [Mejores agentes de IA para programar](https://tools.lalipublications.com/es/use-cases/best-ai-coding-agents/): Agentes que toman una tarea, editan varios archivos, ejecutan comandos y vuelven con un diff.

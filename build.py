@@ -408,7 +408,8 @@ def nl_form(id_attr="", L=None):
 CF_BEACON = """<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2c86988db1064ce6bde9822b0995a3d3"}'></script><!-- End Cloudflare Web Analytics -->"""
 # English paths that have a translation in every locale (hreflang alternates); thanks/ is translated but noindex
 def localized_paths():
-    return ["index.html","use-cases/index.html","tools/index.html","new/index.html","sponsor/index.html","about/index.html"]+[f"use-cases/{u[0]}/index.html" for u in UC]
+    ps = ["index.html","use-cases/index.html","tools/index.html","new/index.html"] + (["sponsor/index.html"] if SHOW_SPONSOR_SLOT else []) + ["about/index.html"]
+    return ps+[f"use-cases/{u[0]}/index.html" for u in UC]
 EN_REGIONS = ["en-IN", "en-GB", "en-AU", "en-PH"]  # regional targeting signals: all point at the same standard-English URLs (no separate pages)
 def alternates(key):  # [(hreflang, url)] for an English path, or [] if untranslated
     if key not in localized_paths(): return []
@@ -439,9 +440,9 @@ def page(path, title, desc, body, ld=None, noindex=False, L=None, lang="en", sw_
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{e(title)}"><meta name="twitter:description" content="{e(desc)}"><meta name="twitter:image" content="{OG_IMAGE}">
 <link rel="alternate" type="application/rss+xml" title="Tool Use Cases" href="{BASE}feed.xml">{alts}
 <link rel="stylesheet" href="{r}style.css">{lds}</head><body>
-<header><div class="wrap"><a class="logo" href="{r}index.html">Tool Use Cases</a><nav><a href="{r}use-cases/index.html">Use cases</a> · <a href="{r}tools/index.html">Tools</a> · <a href="{r}new/index.html">New releases</a> · <a href="{r}newsletter/index.html">Newsletter</a> · <a href="{r}sponsor/index.html">Sponsor</a> · <a href="{r}about/index.html">About</a></nav>{sw}</div></header>
+<header><div class="wrap"><a class="logo" href="{r}index.html">Tool Use Cases</a><nav><a href="{r}use-cases/index.html">Use cases</a> · <a href="{r}tools/index.html">Tools</a> · <a href="{r}new/index.html">New releases</a> · <a href="{r}newsletter/index.html">Newsletter</a>{' · <a href="'+r+'sponsor/index.html">Sponsor</a>' if SHOW_SPONSOR_SLOT else ''} · <a href="{r}about/index.html">About</a></nav>{sw}</div></header>
 <main class="wrap">{body.replace('@R/', r)}</main>
-<footer><div class="wrap">{nl_form()}Tool Use Cases · by Lali Publications · sponsorships: <a href="mailto:{EMAIL}">{EMAIL}</a> · <a href="{r}in/index.html">India: Indian-language editions</a></div></footer>
+<footer><div class="wrap">{nl_form()}Tool Use Cases · by Lali Publications · <a href="mailto:{EMAIL}">{EMAIL}</a> · <a href="{r}in/index.html">India: Indian-language editions</a></div></footer>
 <script src="{r}app.js"></script>{CF_BEACON}</body></html>"""
     else:
         U = L.UI; p = r + L.PREFIX
@@ -453,7 +454,7 @@ def page(path, title, desc, body, ld=None, noindex=False, L=None, lang="en", sw_
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{e(title)}"><meta name="twitter:description" content="{e(desc)}"><meta name="twitter:image" content="{OG_IMAGE}">
 <link rel="alternate" type="application/rss+xml" title="{e(U["rss_title"])}" href="{BASE}{L.PREFIX}feed.xml">{alts}
 <link rel="stylesheet" href="{r}style.css">{lds}</head><body>
-<header><div class="wrap"><a class="logo" href="{p}index.html">Tool Use Cases</a><nav><a href="{p}use-cases/index.html">{e(U["nav_use_cases"])}</a> · <a href="{p}tools/index.html">{e(U["nav_tools"])}</a> · <a href="{p}new/index.html">{e(U["nav_new"])}</a> · <a href="{p}index.html#newsletter">{e(U["nav_newsletter"])}</a> · <a href="{p}sponsor/index.html">{e(U["nav_sponsor"])}</a> · <a href="{p}about/index.html">{e(U["nav_about"])}</a></nav>{sw}</div></header>
+<header><div class="wrap"><a class="logo" href="{p}index.html">Tool Use Cases</a><nav><a href="{p}use-cases/index.html">{e(U["nav_use_cases"])}</a> · <a href="{p}tools/index.html">{e(U["nav_tools"])}</a> · <a href="{p}new/index.html">{e(U["nav_new"])}</a> · <a href="{p}index.html#newsletter">{e(U["nav_newsletter"])}</a>{' · <a href="'+p+'sponsor/index.html">'+e(U["nav_sponsor"])+'</a>' if SHOW_SPONSOR_SLOT else ''} · <a href="{p}about/index.html">{e(U["nav_about"])}</a></nav>{sw}</div></header>
 <main class="wrap">{body.replace('@P', L.PREFIX).replace('@R/', r)}</main>
 <footer><div class="wrap">{nl_form(L=L).replace('@R/', r)}{e(U["footer"])} <a href="mailto:{EMAIL}">{EMAIL}</a> · <a href="{r}in/index.html" lang="en">India</a></div></footer>
 <script src="{r}app.js"></script>{CF_BEACON}</body></html>"""
@@ -523,7 +524,7 @@ def uc_faq(title, tools):  # English Q&A built only from our own picks and verdi
     alts = "; ".join(f"{T[t][0]}: {v.rstrip('.')}" for t,v in tools[1:]) + "."
     return [(f"{title}: what is the top pick?", f"{T[top][0]}. {v1}"),
             (f"{title}: what are the alternatives?", f"In ranked order: {alts}"),
-            ("Are these picks paid placements?", "No. Picks are editorial and not paid. Any sponsored slot is clearly labeled and kept separate, and sponsorship never changes our verdicts or rankings.")]
+            ("Are these picks paid placements?", "No. Picks are editorial and not paid, and there are no affiliate links.")]
 BYLINE_EN = {"last_checked":"Last checked","byline":"Published by Lali Publications. Picks researched by our AI editor and checked against each tool's official site.","how_we_pick":"How we pick"}
 def byline(L=None):
     U = L.UI if L else {}
@@ -579,8 +580,7 @@ page("index.html","Which AI is best for what? Vibe coding & AI tools (2026)",TAG
 <input type="search" placeholder="Filter use cases (e.g. video, coding, research)…" data-filter=".f" aria-label="Filter use cases">
 <h2>Use cases</h2><div class="grid">{cards}</div>
 {nl_form(' id="newsletter"')}
-<h2>New releases &amp; trending</h2><ul>{newteaser}</ul><p><a href="@R/new/index.html">All new releases →</a></p>
-<div class="cta"><b>Make an AI tool?</b> Get featured at the top of the use case your tool is best at. <a class="btn" href="@R/sponsor/index.html">Sponsor a slot</a></div>""", ld=[
+<h2>New releases &amp; trending</h2><ul>{newteaser}</ul><p><a href="@R/new/index.html">All new releases →</a></p>""", ld=[
  {"@context":"https://schema.org","@type":"WebSite","name":"Tool Use Cases","url":BASE,"description":TAG,"publisher":{"@type":"Organization","name":"Lali Publications","email":EMAIL}},
  {"@context":"https://schema.org","@type":"ItemList","name":"AI tool use cases","itemListElement":[{"@type":"ListItem","position":i,"name":u[1],"url":f"{BASE}use-cases/{u[0]}/"} for i,u in enumerate(UC,1)]}])
 
@@ -623,7 +623,8 @@ page("new/index.html","New & trending AI tools — Tool Use Cases","New AI tool 
 <p class="muted">Last updated: <time datetime="{NEW_UPDATED}">{date_mdy(NEW_UPDATED)}</time></p><div class="grid">{nl}</div>
 <h2>Earlier</h2><p class="muted"><small>Launches we featured before this update. They're no longer new, but still worth knowing.</small></p><ul>{earlier}</ul>""", ld=[crumbs(("New & trending","new/")), coll("CollectionPage","New & trending AI tools","Dated, sourced AI tool releases for builders.","new/")])
 
-page("sponsor/index.html","Sponsor Tool Use Cases — feature your AI tool","Tool makers can sponsor a clearly labeled featured slot at the top of relevant use-case pages.",f"""
+if SHOW_SPONSOR_SLOT:
+    page("sponsor/index.html","Sponsor Tool Use Cases — feature your AI tool","Tool makers can sponsor a clearly labeled featured slot at the top of relevant use-case pages.",f"""
 <h1>Sponsor a use case</h1><p class="lede">Reach vibe coders and builders at the moment they're choosing a tool.</p>
 <h2>How it works</h2><ul><li>One <b>Sponsored / Featured</b> slot sits at the top of each use-case page.</li><li>It's always clearly labeled "Sponsored" and kept separate from our editorial picks.</li><li>We only accept tools that genuinely fit the use case.</li><li>Sponsorship never changes our verdicts or rankings.</li></ul>
 <h2>Example</h2>{SPONSOR_CARD}
@@ -633,7 +634,7 @@ page("about/index.html","About — Tool Use Cases","Tool Use Cases is an indepen
 <h1>About</h1><p class="lede">Tool Use Cases answers one question: which AI tool should I use for this job?</p>
 <p>Most AI directories are giant lists. We organize by use case instead, and give each pick a short plain-English verdict so you can decide in a minute.</p>
 <p>The site is run autonomously — an AI operator keeps it updated, with human ownership by Lali Publications. We only list real, well-known tools and don't publish made-up scores or user counts.</p>
-<p>Tool Use Cases is published by Lali Publications, which also runs <a href="https://agentusecases.ai">agentusecases.ai</a>. We're not affiliated with any tool we list, and sponsorships never change rankings.</p>
+<p>Tool Use Cases is published by Lali Publications, which also runs <a href="https://agentusecases.ai">agentusecases.ai</a>. We're not affiliated with any tool we list.</p>
 <h2 id="how-we-pick">How we pick</h2><ul>
 <li><b>One page per job.</b> Each use-case page lists 5–7 tools that are widely used for that job, ranked by how well they fit it. The top pick comes first, with a one-line verdict that says who it suits.</li>
 <li><b>Real, current products only.</b> Every pick links to its official site. We check that the product still exists under that name and that the link works without redirects. When a tool is renamed, shut down or stops being maintained, we rename or replace it. On Oct 22, 2026, for example, we replaced Udio, Luma Genie, Aider, Plasmo and AutoGen and renamed Windsurf, NotebookLM and Coda.</li>
@@ -643,7 +644,7 @@ page("about/index.html","About — Tool Use Cases","Tool Use Cases is an indepen
 <li><b>Dates.</b> Each use-case page shows "Last checked": the date we last re-verified every pick on it.</li>
 <li><b>Who.</b> An AI editor does the research and updates. The site is owned and published by Lali Publications, which sets these rules. Picks aren't paid and there are no affiliate links.</li>
 </ul>
-<p>Corrections, suggestions, or sponsorships: <a href="mailto:{EMAIL}">{EMAIL}</a></p>""", ld=[crumbs(("About","about/")), coll("AboutPage","About Tool Use Cases","Independent, autonomously run directory of AI tools organized by use case, published by Lali Publications.","about/")])
+<p>Corrections or suggestions: <a href="mailto:{EMAIL}">{EMAIL}</a></p>""", ld=[crumbs(("About","about/")), coll("AboutPage","About Tool Use Cases","Independent, autonomously run directory of AI tools organized by use case, published by Lali Publications.","about/")])
 
 ISSUES = [  # (number, slug, iso date, display date, subject, preview, content file)
  (1, "issue-1", "2026-10-19", "Oct 19, 2026", "Tool Picks Weekly #1: Your vibe-coded app can now talk, search and scrape",
@@ -654,6 +655,7 @@ def issue_web_md(fn):
     md = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), fn)).read()
     a = "Reply to this email or write to larrys@lalipublications.com."
     assert a in md; md = md.replace(a, "Write to larrys@lalipublications.com.")  # no "reply" on the web
+    if not SHOW_SPONSOR_SLOT: md = md.replace(" [Sponsor details](https://tools.lalipublications.com/sponsor/)", "")
     return md.rstrip() + "\n\n" + SIGNOFF + "\n"
 for n, islug, iso, dd, subj, prev, fn in ISSUES:
     page(f"newsletter/{islug}/index.html", subj.split(": ",1)[1] + f" | Tool Picks #{n}" if len(subj) > 60 and ": " in subj else subj, prev, f"""
@@ -669,7 +671,7 @@ page("newsletter/index.html","Tool Picks Weekly — free AI tool newsletter","We
 {nl_form(' id="newsletter"')}
 <h2>What an issue covers</h2><ul><li><b>New &amp; notable:</b> 3–5 recent launches or big updates, each with the use case it fits.</li><li><b>Pick of the week:</b> one tool, one job, a plain-English verdict.</li><li><b>Workflow tip:</b> a concrete way to combine tools for vibe coding, video, or research.</li><li><b>Directory updates:</b> what changed on Tool Use Cases.</li></ul>
 <h2>Past issues</h2><ul>{past}</ul>
-<p class="muted"><small>Picks are editorial. Any sponsored item is clearly labeled.</small></p>""", ld=[crumbs(("Tool Picks Weekly","newsletter/")), coll("CollectionPage","Tool Picks Weekly","Free weekly AI tool newsletter for vibe coders.","newsletter/")])
+<p class="muted"><small>Picks are editorial and not paid.</small></p>""", ld=[crumbs(("Tool Picks Weekly","newsletter/")), coll("CollectionPage","Tool Picks Weekly","Free weekly AI tool newsletter for vibe coders.","newsletter/")])
 page("thanks/index.html","Thanks for subscribing — Tool Use Cases","Your Tool Picks Weekly signup was received.",f"""
 <h1>You're on the list. Thanks!</h1><p class="lede">Your signup for Tool Picks Weekly was received. Look out for the next issue on Monday.</p>
 <p><a class="btn" href="@R/index.html">Back to Tool Use Cases</a></p>""", noindex=True)
@@ -752,7 +754,7 @@ def build_locale(L):
     earlier_l = "".join(f'<li id="new-{s}">{tool_link(s)} — {e(L.NEW[s])}</li>' for s,_ in NEW)
     lastup = e(U["last_updated"]).replace("{date}", f'<time datetime="{NEW_UPDATED}">{e(date_mdy(NEW_UPDATED, L))}</time>')
     pg("new", "new/index.html", NEWCARDS=newcards, EARLIER=earlier_l, LAST_UPDATED=lastup, EARLIER_H2=e(U["earlier_h2"]), EARLIER_P=e(U["earlier_p"]), ld=[crumbs_l((LD["new_crumb"],"new/")), coll_l("CollectionPage",*LD["new_coll"],"new/")])
-    pg("sponsor", "sponsor/index.html", ld=[crumbs_l((LD["sponsor_crumb"],"sponsor/"))])
+    if SHOW_SPONSOR_SLOT: pg("sponsor", "sponsor/index.html", ld=[crumbs_l((LD["sponsor_crumb"],"sponsor/"))])
     pg("about", "about/index.html", ld=[crumbs_l((LD["about_crumb"],"about/")), coll_l("AboutPage",*LD["about_coll"],"about/")])
     pg("thanks", "thanks/index.html", noindex=True)
     # per-locale RSS: newsletter issues (English, labeled) + translated new releases
@@ -774,15 +776,15 @@ def build_locale(L):
 """)
     return [P+k for k in localized_paths()]
 
-urls = ["index.html","newsletter/index.html","use-cases/index.html","tools/index.html","new/index.html","sponsor/index.html","about/index.html"]+[f"newsletter/{i[1]}/index.html" for i in ISSUES]+[f"use-cases/{u[0]}/index.html" for u in UC]
+urls = ["index.html","newsletter/index.html","use-cases/index.html","tools/index.html","new/index.html"]+(["sponsor/index.html"] if SHOW_SPONSOR_SLOT else [])+["about/index.html"]+[f"newsletter/{i[1]}/index.html" for i in ISSUES]+[f"use-cases/{u[0]}/index.html" for u in UC]
 open(f"{OUT}/CNAME","w").write("tools.lalipublications.com\n")
 full = [canon(u) for u in urls]
 open(f"{OUT}/robots.txt","w").write(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n")
 llms = [f"# Tool Use Cases", "", f"> {TAG} A curated, editorial directory of AI tools organized by the job you're trying to do. Published by Lali Publications.", "",
- "Our angle: tool choice by job-to-be-done for vibe coders. Each use-case page lists recommended tools with a one-line description and a plain-English verdict. Picks are editorial and not paid; sponsored slots are clearly labeled and separate. English, Portuguese (Brazil) and Spanish use-case pages also carry a Quick answer, an FAQ and, for most picks, a dated price/free-tier line copied from the tool's official pricing page.", "", "## Use cases", ""]
+ "Our angle: tool choice by job-to-be-done for vibe coders. Each use-case page lists recommended tools with a one-line description and a plain-English verdict. Picks are editorial and not paid; there are no affiliate links. English, Portuguese (Brazil) and Spanish use-case pages also carry a Quick answer, an FAQ and, for most picks, a dated price/free-tier line copied from the tool's official pricing page.", "", "## Use cases", ""]
 llms += [f"- [{t}]({BASE}use-cases/{s}/): {b}" for s,t,b,_ in UC]
 llms += ["", "## Other pages", "", f"- [All tools A-Z]({BASE}tools/)", f"- [New & trending]({BASE}new/)", f"- [Newsletter]({BASE}newsletter/)", f"- [RSS feed]({BASE}feed.xml): newsletter issues and new releases", *[f"- [{i[4]}]({BASE}newsletter/{i[1]}/) ({i[3]})" for i in ISSUES], f"- [About]({BASE}about/)", "",
- "## Sponsor / contact", "", f"Sponsorships, corrections and suggestions: {EMAIL} (Lali Publications). See {BASE}sponsor/", "",
+ "## Contact", "", f"Corrections and suggestions: {EMAIL} (Lali Publications).", "",
  "## How to cite", "", f"Tool Use Cases (Lali Publications). Cite the page name, then the full URL under {BASE.rstrip(chr(47))}/. Prefer the specific use-case page.", ""]
 # RSS 2.0 feed: newsletter issues (dated) + dated new releases
 x = lambda t: html.escape(t, quote=False)
@@ -836,7 +838,7 @@ open(f"{OUT}/sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<u
 for L in [L for L in LOCALES if indexable(L)]:
     U = L.UI
     llms += [f"## {U['llms_h2']}", "", U["llms_intro"], ""]
-    llms += [f"- [{n}]({BASE}{L.PREFIX}{p})" for n,p in U["llms_other"]] + [f"- [RSS]({BASE}{L.PREFIX}feed.xml)"]
+    llms += [f"- [{n}]({BASE}{L.PREFIX}{p})" for n,p in U["llms_other"] if SHOW_SPONSOR_SLOT or p != "sponsor/"] + [f"- [RSS]({BASE}{L.PREFIX}feed.xml)"]
     llms += [f"- [{L.UC[s][0]}]({BASE}{L.PREFIX}use-cases/{s}/): {L.UC[s][1]}" for s,_,_,_ in UC]
 llms += ["## India", "", f"- [Best AI tools for Indian builders, by use case]({BASE}in/): English hub linking to every Indian-language edition ({names_txt}).", ""]
 open(f"{OUT}/llms.txt","w").write("\n".join(llms)+"\n")

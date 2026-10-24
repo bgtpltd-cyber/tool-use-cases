@@ -18,7 +18,7 @@ UI = {
  "nav_newsletter": "নিউজলেটার", "nav_sponsor": "স্পনসর", "nav_about": "আমাদের কথা",
  "home": "হোম", "use_cases": "Use cases",
  "og_alt": "Tool Use Cases: আপনার কাজ অনুযায়ী র‍্যাঙ্ক করা AI টুলস",
- "footer": "Tool Use Cases · Lali Publications-এর উদ্যোগ · স্পনসরশিপের জন্য:",
+ "footer": "Tool Use Cases · Lali Publications-এর উদ্যোগ ·",
  "nl_h2": "Vibe coders-দের জন্য প্রতি সপ্তাহে বাছাই করা AI টুলস",
  "nl_p": "নতুন টুলস + কোন টুল কোন কাজে লাগে। একদম ফ্রি। আপাতত নিউজলেটারটা ইংরেজিতে পাঠানো হয়।",
  "nl_placeholder": "apni@example.com", "nl_aria": "ইমেল অ্যাড্রেস", "nl_button": "সাবস্ক্রাইব করুন",
@@ -365,8 +365,7 @@ PAGES = {  # key: (title, meta description, body)
 <input type="search" placeholder="Use cases ফিল্টার করুন (যেমন video, coding, research)…" data-filter=".f" aria-label="Use cases ফিল্টার করুন">
 <h2>Use cases</h2><div class="grid">{CARDS}</div>
 {NL_FORM}
-<h2>নতুন লঞ্চ ও ট্রেন্ডিং</h2><ul>{NEWTEASER}</ul><p><a href="@R/@Pnew/index.html">সব নতুন লঞ্চ দেখুন →</a></p>
-<div class="cta"><b>AI টুল বানান?</b> আপনার টুল যে use case-এ সবচেয়ে ভালো, সেখানে সবার উপরে ফিচার করান। <a class="btn" href="@R/@Psponsor/index.html">স্লট স্পনসর করুন</a></div>"""),
+<h2>নতুন লঞ্চ ও ট্রেন্ডিং</h2><ul>{NEWTEASER}</ul><p><a href="@R/@Pnew/index.html">সব নতুন লঞ্চ দেখুন →</a></p>"""),
  "use-cases": ("AI টুল use cases — Tool Use Cases", "Use case অনুযায়ী AI টুলস দেখুন: vibe coding, coding agents, debugging, গেম prototyping, ভিডিও, লেখালেখি, রিসার্চ, images আর আরও অনেক কিছু।", """
 <h1>Use cases</h1><p class="lede">কাজটা বেছে নিন। কোন টুলগুলো ট্রাই করার মতো আর কেন, আমরা বলে দেব।</p>
 <input type="search" placeholder="Use cases ফিল্টার করুন…" data-filter=".f" aria-label="ফিল্টার করুন"><div class="grid">{CARDS}</div>"""),
@@ -385,9 +384,9 @@ PAGES = {  # key: (title, meta description, body)
 <h1>আমাদের কথা</h1><p class="lede">Tool Use Cases একটাই প্রশ্নের উত্তর দেয়: এই কাজের জন্য আমার কোন AI টুল ব্যবহার করা উচিত?</p>
 <p>বেশিরভাগ AI ডিরেক্টরি শুধু বিশাল লিস্ট। আমরা use case অনুযায়ী সাজাই, আর প্রতিটা বাছাইয়ের সঙ্গে সহজ ভাষায় ছোট্ট একটা মত দিই, যাতে আপনি এক মিনিটেই ঠিক করে নিতে পারেন।</p>
 <p>সাইটটা autonomously চলে — একটা AI operator এটা আপডেট রাখে, আর এর মানুষী দায়িত্ব Lali Publications-এর। আমরা শুধু আসল, পরিচিত টুলসই লিস্ট করি, আর বানানো স্কোর বা ইউজারের সংখ্যা publish করি না।</p>
-<p>Tool Use Cases প্রকাশ করে Lali Publications, যারা <a href="https://agentusecases.ai">agentusecases.ai</a>-ও চালায়। আমরা যেসব টুল লিস্ট করি, তাদের কারও সঙ্গে আমাদের কোনো যোগ নেই, আর স্পনসরশিপে র‍্যাঙ্কিং কখনো বদলায় না।</p>
+<p>Tool Use Cases প্রকাশ করে Lali Publications, যারা <a href="https://agentusecases.ai">agentusecases.ai</a>-ও চালায়। আমরা যেসব টুল লিস্ট করি, তাদের কারও সঙ্গে আমাদের কোনো যোগ নেই।</p>
 <p>এটা সাইটের বাংলা ভার্সন, যেখানে <a href="@R/about/index.html" hreflang="en">ইংরেজি ভার্সনের</a> মতোই একই use cases, একই বাছাই আর একই র‍্যাঙ্কিং।</p>
-<p>সংশোধন, পরামর্শ বা স্পনসরশিপের জন্য: <a href="mailto:{EMAIL}">{EMAIL}</a></p>"""),
+<p>সংশোধন বা পরামর্শের জন্য: <a href="mailto:{EMAIL}">{EMAIL}</a></p>"""),
  "thanks": ("সাবস্ক্রাইব করার জন্য ধন্যবাদ — Tool Use Cases", "Tool Picks Weekly-তে আপনার সাইনআপ পেয়ে গেছি।", """
 <h1>আপনি লিস্টে যুক্ত হয়ে গেছেন। ধন্যবাদ!</h1><p class="lede">Tool Picks Weekly-তে আপনার সাইনআপ পেয়ে গেছি। পরের ইস্যু আসবে সোমবার। আপাতত নিউজলেটারটা ইংরেজিতে পাঠানো হয়।</p>
 <p><a class="btn" href="@R/@Pindex.html">Tool Use Cases-এ ফিরে যান</a></p>"""),
