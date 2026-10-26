@@ -345,6 +345,8 @@ MONTHS = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月'
 DATE_MD = '{m}{d}日'
 DATE_MDY = '{y}年{m}{d}日'
 RELEASES = {
+ 'replit-monitoring-agent': 'ReplitのAgentが公開済みアプリのアラートをバックグラウンドで監視し、本番環境の問題を調べて修正をテストするようになりました。実験的なAuto-republish設定をオンにしない限り、修正のレビューと公開は自分で行います。',
+ 'lovable-supabase-create': 'Lovableが、バックエンドのないアプリ用にSupabaseプロジェクトを作成して接続してくれるようになりました。組織とリージョンは自分で選びます（リージョンは後から変更できません）。プロジェクトの料金はSupabaseから自分のアカウントに請求されます。',
  'voxtral-3': 'Mistralの新しいspeech-to-textとtext-to-speechのモデルに加え、電話やWebでリアルタイムに動くvoice agentを作るためのSDK。Mistral API（EU内ホスティングも選べる）またはセルフホストで使えます。',
  'kling-4': 'Kuaishouの新しい動画モデル。1回で最長30秒のクリップを生成でき、速い動きやカメラワークが安定し、1つのタスクで最大15個の参照素材と10個のキーフレームを使えます。',
  'muse-spark-open': 'coding・agent用途のMetaのopen weightsモデル（816Bパラメータ、42Bアクティブ、1Mトークンのコンテキスト）。Metaは2台のMac Studioで動かしていますが、多くの人にはホスティングされたAPIが現実的です。',

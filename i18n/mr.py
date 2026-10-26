@@ -345,6 +345,8 @@ MONTHS = ['जानेवारी', 'फेब्रुवारी', 'मा�
 DATE_MD = '{d} {m}'
 DATE_MDY = '{d} {m} {y}'
 RELEASES = {
+ 'replit-monitoring-agent': 'Replit चा Agent आता published app च्या alerts वर background मध्ये लक्ष ठेवतो, production मधल्या समस्या तपासतो आणि fix test करतो. experimental Auto-republish setting चालू केल्याशिवाय fix तुम्ही स्वतः review करून publish करता.',
+ 'lovable-supabase-create': 'Lovable आता backend नसलेल्या app साठी Supabase project तयार करून तो जोडून देतो. organization आणि region तुम्ही निवडता (region नंतर बदलता येत नाही), आणि Supabase त्या project चे बिल तुमच्या स्वतःच्या account ला लावते.',
  'voxtral-3': 'Mistral चे नवीन speech-to-text आणि text-to-speech models, सोबत फोन आणि वेबवरच्या real-time voice agents साठी SDK. Mistral च्या API मधून (EU-hosted पर्यायासह) किंवा self-hosted.',
  'kling-4': 'Kuaishou चं नवीन व्हिडिओ model: एकाच वेळी 30 सेकंदांपर्यंतच्या clips, वेगवान हालचाली आणि कॅमेरा मूव्ह्समध्ये जास्त स्थिरता, आणि प्रत्येक कामात 15 पर्यंत reference assets आणि 10 keyframes.',
  'muse-spark-open': 'Coding आणि agent कामांसाठी Meta चं open-weight model (816B parameters, 42B active, 1M-token context). Meta ते दोन Mac Studios वर चालवतं; बहुतेकांसाठी hosted APIs हाच सोपा मार्ग.',
