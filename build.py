@@ -653,13 +653,17 @@ page("about/index.html","About — Tool Use Cases","Tool Use Cases is an indepen
 ISSUES = [  # (number, slug, iso date, display date, subject, preview, content file)
  (1, "issue-1", "2026-10-19", "Oct 19, 2026", "Tool Picks Weekly #1: Your vibe-coded app can now talk, search and scrape",
   'Five tools for the jobs that come right after "it works on my screen."', "content/newsletter/issue-1.md"),
+ (2, "issue-2", "2026-10-26", "Oct 26, 2026", "Tool Picks Weekly #2: Five AI picks you can start for free",
+  "Build, hand off, prototype and run models locally before you pay for anything.", "content/newsletter/issue-2.md"),
 ]
-SIGNOFF = "Larry Surroach\nTool Use Cases / Lali Publications\nlarrys@lalipublications.com"
+SIGNOFF = "Tool Use Cases / Lali Publications\nlarrys@lalipublications.com"
 def issue_web_md(fn):
     md = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), fn)).read()
-    a = "Reply to this email or write to larrys@lalipublications.com."
-    assert a in md; md = md.replace(a, "Write to larrys@lalipublications.com.")  # no "reply" on the web
-    if not SHOW_SPONSOR_SLOT: md = md.replace(" [Sponsor details](https://tools.lalipublications.com/sponsor/)", "")
+    r1 = "Reply to this email or write to larrys@lalipublications.com."
+    r2 = "Hit reply and tell us."
+    assert r1 in md or r2 in md
+    md = md.replace(r1, "Write to larrys@lalipublications.com.").replace(r2, "Write to larrys@lalipublications.com and tell us.")  # no "reply" on the web
+    if not SHOW_SPONSOR_SLOT: md = re.sub(r"\n\n## Sponsor this newsletter\n\n[^\n]+", "", md)
     return md.rstrip() + "\n\n" + SIGNOFF + "\n"
 for n, islug, iso, dd, subj, prev, fn in ISSUES:
     page(f"newsletter/{islug}/index.html", subj.split(": ",1)[1] + f" | Tool Picks #{n}" if len(subj) > 60 and ": " in subj else subj, prev, f"""
@@ -668,7 +672,7 @@ for n, islug, iso, dd, subj, prev, fn in ISSUES:
 <article class="issue">{md_to_html(issue_web_md(fn))}</article>
 <div class="cta"><b>Get Tool Picks Weekly in your inbox.</b> One short email every Monday: new AI tools and which job they fit. Free. <a class="btn" href="@R/newsletter/index.html">Subscribe</a></div>
 <p>Have a tool we should look at? Email <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>""", ld=[crumbs(("Tool Picks Weekly","newsletter/"),(f"Issue #{n}",f"newsletter/{islug}/")), {"@context":"https://schema.org","@type":"Article","headline":subj,"description":prev,"datePublished":iso,"url":f"{BASE}newsletter/{islug}/",
-      "author":{"@type":"Person","name":"Larry Surroach"},"publisher":{"@type":"Organization","name":"Lali Publications"},"isPartOf":{"@type":"Periodical","name":"Tool Picks Weekly"}}])
+      "author":{"@type":"Organization","name":"Lali Publications"},"publisher":{"@type":"Organization","name":"Lali Publications"},"isPartOf":{"@type":"Periodical","name":"Tool Picks Weekly"}}])
 past = "".join(f'<li><a href="@R/newsletter/{islug}/index.html">{e(subj)}</a> <small class="muted">— {dd}</small></li>' for n,islug,iso,dd,subj,prev,fn in sorted(ISSUES, reverse=True))
 page("newsletter/index.html","Tool Picks Weekly — free AI tool newsletter","Weekly AI tool picks for vibe coders, by job-to-be-done: new tools and which job they fit. Free, every Monday, from Lali Publications.",f"""
 <h1>Tool Picks Weekly</h1><p class="lede">One short email every Monday: new AI tools and which job they actually fit.</p>
