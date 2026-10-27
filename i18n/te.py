@@ -345,7 +345,10 @@ MONTHS = ['జనవరి', 'ఫిబ్రవరి', 'మార్చి', '
 DATE_MD = '{m} {d}'
 DATE_MDY = '{m} {d}, {y}'
 RELEASES = {
+ 'replit-cloud-agents-repos': 'Replit Cloud Agents ఇప్పుడు మీ కంపెనీకి ఇప్పటికే ఉన్న GitHub లేదా GitLab repos పై పనిచేస్తాయి. టీమ్‌లో ఎవరైనా ఒక మార్పును వివరిస్తే, agent దాన్ని నడుస్తున్న app లో test చేసి, engineers review కోసం screenshots మరియు video తో pull request తెరుస్తుంది. Pro మరియు Enterprise plans లో.',
+ 'gpt-6-1-terra-copilot': 'OpenAI యొక్క సరికొత్త model ఇప్పుడు GitHub Copilot లో అందరికీ అందుబాటులో ఉంది, రోజువారీ agentic coding మరియు terminal పనుల కోసం రూపొందించబడింది, GPT-6.1 Sol కంటే తక్కువ ఖర్చుతో. Copilot Pro, Pro+, Max, Business మరియు Enterprise లో, క్రమంగా rollout అవుతోంది.',
  'replit-monitoring-agent': 'Replit Agent ఇప్పుడు published app alerts\u200cను background\u200cలో గమనిస్తుంది, production సమస్యలను పరిశీలించి ఒక fix\u200cను test చేస్తుంది. experimental Auto-republish setting ఆన్ చేయకపోతే fix\u200cను మీరే review చేసి publish చేస్తారు.',
+ 'cursor-agent-sdk': 'మీ సొంత agent ను ఒక code folder గా నిర్మించండి (prompt, typed tools, skills మరియు MCP connections), evals తో test చేసి, Cursor లేదా మీ సొంత servers లో deploy చేయండి. agents GitHub, GitLab, Bitbucket, Slack, webhook లేదా cron events పై మేల్కొనవచ్చు.',
  'lovable-supabase-create': 'Lovable ఇప్పుడు backend లేని app కోసం Supabase project సృష్టించి దాన్ని కనెక్ట్ చేస్తుంది. organization, region మీరే ఎంచుకుంటారు (region తర్వాత మార్చలేరు), ఆ project బిల్లును Supabase మీ సొంత account\u200cకు వేస్తుంది.',
  'voxtral-3': 'Mistral కొత్త speech-to-text, text-to-speech models, దానితో పాటు ఫోన్, వెబ్\u200cలో real-time voice agents కోసం SDK. Mistral API (EU-hosted ఆప్షన్\u200cతో) ద్వారా లేదా self-hosted.',
  'kling-4': 'Kuaishou కొత్త వీడియో model: ఒకే పాస్\u200cలో 30 సెకన్ల వరకు clips, వేగమైన కదలికలు, కెమెరా మూవ్స్\u200cలో ఎక్కువ స్థిరత్వం, ఒక్కో పనికి 15 వరకు reference assets, 10 keyframes.',

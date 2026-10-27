@@ -345,7 +345,10 @@ MONTHS = ['ಜನವರಿ', 'ಫೆಬ್ರವರಿ', 'ಮಾರ್ಚ್', '
 DATE_MD = '{m} {d}'
 DATE_MDY = '{m} {d}, {y}'
 RELEASES = {
+ 'replit-cloud-agents-repos': 'Replit Cloud Agents ಈಗ ನಿಮ್ಮ ಕಂಪನಿಯ ಈಗಾಗಲೇ ಇರುವ GitHub ಅಥವಾ GitLab repos ಮೇಲೆ ಕೆಲಸ ಮಾಡುತ್ತವೆ. ತಂಡದ ಯಾರಾದರೂ ಬದಲಾವಣೆಯನ್ನು ವಿವರಿಸಿದರೆ, agent ಅದನ್ನು ಚಾಲನೆಯಲ್ಲಿರುವ app ನಲ್ಲಿ test ಮಾಡಿ, engineers review ಮಾಡಲು screenshots ಮತ್ತು video ಜೊತೆ pull request ತೆರೆಯುತ್ತದೆ. Pro ಮತ್ತು Enterprise plans ನಲ್ಲಿ.',
+ 'gpt-6-1-terra-copilot': 'OpenAI ನ ಹೊಸ model ಈಗ GitHub Copilot ನಲ್ಲಿ ಎಲ್ಲರಿಗೂ ಲಭ್ಯವಿದೆ; ದಿನನಿತ್ಯದ agentic coding ಮತ್ತು terminal ಕೆಲಸಕ್ಕಾಗಿ ರೂಪಿಸಲಾಗಿದೆ, GPT-6.1 Sol ಗಿಂತ ಕಡಿಮೆ ವೆಚ್ಚದಲ್ಲಿ. Copilot Pro, Pro+, Max, Business ಮತ್ತು Enterprise ನಲ್ಲಿ, ಹಂತಹಂತವಾಗಿ rollout ಆಗುತ್ತಿದೆ.',
  'replit-monitoring-agent': 'Replit Agent ಈಗ published app ನ alerts ಅನ್ನು background ನಲ್ಲಿ ಗಮನಿಸಿ, production ಸಮಸ್ಯೆಗಳನ್ನು ಪರಿಶೀಲಿಸಿ ಒಂದು fix ಅನ್ನು test ಮಾಡುತ್ತದೆ. experimental Auto-republish setting ಆನ್ ಮಾಡದಿದ್ದರೆ fix ಅನ್ನು ನೀವೇ review ಮಾಡಿ publish ಮಾಡುತ್ತೀರಿ.',
+ 'cursor-agent-sdk': 'ನಿಮ್ಮದೇ agent ಅನ್ನು ಒಂದು code folder ಆಗಿ ನಿರ್ಮಿಸಿ (prompt, typed tools, skills ಮತ್ತು MCP connections), evals ಮೂಲಕ test ಮಾಡಿ, Cursor ಅಥವಾ ನಿಮ್ಮ servers ನಲ್ಲಿ deploy ಮಾಡಿ. agents GitHub, GitLab, Bitbucket, Slack, webhook ಅಥವಾ cron events ಮೇಲೆ ಶುರುವಾಗಬಹುದು.',
  'lovable-supabase-create': 'Lovable ಈಗ backend ಇಲ್ಲದ app ಗಾಗಿ Supabase project ರಚಿಸಿ ಅದನ್ನು ಜೋಡಿಸುತ್ತದೆ. organization ಮತ್ತು region ಅನ್ನು ನೀವೇ ಆರಿಸುತ್ತೀರಿ (region ಅನ್ನು ನಂತರ ಬದಲಾಯಿಸಲಾಗದು), ಮತ್ತು Supabase ಆ project ನ ಬಿಲ್ ಅನ್ನು ನಿಮ್ಮ ಸ್ವಂತ account ಗೆ ಹಾಕುತ್ತದೆ.',
  'voxtral-3': 'Mistral ನ ಹೊಸ speech-to-text ಮತ್ತು text-to-speech models, ಜೊತೆಗೆ ಫೋನ್ ಮತ್ತು ವೆಬ್\u200cನಲ್ಲಿ real-time voice agents ಗಾಗಿ SDK. Mistral API (EU-hosted ಆಯ್ಕೆಯೊಂದಿಗೆ) ಮೂಲಕ ಅಥವಾ self-hosted.',
  'kling-4': 'Kuaishou ನ ಹೊಸ ವಿಡಿಯೋ model: ಒಂದೇ ಪಾಸ್\u200cನಲ್ಲಿ 30 ಸೆಕೆಂಡ್\u200cವರೆಗಿನ clips, ವೇಗದ ಚಲನೆ ಮತ್ತು ಕ್ಯಾಮೆರಾ ಮೂವ್\u200cಗಳಲ್ಲಿ ಹೆಚ್ಚು ಸ್ಥಿರತೆ, ಪ್ರತಿ ಕೆಲಸಕ್ಕೆ 15 ರವರೆಗೆ reference assets ಮತ್ತು 10 keyframes.',

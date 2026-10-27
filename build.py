@@ -301,15 +301,21 @@ UC = [
   ("mem","Personal notes that organize themselves; skip it for team wikis.")]),
 ]
 
-NEW_UPDATED = "2026-10-26"  # shown as "Last updated" on /new/ (all locales)
+NEW_UPDATED = "2026-10-27"  # shown as "Last updated" on /new/ (all locales)
 REVIEWED = "2026-10-22"  # date every pick on every use-case page was last re-verified (full scan, Oct 22, 2026); bump only after a full re-check
-SITE_UPDATED = "2026-10-26"  # sitemap <lastmod> for pages without their own date; bump when you redeploy changed content
+SITE_UPDATED = "2026-10-27"  # sitemap <lastmod> for pages without their own date; bump when you redeploy changed content
 SHOW_SPONSOR_SLOT = False  # no sponsor box above the picks until a real sponsor is booked (the /sponsor/ page still shows the example)
 # Dated launches / major releases for /new/, newest first. Every entry was checked against the linked source on NEW_UPDATED.
 # (key, name, product/official url, iso date, source url, use-case slug, one-line description). Not catalog tools: T and UC stay frozen.
 RELEASES = [
+ ("replit-cloud-agents-repos", "Replit Cloud Agents for company codebases", "https://replit.com", "2026-10-27", "https://replit.com/blog/anyone-can-bring-ideas-to-company-codebase", "best-ai-coding-agents",
+  "Replit Cloud Agents now work on your company's existing GitHub or GitLab repos. Anyone on the team describes a change, the agent tests it in the running app and opens a pull request with screenshots and video for engineers to review. Pro and Enterprise plans."),
+ ("gpt-6-1-terra-copilot", "GPT-6.1 Terra in GitHub Copilot", "https://github.com/features/copilot", "2026-10-26", "https://github.blog/changelog/2026-10-26-gpt-6-1-terra-in-github-copilot/", "best-ai-coding-agents",
+  "OpenAI's newest model is now generally available in GitHub Copilot, built for everyday agentic coding and terminal work at a lower cost than GPT-6.1 Sol. On Copilot Pro, Pro+, Max, Business and Enterprise, rolling out gradually."),
  ("replit-monitoring-agent", "Replit Monitoring Agent", "https://replit.com", "2026-10-23", "https://docs.replit.com/updates/2026/10/23/changelog", "best-ai-for-fixing-broken-code",
   "Replit's Agent can now watch a published app's alerts in the background, investigate production problems and test a fix. You review and publish the fix yourself unless you turn on the experimental Auto-republish setting."),
+ ("cursor-agent-sdk", "Cursor Agent SDK", "https://cursor.com", "2026-10-20", "https://cursor.com/changelog/agent-sdk", "best-ai-for-agent-frameworks",
+  "Build a custom agent as a folder of code (prompt, typed tools, skills and MCP connections), test it with evals, and deploy it to Cursor or your own servers. Agents can wake on GitHub, GitLab, Bitbucket, Slack, webhook or cron events."),
  ("lovable-supabase-create", "Lovable: creates your Supabase project", "https://lovable.dev", "2026-10-20", "https://docs.lovable.dev/changelog", "best-ai-for-vibe-coding",
   "Lovable can now create a Supabase project for an app with no backend and connect it for you. You pick the organization and region (the region can't be changed later), and Supabase bills the project to your own account."),
  ("voxtral-3", "Mistral Voxtral 3", "https://mistral.ai/news/voxtral-3/", "2026-10-20", "https://docs.mistral.ai/resources/changelogs", "best-ai-voice-tts",
