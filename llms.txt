@@ -44,6 +44,7 @@ Our angle: tool choice by job-to-be-done for vibe coders. Each use-case page lis
 - [Newsletter](https://tools.lalipublications.com/newsletter/)
 - [RSS feed](https://tools.lalipublications.com/feed.xml): newsletter issues and new releases
 - [Tool Picks Weekly #1: Your vibe-coded app can now talk, search and scrape](https://tools.lalipublications.com/newsletter/issue-1/) (Oct 19, 2026)
+- [Tool Picks Weekly #2: Five AI picks you can start for free](https://tools.lalipublications.com/newsletter/issue-2/) (Oct 26, 2026)
 - [About](https://tools.lalipublications.com/about/)
 
 ## Contact

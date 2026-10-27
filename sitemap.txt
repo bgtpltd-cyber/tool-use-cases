@@ -5,6 +5,7 @@ https://tools.lalipublications.com/tools/
 https://tools.lalipublications.com/new/
 https://tools.lalipublications.com/about/
 https://tools.lalipublications.com/newsletter/issue-1/
+https://tools.lalipublications.com/newsletter/issue-2/
 https://tools.lalipublications.com/use-cases/best-ai-for-vibe-coding/
 https://tools.lalipublications.com/use-cases/best-ai-coding-agents/
 https://tools.lalipublications.com/use-cases/best-ai-for-fixing-broken-code/
