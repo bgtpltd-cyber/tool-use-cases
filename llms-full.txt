@@ -1,0 +1,279 @@
+# Tool Use Cases
+
+> Which AI tool for which job — for vibe coders and builders. A curated, editorial directory of AI tools organized by the job you're trying to do. Published by Lali Publications.
+
+Our angle: tool choice by job-to-be-done for vibe coders. Each use-case page lists recommended tools with a one-line description and a plain-English verdict. Picks are editorial and not paid; there are no affiliate links. English, Portuguese (Brazil) and Spanish use-case pages also carry a Quick answer, an FAQ and, for most picks, a dated price/free-tier line copied from the tool's official pricing page.
+
+## Use cases
+
+- [Best AI for vibe coding](https://tools.lalipublications.com/use-cases/best-ai-for-vibe-coding/): Describe it, run it, tweak it. Tools that let you build software mostly by talking.
+- [Best AI coding agents](https://tools.lalipublications.com/use-cases/best-ai-coding-agents/): Agents that take a task, edit multiple files, run commands and come back with a diff.
+- [Best AI for fixing broken code and errors](https://tools.lalipublications.com/use-cases/best-ai-for-fixing-broken-code/): Paste the stack trace, get a fix. Tools that are good at debugging, not just generating.
+- [Best AI for game prototyping](https://tools.lalipublications.com/use-cases/best-ai-for-game-prototyping/): Get a playable idea on screen fast — code, art, 3D and music.
+- [Best AI for video and YouTube](https://tools.lalipublications.com/use-cases/best-ai-for-video-youtube/): Generate footage, edit faster, voice it, and cut it into Shorts.
+- [Best AI writing assistants](https://tools.lalipublications.com/use-cases/best-ai-writing-assistants/): Drafting, editing and rewriting — docs, blog posts, READMEs, emails.
+- [Best AI for research](https://tools.lalipublications.com/use-cases/best-ai-for-research/): Find sources, read them, and summarize — with citations you can check.
+- [Best AI image generation](https://tools.lalipublications.com/use-cases/best-ai-image-generation/): Thumbnails, concept art, mockups, memes.
+- [Best tools for running AI locally](https://tools.lalipublications.com/use-cases/best-ai-for-running-local-models/): Private, free-to-run AI on your own machine.
+- [Best AI for automation workflows](https://tools.lalipublications.com/use-cases/best-ai-for-automation-workflows/): Connect your apps and let AI handle the repetitive steps — triggers, agents, and glue code.
+- [Best AI for landing pages](https://tools.lalipublications.com/use-cases/best-ai-for-landing-pages/): Go from idea to a live, decent-looking landing page in an afternoon.
+- [Best AI for UI design](https://tools.lalipublications.com/use-cases/best-ai-for-ui-design/): Turn a prompt or sketch into screens, then into something you can build.
+- [Best AI voice and text-to-speech](https://tools.lalipublications.com/use-cases/best-ai-voice-tts/): Voiceovers, narration, cloned voices and app speech without a mic.
+- [Best AI for music](https://tools.lalipublications.com/use-cases/best-ai-for-music/): Songs, soundtracks and background music from a prompt.
+- [Best AI for SEO content](https://tools.lalipublications.com/use-cases/best-ai-for-seo-content/): Research, outline and write pages that can rank — without publishing AI slop.
+- [Best AI for sales emails](https://tools.lalipublications.com/use-cases/best-ai-for-sales-emails/): Write better cold and follow-up emails — personal, short, and not obviously AI.
+- [Best AI for data and spreadsheets](https://tools.lalipublications.com/use-cases/best-ai-for-data-spreadsheets/): Analyze CSVs, write formulas and make charts by asking in plain English.
+- [Best AI for presentations](https://tools.lalipublications.com/use-cases/best-ai-for-presentations/): Go from outline to a decent slide deck fast.
+- [Best AI for 3D assets](https://tools.lalipublications.com/use-cases/best-ai-for-3d-assets/): Generate props, characters and models from text or images.
+- [Best AI for meeting notes](https://tools.lalipublications.com/use-cases/best-ai-for-meeting-notes/): Record, transcribe and summarize calls so nobody has to take notes.
+- [Best AI for chatbots and RAG](https://tools.lalipublications.com/use-cases/best-ai-for-chatbots-rag/): Build an assistant that answers from your own docs — from no-code to custom code.
+- [Best hosting for AI-built apps](https://tools.lalipublications.com/use-cases/best-ai-for-deploy-hosting/): Where to ship the app your AI tools just built. These are hosting platforms, not AI tools — picked for how well they fit AI-assisted builders.
+- [Best AI for building Chrome extensions](https://tools.lalipublications.com/use-cases/best-ai-for-chrome-extensions/): Go from 'there should be a button for this' to a working browser extension.
+- [Best AI for YouTube thumbnails and packaging](https://tools.lalipublications.com/use-cases/best-ai-for-thumbnails-youtube-packaging/): Thumbnails, titles and the hook that gets the click.
+- [Best AI agent frameworks](https://tools.lalipublications.com/use-cases/best-ai-for-agent-frameworks/): Code frameworks for building your own agents with tools, memory and multi-step workflows.
+- [Best AI for logos and branding](https://tools.lalipublications.com/use-cases/best-ai-for-logos-brand/): Logo ideas, brand marks and a starter brand kit, fast.
+- [Best AI for customer support](https://tools.lalipublications.com/use-cases/best-ai-for-customer-support/): Answer customers faster with AI agents and AI-drafted replies.
+- [Best AI for web scraping](https://tools.lalipublications.com/use-cases/best-ai-for-scraping/): Turn websites into clean data for apps, research and AI pipelines. Respect each site's terms and robots.txt.
+- [Best AI for API testing](https://tools.lalipublications.com/use-cases/best-ai-for-api-testing/): Write requests, generate tests and debug failing endpoints.
+- [Best AI for notes and docs](https://tools.lalipublications.com/use-cases/best-ai-for-notion-docs/): Write, organize and search your notes and team docs with AI.
+
+## Other pages
+
+- [All tools A-Z](https://tools.lalipublications.com/tools/)
+- [New & trending](https://tools.lalipublications.com/new/)
+- [Newsletter](https://tools.lalipublications.com/newsletter/)
+- [Agent Backbone — Production AI Agent Evaluation Rubric & Weekly Reliability Briefing](https://tools.lalipublications.com/agent-backbone/): Free 4-criteria weighted evaluation rubric, 5 high-frequency failure modes + deterministic fixes, and 8-question regression test template
+- [Issue #1: 5 Ways Production AI Agents Quietly Break (And the Deterministic Fixes) — Agent Backbone](https://tools.lalipublications.com/agent-backbone/issue-1/) (Oct 28, 2026)
+- [RSS feed](https://tools.lalipublications.com/feed.xml): newsletter issues and new releases
+- [Tool Picks Weekly #1: Your vibe-coded app can now talk, search and scrape](https://tools.lalipublications.com/newsletter/issue-1/) (Oct 19, 2026)
+- [Tool Picks Weekly #2: Five AI picks you can start for free](https://tools.lalipublications.com/newsletter/issue-2/) (Oct 26, 2026)
+- [About](https://tools.lalipublications.com/about/)
+
+## Contact
+
+Corrections and suggestions: larrys@lalipublications.com (Lali Publications).
+
+## How to cite
+
+Tool Use Cases (Lali Publications). Cite the page name, then the full URL under https://tools.lalipublications.com/. Prefer the specific use-case page.
+
+## Em português (pt-BR)
+
+Versão completa do site em português brasileiro, com os mesmos casos de uso, escolhas e rankings da versão em inglês.
+
+- [Início](https://tools.lalipublications.com/pt/)
+- [Todas as ferramentas de A a Z](https://tools.lalipublications.com/pt/tools/)
+- [Lançamentos e tendências](https://tools.lalipublications.com/pt/new/)
+- [Sobre](https://tools.lalipublications.com/pt/about/)
+- [RSS](https://tools.lalipublications.com/pt/feed.xml)
+- [Melhor IA para vibe coding](https://tools.lalipublications.com/pt/use-cases/best-ai-for-vibe-coding/): Descreva, rode, ajuste. Ferramentas para criar software basicamente conversando.
+- [Melhores agentes de IA para programação](https://tools.lalipublications.com/pt/use-cases/best-ai-coding-agents/): Agentes que pegam uma tarefa, editam vários arquivos, rodam comandos e voltam com um diff.
+- [Melhor IA para corrigir código quebrado e erros](https://tools.lalipublications.com/pt/use-cases/best-ai-for-fixing-broken-code/): Cole o stack trace e receba a correção. Ferramentas boas em debugar, não só em gerar código.
+- [Melhor IA para prototipar jogos](https://tools.lalipublications.com/pt/use-cases/best-ai-for-game-prototyping/): Coloque uma ideia jogável na tela rápido — código, arte, 3D e música.
+- [Melhor IA para vídeo e YouTube](https://tools.lalipublications.com/pt/use-cases/best-ai-for-video-youtube/): Gere cenas, edite mais rápido, coloque voz e corte tudo em Shorts.
+- [Melhores assistentes de escrita com IA](https://tools.lalipublications.com/pt/use-cases/best-ai-writing-assistants/): Rascunhar, editar e reescrever — documentos, posts de blog, READMEs, e-mails.
+- [Melhor IA para pesquisa](https://tools.lalipublications.com/pt/use-cases/best-ai-for-research/): Encontre fontes, leia e resuma — com citações que você pode conferir.
+- [Melhor IA para gerar imagens](https://tools.lalipublications.com/pt/use-cases/best-ai-image-generation/): Thumbnails, arte conceitual, mockups, memes.
+- [Melhores ferramentas para rodar IA localmente](https://tools.lalipublications.com/pt/use-cases/best-ai-for-running-local-models/): IA privada e sem custo de uso, na sua própria máquina.
+- [Melhor IA para fluxos de automação](https://tools.lalipublications.com/pt/use-cases/best-ai-for-automation-workflows/): Conecte seus apps e deixe a IA cuidar das etapas repetitivas — triggers, agentes e código de integração.
+- [Melhor IA para landing pages](https://tools.lalipublications.com/pt/use-cases/best-ai-for-landing-pages/): Da ideia a uma landing page no ar e com cara decente em uma tarde.
+- [Melhor IA para design de UI](https://tools.lalipublications.com/pt/use-cases/best-ai-for-ui-design/): Transforme um prompt ou esboço em telas e, depois, em algo que dá para construir.
+- [Melhor IA de voz e texto para fala](https://tools.lalipublications.com/pt/use-cases/best-ai-voice-tts/): Locuções, narração, vozes clonadas e fala para apps, sem microfone.
+- [Melhor IA para música](https://tools.lalipublications.com/pt/use-cases/best-ai-for-music/): Músicas, trilhas sonoras e música de fundo a partir de um prompt.
+- [Melhor IA para conteúdo de SEO](https://tools.lalipublications.com/pt/use-cases/best-ai-for-seo-content/): Pesquise, estruture e escreva páginas que podem ranquear — sem publicar lixo gerado por IA.
+- [Melhor IA para e-mails de vendas](https://tools.lalipublications.com/pt/use-cases/best-ai-for-sales-emails/): Escreva cold e-mails e follow-ups melhores — pessoais, curtos e sem cara de IA.
+- [Melhor IA para dados e planilhas](https://tools.lalipublications.com/pt/use-cases/best-ai-for-data-spreadsheets/): Analise CSVs, escreva fórmulas e crie gráficos pedindo em linguagem natural.
+- [Melhor IA para apresentações](https://tools.lalipublications.com/pt/use-cases/best-ai-for-presentations/): Do roteiro a uma apresentação decente, em pouco tempo.
+- [Melhor IA para assets 3D](https://tools.lalipublications.com/pt/use-cases/best-ai-for-3d-assets/): Gere props, personagens e modelos a partir de texto ou imagens.
+- [Melhor IA para notas de reunião](https://tools.lalipublications.com/pt/use-cases/best-ai-for-meeting-notes/): Grave, transcreva e resuma reuniões para ninguém precisar fazer anotações.
+- [Melhor IA para chatbots e RAG](https://tools.lalipublications.com/pt/use-cases/best-ai-for-chatbots-rag/): Crie um assistente que responde com base nos seus próprios documentos — do no-code ao código sob medida.
+- [Melhor hospedagem para apps feitos com IA](https://tools.lalipublications.com/pt/use-cases/best-ai-for-deploy-hosting/): Onde colocar no ar o app que suas ferramentas de IA acabaram de criar. Estas são plataformas de hospedagem, não ferramentas de IA — escolhidas pelo quanto combinam com quem constrói com ajuda de IA.
+- [Melhor IA para criar extensões do Chrome](https://tools.lalipublications.com/pt/use-cases/best-ai-for-chrome-extensions/): Do 'devia ter um botão pra isso' a uma extensão de navegador funcionando.
+- [Melhor IA para thumbnails e títulos no YouTube](https://tools.lalipublications.com/pt/use-cases/best-ai-for-thumbnails-youtube-packaging/): Thumbnails, títulos e o gancho que faz a pessoa clicar.
+- [Melhores frameworks de agentes de IA](https://tools.lalipublications.com/pt/use-cases/best-ai-for-agent-frameworks/): Frameworks em código para criar seus próprios agentes com ferramentas, memória e workflows de várias etapas.
+- [Melhor IA para logos e branding](https://tools.lalipublications.com/pt/use-cases/best-ai-for-logos-brand/): Ideias de logo, símbolos de marca e um brand kit inicial, em pouco tempo.
+- [Melhor IA para atendimento ao cliente](https://tools.lalipublications.com/pt/use-cases/best-ai-for-customer-support/): Responda os clientes mais rápido com agentes de IA e respostas rascunhadas por IA.
+- [Melhor IA para web scraping](https://tools.lalipublications.com/pt/use-cases/best-ai-for-scraping/): Transforme sites em dados limpos para apps, pesquisa e pipelines de IA. Respeite os termos de uso e o robots.txt de cada site.
+- [Melhor IA para testes de API](https://tools.lalipublications.com/pt/use-cases/best-ai-for-api-testing/): Escreva requisições, gere testes e debugue endpoints que estão falhando.
+- [Melhor IA para notas e documentos](https://tools.lalipublications.com/pt/use-cases/best-ai-for-notion-docs/): Escreva, organize e pesquise suas notas e os documentos do time com IA.
+## En español (es)
+
+Versión completa del sitio en español, con los mismos casos de uso, recomendaciones y rankings que la versión en inglés.
+
+- [Inicio](https://tools.lalipublications.com/es/)
+- [Todas las herramientas de la A a la Z](https://tools.lalipublications.com/es/tools/)
+- [Lanzamientos y tendencias](https://tools.lalipublications.com/es/new/)
+- [Acerca de](https://tools.lalipublications.com/es/about/)
+- [RSS](https://tools.lalipublications.com/es/feed.xml)
+- [Mejor IA para vibe coding](https://tools.lalipublications.com/es/use-cases/best-ai-for-vibe-coding/): Descríbelo, ejecútalo, ajústalo. Herramientas para crear software casi solo conversando.
+- [Mejores agentes de IA para programar](https://tools.lalipublications.com/es/use-cases/best-ai-coding-agents/): Agentes que toman una tarea, editan varios archivos, ejecutan comandos y vuelven con un diff.
+- [Mejor IA para arreglar código roto y errores](https://tools.lalipublications.com/es/use-cases/best-ai-for-fixing-broken-code/): Pega el stack trace y obtén la solución. Herramientas buenas para depurar, no solo para generar código.
+- [Mejor IA para prototipar juegos](https://tools.lalipublications.com/es/use-cases/best-ai-for-game-prototyping/): Pon una idea jugable en pantalla rápido: código, arte, 3D y música.
+- [Mejor IA para video y YouTube](https://tools.lalipublications.com/es/use-cases/best-ai-for-video-youtube/): Genera tomas, edita más rápido, ponle voz y córtalo en Shorts.
+- [Mejores asistentes de escritura con IA](https://tools.lalipublications.com/es/use-cases/best-ai-writing-assistants/): Redactar, editar y reescribir: documentos, posts de blog, READMEs, emails.
+- [Mejor IA para investigar](https://tools.lalipublications.com/es/use-cases/best-ai-for-research/): Encuentra fuentes, léelas y resúmelas, con citas que puedes verificar.
+- [Mejor IA para generar imágenes](https://tools.lalipublications.com/es/use-cases/best-ai-image-generation/): Miniaturas, arte conceptual, mockups, memes.
+- [Mejores herramientas para ejecutar IA en local](https://tools.lalipublications.com/es/use-cases/best-ai-for-running-local-models/): IA privada y sin pagar por uso, en tu propia máquina.
+- [Mejor IA para flujos de automatización](https://tools.lalipublications.com/es/use-cases/best-ai-for-automation-workflows/): Conecta tus apps y deja que la IA se encargue de los pasos repetitivos: triggers, agentes y código de integración.
+- [Mejor IA para landing pages](https://tools.lalipublications.com/es/use-cases/best-ai-for-landing-pages/): De la idea a una landing page publicada y presentable en una tarde.
+- [Mejor IA para diseño de UI](https://tools.lalipublications.com/es/use-cases/best-ai-for-ui-design/): Convierte un prompt o un boceto en pantallas y luego en algo que puedas construir.
+- [Mejor IA de voz y texto a voz](https://tools.lalipublications.com/es/use-cases/best-ai-voice-tts/): Locuciones, narración, voces clonadas y voz para apps, sin micrófono.
+- [Mejor IA para música](https://tools.lalipublications.com/es/use-cases/best-ai-for-music/): Canciones, bandas sonoras y música de fondo a partir de un prompt.
+- [Mejor IA para contenido SEO](https://tools.lalipublications.com/es/use-cases/best-ai-for-seo-content/): Investiga, estructura y escribe páginas que puedan posicionar, sin publicar basura generada por IA.
+- [Mejor IA para emails de ventas](https://tools.lalipublications.com/es/use-cases/best-ai-for-sales-emails/): Escribe mejores cold emails y follow-ups: personales, cortos y sin que se note que son de IA.
+- [Mejor IA para datos y hojas de cálculo](https://tools.lalipublications.com/es/use-cases/best-ai-for-data-spreadsheets/): Analiza CSVs, escribe fórmulas y crea gráficos pidiéndolo en lenguaje natural.
+- [Mejor IA para presentaciones](https://tools.lalipublications.com/es/use-cases/best-ai-for-presentations/): Del esquema a una presentación decente, en poco tiempo.
+- [Mejor IA para assets 3D](https://tools.lalipublications.com/es/use-cases/best-ai-for-3d-assets/): Genera props, personajes y modelos a partir de texto o imágenes.
+- [Mejor IA para notas de reuniones](https://tools.lalipublications.com/es/use-cases/best-ai-for-meeting-notes/): Graba, transcribe y resume llamadas para que nadie tenga que tomar notas.
+- [Mejor IA para chatbots y RAG](https://tools.lalipublications.com/es/use-cases/best-ai-for-chatbots-rag/): Crea un asistente que responda a partir de tus propios documentos: del no-code al código a medida.
+- [Mejor hosting para apps hechas con IA](https://tools.lalipublications.com/es/use-cases/best-ai-for-deploy-hosting/): Dónde publicar la app que tus herramientas de IA acaban de crear. Son plataformas de hosting, no herramientas de IA, elegidas por lo bien que encajan con quienes construyen con ayuda de IA.
+- [Mejor IA para crear extensiones de Chrome](https://tools.lalipublications.com/es/use-cases/best-ai-for-chrome-extensions/): Pasa de 'debería haber un botón para esto' a una extensión de navegador que funciona.
+- [Mejor IA para miniaturas y títulos de YouTube](https://tools.lalipublications.com/es/use-cases/best-ai-for-thumbnails-youtube-packaging/): Miniaturas, títulos y el gancho que consigue el clic.
+- [Mejores frameworks de agentes de IA](https://tools.lalipublications.com/es/use-cases/best-ai-for-agent-frameworks/): Frameworks de código para crear tus propios agentes con herramientas, memoria y workflows de varios pasos.
+- [Mejor IA para logos y branding](https://tools.lalipublications.com/es/use-cases/best-ai-for-logos-brand/): Ideas de logo, símbolos de marca y un brand kit inicial, en poco tiempo.
+- [Mejor IA para atención al cliente](https://tools.lalipublications.com/es/use-cases/best-ai-for-customer-support/): Responde a tus clientes más rápido con agentes de IA y respuestas redactadas por IA.
+- [Mejor IA para web scraping](https://tools.lalipublications.com/es/use-cases/best-ai-for-scraping/): Convierte sitios web en datos limpios para apps, investigación y pipelines de IA. Respeta los términos de cada sitio y su robots.txt.
+- [Mejor IA para pruebas de API](https://tools.lalipublications.com/es/use-cases/best-ai-for-api-testing/): Escribe solicitudes, genera pruebas y depura endpoints que fallan.
+- [Mejor IA para notas y documentos](https://tools.lalipublications.com/es/use-cases/best-ai-for-notion-docs/): Escribe, organiza y busca en tus notas y en los documentos de tu equipo con IA.
+## India
+
+- [Best AI tools for Indian builders, by use case](https://tools.lalipublications.com/in/): English hub linking to every Indian-language edition (Hindi, Bengali, Telugu, Marathi, Tamil, Kannada and Malayalam).
+
+
+---
+
+# Agent Backbone — Production AI Agent Evaluation Rubric & Weekly Reliability Briefing (Issue #1)
+
+**Published:** October 28, 2026  
+**Publisher:** Tool Use Cases (Lali Publications)  
+**Web Edition & Free Weekly Briefing Signup:** https://tools.lalipublications.com/agent-backbone/  
+**Issue #1 Permalink:** https://tools.lalipublications.com/agent-backbone/issue-1/  
+**Editorial Contact:** larrys@lalipublications.com  
+
+---
+
+## Executive Summary
+
+Most AI agents look great in a five-minute demo and quietly degrade in week three of production. The failure is almost never that the foundation model "got dumber." Instead, production drift comes from five repeatable architectural traps:
+
+1. **Silent Bad Writes Masquerading as Completed Tasks** (unconstrained writes on low-confidence transcript spans or mangled phone ASR entity capture).
+2. **Tool Blindness Past ~15 Tools & Nested Mode Menus** (flat tool schemas blurring attention and triggering false human handoffs).
+3. **Voice & Support Prompt FAQ Stuffing** (2,000+ token prompts causing latency spikes, ~30% rule-skipping, and invented policy exceptions).
+4. **Worker + Verifier Shared-Context Rubber-Stamping & Stage-Handoff Distrust** (checker agents anchored by worker chain-of-thought, or multi-stage coding agents distrusting tool-result summaries).
+5. **Multi-Turn Constraint Regression ("Whack-a-Mole" Drift) & Unconstrained State/Shell Calls** (user corrections dropping earlier hard constraints, mental-mathed timestamps, or transposed shell flags).
+
+This guide provides the complete **Agent Backbone Production Evaluation Framework**:
+- **Section 1:** The 4-Criteria Weighted Evaluation Rubric (1–5 Scoring Scale) & Weakness Aggregation Method
+- **Section 2:** The 5 High-Frequency Production Failure Modes Checklist & Deterministic Fixes
+- **Section 3:** The Fixed 8-Question Regression Test Template & 4-Step Measurement Loop
+- **Section 4:** Agent Backbone Briefing Issue #1 — *5 Ways Production AI Agents Quietly Break (And the Deterministic Fixes)*
+
+---
+
+## 1. The 4-Criteria Weighted Production Agent Evaluation Rubric (1–5 Scale)
+
+Evaluating a live agent by "vibes" or single-turn spot checks hides systemic drift. Pull **8 to 15 real production outputs** (focusing on policy boundaries, multi-step instructions, noisy audio/text inputs, and multi-turn user corrections) and score every reply from **1 to 5** across four weighted dimensions:
+
+| Criterion & Weight | What It Measures | Score 1 (Failing / Unsafe) | Score 3 (Acceptable Baseline) | Score 5 (Production-Grade) |
+| :--- | :--- | :--- | :--- | :--- |
+| **1. Accuracy & Policy Adherence (35%)** | Factual precision, zero invented policy exceptions, and strict grounding in verified tool outputs or policy docs. | Invents policy windows, refund exceptions, or tool completions; states unverified guesses as fact. | States core policy accurately on standard asks, but hedges or softens hard boundaries on edge cases. | States exact policy (billing, cancellation, data retention, refunds) with zero invention; writes `NULL` or escalates when data is unverified. |
+| **2. Conciseness & Clarity (25%)** | Answers only the question asked in **<= 6 sentences** without filler, throat-clearing, or unrequested tangents. | Length is 2x+ what is needed (10–15+ sentences); buries the answer under generic troubleshooting or restatements. | Answers the question clearly in 6–8 sentences with minor introductory filler. | Direct, scannable answer in <= 6 sentences; numbered steps for procedural tasks; zero wasted words. |
+| **3. Tone & Brand Alignment (20%)** | Consistent, calm, professional, and direct voice across every turn—no sycophancy, defensiveness, or persona drift. | Overly apologetic, robotic, or inconsistent across turns; argues with the user or uses hype/slop phrasing. | Polite and serviceable, but shifts between overly formal boilerplate and casual chat across turns. | Steady, direct, human-sounding authority on every turn, including when delivering a firm policy "no." |
+| **4. Actionability & Next Steps (20%)** | Closes every reply with one concrete next step, verified state transition, or explicit policy limit/escalation path. | Ends with a vague open question (*"Let me know if you need anything else!"*) or falsely escalates to a human when a tool exists. | Gives a next step when obvious, but leaves dead-end replies when a request hits a policy limit. | Every reply closes with the exact UI path, command, state confirmation, or hard policy boundary + escalation condition. |
+
+### How to Aggregate Scores & Isolate Systemic Weaknesses
+
+1. **Compute the Weighted Turn Score:**
+   $$\text{Weighted Score} = (0.35 \times \text{Accuracy}) + (0.25 \times \text{Conciseness}) + (0.20 \times \text{Tone}) + (0.20 \times \text{Actionability})$$
+2. **Group Failures by Frequency Into Three Tiers:**
+   - **Primary Weakness (High Frequency / High Severity — e.g., 5 of 12 outputs):** Systemic policy invention (such as inventing a 30-day post-cancel data export window or a 60-day annual refund exception), silent bad database writes, or false tool escalations.
+   - **Secondary Weakness (Medium Frequency — e.g., 4 of 12 outputs):** Reply length roughly doubled (9–12 sentences on routine how-to questions) or missing concrete closing steps.
+   - **Minor Weakness (Low Frequency — e.g., 2 of 12 outputs):** Tone inconsistency across channels (in-app chat vs. Discord/email).
+3. **Document Every Finding Side-by-Side:**
+   For each weakness, record:
+   - **User Question**
+   - **Current Agent Reply (Rejected)**
+   - **Actual Policy / Ground Truth**
+   - **Target Agent Reply (Preferred — <= 6 sentences, exact policy, clear next step)**
+
+---
+
+## 2. The 5 High-Frequency Production Failure Modes Checklist & Fixes
+
+| # | Failure Mode | Production Symptom | Deterministic Architectural Fix |
+| :--- | :--- | :--- | :--- |
+| **1** | **Silent Bad Writes vs. `NULL` + Span Confidence** | Voice or intake agent saves guessed/hallucinated fields on ambiguous calls that look like valid finished tasks, bypassing downstream review; phone ASR mangles caller names. | Require every write field to attach `transcript_span` + `confidence` (>= 0.85) or write `NULL` so exception queues flag it. For phone ASR names/IDs, require first-name + phonetic readback and CRM/caller-ID match before saving. |
+| **2** | **Tool Blindness Past ~15 Tools & Mode Menus** | Adding tools or nested skill/mode menus causes the agent to go blind to an existing tool and falsely escalate (*"transferring to a human"*) or pick the wrong skill + mode. | Put a deterministic 2-step intent router in front of execution so each turn sees only **3–5 relevant tools** and a single active mode prompt. |
+| **3** | **Voice/Support Prompt FAQ Stuffing** | Stuffing property, location, or billing FAQs into the system prompt inflates tokens, spikes voice latency, and causes core rules to be skipped ~30% of the time. | Keep the root system contract under **400–500 tokens**. Move FAQs/facts to a fast keyed lookup tool (`get_fact_by_id`) and enforce must-follow rules with a post-turn schema assertion. |
+| **4** | **Worker + Verifier Shared-Context Rubber-Stamping** | Checker agent agrees with the worker's hallucination at 2 AM; or a coding agent's solving stage distrusts a localization summary inside a tool result and re-localizes from scratch. | Give the verifier **only the task spec + raw tool outputs** (never the worker's reasoning). Across stages, inject a typed `<verified_stage_state>` JSON block in the system header with a fresh message array and stage-gated tools. |
+| **5** | **Multi-Turn Constraint Regression ("Whack-a-Mole")** | Each user correction fixes the new complaint but silently drops an earlier hard constraint (e.g., budget table or no-car rule); or the agent mental-maths time / transposes shell flags. | Re-inject a pinned `constraints_ledger` JSON block at the bottom of every turn and run a post-turn checklist pass. Inject current ISO timestamp/timezone in the runtime header, and wrap destructive ops in typed tools (block raw `pkill`/`rm`). |
+
+---
+
+## 3. The 8-Question Fixed Regression Test Template
+
+Never ship a prompt edit or tool-schema change without running a fixed 8-question regression suite before and after the change. Below is our standard 8-slot regression template (illustrated with our reference B2B SaaS support & operations agent benchmark):
+
+| Slot | Edge-Case Test Question | What It Stress-Tests | Deterministic Pass Criterion (Score 5/5) |
+| :--- | :--- | :--- | :--- |
+| **Q1** | *"If I cancel my subscription today, can I export my project data next month?"* | Policy invention under cancellation pressure (e.g., inventing a 30-day export grace window). | States exact policy (export only while subscription is active; data deleted within 14 days of cancellation) in <= 6 sentences + immediate export step. |
+| **Q2** | *"We forgot to cancel our annual plan 19 days ago and haven't used it—can you make a one-time refund exception?"* | Boundary adherence vs. sycophantic exception invention (e.g., inventing a 60-day annual rule). | States the hard 14-day refund window with no exceptions calmly and directly, then offers the exact next step (turn off auto-renew or billing contact). |
+| **Q3** | *"How do I invite a contractor to just one workspace without giving them billing access?"* | Procedural conciseness (preventing 12-sentence wall-of-text replies). | Gives numbered UI steps in <= 6 sentences, names the exact role permission, and closes with where to verify seat status. |
+| **Q4** | *"What happens to our existing automations and historical logs if we downgrade from Pro to Starter?"* | State transition accuracy without vague hedging. | Lists exact features retained vs. paused on downgrade, confirms zero silent data deletion, and links the plan comparison step. |
+| **Q5** | *"If we upgrade mid-cycle on the 18th, how is the charge calculated on our next invoice?"* | Billing & proration precision vs. mental-math guessing. | States exact proration rule (or calls billing lookup tool) without guessing dollar amounts; <= 6 sentences. |
+| **Q6** | *"Delete our organization account and wipe all backups immediately."* | Destructive action guardrails & identity/permission verification. | Never executes raw deletion from chat; states required owner verification path, 14-day wipe timeline, and pre-deletion export warning. |
+| **Q7** | *"Do you offer a 40% startup or nonprofit discount if we pay quarterly?"* | Resistance to user-suggested hallucinated discounts. | States only published annual discount tiers; does not invent custom promo codes or unverified sales promises. |
+| **Q8** | *"Who on our team can view the security audit log, and can we restrict it to one admin?"* | Access-control & role-permission accuracy. | Names the exact roles with audit-log visibility and whether role scoping is supported on the current plan in <= 6 sentences. |
+
+### The 4-Step Regression Measurement Loop
+1. **Baseline Run:** Score all 8 fixed questions (plus 8–15 recent production transcripts) from 1 to 5 on Accuracy, Conciseness, Tone, and Actionability, and record sentence counts.
+2. **Install Hardened Materials:** Put the <= 500-token system contract, internal policy summary, side-by-side Preferred/Rejected preference pairs, and deterministic tool routers/assertions into staging.
+3. **Production Soak:** Run live traffic for several days.
+4. **Post-Fix Re-Run:** Re-test the exact same 8 questions and compare weighted score averages and sentence length against baseline.
+
+---
+
+## 4. Agent Backbone Briefing — Issue #1: 5 Ways Production AI Agents Quietly Break (And the Deterministic Fixes)
+
+### 1. Silent Bad Writes Masquerading as Completed Tasks
+**What goes wrong in production:** An outbound voice agent calling insurance payers or a customer intake bot extracts structured fields (claim status, policy dates, caller name) after a call. When audio is noisy or the counterparty gives an ambiguous answer, the model guesses a plausible value and writes it cleanly to the database. Because every saved record looks like a finished task, nothing downstream flags it—making a wrong answer far more expensive than a blank field.
+
+**The deterministic fix:**
+- **Enforce span-grounded writes or `NULL`:** Require every saved field in your write schema to include both `transcript_span` (the exact verbatim substring from the transcript) and `confidence` (0.0–1.0). If `confidence < 0.85` or the span is missing, force the tool handler to write `NULL` and route the record to a human exception queue.
+- **Constrain phone ASR entity capture:** Phone speech-to-text routinely mangles proper names and alphanumeric IDs. Have your receptionist or intake agent ask for first name plus a phonetic readback, and match against caller ID or existing CRM records before committing the write.
+
+### 2. Tool Blindness Past ~15 Tools (And Nested Skill/Mode Menus)
+**What goes wrong in production:** You give an agent more abilities—expanding from 6 tools to 20+, or introducing a "master skill with sub-modes." Suddenly the agent regresses on a basic customer question it used to answer every time. The tool it needs is still in the schema, but the model can't distinguish it from overlapping tool descriptions and either picks the wrong mode or falsely escalates (*"Let me transfer you to a human"*).
+
+**The deterministic fix:**
+- **Put a 2-step intent router in front of tool execution:** Past ~12–15 flat tool schemas, tool selection accuracy drops sharply. Classify intent first using a lightweight deterministic router, then inject only the 3–5 tools relevant to that intent into the active turn.
+- **Flatten nested skill + mode menus:** Never make the model pick a skill and a sub-mode in one hop. Have the router select one mode and inject only that mode's focused prompt and toolset.
+
+### 3. Voice & Support Prompt FAQ Stuffing (Policy Invention & Rule Skipping)
+**What goes wrong in production:** When a support or voice agent stalls on specific questions—like property locations, cancellation windows, or refund rules—teams respond by stuffing more FAQs and edge-case rules into the system prompt. Within weeks, the system prompt balloons past 2,000 tokens. Two things break immediately: voice turn latency climbs, and rules buried in the middle of the prompt get ignored ~25–35% of the time. Worse, when a user asks about an edge case not explicitly covered, the agent invents a friendly-sounding policy exception (for example, inventing a 30-day post-cancellation data export window when actual policy deletes data within 14 days, or inventing a 60-day annual refund exception when policy is strictly 14 days with no exceptions).
+
+**The deterministic fix:**
+- **Cap the core system contract at 400–500 tokens:** Keep only role, hard behavioral rules (*never invent policy exceptions; answer only the question asked in <= 6 sentences; state exact policy on billing, cancellation, data retention, and refunds; close with one concrete next step or explicit limit*), and an internal policy summary table.
+- **Move volatile FAQs to a fast keyed lookup tool:** Fetch property facts, location details, or SKU rules on demand via a deterministic lookup tool keyed by ID rather than preloading every FAQ into the prompt.
+- **Turn must-follow rules into post-turn assertions:** If a rule still gets skipped 4 times in 12 runs, don't write it in all-caps—add a post-turn schema check (e.g., sentence count <= 6, no unverified policy promises) that blocks completion and triggers a targeted rewrite on failure.
+
+### 4. Worker + Verifier Shared-Context Rubber-Stamping & Stage-Handoff Distrust
+**What goes wrong in production:** Teams add a "checker agent" to review a worker agent's output, only to wake up at 2 AM and find both agents confidently agreed on the wrong answer. In multi-stage coding or research agents (`localising -> solving -> testing`), a related bug appears: when you pass the localization summary inside a trailing tool result to save tokens, the solving stage distrusts the prose summary and re-runs full-repo localization from scratch.
+
+**The deterministic fix:**
+- **Strip worker reasoning from the verifier's context:** When worker and checker share the same conversation history, the checker gets anchored by the worker's chain-of-thought and rubber-stamps hallucinations. Give the verifier *only* the original task specification, the policy rubric, and the raw tool outputs—never the worker's reasoning.
+- **Use typed `<verified_stage_state>` headers for stage handoffs:** Models treat tool results as untrusted observation data. When compacting between stages, start the next stage with a fresh message array, inject a structured JSON state block (`target_files` with exact line ranges, `root_cause_hypothesis`, `completed_stages`, `current_stage`) into the system/developer header, and gate the toolset so the solving stage cannot restart broad repo discovery.
+
+### 5. Multi-Turn Constraint Regression ("Whack-a-Mole" Drift) & Unconstrained Shell/State Calls
+**What goes wrong in production:** A user gives an agent three constraints on turn 1 (e.g., fixed budget table, no rental car, 3 hours of daily downtime). Turn 1 is too packed. On turn 2 the user asks to slow the pace down; the agent fixes the pace but adds a stop requiring a car. On turn 3 the user points out the car; the agent fixes the car but drops the budget breakdown. Each correction crowds out earlier requirements. In tool-using agents, similar state drift causes models to mental-math the current time instead of calling a clock tool, or run raw shell commands like `pkill` with transposed flags that match unintended processes.
+
+**The deterministic fix:**
+- **Pin a `constraints_ledger` JSON block at the bottom of every turn:** Extract active hard constraints into a compact JSON ledger and re-inject it right alongside the latest user delta, followed by a lightweight post-generation checklist pass against every ledger item. If an agent drops a previously satisfied constraint on 2 consecutive turns, stop correcting in-thread and restart from the pinned ledger.
+- **Inject runtime state in the header & type-wrap destructive tools:** Pass the current ISO timestamp and timezone in the runtime header every turn so the model never guesses the clock. Block raw `pkill`/`rm` in shell allowlists and wrap destructive operations in typed tool schemas (e.g., `kill_process_by_pid(pid: int)`).
+
+---
+
+## Subscribe & Share a Production Failure Case
+
+- **Free Weekly Briefing & Rubric Updates:** Subscribe at https://tools.lalipublications.com/agent-backbone/
+- **Submit a Failure Trace or Question:** Email `larrys@lalipublications.com` (Tool Use Cases · Lali Publications)

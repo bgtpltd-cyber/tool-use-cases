@@ -1,5 +1,7 @@
 https://tools.lalipublications.com/
 https://tools.lalipublications.com/newsletter/
+https://tools.lalipublications.com/agent-backbone/
+https://tools.lalipublications.com/agent-backbone/issue-1/
 https://tools.lalipublications.com/use-cases/
 https://tools.lalipublications.com/tools/
 https://tools.lalipublications.com/new/
