@@ -5,6 +5,7 @@ from email.utils import format_datetime
 from datetime import datetime, timezone
 from nlmd import md_to_html
 import extras  # verified, dated prices + 'how to choose' guides (en, pt-BR, es)
+import agent_backbone as ab
 from i18n import pt_BR, es, hi, bn, te, mr, ta, kn, ml, ja
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "site")
 EMAIL = "larrys@lalipublications.com"
@@ -401,7 +402,7 @@ ol.tools{list-style:none;padding:0}ol.tools li{margin-bottom:12px}footer{margin-
 :lang(ja){font-family:system-ui,-apple-system,"Segoe UI","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Noto Sans CJK JP","Yu Gothic UI","Yu Gothic",Meiryo,sans-serif}
 html:lang(ja) body{line-height:1.8}
 html:lang(hi) body,html:lang(mr) body,html:lang(bn) body,html:lang(te) body,html:lang(ta) body,html:lang(kn) body,html:lang(ml) body{line-height:1.7}
-.issue{background:#fff;border:1px solid #ddd;border-radius:8px;padding:6px 20px;margin:14px 0}.issue h2{font-size:1.3rem;margin:22px 0 6px}"""
+.issue{background:#fff;border:1px solid #ddd;border-radius:8px;padding:6px 20px;margin:14px 0}.issue h2{font-size:1.3rem;margin:22px 0 6px}table{width:100%;border-collapse:collapse;margin:14px 0;background:#fff;font-size:.94rem}th,td{border:1px solid #ddd;padding:9px 12px;text-align:left;vertical-align:top}th{background:#eef4fb;font-weight:700}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em;background:#f0f3f7;padding:1px 5px;border-radius:4px}"""
 
 JS = """document.querySelectorAll('[data-filter]').forEach(function(i){var t=document.querySelectorAll(i.dataset.filter);
 i.addEventListener('input',function(){var q=i.value.toLowerCase().trim();t.forEach(function(c){c.style.display=!q||c.textContent.toLowerCase().indexOf(q)>-1?'':'none'})})});
@@ -616,7 +617,7 @@ for slug,title,blurb,tools in UC:
 {guide_html(slug, tools, "en")}
 <p class="muted"><small>Picks are editorial and not paid. Pricing and features change often — check each official site.</small></p>
 <h2>FAQ</h2>{"".join(f'<h3>{e(q)}</h3><p>{e(a)}</p>' for q,a in uc_faq(title,tools))}
-{relhtml}<p><a href="@R/use-cases/index.html">Browse all use cases →</a></p>""", ld=[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{ab.AB_UC_CALLOUT if slug in ab.AB_UC_CALLOUT_SLUGS else ""}{relhtml}<p><a href="@R/use-cases/index.html">Browse all use cases →</a></p>""", ld=[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
      {"@type":"ListItem","position":1,"name":"Home","item":BASE},{"@type":"ListItem","position":2,"name":"Use cases","item":BASE+"use-cases/"},{"@type":"ListItem","position":3,"name":title,"item":f"{BASE}use-cases/{slug}/"}]},
      {"@context":"https://schema.org","@type":"ItemList","name":title,"description":blurb,"url":f"{BASE}use-cases/{slug}/","itemListElement":[{"@type":"ListItem","position":i,"name":T[t][0],"url":T[t][1]} for i,(t,v) in enumerate(tools,1)]}, page_ld(uc_title(title), f"{BASE}use-cases/{slug}/"),
      {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in uc_faq(title,tools)]}])
@@ -691,7 +692,10 @@ page("newsletter/index.html","Tool Picks Weekly — free AI tool newsletter","We
 {nl_form(' id="newsletter"')}
 <h2>What an issue covers</h2><ul><li><b>New &amp; notable:</b> 3–5 recent launches or big updates, each with the use case it fits.</li><li><b>Pick of the week:</b> one tool, one job, a plain-English verdict.</li><li><b>Workflow tip:</b> a concrete way to combine tools for vibe coding, video, or research.</li><li><b>Directory updates:</b> what changed on Tool Use Cases.</li></ul>
 <h2>Past issues</h2><ul>{past}</ul>
+{ab.AB_NL_CALLOUT}
 <p class="muted"><small>Picks are editorial and not paid.</small></p>""", ld=[crumbs(("Tool Picks Weekly","newsletter/")), coll("CollectionPage","Tool Picks Weekly","Free weekly AI tool newsletter for vibe coders.","newsletter/")])
+page("agent-backbone/index.html", ab.AB_TITLE, ab.AB_DESC, ab.AB_BODY, ld=[crumbs(("Newsletter","newsletter/"),("Agent Backbone","agent-backbone/")), {"@context":"https://schema.org","@type":"TechArticle","headline":ab.AB_TITLE,"description":ab.AB_DESC,"datePublished":ab.PUBLISHED_ISO,"dateModified":ab.PUBLISHED_ISO,"url":f"{BASE}agent-backbone/","author":{"@type":"Organization","name":"Tool Use Cases (Lali Publications)","url":BASE+"about/"},"publisher":{"@type":"Organization","name":"Lali Publications","email":EMAIL}}])
+page("agent-backbone/issue-1/index.html", ab.AB_ISSUE1_TITLE, ab.AB_ISSUE1_DESC, ab.AB_ISSUE1_BODY, ld=[crumbs(("Agent Backbone","agent-backbone/"),("Issue #1","agent-backbone/issue-1/")), {"@context":"https://schema.org","@type":"Article","headline":ab.AB_ISSUE1_TITLE,"description":ab.AB_ISSUE1_DESC,"datePublished":ab.PUBLISHED_ISO,"url":f"{BASE}agent-backbone/issue-1/","author":{"@type":"Organization","name":"Lali Publications"},"publisher":{"@type":"Organization","name":"Lali Publications"},"isPartOf":{"@type":"Periodical","name":"Agent Backbone Briefing"}}])
 page("thanks/index.html","Thanks for subscribing — Tool Use Cases","Your Tool Picks Weekly signup was received.",f"""
 <h1>You're on the list. Thanks!</h1><p class="lede">Your signup for Tool Picks Weekly was received. Look out for the next issue on Monday.</p>
 <p><a class="btn" href="@R/index.html">Back to Tool Use Cases</a></p>""", noindex=True)
@@ -796,14 +800,14 @@ def build_locale(L):
 """)
     return [P+k for k in localized_paths()]
 
-urls = ["index.html","newsletter/index.html","use-cases/index.html","tools/index.html","new/index.html"]+(["sponsor/index.html"] if SHOW_SPONSOR_SLOT else [])+["about/index.html"]+[f"newsletter/{i[1]}/index.html" for i in ISSUES]+[f"use-cases/{u[0]}/index.html" for u in UC]
+urls = ["index.html","newsletter/index.html","agent-backbone/index.html","agent-backbone/issue-1/index.html","use-cases/index.html","tools/index.html","new/index.html"]+(["sponsor/index.html"] if SHOW_SPONSOR_SLOT else [])+["about/index.html"]+[f"newsletter/{i[1]}/index.html" for i in ISSUES]+[f"use-cases/{u[0]}/index.html" for u in UC]
 open(f"{OUT}/CNAME","w").write("tools.lalipublications.com\n")
 full = [canon(u) for u in urls]
 open(f"{OUT}/robots.txt","w").write(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n")
 llms = [f"# Tool Use Cases", "", f"> {TAG} A curated, editorial directory of AI tools organized by the job you're trying to do. Published by Lali Publications.", "",
  "Our angle: tool choice by job-to-be-done for vibe coders. Each use-case page lists recommended tools with a one-line description and a plain-English verdict. Picks are editorial and not paid; there are no affiliate links. English, Portuguese (Brazil) and Spanish use-case pages also carry a Quick answer, an FAQ and, for most picks, a dated price/free-tier line copied from the tool's official pricing page.", "", "## Use cases", ""]
 llms += [f"- [{t}]({BASE}use-cases/{s}/): {b}" for s,t,b,_ in UC]
-llms += ["", "## Other pages", "", f"- [All tools A-Z]({BASE}tools/)", f"- [New & trending]({BASE}new/)", f"- [Newsletter]({BASE}newsletter/)", f"- [RSS feed]({BASE}feed.xml): newsletter issues and new releases", *[f"- [{i[4]}]({BASE}newsletter/{i[1]}/) ({i[3]})" for i in ISSUES], f"- [About]({BASE}about/)", "",
+llms += ["", "## Other pages", "", f"- [All tools A-Z]({BASE}tools/)", f"- [New & trending]({BASE}new/)", f"- [Newsletter]({BASE}newsletter/)", f"- [Agent Backbone — Production AI Agent Evaluation Rubric & Weekly Reliability Briefing]({BASE}agent-backbone/): Free 4-criteria weighted evaluation rubric, 5 high-frequency failure modes + deterministic fixes, and 8-question regression test template", f"- [{ab.AB_ISSUE1_TITLE}]({BASE}agent-backbone/issue-1/) ({ab.PUBLISHED_DISPLAY})", f"- [RSS feed]({BASE}feed.xml): newsletter issues and new releases", *[f"- [{i[4]}]({BASE}newsletter/{i[1]}/) ({i[3]})" for i in ISSUES], f"- [About]({BASE}about/)", "",
  "## Contact", "", f"Corrections and suggestions: {EMAIL} (Lali Publications).", "",
  "## How to cite", "", f"Tool Use Cases (Lali Publications). Cite the page name, then the full URL under {BASE.rstrip(chr(47))}/. Prefer the specific use-case page.", ""]
 # RSS 2.0 feed: newsletter issues (dated) + dated new releases
@@ -862,4 +866,5 @@ for L in [L for L in LOCALES if indexable(L)]:
     llms += [f"- [{L.UC[s][0]}]({BASE}{L.PREFIX}use-cases/{s}/): {L.UC[s][1]}" for s,_,_,_ in UC]
 llms += ["## India", "", f"- [Best AI tools for Indian builders, by use case]({BASE}in/): English hub linking to every Indian-language edition ({names_txt}).", ""]
 open(f"{OUT}/llms.txt","w").write("\n".join(llms)+"\n")
+open(f"{OUT}/llms-full.txt","w").write("\n".join(llms)+"\n\n---\n\n"+open("/workspace/agent-backbone/agent-backbone-newsletter-issue-1.md").read())
 print("built", len(urls), "English pages +", len(loc_urls), "indexable localized pages +", sum(len(localized_paths()) for L in LOCALES if not indexable(L)), "noindexed (+ thanks) ->", OUT)
