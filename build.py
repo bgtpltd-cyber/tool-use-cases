@@ -301,13 +301,19 @@ UC = [
   ("mem","Personal notes that organize themselves; skip it for team wikis.")]),
 ]
 
-NEW_UPDATED = "2026-10-27"  # shown as "Last updated" on /new/ (all locales)
+NEW_UPDATED = "2026-10-28"  # shown as "Last updated" on /new/ (all locales)
 REVIEWED = "2026-10-22"  # date every pick on every use-case page was last re-verified (full scan, Oct 22, 2026); bump only after a full re-check
-SITE_UPDATED = "2026-10-27"  # sitemap <lastmod> for pages without their own date; bump when you redeploy changed content
+SITE_UPDATED = "2026-10-28"  # sitemap <lastmod> for pages without their own date; bump when you redeploy changed content
 SHOW_SPONSOR_SLOT = False  # no sponsor box above the picks until a real sponsor is booked (the /sponsor/ page still shows the example)
 # Dated launches / major releases for /new/, newest first. Every entry was checked against the linked source on NEW_UPDATED.
 # (key, name, product/official url, iso date, source url, use-case slug, one-line description). Not catalog tools: T and UC stay frozen.
 RELEASES = [
+ ("copilot-fusion", "GitHub Copilot Fusion", "https://github.com/features/copilot", "2026-10-28", "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion/", "best-ai-coding-agents",
+  "Instead of picking a model for each task, choose Copilot Fusion and Copilot routes the work across models for you. GitHub says Fusion Max scored within two points of Claude Code with Opus 5.5 Max on the Artificial Analysis Coding Agent Index, at about half the average API cost per task. Generally available."),
+ ("github-agentic-workflows", "GitHub Agentic Workflows", "https://github.github.com/gh-aw/", "2026-10-28", "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/", "best-ai-for-automation-workflows",
+  "Write automations like issue triage, CI failure analysis, docs updates and test writing as plain Markdown files, and they compile into standard GitHub Actions run by Copilot or your own coding agent. Open source, generally available, read-only and sandboxed by default."),
+ ("github-replica", "Replica (GitHub Design)", "https://github.com/github/replica", "2026-10-28", "https://github.blog/changelog/2026-10-28-introducing-replica-an-open-source-ai-prototyping-tool/", "best-ai-for-ui-design",
+  "An open-source (MIT) AI prototyping tool from GitHub Design: describe an idea in the GitHub Copilot app and get an interactive prototype built from your own design system's components. Share prototypes on an optional self-hosted Replica Hub for comments."),
  ("replit-cloud-agents-repos", "Replit Cloud Agents for company codebases", "https://replit.com", "2026-10-27", "https://replit.com/blog/anyone-can-bring-ideas-to-company-codebase", "best-ai-coding-agents",
   "Replit Cloud Agents now work on your company's existing GitHub or GitLab repos. Anyone on the team describes a change, the agent tests it in the running app and opens a pull request with screenshots and video for engineers to review. Pro and Enterprise plans."),
  ("gpt-6-1-terra-copilot", "GPT-6.1 Terra in GitHub Copilot", "https://github.com/features/copilot", "2026-10-26", "https://github.blog/changelog/2026-10-26-gpt-6-1-terra-in-github-copilot/", "best-ai-coding-agents",

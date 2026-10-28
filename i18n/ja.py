@@ -345,6 +345,9 @@ MONTHS = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月'
 DATE_MD = '{m}{d}日'
 DATE_MDY = '{y}年{m}{d}日'
 RELEASES = {
+ 'copilot-fusion': 'タスクごとにモデルを選ぶ代わりにCopilot Fusionを選ぶと、Copilotが作業を複数のモデルに振り分けてくれます。GitHubによると、Fusion MaxはArtificial Analysis Coding Agent IndexでOpus 5.5 Max搭載のClaude Codeとの差が2ポイント以内で、タスクあたりの平均APIコストは約半分でした。一般提供中。',
+ 'github-agentic-workflows': 'Issueのトリアージ、CI失敗の分析、ドキュメント更新、テスト作成などの自動化をシンプルなMarkdownファイルで書くと、Copilotや自前のコーディングエージェントが実行する標準のGitHub Actionsにコンパイルされます。オープンソースで一般提供中、デフォルトで読み取り専用かつサンドボックス内で動作します。',
+ 'github-replica': 'GitHub Designによるオープンソース(MIT)のAIプロトタイピングツール。GitHub Copilotアプリでアイデアを説明すると、自社デザインシステムのコンポーネントで作られたインタラクティブなプロトタイプができます。任意のセルフホスト型Replica Hubで共有してコメントを集められます。',
  'replit-cloud-agents-repos': 'ReplitのCloud Agentsが、会社の既存のGitHubやGitLabリポジトリで使えるようになりました。チームの誰でも変更内容を説明するだけで、エージェントが実行中のアプリでテストし、エンジニアがレビューできるようスクリーンショットと動画付きのプルリクエストを作成します。ProとEnterpriseプラン向け。',
  'gpt-6-1-terra-copilot': 'OpenAIの最新モデルがGitHub Copilotで一般提供になりました。日常的なエージェント型コーディングとターミナル作業向けで、GPT-6.1 Solより低コストです。Copilot Pro、Pro+、Max、Business、Enterpriseで順次提供中。',
  'replit-monitoring-agent': 'ReplitのAgentが公開済みアプリのアラートをバックグラウンドで監視し、本番環境の問題を調べて修正をテストするようになりました。実験的なAuto-republish設定をオンにしない限り、修正のレビューと公開は自分で行います。',

@@ -345,6 +345,9 @@ MONTHS = ['जनवरी', 'फ़रवरी', 'मार्च', 'अप्
 DATE_MD = '{d} {m}'
 DATE_MDY = '{d} {m} {y}'
 RELEASES = {
+ 'copilot-fusion': 'हर task के लिए model चुनने के बजाय Copilot Fusion चुनें, और Copilot आपके लिए काम को अलग-अलग models में बाँट देता है। GitHub के अनुसार Fusion Max ने Artificial Analysis Coding Agent Index पर Opus 5.5 Max वाले Claude Code से सिर्फ दो points कम score किया, प्रति task लगभग आधी औसत API लागत पर। सबके लिए उपलब्ध।',
+ 'github-agentic-workflows': 'Issue triage, CI failure analysis, docs updates और test writing जैसे automations को सादी Markdown files में लिखें; ये standard GitHub Actions में compile होते हैं जिन्हें Copilot या आपका अपना coding agent चलाता है। Open source, सबके लिए उपलब्ध, और default रूप से read-only व sandboxed।',
+ 'github-replica': 'GitHub Design का open-source (MIT) AI prototyping tool: GitHub Copilot app में अपना idea बताएँ और अपने design system के components से बना interactive prototype पाएँ। Comments के लिए prototypes को optional self-hosted Replica Hub पर share करें।',
  'replit-cloud-agents-repos': 'Replit के Cloud Agents अब आपकी company के मौजूदा GitHub या GitLab repos पर काम करते हैं। team का कोई भी व्यक्ति बदलाव बताता है, agent उसे चल रहे app में test करता है और engineers के review के लिए screenshots और video के साथ pull request खोलता है। Pro और Enterprise plans पर।',
  'gpt-6-1-terra-copilot': 'OpenAI का सबसे नया model अब GitHub Copilot में सबके लिए उपलब्ध है, जो रोज़ की agentic coding और terminal के काम के लिए बना है और GPT-6.1 Sol से कम लागत पर चलता है। Copilot Pro, Pro+, Max, Business और Enterprise पर, धीरे-धीरे rollout हो रहा है।',
  'replit-monitoring-agent': 'Replit का Agent अब published app के alerts पर background में नज़र रखता है, production की समस्याओं की जाँच करता है और fix को test करता है। fix आप खुद review करके publish करते हैं, जब तक आप experimental Auto-republish setting चालू न करें।',

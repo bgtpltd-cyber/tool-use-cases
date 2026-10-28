@@ -345,6 +345,9 @@ MONTHS = ['జనవరి', 'ఫిబ్రవరి', 'మార్చి', '
 DATE_MD = '{m} {d}'
 DATE_MDY = '{m} {d}, {y}'
 RELEASES = {
+ 'copilot-fusion': 'ప్రతి task కి model ఎంచుకునే బదులు Copilot Fusion ఎంచుకోండి; Copilot పనిని వేర్వేరు models మధ్య మీ కోసం పంచుతుంది. GitHub ప్రకారం Artificial Analysis Coding Agent Index లో Fusion Max, Opus 5.5 Max తో Claude Code కంటే రెండు points మాత్రమే తక్కువ, ఒక్కో task కి సగటు API ఖర్చులో దాదాపు సగానికే. అందరికీ అందుబాటులో ఉంది.',
+ 'github-agentic-workflows': 'Issue triage, CI failure analysis, docs updates, test writing వంటి automations ని సాధారణ Markdown files లో రాయండి; అవి Copilot లేదా మీ సొంత coding agent నడిపే standard GitHub Actions గా compile అవుతాయి. Open source, అందరికీ అందుబాటులో ఉంది, default గా read-only మరియు sandboxed.',
+ 'github-replica': 'GitHub Design నుంచి open-source (MIT) AI prototyping tool: GitHub Copilot app లో మీ idea చెప్పండి, మీ సొంత design system components తో తయారైన interactive prototype పొందండి. Comments కోసం prototypes ని optional self-hosted Replica Hub లో share చేయండి.',
  'replit-cloud-agents-repos': 'Replit Cloud Agents ఇప్పుడు మీ కంపెనీకి ఇప్పటికే ఉన్న GitHub లేదా GitLab repos పై పనిచేస్తాయి. టీమ్‌లో ఎవరైనా ఒక మార్పును వివరిస్తే, agent దాన్ని నడుస్తున్న app లో test చేసి, engineers review కోసం screenshots మరియు video తో pull request తెరుస్తుంది. Pro మరియు Enterprise plans లో.',
  'gpt-6-1-terra-copilot': 'OpenAI యొక్క సరికొత్త model ఇప్పుడు GitHub Copilot లో అందరికీ అందుబాటులో ఉంది, రోజువారీ agentic coding మరియు terminal పనుల కోసం రూపొందించబడింది, GPT-6.1 Sol కంటే తక్కువ ఖర్చుతో. Copilot Pro, Pro+, Max, Business మరియు Enterprise లో, క్రమంగా rollout అవుతోంది.',
  'replit-monitoring-agent': 'Replit Agent ఇప్పుడు published app alerts\u200cను background\u200cలో గమనిస్తుంది, production సమస్యలను పరిశీలించి ఒక fix\u200cను test చేస్తుంది. experimental Auto-republish setting ఆన్ చేయకపోతే fix\u200cను మీరే review చేసి publish చేస్తారు.',
