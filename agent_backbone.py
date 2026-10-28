@@ -5,11 +5,13 @@ BASE = "https://tools.lalipublications.com/"
 EMAIL = "larrys@lalipublications.com"
 PUBLISHED_ISO = "2026-10-28"
 PUBLISHED_DISPLAY = "Oct 28, 2026"
+PDF_FILENAME = "agent-backbone-evaluation-rubric.pdf"
 
 AB_TITLE = "Agent Backbone — Production AI Agent Evaluation Rubric & Weekly Reliability Briefing"
 AB_DESC = "Free production AI agent evaluation rubric (4 weighted criteria, 1–5 scoring scale), 5 high-frequency failure modes with deterministic fixes, 8-question regression test template, and the Agent Backbone reliability briefing."
 
 AB_ISSUE1_TITLE = "Issue #1: 5 Ways Production AI Agents Quietly Break (And the Deterministic Fixes) — Agent Backbone"
+AB_ISSUE1_FEED_TITLE = "Agent Backbone #1: 5 Ways Production AI Agents Quietly Break (And the Deterministic Fixes)"
 AB_ISSUE1_DESC = "Agent Backbone Briefing Issue #1: How to diagnose and fix silent bad writes, tool blindness past 15 tools, voice prompt FAQ stuffing, verifier rubber-stamping, and multi-turn constraint drift."
 
 
@@ -18,6 +20,12 @@ def ab_signup_form(id_attr="", heading="Get the Agent Backbone Briefing & Rubric
 <form action="https://formsubmit.co/{FORMSUBMIT}" method="POST"><input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
 <input type="hidden" name="_subject" value="Agent Backbone newsletter + rubric signup"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_template" value="table"><input type="hidden" name="_next" value="{BASE}thanks/">
 <button type="submit">{button_label}</button></form><small>Published by Tool Use Cases (Lali Publications). Free editorial briefing — no spam, unsubscribe anytime.</small></section>"""
+
+
+AB_PDF_DOWNLOAD_BOX = f"""<div class="cta" id="download-pdf-rubric">
+<p style="margin:0 0 10px"><b>Need an offline copy for your team's engineering or prompt review?</b> Grab the complete 4-criteria weighted evaluation scorecard, the 5 production failure modes checklist, the 8-question regression test template, and Issue #1 in one printable PDF (no login required):</p>
+<p style="margin:0"><a class="btn" href="@R/agent-backbone/{PDF_FILENAME}" download="{PDF_FILENAME}">Download Free PDF Rubric &amp; Issue #1 (PDF)</a></p>
+</div>"""
 
 
 AB_UC_CALLOUT_SLUGS = {
@@ -31,7 +39,7 @@ AB_UC_CALLOUT_SLUGS = {
 
 AB_UC_CALLOUT = """<div class="cta"><b>Shipping an AI agent in production?</b> Use our free <a href="@R/agent-backbone/index.html">Agent Backbone — Production AI Agent Evaluation Rubric &amp; Weekly Reliability Briefing</a>: a 4-criteria weighted scoring framework, 5 high-frequency failure modes with deterministic fixes, and a fixed 8-question regression test template.</div>"""
 
-AB_NL_CALLOUT = """<div class="cta"><b>Building or operating production AI agents?</b> Read <a href="@R/agent-backbone/index.html">Agent Backbone — Production AI Agent Evaluation Rubric &amp; Weekly Reliability Briefing</a>, including <a href="@R/agent-backbone/issue-1/index.html">Issue #1: 5 Ways Production AI Agents Quietly Break (And the Deterministic Fixes)</a> and the complete 4-criteria weighted evaluation rubric.</div>"""
+AB_NL_CALLOUT = f"""<div class="cta"><b>Building or operating production AI agents?</b> Read <a href="@R/agent-backbone/index.html">Agent Backbone — Production AI Agent Evaluation Rubric &amp; Weekly Reliability Briefing</a>, including <a href="@R/agent-backbone/issue-1/index.html">Issue #1: 5 Ways Production AI Agents Quietly Break (And the Deterministic Fixes)</a> and the <a href="@R/agent-backbone/{PDF_FILENAME}">free downloadable PDF rubric</a>.</div>"""
 
 
 ISSUE_1_ARTICLE_HTML = f"""<article class="issue" id="issue-1">
@@ -83,7 +91,7 @@ ISSUE_1_ARTICLE_HTML = f"""<article class="issue" id="issue-1">
 </ul>
 
 <hr style="border:0;border-top:1px solid #ddd;margin:22px 0">
-<p><b>Want to benchmark your own agent?</b> Use the complete 4-criteria weighted rubric and 8-question regression test template on our main <a href="@R/agent-backbone/index.html">Agent Backbone Rubric page</a>, or write to <a href="mailto:{EMAIL}">{EMAIL}</a> with your agent's failure pattern.</p>
+<p><b>Want to benchmark your own agent?</b> Use the complete 4-criteria weighted rubric and 8-question regression test template on our main <a href="@R/agent-backbone/index.html">Agent Backbone Rubric page</a>, download the <a href="@R/agent-backbone/{PDF_FILENAME}" download="{PDF_FILENAME}">free printable PDF rubric</a>, or write to <a href="mailto:{EMAIL}">{EMAIL}</a> with your agent's failure pattern.</p>
 <p class="muted"><small>Tool Use Cases / Lali Publications · <a href="mailto:{EMAIL}">{EMAIL}</a></small></p>
 </article>"""
 
@@ -91,7 +99,9 @@ ISSUE_1_ARTICLE_HTML = f"""<article class="issue" id="issue-1">
 AB_BODY = f"""<p><small><a href="@R/index.html">Tool Use Cases</a> / <a href="@R/newsletter/index.html">Newsletter</a> / Agent Backbone</small></p>
 <h1>Agent Backbone — Production AI Agent Evaluation Rubric &amp; Weekly Reliability Briefing</h1>
 <p class="lede">A free, deterministic evaluation framework for builders, solo developers, and small teams running customer support, voice, coding, or workflow AI agents in production. Score real outputs across 4 weighted criteria, fix the 5 highest-frequency production failure modes, and lock in reliability with a fixed 8-question regression suite.</p>
-<p class="byline muted"><small>Published <time datetime="{PUBLISHED_ISO}">{PUBLISHED_DISPLAY}</time> by Tool Use Cases (Lali Publications) · Free open rubric &amp; weekly briefing (<a href="#issue-1">jump to Issue #1</a> or <a href="#regression-template">the 8-question test template</a>)</small></p>
+<p class="byline muted"><small>Published <time datetime="{PUBLISHED_ISO}">{PUBLISHED_DISPLAY}</time> by Tool Use Cases (Lali Publications) · Free open rubric &amp; weekly briefing (<a href="#issue-1">jump to Issue #1</a>, <a href="#regression-template">the 8-question test template</a>, or <a href="@R/agent-backbone/{PDF_FILENAME}" download="{PDF_FILENAME}">download the free PDF</a>)</small></p>
+
+{AB_PDF_DOWNLOAD_BOX}
 
 {ab_signup_form(' id="signup-top"')}
 
@@ -280,7 +290,7 @@ AB_BODY = f"""<p><small><a href="@R/index.html">Tool Use Cases</a> / <a href="@R
 
 <div class="cta" id="submit-failure-case">
 <h3>Have a production agent failure trace or want to benchmark your agent?</h3>
-<p>We publish new failure case studies, preference-pair templates, and deterministic guardrail patterns every week in the free Agent Backbone briefing. Subscribe below, or email <a href="mailto:{EMAIL}?subject=Agent%20Backbone%20Evaluation%20Rubric%20Question">{EMAIL}</a> with 8–15 anonymized agent replies or a reliability bug you want us to dissect in an upcoming issue.</p>
+<p>We publish new failure case studies, preference-pair templates, and deterministic guardrail patterns every week in the free Agent Backbone briefing. Subscribe below, <a href="@R/agent-backbone/{PDF_FILENAME}" download="{PDF_FILENAME}">download the free PDF rubric &amp; Issue #1</a>, or email <a href="mailto:{EMAIL}?subject=Agent%20Backbone%20Evaluation%20Rubric%20Question">{EMAIL}</a> with 8–15 anonymized agent replies or a reliability bug you want us to dissect in an upcoming issue.</p>
 </div>
 
 {ab_signup_form(' id="signup-bottom"', heading="Subscribe to the Free Agent Backbone Briefing", subcopy="Get weekly production AI agent evaluation rubrics, failure postmortems, and deterministic fixes in your inbox. Free, no spam.", button_label="Subscribe Free")}
@@ -293,12 +303,14 @@ AB_ISSUE1_BODY = f"""<p><small><a href="@R/index.html">Tool Use Cases</a> / <a h
 <h1>Agent Backbone #1: 5 Ways Production AI Agents Quietly Break (And the Deterministic Fixes)</h1>
 <p class="lede">Why live support, voice, coding, and workflow agents drift in production—and the exact schema checks, intent routers, and stage-handoff contracts that fix them.</p>
 
+{AB_PDF_DOWNLOAD_BOX}
+
 {ab_signup_form(' id="signup-top"', heading="Get the Agent Backbone Briefing + Free Evaluation Rubric", subcopy="Weekly production AI agent failure modes, deterministic fixes, and our 4-criteria evaluation rubric. Free from Tool Use Cases (Lali Publications).")}
 
 {ISSUE_1_ARTICLE_HTML}
 
 <div class="cta">
-<b>Read the full evaluation framework:</b> See the complete <a href="@R/agent-backbone/index.html">4-Criteria Weighted Production Agent Evaluation Rubric &amp; 8-Question Regression Test Template</a> on the Agent Backbone hub page.
+<b>Read the full evaluation framework:</b> See the complete <a href="@R/agent-backbone/index.html">4-Criteria Weighted Production Agent Evaluation Rubric &amp; 8-Question Regression Test Template</a> on the Agent Backbone hub page, or <a href="@R/agent-backbone/{PDF_FILENAME}" download="{PDF_FILENAME}">download the free printable PDF</a>.
 </div>
 
 {ab_signup_form(' id="signup-bottom"', heading="Subscribe to Agent Backbone (Free)", subcopy="One high-signal email each week on production AI agent evaluation and reliability.", button_label="Subscribe Free")}
