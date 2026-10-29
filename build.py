@@ -673,6 +673,8 @@ ISSUES = [  # (number, slug, iso date, display date, subject, preview, content f
   'Five tools for the jobs that come right after "it works on my screen."', "content/newsletter/issue-1.md"),
  (2, "issue-2", "2026-10-26", "Oct 26, 2026", "Tool Picks Weekly #2: Five AI picks you can start for free",
   "Build, hand off, prototype and run models locally before you pay for anything.", "content/newsletter/issue-2.md"),
+ (3, "issue-3", "2026-10-29", "Oct 29, 2026", "Tool Picks Weekly #3: Multi-model routing, Markdown repo agents & a Gemini privacy change",
+  "Copilot Fusion, Agentic Workflows, Replica, Replit Cloud Agents, why new Gemini API projects now store your requests, and what else shipped Oct 26–28.", "content/newsletter/issue-3.md"),
 ]
 SIGNOFF = "Tool Use Cases / Lali Publications\nlarrys@lalipublications.com"
 def issue_web_md(fn):
