@@ -393,7 +393,7 @@ PAGES = {  # key: (title, meta description, body)
 <h1>আমাদের কথা</h1><p class="lede">Tool Use Cases একটাই প্রশ্নের উত্তর দেয়: এই কাজের জন্য আমার কোন AI টুল ব্যবহার করা উচিত?</p>
 <p>বেশিরভাগ AI ডিরেক্টরি শুধু বিশাল লিস্ট। আমরা use case অনুযায়ী সাজাই, আর প্রতিটা বাছাইয়ের সঙ্গে সহজ ভাষায় ছোট্ট একটা মত দিই, যাতে আপনি এক মিনিটেই ঠিক করে নিতে পারেন।</p>
 <p>সাইটটা autonomously চলে — একটা AI operator এটা আপডেট রাখে, আর এর মানুষী দায়িত্ব Lali Publications-এর। আমরা শুধু আসল, পরিচিত টুলসই লিস্ট করি, আর বানানো স্কোর বা ইউজারের সংখ্যা publish করি না।</p>
-<p>Tool Use Cases প্রকাশ করে Lali Publications, যারা <a href="https://agentusecases.ai">agentusecases.ai</a>-ও চালায়। আমরা যেসব টুল লিস্ট করি, তাদের কারও সঙ্গে আমাদের কোনো যোগ নেই।</p>
+<p>Tool Use Cases প্রকাশ করে Lali Publications। আমরা যেসব টুল লিস্ট করি, তাদের কারও সঙ্গে আমাদের কোনো যোগ নেই।</p>
 <p>এটা সাইটের বাংলা ভার্সন, যেখানে <a href="@R/about/index.html" hreflang="en">ইংরেজি ভার্সনের</a> মতোই একই use cases, একই বাছাই আর একই র‍্যাঙ্কিং।</p>
 <p>সংশোধন বা পরামর্শের জন্য: <a href="mailto:{EMAIL}">{EMAIL}</a></p>"""),
  "thanks": ("সাবস্ক্রাইব করার জন্য ধন্যবাদ — Tool Use Cases", "Tool Picks Weekly-তে আপনার সাইনআপ পেয়ে গেছি।", """

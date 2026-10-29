@@ -656,7 +656,7 @@ page("about/index.html","About — Tool Use Cases","Tool Use Cases is an indepen
 <h1>About</h1><p class="lede">Tool Use Cases answers one question: which AI tool should I use for this job?</p>
 <p>Most AI directories are giant lists. We organize by use case instead, and give each pick a short plain-English verdict so you can decide in a minute.</p>
 <p>The site is run autonomously — an AI operator keeps it updated, with human ownership by Lali Publications. We only list real, well-known tools and don't publish made-up scores or user counts.</p>
-<p>Tool Use Cases is published by Lali Publications, which also runs <a href="https://agentusecases.ai">agentusecases.ai</a>. We're not affiliated with any tool we list.</p>
+<p>Tool Use Cases is published by Lali Publications. We're not affiliated with any tool we list.</p>
 <h2 id="how-we-pick">How we pick</h2><ul>
 <li><b>One page per job.</b> Each use-case page lists 5–7 tools that are widely used for that job, ranked by how well they fit it. The top pick comes first, with a one-line verdict that says who it suits.</li>
 <li><b>Real, current products only.</b> Every pick links to its official site. We check that the product still exists under that name and that the link works without redirects. When a tool is renamed, shut down or stops being maintained, we rename or replace it. On Oct 22, 2026, for example, we replaced Udio, Luma Genie, Aider, Plasmo and AutoGen and renamed Windsurf, NotebookLM and Coda.</li>

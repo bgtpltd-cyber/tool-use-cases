@@ -393,7 +393,7 @@ PAGES = {  # key: (title, meta description, body)
 <h1>このサイトについて</h1><p class="lede">Tool Use Casesが答えるのは、たった1つの質問です。「この作業には、どのAIツールを使えばいい？」</p>
 <p>ほとんどのAIディレクトリは巨大なリストです。私たちはユースケースごとに整理し、おすすめのそれぞれに短くわかりやすい評価をつけているので、1分で決められます。</p>
 <p>このサイトは自律的に運営されています。AIオペレーターが内容を最新に保ち、人間としての責任はLali Publicationsが負っています。掲載するのは実在するよく知られたツールだけで、でっちあげのスコアやユーザー数は載せません。</p>
-<p>Tool Use CasesはLali Publicationsが発行しており、<a href="https://agentusecases.ai">agentusecases.ai</a>も運営しています。おすすめへの掲載料は受け取っておらず、掲載しているどのツールとも提携関係はありません。</p>
+<p>Tool Use CasesはLali Publicationsが発行しています。おすすめへの掲載料は受け取っておらず、掲載しているどのツールとも提携関係はありません。</p>
 <p>これはサイトの日本語版で、ユースケース、おすすめ、ランキングは<a href="@R/about/index.html" hreflang="en">英語版</a>とまったく同じです。</p>
 <p>修正・ご提案のお問い合わせ：<a href="mailto:{EMAIL}">{EMAIL}</a></p>"""),
  "thanks": ("ご登録ありがとうございます — Tool Use Cases", "Tool Picks Weeklyへのご登録を受け付けました。", """
