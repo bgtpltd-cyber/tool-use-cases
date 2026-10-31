@@ -327,7 +327,8 @@ GUIDES = {
 <li><b>Want to delegate whole tickets:</b> @T(devin). Cloud agents start on the $20/mo Pro plan.</li>
 </ul>
 <p><b>Also worth a look:</b> <a href="https://cline.bot" rel="noopener" target="_blank">Cline</a>, an open-source coding agent you can run in your editor or terminal.</p>
-<p><b>Free from Google (checked Oct 23, 2026):</b> <a href="https://antigravity.google" rel="noopener" target="_blank">Google Antigravity</a>, an agent-first editor and CLI with a $0 individual plan (weekly rate limits), and <a href="https://jules.google" rel="noopener" target="_blank">Jules</a>, a beta agent that works on your GitHub repo and opens pull requests, with 15 tasks a day free.</p>""",
+<p><b>Free from Google (checked Oct 23, 2026):</b> <a href="https://antigravity.google" rel="noopener" target="_blank">Google Antigravity</a>, an agent-first editor and CLI with a $0 individual plan (weekly rate limits).</p>
+<p><b>Jules is shutting down (checked Oct 31, 2026):</b> Google is winding down <a href="https://jules.google" rel="noopener" target="_blank">Jules</a>. Sessions can continue until Nov 11, 2026; after that it is read-only until it shuts down on Dec 31, 2026, so don't start new work there.</p>""",
   "pt-BR": """<p><b>Cursor vs Claude Code vs Codex:</b> escolha pelo lugar onde você quer trabalhar.</p><ul>
 <li><b>No terminal, em mudanças em vários arquivos:</b> @T(claude-code). Exige Claude Pro (US$ 20/mês) ou Max; não está no plano grátis.</li>
 <li><b>Num editor, revisando cada mudança:</b> @T(cursor). Os agentes na nuvem começam no Premium (US$ 30), e os modelos Claude ou GPT são cobrados pelo preço de tabela da API.</li>
