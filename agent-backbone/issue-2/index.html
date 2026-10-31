@@ -1,0 +1,570 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="google-site-verification" content="x6GUDzV6xZINlmNUaA_rPOZxDO1QdZypVq7u_91onuM" />
+<title>Issue #2: 7 Ways MCP and Retry Plumbing Quietly Break Production Agents — Agent Backbone</title><meta name="description" content="Agent Backbone Briefing Issue #2: duplicate tool calls on disconnect, retrying non-retryable errors, subagents blind to late MCP servers, lost cancellations, hung workers, stale-commit reviews, and silent model rerouting, with deterministic fixes and an 8-test fault-injection block."><meta property="og:title" content="Issue #2: 7 Ways MCP and Retry Plumbing Quietly Break Production Agents — Agent Backbone"><meta property="og:description" content="Agent Backbone Briefing Issue #2: duplicate tool calls on disconnect, retrying non-retryable errors, subagents blind to late MCP servers, lost cancellations, hung workers, stale-commit reviews, and silent model rerouting, with deterministic fixes and an 8-test fault-injection block.">
+<link rel="canonical" href="https://tools.lalipublications.com/agent-backbone/issue-2/"><meta property="og:url" content="https://tools.lalipublications.com/agent-backbone/issue-2/"><meta property="og:type" content="website"><meta property="og:site_name" content="Tool Use Cases">
+<meta property="og:image" content="https://tools.lalipublications.com/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Tool Use Cases: AI tools ranked by the job you need done">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Issue #2: 7 Ways MCP and Retry Plumbing Quietly Break Production Agents — Agent Backbone"><meta name="twitter:description" content="Agent Backbone Briefing Issue #2: duplicate tool calls on disconnect, retrying non-retryable errors, subagents blind to late MCP servers, lost cancellations, hung workers, stale-commit reviews, and silent model rerouting, with deterministic fixes and an 8-test fault-injection block."><meta name="twitter:image" content="https://tools.lalipublications.com/og-image.png">
+<link rel="alternate" type="application/rss+xml" title="Tool Use Cases" href="https://tools.lalipublications.com/feed.xml">
+<link rel="stylesheet" href="../../style.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://tools.lalipublications.com/"}, {"@type": "ListItem", "position": 2, "name": "Agent Backbone", "item": "https://tools.lalipublications.com/agent-backbone/"}, {"@type": "ListItem", "position": 3, "name": "Issue #2", "item": "https://tools.lalipublications.com/agent-backbone/issue-2/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Issue #2: 7 Ways MCP and Retry Plumbing Quietly Break Production Agents \u2014 Agent Backbone", "description": "Agent Backbone Briefing Issue #2: duplicate tool calls on disconnect, retrying non-retryable errors, subagents blind to late MCP servers, lost cancellations, hung workers, stale-commit reviews, and silent model rerouting, with deterministic fixes and an 8-test fault-injection block.", "datePublished": "2026-10-31", "url": "https://tools.lalipublications.com/agent-backbone/issue-2/", "author": {"@type": "Organization", "name": "Lali Publications"}, "publisher": {"@type": "Organization", "name": "Lali Publications"}, "isPartOf": {"@type": "Periodical", "name": "Agent Backbone Briefing"}}</script></head><body>
+<header><div class="wrap"><a class="logo" href="../../">Tool Use Cases</a><nav><a href="../../use-cases/">Use cases</a> · <a href="../../tools/">Tools</a> · <a href="../../new/">New releases</a> · <a href="../../newsletter/">Newsletter</a> · <a href="../../about/">About</a></nav><details class="lang"><summary aria-label="Language / भाषा">🌐 English ▾</summary><ul><li><a href="../../agent-backbone/issue-2/" hreflang="en" lang="en" aria-current="true">English</a></li><li><a href="../../pt/" hreflang="pt-BR" lang="pt-BR">Português</a></li><li><a href="../../es/" hreflang="es" lang="es">Español</a></li><li><a href="../../hi/" hreflang="hi" lang="hi">हिन्दी</a></li><li><a href="../../bn/" hreflang="bn" lang="bn">বাংলা</a></li><li><a href="../../te/" hreflang="te" lang="te">తెలుగు</a></li><li><a href="../../mr/" hreflang="mr" lang="mr">मराठी</a></li><li><a href="../../ta/" hreflang="ta" lang="ta">தமிழ்</a></li><li><a href="../../kn/" hreflang="kn" lang="kn">ಕನ್ನಡ</a></li><li><a href="../../ml/" hreflang="ml" lang="ml">മലയാളം</a></li><li><a href="../../ja/" hreflang="ja" lang="ja">日本語</a></li><li class="sep"><a href="../../in/" lang="en">India · Indian languages</a></li></ul></details></div></header>
+<main class="wrap"><p><small><a href="../../">Tool Use Cases</a> / <a href="../../agent-backbone/">Agent Backbone Rubric &amp; Briefing</a> / Issue #2</small></p>
+<h1>Agent Backbone #2: 7 Ways MCP and Retry Plumbing Quietly Break Production Agents</h1>
+<p class="lede">Duplicate side effects, retry storms, tools a subagent can't see, cancellations that never arrive, hung callers, stale-commit reviews, and silent model swaps: the transport and orchestration bugs behind week-three production failures, and the deterministic fixes.</p>
+<p class="byline muted"><small>Published <time datetime="2026-10-31">Oct 31, 2026</time> by Lali Publications · <a href="../../agent-backbone/issue-1/">Previous issue: #1</a> · <a href="../../agent-backbone/agent-backbone-issue-2.pdf" download="agent-backbone-issue-2.pdf">Download the free PDF</a></small></p>
+
+<div class="cta" id="download-pdf-issue-2">
+<p style="margin:0 0 10px"><b>Want an offline copy for your team's reliability review?</b> Grab the full Issue #2 in one printable PDF: the 7 failure modes checklist, every Preferred vs. Rejected snippet, the 8-question fault-injection regression block, and the primary sources (14 pages, no login required):</p>
+<p style="margin:0"><a class="btn" href="../../agent-backbone/agent-backbone-issue-2.pdf" download="agent-backbone-issue-2.pdf">Download Free PDF: Agent Backbone Issue #2 (PDF)</a></p>
+</div>
+
+<section class="nl" id="signup-top"><h2>Get the Agent Backbone Briefing + Free Evaluation Rubric</h2><p>Weekly production AI agent failure modes, deterministic fixes, and our 4-criteria evaluation rubric. Free from Lali Publications.</p>
+<form action="https://formsubmit.co/126630f9e901132900d6d2cd89ad2705" method="POST"><input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
+<input type="hidden" name="_subject" value="Agent Backbone newsletter + rubric signup"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_template" value="table"><input type="hidden" name="_next" value="https://tools.lalipublications.com/thanks/">
+<button type="submit">Subscribe & Get Updates</button></form><small>Published by Tool Use Cases (Lali Publications). Free editorial briefing — no spam, unsubscribe anytime.</small></section>
+
+<article class="issue" id="issue-2">
+<p class="muted"><small><time datetime="2026-10-31">Oct 31, 2026</time> · Agent Backbone Briefing #2 · Published by Lali Publications</small></p>
+<blockquote style="margin:14px 0;padding:8px 14px;border-left:4px solid #1a56db;background:#f5f8ff">
+<p><strong>The hook:</strong> Your agent retried a dropped tool call and refunded a customer twice. Your overnight run is still "retrying" a model that no longer exists. Your code-review bot approved a commit that isn't the one that got merged. None of these are model problems. They are plumbing problems, and all seven show up in public release notes and changelogs from AI coding agents and an app builder dated October 21–28, 2026.</p>
+</blockquote>
+<h2>Executive Summary</h2>
+<p>Last week's issue covered how agents quietly break inside a single conversation. This week the failures live one layer down: in the <strong>transport, retry, and orchestration plumbing</strong> that connects an agent to its tools, its workers, and its model provider. None of these bugs make a demo look worse. All of them make week-three production worse: a refund issued twice, an unattended run that never finishes, a subagent that "can't find" a tool that exists, a code review that approved the wrong commit.</p>
+<p>Six of the failure modes below were fixed in public releases of widely used AI coding agents between October 21 and October 28, 2026; the seventh is a documented provider model retirement on an AI app builder. We re-checked each primary source on <strong>October 29, 2026</strong> and cite the exact version and date. The point is not that any one vendor got it wrong. The point is that teams with large engineering budgets shipped these bugs, which means your homegrown agent stack almost certainly has some of them too.</p>
+<ol>
+<li><strong>Duplicate Side Effects on Mid-Call Disconnects</strong> (a non-idempotent tool call re-sent after the connection dropped).</li>
+<li><strong>Retrying What the Server Said Not to Retry</strong> (retry storms and unattended runs that hang indefinitely).</li>
+<li><strong>Subagents Blind to Late-Connecting MCP Servers</strong> (tool registries snapshotted at spawn time).</li>
+<li><strong>Cancellation That Never Reaches the Remote Server</strong> (the client stops waiting, the server keeps working).</li>
+<li><strong>Failed Worker Requests That Leave the Caller Hanging</strong> (a swallowed error instead of an explicit failure).</li>
+<li><strong>Reviewing a Stale Commit After a Late Push</strong> (event-driven automation keyed to "latest" instead of a SHA).</li>
+<li><strong>Silent Model Rerouting by the Provider</strong> (a retired model ID quietly served by a different model with different cost and behavior).</li>
+</ol>
+<p>Inside this issue:</p>
+<ul>
+<li><strong>Section 1:</strong> The 7 Failure Modes Checklist (Symptom, Root Cause, Deterministic Fix)</li>
+<li><strong>Section 2:</strong> Agent Backbone Briefing Issue #2, each failure mode in depth with Preferred vs. Rejected snippets</li>
+<li><strong>Section 3:</strong> The Fixed 8-Question Reliability Regression Test Block</li>
+<li><strong>Section 4:</strong> How to Score These Failures With the Locked 4-Criteria Rubric</li>
+<li><strong>Section 5:</strong> Primary Sources (Verified October 29, 2026)</li>
+</ul>
+<hr />
+<h2>1. The 7 Failure Modes Checklist</h2>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th style="text-align: left;">#</th>
+<th style="text-align: left;">Failure Mode</th>
+<th style="text-align: left;">Production Symptom</th>
+<th style="text-align: left;">Root Cause</th>
+<th style="text-align: left;">Deterministic Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>1</strong></td>
+<td style="text-align: left;"><strong>Duplicate Side Effects on Disconnect</strong></td>
+<td style="text-align: left;">Customer charged twice, two tickets opened, an email sent twice after a network blip.</td>
+<td style="text-align: left;">The transport layer retries any call whose response was lost, including calls that write.</td>
+<td style="text-align: left;">Retry automatically only tools a trusted server annotates as read-only or idempotent; for writes, send one idempotency key per logical action where the tool accepts one, and reconcile instead of resending when the outcome is unknown.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2</strong></td>
+<td style="text-align: left;"><strong>Retrying the Non-Retryable</strong></td>
+<td style="text-align: left;">A turn stalls for minutes; an overnight unattended run never finishes; error budget burned on a 404.</td>
+<td style="text-align: left;">Retry policy keyed on "any error" instead of the server's retryable signal and error class.</td>
+<td style="text-align: left;">Classify errors first: an explicit do-not-retry signal beats the status code; treat not-found, permission, and validation errors as terminal; refresh auth once on 401; honor <code>Retry-After</code> up to your time budget; add jitter, retry at one layer only, and cap attempts and total wall time.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>3</strong></td>
+<td style="text-align: left;"><strong>Late MCP Connect Blindness</strong></td>
+<td style="text-align: left;">A subagent says "I don't have a tool for that" when the tool exists; behavior differs between fast and slow starts.</td>
+<td style="text-align: left;">Tool list snapshotted when the subagent spawns, before every MCP server finished connecting.</td>
+<td style="text-align: left;">Re-run <code>tools/list</code> when a server becomes ready, when the cached list's <code>ttlMs</code> expires, and on <code>notifications/tools/list_changed</code> (opt in via <code>subscriptions/listen</code>); gate spawn on required servers being ready, or fail loudly.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>4</strong></td>
+<td style="text-align: left;"><strong>Cancellation Not Propagated</strong></td>
+<td style="text-align: left;">User hits stop, but the remote job keeps running, writing, and billing.</td>
+<td style="text-align: left;">Local cancellation drops the waiting future without telling the server.</td>
+<td style="text-align: left;">On cancel, timeout, or a dropped future, cancel the request on the wire: over MCP Streamable HTTP, close that request's response stream (the server must treat it as cancellation); over stdio, send <code>notifications/cancelled</code> with the request ID. Make servers stop work when they see it.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>5</strong></td>
+<td style="text-align: left;"><strong>Hung Caller on Worker Failure</strong></td>
+<td style="text-align: left;">A UI spinner or orchestrator step waits forever; no error in logs.</td>
+<td style="text-align: left;">The worker failed but never sent a response, so the caller's await has nothing to resolve.</td>
+<td style="text-align: left;">Every request path returns exactly one terminal result: success or an explicit typed error; give every await a deadline that also aborts the request.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>6</strong></td>
+<td style="text-align: left;"><strong>Stale-Commit Review</strong></td>
+<td style="text-align: left;">Automated review passes, but the merged code was never reviewed; or no review runs at all.</td>
+<td style="text-align: left;">Review job resolves "latest commit" when it runs, and a late or out-of-order push event points it at the wrong head.</td>
+<td style="text-align: left;">Pin every review to an explicit commit SHA; re-resolve the PR head before posting and don't post if it moved (the new head's run reviews it).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>7</strong></td>
+<td style="text-align: left;"><strong>Silent Model Rerouting</strong></td>
+<td style="text-align: left;">Same prompts, different answers; per-request cost shifts with no deploy on your side.</td>
+<td style="text-align: left;">Provider retires a model ID and routes calls to a replacement automatically.</td>
+<td style="text-align: left;">Pin full model IDs, log the model the response says served it, alert on any mismatch (or on cost-per-request jumps and canary drift where it isn't exposed), and re-run your regression set before accepting a swap.</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>2. Agent Backbone Briefing — Issue #2: 7 Ways MCP and Retry Plumbing Quietly Break Production Agents</h2>
+<h3>1. Duplicate Side Effects When a Connection Drops Mid-Call</h3>
+<p><strong>What goes wrong in production:</strong> An agent calls a tool over HTTP: <code>create_refund</code>, <code>send_invoice</code>, <code>open_ticket</code>. The server does the work, but the connection closes before the response arrives. The client sees a failure, retries, and the server does the work a second time. From the agent's point of view, one tool call happened. From your customer's bank statement, two did.</p>
+<p><strong>Verified example:</strong> Claude Code <strong>2.1.307</strong> (published to npm October 21, 2026) lists: <em>"Fixed HTTP MCP tool calls being sent twice when the connection closed mid-call; only read-only or idempotent tools are now retried"</em>.</p>
+<p><strong>Root cause:</strong> A lost response is ambiguous. The request may have failed before execution, or it may have succeeded with only the reply lost. Blind transport-level retries treat both cases as "safe to resend." In MCP revision 2026-07-28, a broken Streamable HTTP response stream can't be resumed. The in-flight request is lost, the server treats the disconnect as cancellation, and the changelog says clients MUST re-issue it as a new request with a new request ID. For a write, that re-issue is only safe with an idempotency key; without one, re-issue a status lookup instead of the raw write, because the server may have committed the write before it noticed the disconnect.</p>
+<p><strong>The deterministic fix:</strong></p>
+<ul>
+<li><strong>Use tool annotations as the first gate.</strong> The MCP specification (current revision 2026-07-28) defines <code>readOnlyHint</code>, <code>destructiveHint</code>, and <code>idempotentHint</code> on <code>ToolAnnotations</code>. Retry automatically only when a tool is read-only or idempotent. The spec also says annotations are <strong>hints</strong> and clients MUST treat them as untrusted unless they come from trusted servers, so pair them with your own server allowlist. Tool names are only unique within one server, so key that allowlist by (server, tool), never by tool name alone.</li>
+<li><strong>Make writes idempotent with a key.</strong> MCP has no standard idempotency field, so this works only when the tool's <code>inputSchema</code> declares one (for example <code>idempotency_key</code>) and the server dedupes on it. Generate one key per logical action (not per attempt) and reuse it on every retry. Each retry is still a new JSON-RPC request with a new request ID. If the tool has no key, never resend: return an explicit unknown outcome and reconcile with a status lookup.</li>
+</ul>
+<p><strong>Rejected (retries every tool the same way):</strong></p>
+<pre style="background:#f6f8fa;border:1px solid #e1e4e8;border-radius:6px;padding:10px 12px;overflow-x:auto;font-size:.86rem;line-height:1.45"><code class="language-python">def call(name, args):
+    for attempt in range(3):
+        try:
+            return mcp.call_tool(name, args)
+        except ConnectionError:
+            continue  # resends create_refund too
+</code></pre>
+<p><strong>Preferred (retry only safe tools; keyed writes):</strong></p>
+<pre style="background:#f6f8fa;border:1px solid #e1e4e8;border-radius:6px;padding:10px 12px;overflow-x:auto;font-size:.86rem;line-height:1.45"><code class="language-python"># Pseudocode: adapt names to your MCP client SDK.
+import random
+from time import sleep
+
+# Key by (server, tool): tool names are only unique per server.
+SAFE_TO_RETRY = {(srv.id, t.name)
+                 for srv in servers if srv.id in TRUSTED_SERVERS
+                 for t in srv.tools
+                 if t.annotations and (t.annotations.readOnlyHint
+                                       or t.annotations.idempotentHint)}
+AMBIGUOUS = (ConnectionError, TimeoutError)   # response lost: outcome unknown
+
+def call(server, name, args, action_id, reconcile_step):
+    tool = registry.get(server, name)
+    keyed = &quot;idempotency_key&quot; in tool.inputSchema.get(&quot;properties&quot;, {})
+    if keyed:                                       # only where the schema allows it
+        args = {**args, &quot;idempotency_key&quot;: action_id}   # one key per logical action
+    safe = (server, name) in SAFE_TO_RETRY or (keyed and server in TRUSTED_SERVERS)
+    read_only = (server in TRUSTED_SERVERS and tool.annotations is not None
+                 and bool(tool.annotations.readOnlyHint))
+    attempts = 3 if safe else 1
+    for attempt in range(1, attempts + 1):
+        try:
+            return mcp.call_tool(server, name, args)     # new request ID each attempt
+        except AMBIGUOUS:
+            if attempt &lt; attempts:
+                sleep(random.uniform(0, min(8, 0.5 * 2 ** attempt)))  # full jitter
+    if read_only:
+        return {&quot;status&quot;: &quot;error&quot;, &quot;code&quot;: &quot;TOOL_UNREACHABLE&quot;, &quot;tool&quot;: name}
+    # Anything that writes may have committed before the response was lost.
+    return {&quot;status&quot;: &quot;unknown_outcome&quot;, &quot;action_id&quot;: action_id,
+            &quot;next_step&quot;: reconcile_step}
+</code></pre>
+<p>The key detail in the Preferred version: when a write's outcome is unknown, the agent gets an explicit <code>unknown_outcome</code> result and a reconcile step, not a silent second attempt.</p>
+<h3>2. Retrying Requests the Server Marked Non-Retryable</h3>
+<p><strong>What goes wrong in production:</strong> The model API or a downstream service returns an error and explicitly says it should not be retried. The client retries anyway, with backoff, again and again. In an interactive session, the user waits minutes. In an unattended overnight run, the job never ends and never reports failure.</p>
+<p><strong>Verified examples:</strong></p>
+<ul>
+<li>Claude Code <strong>2.1.311</strong> (published to npm October 26, 2026): <em>"Fixed Claude Code retrying requests the API marked not to retry, which could hold a turn for minutes or, in unattended retry mode (<code>CLAUDE_CODE_RETRY_WATCHDOG</code>), indefinitely"</em>.</li>
+<li>OpenAI Codex CLI <strong>0.165.0</strong> (changelog dated October 27, 2026): <em>"Stopped retrying when a provider reports that a model was not found, preserving its error message."</em></li>
+</ul>
+<p><strong>Root cause:</strong> Retry logic written as "catch error, back off, try again" with no error classification. A model-not-found or explicit do-not-retry response will never succeed on attempt 50.</p>
+<p><strong>The deterministic fix:</strong></p>
+<ul>
+<li><strong>Classify before you retry.</strong> An explicit server signal beats the status code (Anthropic's SDKs, for example, obey an <code>x-should-retry</code> header). Terminal: 400/422 validation, 403 permission, 404 not found (including unknown model IDs), 501, quota-exhausted 429s, and any explicit do-not-retry signal. On 401, or an MCP 403 <code>insufficient_scope</code>, refresh or re-authorize once, then treat a second failure as terminal. Retryable: connection resets, 408, 429, 500, 502, 503, 504, and provider overload codes such as 529. For writes, retry these only when the request carries an idempotency key. An MCP tool result with <code>isError: true</code> is not a transport failure; return it to the model instead of retrying.</li>
+<li><strong>Honor <code>Retry-After</code></strong> (seconds or an HTTP date) on 429/503 as the minimum wait, but cap it: if the server asks for longer than your remaining time budget, stop now and surface the error instead of sleeping.</li>
+<li><strong>Cap both attempts and total wall time</strong>, and surface the original error message to the agent and the logs. Unattended mode should fail fast and loudly, never wait forever.</li>
+<li><strong>Add jitter and retry at one layer only.</strong> Use exponential backoff with full jitter so clients don't retry in lockstep. Turn off retries in either the inner layers (SDK, HTTP client) or the outer ones (agent loop). Three layers that each make up to 4 attempts can send 4 × 4 × 4 = 64 requests for one call. Stop calling a dependency whose recent failure rate crosses a threshold (a circuit breaker).</li>
+</ul>
+<p><strong>Rejected:</strong></p>
+<pre style="background:#f6f8fa;border:1px solid #e1e4e8;border-radius:6px;padding:10px 12px;overflow-x:auto;font-size:.86rem;line-height:1.45"><code class="language-yaml">retry:
+  on: any_error
+  max_attempts: unlimited   # &quot;unattended mode should be resilient&quot;
+  backoff: exponential
+</code></pre>
+<p><strong>Preferred:</strong></p>
+<pre style="background:#f6f8fa;border:1px solid #e1e4e8;border-radius:6px;padding:10px 12px;overflow-x:auto;font-size:.86rem;line-height:1.45"><code class="language-yaml"># Illustrative config, not a specific library's schema
+retry:
+  layer: agent_client                     # SDK/HTTP-client retries off (max_retries: 0)
+  precedence: explicit_signal_over_status # e.g. x-should-retry: false wins
+  terminal: [400, 403, 404, 422, 501, model_not_found, quota_exhausted, do_not_retry_signal]
+  refresh_auth_once_then_terminal: [401, insufficient_scope_403]
+  retryable: [408, 429, 500, 502, 503, 504, 529, connection_reset]
+  retryable_writes: idempotency_key_required   # otherwise return unknown_outcome
+  tool_result_is_error: return_to_model        # not a transport retry
+  honor_retry_after: { enabled: true, fail_fast_if_over_budget: true }
+  backoff: { type: exponential, base_seconds: 1, max_seconds: 30, jitter: full }
+  max_attempts: 4
+  max_total_seconds: 120
+  on_exhausted: return_error_with_original_message   # never hang
+</code></pre>
+<h3>3. Subagents Blind to Tools From Late-Connecting MCP Servers</h3>
+<p><strong>What goes wrong in production:</strong> Your orchestrator spawns a subagent while one MCP server (say, a slow remote CRM connector) is still connecting. The subagent's tool list is built at spawn time, so the CRM tools never appear. The subagent tells the user it has no way to look up the account, or worse, guesses. The bug is timing-dependent, so it passes in staging and fails on cold starts.</p>
+<p><strong>Verified example:</strong> Claude Code <strong>2.1.311</strong> (published to npm October 26, 2026): <em>"Fixed subagents being unable to use MCP tools from servers that finish connecting after the subagent starts"</em>.</p>
+<p><strong>Root cause:</strong> The tool registry is treated as immutable for the life of a subagent, while MCP servers connect asynchronously and their tool lists can change.</p>
+<p><strong>The deterministic fix:</strong></p>
+<ul>
+<li><strong>Refresh the registry on connect and on change.</strong> In MCP 2026-07-28, servers that declare <code>"tools": {"listChanged": true}</code> send <code>notifications/tools/list_changed</code> only to clients that opened a <code>subscriptions/listen</code> stream with <code>toolsListChanged: true</code>, so open one for every server that supports it. Re-run <code>tools/list</code> and update every live subagent's toolset when the notification arrives, when a server becomes ready, or when the cached list's <code>ttlMs</code> expires.</li>
+<li><strong>Declare required servers per task.</strong> If a task needs the CRM server, either wait for it (with a deadline) before spawning or return an explicit "required tool server unavailable" error. Never let the model improvise around a missing tool.</li>
+</ul>
+<p><strong>Rejected:</strong></p>
+<pre style="background:#f6f8fa;border:1px solid #e1e4e8;border-radius:6px;padding:10px 12px;overflow-x:auto;font-size:.86rem;line-height:1.45"><code class="language-python">def start(task):
+    return spawn_subagent(task, tools=registry.snapshot())  # frozen at t=0
+</code></pre>
+<p><strong>Preferred:</strong></p>
+<pre style="background:#f6f8fa;border:1px solid #e1e4e8;border-radius:6px;padding:10px 12px;overflow-x:auto;font-size:.86rem;line-height:1.45"><code class="language-python"># Pseudocode: adapt to your orchestrator. Register handlers before spawning.
+# once, at startup
+registry.on(&quot;server_ready&quot;, registry.refresh)                       # re-run tools/list
+registry.on(&quot;notifications/tools/list_changed&quot;, registry.refresh)   # needs subscriptions/listen
+
+async def start(task):
+    await registry.wait_for(task.required_servers, timeout_s=15)        # raises -&gt; explicit error
+    return spawn_subagent(task, tools=registry.live_view())             # sees every refresh
+</code></pre>
+<h3>4. Remote MCP Cancellation That Never Reaches the Server</h3>
+<p><strong>What goes wrong in production:</strong> A user hits stop, or your orchestrator times out a slow tool call. Locally, the request is abandoned. Remotely, the server has no idea and keeps running a long query, a batch write, or a paid API loop. You pay for work nobody will read, and side effects land after the user thinks the action was stopped.</p>
+<p><strong>Verified example:</strong> OpenAI Codex CLI <strong>0.165.0</strong> (changelog dated October 27, 2026): <em>"Cancelled remote MCP tool requests when their local response futures are dropped."</em></p>
+<p><strong>Root cause:</strong> Cancellation is implemented as "stop awaiting" rather than "tell the other side to stop."</p>
+<p><strong>The deterministic fix:</strong></p>
+<ul>
+<li><strong>Propagate cancellation on every exit path</strong> (user stop, timeout, parent task cancelled, future dropped). In MCP 2026-07-28 the mechanism depends on transport. Over Streamable HTTP, closing the request's response stream <em>is</em> the cancellation; no <code>notifications/cancelled</code> is required or expected. Over stdio, the client sends <code>notifications/cancelled</code> with the request ID and an optional reason. Either way, ignore late responses, and treat a write's outcome as unknown until you check, because the server may have finished before the cancel arrived.</li>
+<li><strong>Set timeouts per tool.</strong> If a tool sends progress notifications, you may extend the wait on each one, but keep a hard maximum; the cancellation spec says implementations SHOULD always enforce one.</li>
+<li><strong>Make servers honor it:</strong> check for cancellation between steps of long-running tools, and make partial writes either transactional or reported.</li>
+<li><strong>Log it:</strong> record <code>cancel_sent</code> with the request ID and time, then whether any response or side effect appeared after it. MCP has no cancel acknowledgment, so a late side effect is the only evidence that the cancel lost the race.</li>
+</ul>
+<p><strong>Rejected:</strong></p>
+<pre style="background:#f6f8fa;border:1px solid #e1e4e8;border-radius:6px;padding:10px 12px;overflow-x:auto;font-size:.86rem;line-height:1.45"><code class="language-python">import asyncio
+
+async def call(client, name, args):
+    try:
+        return await asyncio.wait_for(client.call_tool(name, args), timeout=30)
+    except asyncio.TimeoutError:
+        return &quot;Tool timed out&quot;   # server may still be running; no cancel on the wire
+</code></pre>
+<p><strong>Preferred:</strong></p>
+<pre style="background:#f6f8fa;border:1px solid #e1e4e8;border-radius:6px;padding:10px 12px;overflow-x:auto;font-size:.86rem;line-height:1.45"><code class="language-python"># Pseudocode: assumes your SDK cancels the request on the wire (closes the HTTP
+# stream, or sends notifications/cancelled on stdio) when the awaiting task is
+# cancelled. Verify that with test Q5 below.
+import asyncio
+
+async def call(client, name, args):
+    try:
+        async with asyncio.timeout(tool_timeout_s(name)):   # Python 3.11+; per tool
+            return await client.call_tool(name, args)
+    except TimeoutError:
+        log.info(&quot;cancel_sent&quot;, tool=name, reason=&quot;timeout&quot;)
+        return {&quot;status&quot;: &quot;cancel_requested&quot;, &quot;outcome&quot;: &quot;unknown_until_checked&quot;, &quot;tool&quot;: name}
+    except asyncio.CancelledError:
+        log.info(&quot;cancel_sent&quot;, tool=name, reason=&quot;user_stop_or_parent_cancel&quot;)
+        raise                                               # never swallow cancellation
+</code></pre>
+<h3>5. Failed Worker Requests That Leave the Caller Hanging</h3>
+<p><strong>What goes wrong in production:</strong> A UI process or orchestrator sends a request to a worker. The worker throws, crashes, or hits an unhandled branch, and never answers. The caller awaits a response that will never come. There is no error in the logs, just a spinner or a stuck pipeline step.</p>
+<p><strong>Verified example:</strong> OpenCode <strong>v1.19.5</strong> (GitHub release published October 28, 2026 UTC; late October 27 Pacific): <em>"Failed TUI worker requests now return an error instead of leaving the caller hanging."</em> (PR #54936)</p>
+<p><strong>Root cause:</strong> The request/response contract only defines the success path. Failure is "no message," which is indistinguishable from "still working."</p>
+<p><strong>The deterministic fix:</strong></p>
+<ul>
+<li><strong>Exactly one terminal response per request</strong>: build the success or typed-error result inside <code>try</code>/<code>catch</code>, then send it with a single <code>reply</code> after the block, so a failing <code>reply</code> can't trigger a second one.</li>
+<li><strong>A deadline on every await</strong> on the caller side that also aborts the request (so the worker stops too), converted into an explicit error the agent and user can act on.</li>
+</ul>
+<p><strong>Rejected:</strong></p>
+<pre style="background:#f6f8fa;border:1px solid #e1e4e8;border-radius:6px;padding:10px 12px;overflow-x:auto;font-size:.86rem;line-height:1.45"><code class="language-ts">worker.on(&quot;request&quot;, async (req) =&gt; {
+  const out = await handle(req);        // throws -&gt; no reply ever sent
+  worker.reply(req.id, { ok: true, out });
+});
+</code></pre>
+<p><strong>Preferred:</strong></p>
+<pre style="background:#f6f8fa;border:1px solid #e1e4e8;border-radius:6px;padding:10px 12px;overflow-x:auto;font-size:.86rem;line-height:1.45"><code class="language-ts">worker.on(&quot;request&quot;, async (req) =&gt; {
+  let res;
+  try {
+    res = { ok: true, out: await handle(req) };
+  } catch (err) {
+    res = { ok: false, error: { code: &quot;WORKER_FAILED&quot;, message: String(err) } };
+  }
+  worker.reply(req.id, res);   // exactly one reply on every path
+});
+
+// caller side: the deadline also aborts the request, so the worker stops too
+const res = await call(req, { signal: AbortSignal.timeout(20_000) }).catch((err) =&gt; ({
+  ok: false,
+  error: { code: err?.name === &quot;TimeoutError&quot; ? &quot;WORKER_TIMEOUT&quot; : &quot;WORKER_FAILED&quot;, message: String(err) },
+}));
+</code></pre>
+<h3>6. Code Review Running on a Stale Commit After a Late Push</h3>
+<p><strong>What goes wrong in production:</strong> An automated reviewer (human-in-the-loop bot, AI review, or CI gate) is triggered by a push event. Events arrive late or out of order, and the job reviews whatever commit it resolves at run time, or the wrong one. The check goes green on code that is not what gets merged.</p>
+<p><strong>Verified example:</strong> Claude Code <strong>2.1.312</strong> (published to npm October 27, 2026): <em>"[Code Review] Fixed Code Review reviewing an outdated commit, or none at all, when GitHub delivered a push event late; it now reviews the pull request's current commit"</em>.</p>
+<p><strong>Root cause:</strong> The review is keyed to an event or to "latest," not to an immutable commit identity.</p>
+<p><strong>The deterministic fix:</strong></p>
+<ul>
+<li><strong>Pin every review run to a commit SHA</strong> and print it in the review output.</li>
+<li><strong>Re-check the PR head before posting.</strong> If <code>head.sha</code> changed while the review ran, don't post. The new push's own run reviews the new head, and a <code>concurrency</code> group with <code>cancel-in-progress</code> stops the stale run early.</li>
+<li><strong>Make merge gates require a review result whose SHA equals the merge candidate's SHA.</strong></li>
+</ul>
+<p><strong>Rejected (fragment):</strong></p>
+<pre style="background:#f6f8fa;border:1px solid #e1e4e8;border-radius:6px;padding:10px 12px;overflow-x:auto;font-size:.86rem;line-height:1.45"><code class="language-yaml"># fragment: steps excerpt, not a complete workflow
+on: push
+steps:
+  - run: git checkout origin/${BRANCH}      # whatever is latest when the job starts
+  - run: ai-review --post-result
+</code></pre>
+<p><strong>Preferred (complete workflow; <code>ai-review</code> stands in for your review CLI):</strong></p>
+<pre style="background:#f6f8fa;border:1px solid #e1e4e8;border-radius:6px;padding:10px 12px;overflow-x:auto;font-size:.86rem;line-height:1.45"><code class="language-yaml">name: ai-review
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+concurrency:
+  group: ai-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true          # a new push cancels the stale run
+permissions:
+  contents: read
+  pull-requests: write
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    env:
+      SHA: ${{ github.event.pull_request.head.sha }}
+      PR: ${{ github.event.pull_request.number }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - run: ai-review --sha &quot;$SHA&quot; --out review.json
+      - name: Post only if the PR head has not moved
+        run: |
+          CURRENT=$(gh pr view &quot;$PR&quot; --repo &quot;$GITHUB_REPOSITORY&quot; --json headRefOid -q .headRefOid)
+          if [ &quot;$CURRENT&quot; != &quot;$SHA&quot; ]; then
+            echo &quot;Head moved to $CURRENT; not posting review for $SHA&quot;
+            exit 0
+          fi
+          ai-review --post-result review.json --sha &quot;$SHA&quot;
+</code></pre>
+<h3>7. Silent Model Rerouting by the Provider</h3>
+<p><strong>What goes wrong in production:</strong> You never changed a line of code, but answers drift and the bill moves. The provider retired the model ID you call and now serves those requests with a different model.</p>
+<p><strong>Verified example:</strong> Lovable's changelog (entry dated October 22, 2026): Gemini 2.5 Pro, 2.5 Flash, and 2.5 Flash Lite chat models for app AI features <em>"retired on October 20, 2026."</em> Requests for 2.5 Pro and Flash now go to Gemini 3.8 Flash, and Flash Lite requests go to Gemini 3.1 Flash Lite; <em>"the replacement can cost a different amount per request and respond differently."</em> To its credit, Lovable documented the change publicly, and rerouting keeps apps running. The architectural lesson is that <strong>"keeps working" is not the same as "behaves the same,"</strong> and your agent needs to notice.</p>
+<p><strong>Root cause:</strong> The application treats a model name as a stable contract. In practice it is a lease with an end date.</p>
+<p><strong>The deterministic fix:</strong></p>
+<ul>
+<li><strong>Pin full model IDs</strong> in config, never "latest" aliases, and keep a dated retirement calendar for every model you call.</li>
+<li><strong>Log the served model</strong> from each response's metadata where the API exposes it, and alert when it differs from the requested one. Where the served model isn't exposed (for example, a platform's built-in AI gateway), alert on a jump in cost per request and run a small fixed canary set daily to catch behavior changes.</li>
+<li><strong>Treat any model change as a deploy:</strong> re-run the 8-question regression set and compare weighted scores and cost per request before accepting it.</li>
+</ul>
+<p><strong>Rejected:</strong></p>
+<pre style="background:#f6f8fa;border:1px solid #e1e4e8;border-radius:6px;padding:10px 12px;overflow-x:auto;font-size:.86rem;line-height:1.45"><code class="language-json">{ &quot;model&quot;: &quot;fast-default&quot;, &quot;alerts&quot;: [] }
+</code></pre>
+<p><strong>Preferred:</strong></p>
+<pre style="background:#f6f8fa;border:1px solid #e1e4e8;border-radius:6px;padding:10px 12px;overflow-x:auto;font-size:.86rem;line-height:1.45"><code class="language-json">{
+  &quot;model&quot;: &quot;provider/model-name-2026-xx-xx&quot;,
+  &quot;on_served_model_mismatch&quot;: &quot;alert_and_flag_responses&quot;,
+  &quot;if_served_model_hidden&quot;: [&quot;alert_on_cost_per_request_jump&quot;, &quot;daily_canary_set&quot;],
+  &quot;retirement_dates&quot;: { &quot;provider/model-name-2026-xx-xx&quot;: &quot;2027-xx-xx&quot; },
+  &quot;retirement_check&quot;: &quot;weekly&quot;,
+  &quot;on_model_change&quot;: [&quot;run_regression_8q&quot;, &quot;compare_cost_per_request&quot;, &quot;require_signoff&quot;]
+}
+</code></pre>
+<hr />
+<h2>3. The Fixed 8-Question Reliability Regression Test Block</h2>
+<p>Issue #1's template tested conversational behavior. This block tests plumbing. Run it in staging with fault injection (drop connections, delay servers, return synthetic errors) before and after any change to your tool layer, retry policy, orchestration, or model config.</p>
+<p>Each slot targets exactly one failure mode, so a failure can be attributed. Every criterion is binary pass/fail with a numeric threshold; score the agent's user-facing reply separately with the rubric in Section 4.</p>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Slot</th>
+<th style="text-align: left;">Mode</th>
+<th style="text-align: left;">Fault-Injection Test</th>
+<th style="text-align: left;">Deterministic Pass Criterion (pass/fail; score the user-facing reply separately with the rubric)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Q1</strong></td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><em>"Refund order #1042, then tell me its status."</em> Drop the connection after the server executes <code>create_refund</code> but before the response arrives. Then drop the connection once on the read-only <code>get_order</code> call.</td>
+<td style="text-align: left;">Exactly 1 refund record exists for the action ID. <code>create_refund</code> was sent exactly 1 time, or at most 3 times all carrying the same idempotency key. The agent reports an unknown outcome or the reconciled result, never an unverified "done". <code>get_order</code> makes at most 3 attempts in total and returns the correct status, with 0 errors shown to the user.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Q2</strong></td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">During an unattended run, return a model-not-found error from the model API. In a second run, return a 503 carrying an explicit do-not-retry signal. Optional third run: a tool returns a result with <code>isError: true</code>.</td>
+<td style="text-align: left;">Runs 1 and 2: each sends exactly 1 request to the model API and ends with a failed status within 10 s. The original error message appears verbatim in the logs and in the user-facing reply. Run 3: the tool result reaches the model exactly once, with 0 transport retries.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Q3</strong></td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Return 429 with <code>Retry-After: 20</code> three times, then succeed. In a second run, return 429 with <code>Retry-After: 600</code>.</td>
+<td style="text-align: left;">Run A makes exactly 4 attempts, waits ≥ 20 s before each retry, finishes in ≤ 120 s, succeeds, and logs all 4 attempts. Run B makes 0 retries and fails within 5 s with the original error (the requested wait exceeds the 120 s budget).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Q4</strong></td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Delay the CRM MCP server's readiness by 10 s, then ask a subagent <em>"What plan is account ACME-77 on?"</em> Repeat with a 30 s delay.</td>
+<td style="text-align: left;">Run A: the subagent calls the CRM tool at least once and states the plan the tool returned. Run B: within 16 s of the question it returns "required tool server unavailable". In both runs: 0 replies say the tool doesn't exist, and 0 replies state a plan the tool didn't return.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Q5</strong></td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Start a 60 s remote export, then press stop after 5 s.</td>
+<td style="text-align: left;">Within 2 s of stop, the server log shows that request ID cancelled (HTTP: client closed the response stream; stdio: <code>notifications/cancelled</code> received). 0 export files are written after the stop timestamp. The agent says the export was stopped or must be checked; 0 replies say "completed".</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Q6</strong></td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">Make the worker throw on <code>summarize_ticket</code>. In a second run, kill the worker process mid-request.</td>
+<td style="text-align: left;">Run A: the caller gets exactly 1 reply, <code>WORKER_FAILED</code>, within 2 s of the throw. Run B: the caller gets <code>WORKER_TIMEOUT</code> between 20 s and 21 s after the request. In both runs, the agent says the step failed and gives exactly 1 next step.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Q7</strong></td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">Push a new commit to a PR while its automated review is running.</td>
+<td style="text-align: left;">0 reviews are posted for the old SHA after the push. Exactly 1 review naming the new head SHA is posted. The merge gate blocks 100% of merge attempts until a result whose SHA equals the merge candidate exists.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Q8</strong></td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">In staging, have a mock provider answer requests for the pinned model ID with a different served model.</td>
+<td style="text-align: left;">An alert fires within 60 s of the first mismatched response. 100% of mismatched responses are flagged in the logs. The 8-test regression run starts automatically within 1 hour. The model config is not accepted without 1 recorded sign-off.</td>
+</tr>
+</tbody>
+</table></div>
+<h3>The 4-Step Reliability Measurement Loop</h3>
+<ol>
+<li><strong>Baseline Run:</strong> Execute all 8 fault-injection tests and record pass/fail, duplicate side-effect count, time-to-terminal-error, and weighted rubric score of the agent's user-facing reply.</li>
+<li><strong>Install the Fixes:</strong> Retry classification, idempotency keys where tools accept them, annotation-gated retries keyed by (server, tool), registry refresh, cancellation propagation, worker deadlines, SHA pinning, and model pinning with alerts.</li>
+<li><strong>Production Soak:</strong> Run live traffic for several days with the same logging.</li>
+<li><strong>Post-Fix Re-Run:</strong> Re-run the identical 8 tests and compare: all 8 tests should meet their numeric thresholds, duplicate writes should be zero, hangs should be zero, and every failure should end in an explicit, actionable message.</li>
+</ol>
+<hr />
+<h2>4. Scoring Note: Applying the Locked 4-Criteria Rubric to Plumbing Failures</h2>
+<p>Infrastructure bugs still show up as bad replies, so score the agent's user-facing turn on each test with the same locked weights from Issue #1 (1–5 per criterion):</p>
+<p><code>Weighted Score = (0.35 * Accuracy &amp; Policy Adherence) + (0.25 * Conciseness &amp; Clarity) + (0.20 * Tone &amp; Brand Alignment) + (0.20 * Actionability)</code></p>
+<ul>
+<li><strong>Accuracy &amp; Policy Adherence (35%):</strong> Does the reply state what actually happened? "Your refund was issued" after an unknown-outcome write scores <strong>1</strong>. "The connection dropped mid-refund, so I checked with the payment system: the refund was issued once. No further action needed." scores <strong>5</strong>.</li>
+<li><strong>Conciseness &amp; Clarity (25%):</strong> A hung run or retry loop that floods the user with repeated "trying again" messages scores low. One clear status line scores high.</li>
+<li><strong>Tone &amp; Brand Alignment (20%):</strong> Calm, direct failure reporting without blame-shifting or over-apology.</li>
+<li><strong>Actionability (20%):</strong> Every failure path ends with one concrete next step (retry later, check status, reconnect a server) or an explicit limit. A spinner that never resolves scores <strong>1</strong> by definition.</li>
+</ul>
+<p>Group failures into Primary / Secondary / Minor weaknesses by frequency exactly as in the full rubric: <a href="../../agent-backbone/agent-backbone-evaluation-rubric.pdf">download the rubric PDF</a>.</p>
+<hr />
+<h2>5. Primary Sources (All Re-Checked October 29, 2026)</h2>
+<div style="overflow-x:auto"><table>
+<thead>
+<tr>
+<th style="text-align: left;">Failure Mode</th>
+<th style="text-align: left;">Source</th>
+<th style="text-align: left;">Version &amp; Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1. Duplicate MCP tool calls on disconnect</td>
+<td style="text-align: left;">Claude Code CHANGELOG: <a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md" rel="noopener" target="_blank">https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md</a></td>
+<td style="text-align: left;">2.1.307, npm publish Oct 21, 2026</td>
+</tr>
+<tr>
+<td style="text-align: left;">2. Retrying non-retryable requests</td>
+<td style="text-align: left;">Claude Code CHANGELOG (above)</td>
+<td style="text-align: left;">2.1.311, npm publish Oct 26, 2026</td>
+</tr>
+<tr>
+<td style="text-align: left;">2. Model-not-found treated as terminal</td>
+<td style="text-align: left;">OpenAI Codex changelog: <a href="https://developers.openai.com/codex/changelog" rel="noopener" target="_blank">https://developers.openai.com/codex/changelog</a></td>
+<td style="text-align: left;">Codex CLI 0.165.0, Oct 27, 2026</td>
+</tr>
+<tr>
+<td style="text-align: left;">3. Subagents and late-connecting MCP servers</td>
+<td style="text-align: left;">Claude Code CHANGELOG (above)</td>
+<td style="text-align: left;">2.1.311, npm publish Oct 26, 2026</td>
+</tr>
+<tr>
+<td style="text-align: left;">4. Remote MCP cancellation</td>
+<td style="text-align: left;">OpenAI Codex changelog (above)</td>
+<td style="text-align: left;">Codex CLI 0.165.0, Oct 27, 2026</td>
+</tr>
+<tr>
+<td style="text-align: left;">5. Failed worker request hangs caller</td>
+<td style="text-align: left;">OpenCode release: <a href="https://github.com/anomalyco/opencode/releases/tag/v1.19.5" rel="noopener" target="_blank">https://github.com/anomalyco/opencode/releases/tag/v1.19.5</a></td>
+<td style="text-align: left;">v1.19.5, Oct 28, 2026 (UTC)</td>
+</tr>
+<tr>
+<td style="text-align: left;">6. Code Review on stale commit</td>
+<td style="text-align: left;">Claude Code CHANGELOG (above)</td>
+<td style="text-align: left;">2.1.312, npm publish Oct 27, 2026</td>
+</tr>
+<tr>
+<td style="text-align: left;">7. Silent model rerouting</td>
+<td style="text-align: left;">Lovable changelog: <a href="https://docs.lovable.dev/changelog" rel="noopener" target="_blank">https://docs.lovable.dev/changelog</a></td>
+<td style="text-align: left;">Entry dated Oct 22, 2026 (retirement Oct 20, 2026)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Tool annotations, list_changed via <code>subscriptions/listen</code>, tool errors (<code>isError</code>), tool-name scope</td>
+<td style="text-align: left;">MCP specification: <a href="https://modelcontextprotocol.io/specification/2026-07-28/server/tools" rel="noopener" target="_blank">https://modelcontextprotocol.io/specification/2026-07-28/server/tools</a></td>
+<td style="text-align: left;">Revision 2026-07-28 (current)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Cancellation (HTTP stream close vs. stdio <code>notifications/cancelled</code>), timeouts</td>
+<td style="text-align: left;"><a href="https://modelcontextprotocol.io/specification/2026-07-28/basic/utilities/cancellation" rel="noopener" target="_blank">https://modelcontextprotocol.io/specification/2026-07-28/basic/utilities/cancellation</a></td>
+<td style="text-align: left;">Revision 2026-07-28</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ToolAnnotations</code> fields and defaults, <code>ttlMs</code></td>
+<td style="text-align: left;"><a href="https://modelcontextprotocol.io/specification/2026-07-28/schema" rel="noopener" target="_blank">https://modelcontextprotocol.io/specification/2026-07-28/schema</a></td>
+<td style="text-align: left;">Revision 2026-07-28</td>
+</tr>
+<tr>
+<td style="text-align: left;">No SSE stream resumability; re-issue with a new request ID</td>
+<td style="text-align: left;">MCP changelog: <a href="https://modelcontextprotocol.io/specification/2026-07-28/changelog" rel="noopener" target="_blank">https://modelcontextprotocol.io/specification/2026-07-28/changelog</a></td>
+<td style="text-align: left;">Revision 2026-07-28</td>
+</tr>
+<tr>
+<td style="text-align: left;">401 and 403 <code>insufficient_scope</code> re-authorization</td>
+<td style="text-align: left;"><a href="https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization" rel="noopener" target="_blank">https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization</a></td>
+<td style="text-align: left;">Revision 2026-07-28</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>x-should-retry</code> checked before status code</td>
+<td style="text-align: left;">Anthropic Python SDK: <a href="https://github.com/anthropics/anthropic-sdk-python/blob/main/src/anthropic/_base_client.py" rel="noopener" target="_blank">https://github.com/anthropics/anthropic-sdk-python/blob/main/src/anthropic/_base_client.py</a></td>
+<td style="text-align: left;"><code>main</code> branch, checked Oct 29, 2026</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Seen in Public Threads This Week</h3>
+<p>Two public discussions show the same failure shapes outside vendor release notes (both checked October 29, 2026; paraphrased, no names):</p>
+<ul>
+<li><strong>Mode 2 (retry ceilings and circuit breakers):</strong> <a href="https://www.reddit.com/r/AI_Agents/comments/1xedkfx/moving_beyond_context_soup_how_are_you_strictly/" rel="noopener" target="_blank">https://www.reddit.com/r/AI_Agents/comments/1xedkfx/moving_beyond_context_soup_how_are_you_strictly/</a> (posted about October 24, 2026). A builder running a self-hosted multi-agent pipeline asks which retry ceilings stop two models from endlessly bouncing rejections before a human steps in. It is a fit for the retry-cap and circuit-breaker advice in Mode 2, with a secondary fit to Mode 5's typed, bounded handoffs.</li>
+<li><strong>Mode 3 (a tool the agent can't see):</strong> <a href="https://x.com/i/status/2114821583412011384" rel="noopener" target="_blank">https://x.com/i/status/2114821583412011384</a> (posted October 26, 2026). A team describes a support agent that started handing simple follow-ups to a human after it gained more tools: <em>"the tool it needed was still there. the model couldn't see it"</em>. The root cause there is <strong>lazy tool loading</strong> (the tool sat in a group that wasn't loaded), not a late MCP connect. The symptom and the fix are the same: make tool availability explicit, and load or refresh before declaring a tool missing.</li>
+</ul>
+<hr />
+<h2>Related Reading on Tool Use Cases</h2>
+<ul>
+<li><strong>Agent Backbone Issue #1:</strong> 5 Ways Production AI Agents Quietly Break (And the Deterministic Fixes): <a href="../../agent-backbone/issue-1/">https://tools.lalipublications.com/agent-backbone/issue-1/</a></li>
+<li><strong>Free 4-Criteria Evaluation Rubric (PDF):</strong> <a href="../../agent-backbone/agent-backbone-evaluation-rubric.pdf">https://tools.lalipublications.com/agent-backbone/agent-backbone-evaluation-rubric.pdf</a></li>
+<li><strong>Best AI Coding Agents:</strong> <a href="../../use-cases/best-ai-coding-agents/">https://tools.lalipublications.com/use-cases/best-ai-coding-agents/</a></li>
+<li><strong>Best AI for Fixing Broken Code:</strong> <a href="../../use-cases/best-ai-for-fixing-broken-code/">https://tools.lalipublications.com/use-cases/best-ai-for-fixing-broken-code/</a></li>
+<li><strong>Best AI for Vibe Coding</strong> (for builders on hosted app platforms like Lovable): <a href="../../use-cases/best-ai-for-vibe-coding/">https://tools.lalipublications.com/use-cases/best-ai-for-vibe-coding/</a></li>
+</ul>
+<hr />
+<h2>Subscribe &amp; Share a Production Failure Case</h2>
+<ul>
+<li><strong>Free Weekly Briefing &amp; Rubric Updates:</strong> Subscribe free at <a href="../../agent-backbone/">https://tools.lalipublications.com/agent-backbone/</a> (one email field, no account needed; signup is handled by FormSubmit).</li>
+<li><strong>Submit a Failure Trace or Question:</strong> Email <code>larrys@lalipublications.com</code> (Lali Publications). Anonymized retry logs and tool-call traces are welcome; we may feature patterns, never your data.</li>
+</ul>
+</article>
+
+<div class="cta">
+<b>Keep reading:</b> <a href="../../agent-backbone/issue-1/">Agent Backbone #1: 5 Ways Production AI Agents Quietly Break (And the Deterministic Fixes)</a> covers the conversation-level failures, and the <a href="../../agent-backbone/">Agent Backbone hub</a> has the full 4-criteria rubric and 8-question regression template (or <a href="../../agent-backbone/agent-backbone-evaluation-rubric.pdf" download="agent-backbone-evaluation-rubric.pdf">download the rubric PDF</a>). <a href="../../newsletter/issue-3/">Tool Picks Weekly #3</a> previewed this issue alongside the week's tool launches.
+</div>
+
+<section class="nl" id="signup-bottom"><h2>Subscribe to Agent Backbone (Free)</h2><p>One high-signal email each week on production AI agent evaluation and reliability.</p>
+<form action="https://formsubmit.co/126630f9e901132900d6d2cd89ad2705" method="POST"><input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
+<input type="hidden" name="_subject" value="Agent Backbone newsletter + rubric signup"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_template" value="table"><input type="hidden" name="_next" value="https://tools.lalipublications.com/thanks/">
+<button type="submit">Subscribe Free</button></form><small>Published by Tool Use Cases (Lali Publications). Free editorial briefing — no spam, unsubscribe anytime.</small></section>
+</main>
+<footer><div class="wrap"><section class="nl"><h2>Weekly AI tool picks for vibe coders</h2><p>New tools + which job they fit. Free.</p>
+<form action="https://formsubmit.co/126630f9e901132900d6d2cd89ad2705" method="POST"><input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
+<input type="hidden" name="_subject" value="Tool Use Cases newsletter signup"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_template" value="table"><input type="hidden" name="_next" value="https://tools.lalipublications.com/thanks/">
+<button type="submit">Subscribe</button></form><small>We email from Lali Publications. No spam, unsubscribe anytime.</small></section>Tool Use Cases · by Lali Publications · <a href="mailto:larrys@lalipublications.com">larrys@lalipublications.com</a> · <a href="../../in/">India: Indian-language editions</a></div></footer>
+<script src="../../app.js"></script><!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2c86988db1064ce6bde9822b0995a3d3"}'></script><!-- End Cloudflare Web Analytics --></body></html>
