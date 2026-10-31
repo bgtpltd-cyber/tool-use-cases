@@ -583,9 +583,10 @@ if os.path.exists(OUT): shutil.rmtree(OUT)
 os.makedirs(OUT); open(f"{OUT}/style.css","w").write(CSS); open(f"{OUT}/app.js","w").write(JS); open(f"{OUT}/.nojekyll","w").write("")
 STATIC = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static")
 for fn in os.listdir(STATIC):
-    if fn != ab.PDF_FILENAME: shutil.copy(os.path.join(STATIC, fn), os.path.join(OUT, fn))
+    if fn not in (ab.PDF_FILENAME, ab.ISSUE2_PDF_FILENAME): shutil.copy(os.path.join(STATIC, fn), os.path.join(OUT, fn))
 os.makedirs(os.path.join(OUT, "agent-backbone"), exist_ok=True)
 shutil.copy(os.path.join(STATIC, ab.PDF_FILENAME), os.path.join(OUT, "agent-backbone", ab.PDF_FILENAME))
+shutil.copy(os.path.join(STATIC, ab.ISSUE2_PDF_FILENAME), os.path.join(OUT, "agent-backbone", ab.ISSUE2_PDF_FILENAME))
 open(f"{OUT}/{INDEXNOW_KEY}.txt","w").write(INDEXNOW_KEY)
 
 cards = "".join(uc_card(*u) for u in UC)
@@ -683,6 +684,7 @@ def issue_web_md(fn):
     r2 = "Hit reply and tell us."
     assert r1 in md or r2 in md
     md = md.replace(r1, "Write to larrys@lalipublications.com.").replace(r2, "Write to larrys@lalipublications.com and tell us.")  # no "reply" on the web
+    md = md.replace("Coming in Agent Backbone #2: why MCP tool calls get sent twice when a connection drops mid-call, and how to retry only the calls that are safe to repeat.", "Now published: [Agent Backbone #2: 7 Ways MCP and Retry Plumbing Quietly Break Production Agents](https://tools.lalipublications.com/agent-backbone/issue-2/), including why MCP tool calls get sent twice when a connection drops mid-call, and how to retry only the calls that are safe to repeat.")  # web-only forward link
     if not SHOW_SPONSOR_SLOT: md = re.sub(r"\n\n## Sponsor this newsletter\n\n[^\n]+", "", md)
     return md.rstrip() + "\n\n" + SIGNOFF + "\n"
 for n, islug, iso, dd, subj, prev, fn in ISSUES:
@@ -701,8 +703,9 @@ page("newsletter/index.html","Tool Picks Weekly — free AI tool newsletter","We
 <h2>Past issues</h2><ul>{past}</ul>
 {ab.AB_NL_CALLOUT}
 <p class="muted"><small>Picks are editorial and not paid.</small></p>""", ld=[crumbs(("Tool Picks Weekly","newsletter/")), coll("CollectionPage","Tool Picks Weekly","Free weekly AI tool newsletter for vibe coders.","newsletter/")])
-page("agent-backbone/index.html", ab.AB_TITLE, ab.AB_DESC, ab.AB_BODY, ld=[crumbs(("Newsletter","newsletter/"),("Agent Backbone","agent-backbone/")), {"@context":"https://schema.org","@type":"TechArticle","headline":ab.AB_TITLE,"description":ab.AB_DESC,"datePublished":ab.PUBLISHED_ISO,"dateModified":ab.PUBLISHED_ISO,"url":f"{BASE}agent-backbone/","author":{"@type":"Organization","name":"Tool Use Cases (Lali Publications)","url":BASE+"about/"},"publisher":{"@type":"Organization","name":"Lali Publications","email":EMAIL}}])
+page("agent-backbone/index.html", ab.AB_TITLE, ab.AB_DESC, ab.AB_BODY, ld=[crumbs(("Newsletter","newsletter/"),("Agent Backbone","agent-backbone/")), {"@context":"https://schema.org","@type":"TechArticle","headline":ab.AB_TITLE,"description":ab.AB_DESC,"datePublished":ab.PUBLISHED_ISO,"dateModified":ab.ISSUE2_ISO,"url":f"{BASE}agent-backbone/","author":{"@type":"Organization","name":"Tool Use Cases (Lali Publications)","url":BASE+"about/"},"publisher":{"@type":"Organization","name":"Lali Publications","email":EMAIL}}])
 page("agent-backbone/issue-1/index.html", ab.AB_ISSUE1_TITLE, ab.AB_ISSUE1_DESC, ab.AB_ISSUE1_BODY, ld=[crumbs(("Agent Backbone","agent-backbone/"),("Issue #1","agent-backbone/issue-1/")), {"@context":"https://schema.org","@type":"Article","headline":ab.AB_ISSUE1_TITLE,"description":ab.AB_ISSUE1_DESC,"datePublished":ab.PUBLISHED_ISO,"url":f"{BASE}agent-backbone/issue-1/","author":{"@type":"Organization","name":"Lali Publications"},"publisher":{"@type":"Organization","name":"Lali Publications"},"isPartOf":{"@type":"Periodical","name":"Agent Backbone Briefing"}}])
+page("agent-backbone/issue-2/index.html", ab.AB_ISSUE2_TITLE, ab.AB_ISSUE2_DESC, ab.AB_ISSUE2_BODY, ld=[crumbs(("Agent Backbone","agent-backbone/"),("Issue #2","agent-backbone/issue-2/")), {"@context":"https://schema.org","@type":"Article","headline":ab.AB_ISSUE2_TITLE,"description":ab.AB_ISSUE2_DESC,"datePublished":ab.ISSUE2_ISO,"url":f"{BASE}agent-backbone/issue-2/","author":{"@type":"Organization","name":"Lali Publications"},"publisher":{"@type":"Organization","name":"Lali Publications"},"isPartOf":{"@type":"Periodical","name":"Agent Backbone Briefing"}}])
 page("thanks/index.html","Thanks for subscribing — Tool Use Cases","Your Tool Picks Weekly signup was received.",f"""
 <h1>You're on the list. Thanks!</h1><p class="lede">Your signup for Tool Picks Weekly was received. Look out for the next issue on Monday.</p>
 <p><a class="btn" href="@R/index.html">Back to Tool Use Cases</a></p>""", noindex=True)
@@ -790,7 +793,7 @@ def build_locale(L):
     pg("thanks", "thanks/index.html", noindex=True)
     # per-locale RSS: newsletter issues (English, labeled) + translated new releases
     x = lambda t: html.escape(t, quote=False)
-    its = [f"""  <item><title>{x(ab.AB_ISSUE1_FEED_TITLE + U["rss_issue_suffix"])}</title><link>{BASE}agent-backbone/issue-1/</link><guid isPermaLink="true">{BASE}agent-backbone/issue-1/</guid><pubDate>{rfc822(ab.PUBLISHED_ISO)}</pubDate><category>{x(U["rss_cat_newsletter"])}</category><description>{x(ab.AB_ISSUE1_DESC)}</description></item>\n"""] + [f"""  <item><title>{x(subj + U["rss_issue_suffix"])}</title><link>{BASE}newsletter/{islug}/</link><guid isPermaLink="true">{BASE}newsletter/{islug}/</guid><pubDate>{rfc822(iso)}</pubDate><category>{x(U["rss_cat_newsletter"])}</category><description>{x(prev)}</description></item>\n""" for n,islug,iso,dd,subj,prev,fn in sorted(ISSUES, reverse=True)]
+    its = [f"""  <item><title>{x(ab.AB_ISSUE2_FEED_TITLE + U["rss_issue_suffix"])}</title><link>{BASE}agent-backbone/issue-2/</link><guid isPermaLink="true">{BASE}agent-backbone/issue-2/</guid><pubDate>{rfc822(ab.ISSUE2_ISO)}</pubDate><category>{x(U["rss_cat_newsletter"])}</category><description>{x(ab.AB_ISSUE2_DESC)}</description></item>\n""", f"""  <item><title>{x(ab.AB_ISSUE1_FEED_TITLE + U["rss_issue_suffix"])}</title><link>{BASE}agent-backbone/issue-1/</link><guid isPermaLink="true">{BASE}agent-backbone/issue-1/</guid><pubDate>{rfc822(ab.PUBLISHED_ISO)}</pubDate><category>{x(U["rss_cat_newsletter"])}</category><description>{x(ab.AB_ISSUE1_DESC)}</description></item>\n"""] + [f"""  <item><title>{x(subj + U["rss_issue_suffix"])}</title><link>{BASE}newsletter/{islug}/</link><guid isPermaLink="true">{BASE}newsletter/{islug}/</guid><pubDate>{rfc822(iso)}</pubDate><category>{x(U["rss_cat_newsletter"])}</category><description>{x(prev)}</description></item>\n""" for n,islug,iso,dd,subj,prev,fn in sorted(ISSUES, reverse=True)]
     its += [f"""  <item><title>{x(U["rss_new_prefix"] + r[1])}</title><link>{BASE}{P}new/#rel-{r[0]}</link><guid isPermaLink="true">{BASE}{P}new/#rel-{r[0]}</guid><pubDate>{rfc822(r[3])}</pubDate><category>{x(U["rss_cat_new"])}</category><description>{x(L.RELEASES[r[0]])}</description></item>\n""" for r in RELEASES]
     open(f"{OUT}/{P}feed.xml","w").write(f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -800,29 +803,29 @@ def build_locale(L):
   <atom:link href="{BASE}{P}feed.xml" rel="self" type="application/rss+xml"/>
   <description>{x(L.TAG)} {x(U["rss_desc"])}</description>
   <language>{L.RSS_LANG}</language>
-  <lastBuildDate>{rfc822(max([i[2] for i in ISSUES] + [NEW_UPDATED, ab.PUBLISHED_ISO]))}</lastBuildDate>
+  <lastBuildDate>{rfc822(max([i[2] for i in ISSUES] + [NEW_UPDATED, ab.PUBLISHED_ISO, ab.ISSUE2_ISO]))}</lastBuildDate>
   <image><url>{OG_IMAGE}</url><title>{x(U["rss_title"])}</title><link>{BASE}{P}</link></image>
 {"".join(its)}</channel>
 </rss>
 """)
     return [P+k for k in localized_paths()]
 
-urls = ["index.html","newsletter/index.html","agent-backbone/index.html","agent-backbone/issue-1/index.html","use-cases/index.html","tools/index.html","new/index.html"]+(["sponsor/index.html"] if SHOW_SPONSOR_SLOT else [])+["about/index.html"]+[f"newsletter/{i[1]}/index.html" for i in ISSUES]+[f"use-cases/{u[0]}/index.html" for u in UC]
+urls = ["index.html","newsletter/index.html","agent-backbone/index.html","agent-backbone/issue-1/index.html","agent-backbone/issue-2/index.html","use-cases/index.html","tools/index.html","new/index.html"]+(["sponsor/index.html"] if SHOW_SPONSOR_SLOT else [])+["about/index.html"]+[f"newsletter/{i[1]}/index.html" for i in ISSUES]+[f"use-cases/{u[0]}/index.html" for u in UC]
 open(f"{OUT}/CNAME","w").write("tools.lalipublications.com\n")
 full = [canon(u) for u in urls]
 open(f"{OUT}/robots.txt","w").write(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n")
 llms = [f"# Tool Use Cases", "", f"> {TAG} A curated, editorial directory of AI tools organized by the job you're trying to do. Published by Lali Publications.", "",
  "Our angle: tool choice by job-to-be-done for vibe coders. Each use-case page lists recommended tools with a one-line description and a plain-English verdict. Picks are editorial and not paid; there are no affiliate links. English, Portuguese (Brazil) and Spanish use-case pages also carry a Quick answer, an FAQ and, for most picks, a dated price/free-tier line copied from the tool's official pricing page.", "", "## Use cases", ""]
 llms += [f"- [{t}]({BASE}use-cases/{s}/): {b}" for s,t,b,_ in UC]
-llms += ["", "## Other pages", "", f"- [All tools A-Z]({BASE}tools/)", f"- [New & trending]({BASE}new/)", f"- [Newsletter]({BASE}newsletter/)", f"- [Agent Backbone — Production AI Agent Evaluation Rubric & Weekly Reliability Briefing]({BASE}agent-backbone/): Free 4-criteria weighted evaluation rubric, 5 high-frequency failure modes + deterministic fixes, and 8-question regression test template", f"- [{ab.AB_ISSUE1_TITLE}]({BASE}agent-backbone/issue-1/) ({ab.PUBLISHED_DISPLAY})", f"- [Agent Backbone — Free Printable Evaluation Rubric & Issue #1 (PDF)]({BASE}agent-backbone/{ab.PDF_FILENAME})", f"- [RSS feed]({BASE}feed.xml): newsletter issues and new releases", *[f"- [{i[4]}]({BASE}newsletter/{i[1]}/) ({i[3]})" for i in ISSUES], f"- [About]({BASE}about/)", "",
+llms += ["", "## Other pages", "", f"- [All tools A-Z]({BASE}tools/)", f"- [New & trending]({BASE}new/)", f"- [Newsletter]({BASE}newsletter/)", f"- [Agent Backbone — Production AI Agent Evaluation Rubric & Weekly Reliability Briefing]({BASE}agent-backbone/): Free 4-criteria weighted evaluation rubric, 5 high-frequency failure modes + deterministic fixes, and 8-question regression test template", f"- [{ab.AB_ISSUE2_TITLE}]({BASE}agent-backbone/issue-2/) ({ab.ISSUE2_DISPLAY})", f"- [Agent Backbone Issue #2 (PDF)]({BASE}agent-backbone/{ab.ISSUE2_PDF_FILENAME})", f"- [{ab.AB_ISSUE1_TITLE}]({BASE}agent-backbone/issue-1/) ({ab.PUBLISHED_DISPLAY})", f"- [Agent Backbone — Free Printable Evaluation Rubric & Issue #1 (PDF)]({BASE}agent-backbone/{ab.PDF_FILENAME})", f"- [RSS feed]({BASE}feed.xml): newsletter issues and new releases", *[f"- [{i[4]}]({BASE}newsletter/{i[1]}/) ({i[3]})" for i in ISSUES], f"- [About]({BASE}about/)", "",
  "## Contact", "", f"Corrections and suggestions: {EMAIL} (Lali Publications).", "",
  "## How to cite", "", f"Tool Use Cases (Lali Publications). Cite the page name, then the full URL under {BASE.rstrip(chr(47))}/. Prefer the specific use-case page.", ""]
 # RSS 2.0 feed: newsletter issues (dated) + dated new releases
 x = lambda t: html.escape(t, quote=False)
 def rfc822(iso): return format_datetime(datetime.strptime(iso, "%Y-%m-%d").replace(hour=12, tzinfo=timezone.utc))
-items = [f"""  <item><title>{x(ab.AB_ISSUE1_FEED_TITLE)}</title><link>{BASE}agent-backbone/issue-1/</link><guid isPermaLink="true">{BASE}agent-backbone/issue-1/</guid><pubDate>{rfc822(ab.PUBLISHED_ISO)}</pubDate><category>Agent Backbone</category><description>{x(ab.AB_ISSUE1_DESC)}</description></item>\n"""] + [f"""  <item><title>{x(subj)}</title><link>{BASE}newsletter/{islug}/</link><guid isPermaLink="true">{BASE}newsletter/{islug}/</guid><pubDate>{rfc822(iso)}</pubDate><category>Newsletter</category><description>{x(prev)}</description></item>\n""" for n,islug,iso,dd,subj,prev,fn in sorted(ISSUES, reverse=True)]
+items = [f"""  <item><title>{x(ab.AB_ISSUE2_FEED_TITLE)}</title><link>{BASE}agent-backbone/issue-2/</link><guid isPermaLink="true">{BASE}agent-backbone/issue-2/</guid><pubDate>{rfc822(ab.ISSUE2_ISO)}</pubDate><category>Agent Backbone</category><description>{x(ab.AB_ISSUE2_DESC)}</description></item>\n""", f"""  <item><title>{x(ab.AB_ISSUE1_FEED_TITLE)}</title><link>{BASE}agent-backbone/issue-1/</link><guid isPermaLink="true">{BASE}agent-backbone/issue-1/</guid><pubDate>{rfc822(ab.PUBLISHED_ISO)}</pubDate><category>Agent Backbone</category><description>{x(ab.AB_ISSUE1_DESC)}</description></item>\n"""] + [f"""  <item><title>{x(subj)}</title><link>{BASE}newsletter/{islug}/</link><guid isPermaLink="true">{BASE}newsletter/{islug}/</guid><pubDate>{rfc822(iso)}</pubDate><category>Newsletter</category><description>{x(prev)}</description></item>\n""" for n,islug,iso,dd,subj,prev,fn in sorted(ISSUES, reverse=True)]
 items += [f"""  <item><title>{x("New: " + r[1])}</title><link>{BASE}new/#rel-{r[0]}</link><guid isPermaLink="true">{BASE}new/#rel-{r[0]}</guid><pubDate>{rfc822(r[3])}</pubDate><category>New releases</category><description>{x(r[6])}</description></item>\n""" for r in RELEASES]
-last = rfc822(max([i[2] for i in ISSUES] + [NEW_UPDATED, ab.PUBLISHED_ISO]))
+last = rfc822(max([i[2] for i in ISSUES] + [NEW_UPDATED, ab.PUBLISHED_ISO, ab.ISSUE2_ISO]))
 open(f"{OUT}/feed.xml","w").write(f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
@@ -863,7 +866,7 @@ def sm_entry(u):  # u: site path; alternates for localized pages (Google's xhtml
     for L in LOCALES:
         if u.startswith(L.PREFIX): key = u[len(L.PREFIX):]
     alts = alternates(key)
-    lm = next((iso for n,islug,iso,*_ in ISSUES if u == f"newsletter/{islug}/index.html"), SITE_UPDATED)
+    lm = next((iso for n,islug,iso,*_ in ISSUES if u == f"newsletter/{islug}/index.html"), {"agent-backbone/index.html": ab.ISSUE2_ISO, "agent-backbone/issue-2/index.html": ab.ISSUE2_ISO}.get(u, SITE_UPDATED))
     return f"  <url><loc>{canon(u)}</loc><lastmod>{lm}</lastmod>" + "".join(f'<xhtml:link rel="alternate" hreflang="{h}" href="{a}"/>' for h,a in alts) + "</url>\n"
 open(f"{OUT}/sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'+"".join(sm_entry(u) for u in urls+loc_urls)+"</urlset>\n")
 for L in [L for L in LOCALES if indexable(L)]:
@@ -873,5 +876,5 @@ for L in [L for L in LOCALES if indexable(L)]:
     llms += [f"- [{L.UC[s][0]}]({BASE}{L.PREFIX}use-cases/{s}/): {L.UC[s][1]}" for s,_,_,_ in UC]
 llms += ["## India", "", f"- [Best AI tools for Indian builders, by use case]({BASE}in/): English hub linking to every Indian-language edition ({names_txt}).", ""]
 open(f"{OUT}/llms.txt","w").write("\n".join(llms)+"\n")
-open(f"{OUT}/llms-full.txt","w").write("\n".join(llms)+"\n\n---\n\n"+open("/workspace/agent-backbone/agent-backbone-newsletter-issue-1.md").read())
+open(f"{OUT}/llms-full.txt","w").write("\n".join(llms)+"\n\n---\n\n"+open("/workspace/agent-backbone/agent-backbone-newsletter-issue-1.md").read()+"\n\n---\n\n# "+ab.AB_ISSUE2_FEED_TITLE+"\n\n"+ab._issue2_md())
 print("built", len(urls), "English pages +", len(loc_urls), "indexable localized pages +", sum(len(localized_paths()) for L in LOCALES if not indexable(L)), "noindexed (+ thanks) ->", OUT)
