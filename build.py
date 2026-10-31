@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 from nlmd import md_to_html
 import extras  # verified, dated prices + 'how to choose' guides (en, pt-BR, es)
 import agent_backbone as ab
+import upgrades  # English-only comparison tables, FAQs and 'what we checked' notes for selected use-case pages
 from i18n import pt_BR, es, hi, bn, te, mr, ta, kn, ml, ja
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "site")
 EMAIL = "larrys@lalipublications.com"
@@ -554,8 +555,8 @@ def byline(L=None):
     d = date_mdy(REVIEWED, L if ok else None)
     return (f'<p class="byline muted"{lng}><small>{e(g("last_checked"))}: <time datetime="{REVIEWED}">{e(d)}</time> · {e(g("byline"))} '
             f'<a href="@R/{P}about/index.html#how-we-pick">{e(g("how_we_pick"))}</a></small></p>')
-def page_ld(name, url, lang=None):  # dated WebPage node (dateModified = last full re-check of the picks)
-    d = {"@context":"https://schema.org","@type":"WebPage","name":name,"url":url,"dateModified":REVIEWED,
+def page_ld(name, url, lang=None, modified=None):  # dated WebPage node (dateModified = last full re-check of the picks, or a later dated page upgrade)
+    d = {"@context":"https://schema.org","@type":"WebPage","name":name,"url":url,"dateModified":modified or REVIEWED,
          "author":{"@type":"Organization","name":"Tool Use Cases (Lali Publications)","url":BASE+"about/"},
          "publisher":{"@type":"Organization","name":"Lali Publications","email":EMAIL}}
     if lang: d["inLanguage"] = lang
@@ -588,6 +589,26 @@ def guide_html(slug, tools, lang, L=None):  # 'How to choose' block + price-chec
         dt = {"en":" and ","pt-BR":" e ","es":" y "}[lang].join(f'<time datetime="{d}">{e(date_mdy(d, L))}</time>' for d in ds)
         out += f'<p class="muted"><small>{e(lb[1])} {dt} {e(lb[2])}</small></p>'
     return out
+def upgrade_html(slug):  # English-only (upgrades.py): dated comparison table, recent dated changes, 'What we checked' note
+    U = upgrades.UPGRADES.get(slug)
+    if not U: return ""
+    d = upgrades.CHECKED; dt = f'<time datetime="{d}">{e(date_mdy(d))}</time>'
+    rows = "".join(f'<tr><th scope="row"><a href="{url}" rel="noopener" target="_blank">{e(n)}</a>' + (f'<br><small class="muted">{e(role)}</small>' if role else "") +
+                   f'</th><td>{e(job)}</td><td>{e(free)}</td><td>{e(entry)}</td><td>{e(nw)}</td></tr>' for n,url,role,job,free,entry,nw in U["rows"])
+    out = (f'<h2 id="compare">Comparison table (Updated Nov 2026)</h2><p class="muted"><small>Free tiers and entry prices verified against each vendor\'s official pricing page or docs on {dt}. '
+           f'Tool names link to the page we checked. Prices are in US dollars and change often.</small></p>'
+           f'<div style="overflow-x:auto"><table><thead><tr><th scope="col">Tool</th><th scope="col">Job it\'s best for</th><th scope="col">Free tier</th><th scope="col">Entry price</th><th scope="col">When not to use it</th></tr></thead><tbody>{rows}</tbody></table></div>')
+    if U.get("news"):
+        out += ('<h2 id="recent-changes">Recent changes</h2><ul>' + "".join(
+            f'<li><b>{e(tool)}</b> (<time datetime="{iso}">{e(date_mdy(iso))}</time>): {e(txt)} <small class="muted">Source: <a href="{su}" rel="noopener" target="_blank">{e(sn)}</a></small></li>'
+            for iso,tool,txt,sn,su in U["news"]) + '</ul>')
+    out += (f'<h2 id="what-we-checked">What we checked</h2><p>We verified the prices, free tiers and dated changes on this page against official docs and pricing pages on {dt}. '
+            'We did not run hands-on tests or benchmarks for this update. The picks and verdicts are our editorial judgment, not test results.</p>'
+            + "".join(f'<p class="muted"><small>{e(n)}</small></p>' for n in U.get("notes", [])))
+    return out
+def uc_quick(tools, slug=None):  # English Quick answer: hand-written for upgraded pages, else built from the top pick's verdict
+    if slug in upgrades.UPGRADES: return upgrades.UPGRADES[slug]["quick"]
+    return f'{T[tools[0][0]][0]}{"." if tools[0][1].startswith(("Top pick","The default pick")) else " is our top pick."} {tools[0][1]}'
 def tool_link(s): n,u,_=T[s]; return f'<a href="{u}" rel="noopener" target="_blank">{e(n)}</a>'
 def uc_card(slug,title,blurb,tools):
     return f'<div class="card f"><h3><a href="@R/use-cases/{slug}/index.html">{e(title)}</a></h3><p class="what">{e(blurb)}</p><p><small>{", ".join(e(T[t][0]) for t,_ in tools)}</small></p></div>'
@@ -629,18 +650,19 @@ page("use-cases/index.html","AI tool use cases — Tool Use Cases","Browse AI to
 for slug,title,blurb,tools in UC:
     items = "".join(f'<li class="card f"><h3>{i}. {tool_link(t)}</h3><p class="what">{e(T[t][2])}</p><p class="verdict"><b>Verdict:</b> {e(v)}</p>{price_html(t,"en")}{note_html(slug,t,"en")}</li>' for i,(t,v) in enumerate(tools,1))
     rel = related(slug, tools)
+    faqs = upgrades.UPGRADES[slug]["faq"] if slug in upgrades.UPGRADES else uc_faq(title, tools)
     relhtml = ('<h2>Related use cases</h2><ul>' + "".join(f'<li><a href="@R/use-cases/{s2}/index.html">{e(t2)}</a></li>' for s2,t2 in rel) + '</ul>') if rel else ""
     page(f"use-cases/{slug}/index.html",uc_title(title),uc_desc(blurb,tools),f"""
 <p><small><a href="@R/use-cases/index.html">Use cases</a> /</small></p><h1>{e(title)}</h1><p class="lede">{e(blurb)}</p>
-{byline()}<p class="quick"><b>Quick answer:</b> {e(T[tools[0][0]][0])}{"." if tools[0][1].startswith(("Top pick","The default pick")) else " is our top pick."} {e(tools[0][1])}</p>
+{byline()}<p class="quick"><b>Quick answer:</b> {e(uc_quick(tools, slug))}</p>
 {SPONSOR_CARD if SHOW_SPONSOR_SLOT else ""}<h2>Our picks</h2><ol class="tools">{items}</ol>
-{guide_html(slug, tools, "en")}
+{upgrade_html(slug)}{guide_html(slug, tools, "en")}
 <p class="muted"><small>Picks are editorial and not paid. Pricing and features change often — check each official site.</small></p>
-<h2>FAQ</h2>{"".join(f'<h3>{e(q)}</h3><p>{e(a)}</p>' for q,a in uc_faq(title,tools))}
+<h2>FAQ</h2>{"".join(f'<h3>{e(q)}</h3><p>{e(a)}</p>' for q,a in faqs)}
 {ab.AB_UC_CALLOUT if slug in ab.AB_UC_CALLOUT_SLUGS else ""}{relhtml}<p><a href="@R/use-cases/index.html">Browse all use cases →</a></p>""", ld=[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
      {"@type":"ListItem","position":1,"name":"Home","item":BASE},{"@type":"ListItem","position":2,"name":"Use cases","item":BASE+"use-cases/"},{"@type":"ListItem","position":3,"name":title,"item":f"{BASE}use-cases/{slug}/"}]},
-     {"@context":"https://schema.org","@type":"ItemList","name":title,"description":blurb,"url":f"{BASE}use-cases/{slug}/","itemListElement":[{"@type":"ListItem","position":i,"name":T[t][0],"url":T[t][1]} for i,(t,v) in enumerate(tools,1)]}, page_ld(uc_title(title), f"{BASE}use-cases/{slug}/"),
-     {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in uc_faq(title,tools)]}])
+     {"@context":"https://schema.org","@type":"ItemList","name":title,"description":blurb,"url":f"{BASE}use-cases/{slug}/","itemListElement":[{"@type":"ListItem","position":i,"name":T[t][0],"url":T[t][1]} for i,(t,v) in enumerate(tools,1)]}, page_ld(uc_title(title), f"{BASE}use-cases/{slug}/", modified=upgrades.CHECKED if slug in upgrades.UPGRADES else None),
+     {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in faqs]}])
 
 uses = {}
 for slug,title,_,tools in UC:
@@ -830,7 +852,7 @@ full = [canon(u) for u in urls]
 open(f"{OUT}/robots.txt","w").write(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n")
 llms = [f"# Tool Use Cases", "", f"> {TAG} A curated, editorial directory of AI tools organized by the job you're trying to do. Published by Lali Publications.", "",
  "Our angle: tool choice by job-to-be-done for vibe coders. Each use-case page lists recommended tools with a one-line description and a plain-English verdict. Picks are editorial and not paid; there are no affiliate links. English, Portuguese (Brazil) and Spanish use-case pages also carry a Quick answer, an FAQ and, for most picks, a dated price/free-tier line copied from the tool's official pricing page.", "", "## Use cases", ""]
-llms += [f"- [{t}]({BASE}use-cases/{s}/): {b}" for s,t,b,_ in UC]
+llms += [f"- [{t}]({BASE}use-cases/{s}/): {b}" + (f" Quick answer: {upgrades.UPGRADES[s]['quick']}" if s in upgrades.UPGRADES else "") for s,t,b,_ in UC]
 llms += ["", "## Other pages", "", f"- [All tools A-Z]({BASE}tools/)", f"- [New & trending]({BASE}new/)", f"- [Newsletter]({BASE}newsletter/)", f"- [Agent Backbone — Production AI Agent Evaluation Rubric & Weekly Reliability Briefing]({BASE}agent-backbone/): Free 4-criteria weighted evaluation rubric, 5 high-frequency failure modes + deterministic fixes, and 8-question regression test template", f"- [{ab.AB_ISSUE2_TITLE}]({BASE}agent-backbone/issue-2/) ({ab.ISSUE2_DISPLAY})", f"- [Agent Backbone Issue #2 (PDF)]({BASE}agent-backbone/{ab.ISSUE2_PDF_FILENAME})", f"- [{ab.AB_ISSUE1_TITLE}]({BASE}agent-backbone/issue-1/) ({ab.PUBLISHED_DISPLAY})", f"- [Agent Backbone — Free Printable Evaluation Rubric & Issue #1 (PDF)]({BASE}agent-backbone/{ab.PDF_FILENAME})", f"- [RSS feed]({BASE}feed.xml): newsletter issues and new releases", *[f"- [{i[4]}]({BASE}newsletter/{i[1]}/) ({i[3]})" for i in ISSUES], f"- [About]({BASE}about/)", "",
  "## Contact", "", f"Corrections and suggestions: {EMAIL} (Lali Publications).", "",
  "## How to cite", "", f"Tool Use Cases (Lali Publications). Cite the page name, then the full URL under {BASE.rstrip(chr(47))}/. Prefer the specific use-case page.", ""]
