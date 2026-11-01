@@ -332,7 +332,8 @@ GUIDES = {
 <li><b>Quer delegar tickets inteiros:</b> @T(devin). Os agentes na nuvem começam no Pro, a US$ 20/mês.</li>
 </ul>
 <p><b>Vale olhar também:</b> o <a href="https://cline.bot" rel="noopener" target="_blank">Cline</a>, um agente de código open source que roda no editor ou no terminal.</p>
-<p><b>Grátis, do Google (conferido em 23 de out. de 2026):</b> o <a href="https://antigravity.google" rel="noopener" target="_blank">Google Antigravity</a>, editor e CLI centrado em agentes com plano individual de US$ 0 (limites semanais), e o <a href="https://jules.google" rel="noopener" target="_blank">Jules</a>, agente em beta que trabalha no seu repositório do GitHub e abre pull requests, com 15 tarefas por dia grátis.</p>""",
+<p><b>Grátis, do Google (conferido em 23 de out. de 2026):</b> o <a href="https://antigravity.google" rel="noopener" target="_blank">Google Antigravity</a>, editor e CLI centrado em agentes com plano individual de US$ 0 (limites semanais).</p>
+<p><b>O Jules vai ser desativado (conferido em 31 de out. de 2026):</b> o Google está encerrando o <a href="https://jules.google" rel="noopener" target="_blank">Jules</a>. Dá para continuar as sessões até 11 de nov. de 2026; depois disso, ele fica só para leitura até ser desativado em 31 de dez. de 2026. Por isso, não comece trabalhos novos nele.</p>""",
   "es": """<p><b>Cursor vs Claude Code vs Codex:</b> elige según dónde quieras trabajar.</p><ul>
 <li><b>En la terminal, con cambios en varios archivos:</b> @T(claude-code). Requiere Claude Pro (20 US$/mes) o Max; no está en el plan gratuito.</li>
 <li><b>En un editor, revisando cada cambio:</b> @T(cursor). Los agentes en la nube empiezan en Premium (30 US$), y los modelos Claude o GPT se cobran a precio de lista de la API.</li>
@@ -342,7 +343,8 @@ GUIDES = {
 <li><b>Quieres delegar tickets completos:</b> @T(devin). Los agentes en la nube empiezan en Pro, a 20 US$/mes.</li>
 </ul>
 <p><b>También vale la pena:</b> <a href="https://cline.bot" rel="noopener" target="_blank">Cline</a>, un agente de código abierto que funciona en el editor o en la terminal.</p>
-<p><b>Gratis, de Google (comprobado el 23 de oct. de 2026):</b> <a href="https://antigravity.google" rel="noopener" target="_blank">Google Antigravity</a>, un editor y CLI centrado en agentes con plan individual de 0 US$ (límites semanales), y <a href="https://jules.google" rel="noopener" target="_blank">Jules</a>, un agente en beta que trabaja en tu repositorio de GitHub y abre pull requests, con 15 tareas al día gratis.</p>"""},
+<p><b>Gratis, de Google (comprobado el 23 de oct. de 2026):</b> <a href="https://antigravity.google" rel="noopener" target="_blank">Google Antigravity</a>, un editor y CLI centrado en agentes con plan individual de 0 US$ (límites semanales).</p>
+<p><b>Jules va a cerrar (comprobado el 31 de oct. de 2026):</b> Google está cerrando <a href="https://jules.google" rel="noopener" target="_blank">Jules</a>. Puedes seguir con tus sesiones hasta el 11 de nov. de 2026; después pasa a modo de solo lectura hasta que cierre el 31 de dic. de 2026. Por eso, no empieces trabajo nuevo ahí.</p>"""},
  "best-ai-for-fixing-broken-code": {
   "en": """<ul>
 <li><b>One error and a few files:</b> paste them into @T(claude) or @T(chatgpt). Both have free plans.</li>
