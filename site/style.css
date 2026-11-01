@@ -26,3 +26,8 @@ ol.tools{list-style:none;padding:0}ol.tools li{margin-bottom:12px}footer{margin-
 html:lang(ja) body{line-height:1.8}
 html:lang(hi) body,html:lang(mr) body,html:lang(bn) body,html:lang(te) body,html:lang(ta) body,html:lang(kn) body,html:lang(ml) body{line-height:1.7}
 .issue{background:#fff;border:1px solid #ddd;border-radius:8px;padding:6px 20px;margin:14px 0}.issue h2{font-size:1.3rem;margin:22px 0 6px}table{width:100%;border-collapse:collapse;margin:14px 0;background:#fff;font-size:.94rem}th,td{border:1px solid #ddd;padding:9px 12px;text-align:left;vertical-align:top}th{background:#eef4fb;font-weight:700}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em;background:#f0f3f7;padding:1px 5px;border-radius:4px}
+.dl{background:#fff;border:1px solid #ddd;border-radius:8px;padding:6px 18px 12px;margin:18px 0 26px}.dl>h2{margin:14px 0 4px}
+.dl-note{background:#f1f8f3;border-left:3px solid #1d6b34;padding:6px 12px;margin:8px 0;font-size:.95rem}
+.dl-deadlines{background:#fffaf0;border:1px solid #ecd9a8;border-radius:8px;padding:8px 14px;margin:12px 0}.dl-deadlines h3{margin:2px 0 4px;font-size:1rem}.dl-deadlines ul{margin:4px 0;padding-left:20px}.dl-deadlines li{margin:3px 0}
+.dl-day{border-top:1px solid #e3e3e3;margin-top:14px;padding-top:4px}.dl-day h3{font-size:1.12rem;margin:10px 0 6px}.dl-perma{font-size:.85rem;font-weight:400;margin-left:6px}
+.dl-items{list-style:none;padding:0;margin:0}.dl-items li{margin-bottom:10px}.dl-items .badge{margin:0 6px 4px 0}.dl-test{font-size:.95rem}
