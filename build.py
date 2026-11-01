@@ -349,7 +349,7 @@ RELEASES = [
  ("claude-sonnet-5-5", "Claude Sonnet 5.5", "https://www.anthropic.com/claude-sonnet-5-5", "2026-09-28", "https://www.anthropic.com/claude-sonnet-5-5", "best-ai-for-fixing-broken-code",
   "Anthropic's faster, cheaper Sonnet, strongest at well-scoped everyday tasks and bug fixes. 30%+ faster than Sonnet 5 at the same $2/$10 per million tokens."),
  ("lovable-free-chat", "Lovable: free chat", "https://lovable.dev", "2026-09-24", "https://lovable.dev/blog/chat-for-free", "best-ai-for-vibe-coding",
-  "Chatting with Lovable is now free within a daily allowance: plan features, ask about your app's code and database, or draft launch copy. Building still uses credits."),
+  "Lovable made chatting free within a daily allowance: plan features, ask about your app's code and database, or draft launch copy. Building still uses credits. Lovable says this chat pricing applies through Oct 31, 2026."),
  ("cursor-projects", "Cursor Projects", "https://cursor.com", "2026-09-10", "https://cursor.com/changelog/projects", "best-ai-coding-agents",
   "Beta for big jobs like a feature or a migration: a coordinator agent runs in the cloud, plans the work, hands it to many subagents and keeps shared context over time."),
 ]

@@ -364,7 +364,7 @@ RELEASES = {
  'gpt-6-1-sol': 'OpenAIがDevDayで発表したGPT-6 Solのアップグレード。agenticなcoding、computer use、プロの仕事に重点。OpenAIによると、ずっと安い価格でGPT-6 Astraに近い性能です。',
  'openai-agents-api-computer-use': 'Agents APIがcomputer useでソフトウェアを操作できるようになり、Codexのmulti-agent機能、tool search、コンテキストの圧縮も自分のアプリで使えます。インフラはOpenAIが運用します。',
  'claude-sonnet-5-5': 'Anthropicのより速く安いSonnet。範囲のはっきりした日常タスクとバグ修正が得意。Sonnet 5より30%以上速く、価格は同じ100万トークンあたり$2/$10。',
- 'lovable-free-chat': 'Lovableとのチャットが1日の無料枠内で無料に。機能の計画、アプリのコードやデータベースについての質問、ローンチ用の文章の下書きができます。ビルドには引き続きクレジットを使います。',
+ 'lovable-free-chat': 'Lovableとのチャットが1日の無料枠内で無料に。機能の計画、アプリのコードやデータベースについての質問、ローンチ用の文章の下書きができます。ビルドには引き続きクレジットを使います。Lovableによると、このチャット料金は2026年10月31日まで適用されます。',
  'cursor-projects': '機能追加や移行のような大きな作業向けのベータ。coordinator agentがクラウドで動き、作業を計画して多数のsubagentに割り振り、共有コンテキストを保ち続けます。',
 }
 

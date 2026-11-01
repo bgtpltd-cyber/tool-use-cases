@@ -364,7 +364,7 @@ RELEASES = {
  'gpt-6-1-sol': 'La mejora de GPT-6 Sol presentada en el DevDay de OpenAI, enfocada en programación con agentes, computer use y trabajo profesional. OpenAI dice que se acerca a GPT-6 Astra a un precio mucho menor.',
  'openai-agents-api-computer-use': 'La Agents API ahora maneja software con computer use y trae a tu app las funciones multiagente de Codex, tool search y compactación de contexto. OpenAI se encarga de la infraestructura.',
  'claude-sonnet-5-5': 'El Sonnet más rápido y barato de Anthropic, fuerte en tareas cotidianas bien acotadas y en corregir bugs. Más de un 30% más rápido que Sonnet 5, al mismo precio de US$2/US$10 por millón de tokens.',
- 'lovable-free-chat': 'Chatear con Lovable ahora es gratis dentro de un cupo diario: planifica funciones, pregunta por el código y la base de datos de tu app o redacta textos de lanzamiento. Construir sigue usando créditos.',
+ 'lovable-free-chat': 'Lovable hizo gratis el chat dentro de un cupo diario: planifica funciones, pregunta por el código y la base de datos de tu app o redacta textos de lanzamiento. Construir sigue usando créditos. Según Lovable, este precio del chat se aplica hasta el 31 de oct. de 2026.',
  'cursor-projects': 'Beta para trabajos grandes, como una función o una migración: un agente coordinador corre en la nube, planifica el trabajo, lo reparte entre muchos subagentes y mantiene un contexto compartido con el tiempo.',
 }
 

@@ -364,7 +364,7 @@ RELEASES = {
  'gpt-6-1-sol': 'OpenAI DevDay ಯಲ್ಲಿ ಬಂದ GPT-6 Sol ಅಪ್\u200cಗ್ರೇಡ್; agentic coding, computer use ಮತ್ತು ವೃತ್ತಿಪರ ಕೆಲಸಗಳ ಮೇಲೆ ಗಮನ. ತುಂಬಾ ಕಡಿಮೆ ಬೆಲೆಗೆ GPT-6 Astra ಹತ್ತಿರ ಬರುತ್ತದೆ ಎಂದು OpenAI ಹೇಳುತ್ತದೆ.',
  'openai-agents-api-computer-use': 'Agents API ಈಗ computer use ಮೂಲಕ software ಅನ್ನು ನಡೆಸಬಲ್ಲದು, ಮತ್ತು Codex ನ multi-agent ಫೀಚರ್\u200cಗಳು, tool search ಹಾಗೂ context compaction ಅನ್ನು ನಿಮ್ಮ ಆ್ಯಪ್\u200cಗೆ ತರುತ್ತದೆ. Infrastructure ಅನ್ನು OpenAI ನಡೆಸುತ್ತದೆ.',
  'claude-sonnet-5-5': 'Anthropic ನ ವೇಗದ, ಅಗ್ಗದ Sonnet; ಸ್ಪಷ್ಟ ವ್ಯಾಪ್ತಿಯ ದಿನನಿತ್ಯದ ಕೆಲಸಗಳು ಮತ್ತು bug fixing ನಲ್ಲಿ ಬಲಿಷ್ಠ. Sonnet 5 ಗಿಂತ 30%+ ವೇಗ, ಅದೇ $2/$10 ಪ್ರತಿ million tokens ಬೆಲೆಗೆ.',
- 'lovable-free-chat': 'Lovable ಜೊತೆ chat ಈಗ ದಿನದ free ಮಿತಿಯೊಳಗೆ ಉಚಿತ: features ಪ್ಲಾನ್ ಮಾಡಿ, ನಿಮ್ಮ ಆ್ಯಪ್\u200cನ code ಮತ್ತು database ಬಗ್ಗೆ ಕೇಳಿ, ಅಥವಾ ಲಾಂಚ್ ಪಠ್ಯ ಡ್ರಾಫ್ಟ್ ಮಾಡಿಸಿ. Build ಮಾಡಲು ಈಗಲೂ credits ಬೇಕು.',
+ 'lovable-free-chat': 'Lovable ಜೊತೆ chat ದಿನದ free ಮಿತಿಯೊಳಗೆ ಉಚಿತ: features ಪ್ಲಾನ್ ಮಾಡಿ, ನಿಮ್ಮ ಆ್ಯಪ್\u200cನ code ಮತ್ತು database ಬಗ್ಗೆ ಕೇಳಿ, ಅಥವಾ ಲಾಂಚ್ ಪಠ್ಯ ಡ್ರಾಫ್ಟ್ ಮಾಡಿಸಿ. Build ಮಾಡಲು ಈಗಲೂ credits ಬೇಕು. Lovable ಪ್ರಕಾರ chat ನ ಈ pricing 31 ಅಕ್ಟೋಬರ್ 2026 ರವರೆಗೆ ಅನ್ವಯಿಸುತ್ತದೆ.',
  'cursor-projects': 'ಒಂದು feature ಅಥವಾ migration ನಂತಹ ದೊಡ್ಡ ಕೆಲಸಗಳಿಗಾಗಿ beta: ಒಂದು coordinator agent cloud ನಲ್ಲಿ ಓಡುತ್ತಾ, ಕೆಲಸವನ್ನು ಪ್ಲಾನ್ ಮಾಡಿ, ಹಲವು subagents ಗೆ ಹಂಚಿ, ಕಾಲಕ್ರಮೇಣ shared context ಉಳಿಸಿಕೊಳ್ಳುತ್ತದೆ.',
 }
 
