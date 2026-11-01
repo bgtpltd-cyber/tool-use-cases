@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-31",
+  "preview": true,
+  "items": [
+    {
+      "type": "Deadline",
+      "tool": "Jules",
+      "what": "Google is winding Jules down: you can keep working in sessions until Nov 11, 2026, then Jules is read-only until it shuts down on Dec 31, 2026.",
+      "source_name": "Jules changelog: Jules Turndown (Oct 29, 2026)",
+      "source_url": "https://jules.google/docs/changelog/",
+      "checked": "08:06 PM",
+      "test": "Before Nov 11, export any sessions you need with the Jules Tools CLI (npm install -g @google/jules) and move open tasks to another coding agent.",
+      "use_case": "best-ai-coding-agents",
+      "deadlines": [
+        {"date": "2026-11-11", "label": "last day to continue sessions (read-only after)"},
+        {"date": "2026-12-31", "label": "Jules shuts down"}
+      ]
+    },
+    {
+      "type": "Breaking change",
+      "tool": "Bolt.new",
+      "what": "Since Oct 30, 2026, new Bolt database tables are private by default and your app needs explicit permissions to read or write them; existing databases are not affected.",
+      "source_name": "Bolt release notes, Oct 26 - Nov 1",
+      "source_url": "https://support.bolt.new/release-notes",
+      "checked": "08:06 PM",
+      "test": "Create a new table in a test project and read and write it from the app; if you get a database permissions error, ask Bolt to fix the table permissions.",
+      "use_case": "best-ai-for-vibe-coding"
+    },
+    {
+      "type": "Price change",
+      "tool": "Bolt.new",
+      "what": "From Nov 1, 2026, Link (by Stripe) bills Bolt plan and domain subscriptions: plans and token allowances stay the same, but Link adds sales tax or VAT where your region requires it.",
+      "source_name": "Bolt release notes, Oct 12 - 18: Billing through Link starts November 1",
+      "source_url": "https://support.bolt.new/release-notes",
+      "checked": "08:09 PM",
+      "test": "Check your next Bolt invoice for tax; if checkout offers your local currency, note the charge can vary month to month with the exchange rate, and USD stays available for a fixed price.",
+      "use_case": "best-ai-for-vibe-coding",
+      "deadlines": [
+        {"date": "2026-11-01", "label": "Bolt billing moves to Link"}
+      ]
+    },
+    {
+      "type": "Deadline",
+      "tool": "Lovable",
+      "what": "Lovable's docs say the current chat pricing (per-message price and daily chat allowance) is a temporary offering that applies through Oct 31, 2026; the page does not say what applies after.",
+      "source_name": "Lovable docs: Chat",
+      "source_url": "https://docs.lovable.dev/features/chats",
+      "checked": "08:07 PM",
+      "test": "Recheck the Lovable chat docs and your plan's chat allowance on Nov 2 before budgeting chat-heavy work.",
+      "use_case": "best-ai-for-vibe-coding",
+      "deadlines": [
+        {"date": "2026-10-31", "label": "current chat pricing applies through this date"}
+      ]
+    },
+    {
+      "type": "Deadline",
+      "tool": "Claude Code",
+      "what": "Fast mode for Opus 4.8 is deprecated as of Oct 30, 2026 and will be removed on Nov 30, 2026; after that, fast mode requests on Opus 4.8 return an error instead of falling back.",
+      "source_name": "Claude Code changelog, 2.1.316",
+      "source_url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
+      "checked": "08:07 PM",
+      "test": "Find scripts and settings that use fast mode with Opus 4.8 and switch them to Opus 5.5 to keep the speedup before Nov 30.",
+      "use_case": "best-ai-coding-agents",
+      "deadlines": [
+        {"date": "2026-11-30", "label": "fast mode for Opus 4.8 removed"}
+      ]
+    }
+  ]
+}

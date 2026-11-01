@@ -878,3 +878,4 @@ llms += ["## India", "", f"- [Best AI tools for Indian builders, by use case]({B
 open(f"{OUT}/llms.txt","w").write("\n".join(llms)+"\n")
 open(f"{OUT}/llms-full.txt","w").write("\n".join(llms)+"\n\n---\n\n"+open("/workspace/agent-backbone/agent-backbone-newsletter-issue-1.md").read()+"\n\n---\n\n# "+ab.AB_ISSUE2_FEED_TITLE+"\n\n"+ab._issue2_md())
 print("built", len(urls), "English pages +", len(loc_urls), "indexable localized pages +", sum(len(localized_paths()) for L in LOCALES if not indexable(L)), "noindexed (+ thanks) ->", OUT)
+import daily_log; daily_log.build(OUT, BASE, UCT)  # English /new/ only: Daily builder log test (Nov 2-13, 2026), see content/daily-log/README.md
