@@ -127,7 +127,7 @@ UC = [
   ("codex","Hand off tasks to run in parallel in the cloud and review the resulting PRs."),
   ("copilot","Copilot's coding agent works from GitHub issues — natural fit if your team lives on GitHub."),
   ("devin","Built for delegating whole tickets end to end; pricier, aimed at teams."),
-  ("opencode","Free, open-source and actively developed; bring any model, including local ones, or your existing Claude, ChatGPT or Copilot plan.")]),
+  ("opencode","Free, open-source and actively developed; bring any model, including local ones, or your existing ChatGPT Plus/Pro or GitHub Copilot subscription.")]),
  ("best-ai-for-fixing-broken-code","Best AI for fixing broken code and errors","Paste the stack trace, get a fix. Tools that are good at debugging, not just generating.",[
   ("claude","Paste the error plus the relevant files; strong at reasoning about the actual root cause."),
   ("cursor","Fixes in place with full project context — no copy-paste back and forth."),
@@ -304,7 +304,7 @@ UC = [
 
 NEW_UPDATED = "2026-10-29"  # shown as "Last updated" on /new/ (all locales)
 REVIEWED = "2026-10-22"  # date every pick on every use-case page was last re-verified (full scan, Oct 22, 2026); bump only after a full re-check
-SITE_UPDATED = "2026-10-29"  # sitemap <lastmod> for pages without their own date; bump when you redeploy changed content
+SITE_UPDATED = "2026-10-31"  # sitemap <lastmod> for pages without their own date; bump when you redeploy changed content
 SHOW_SPONSOR_SLOT = False  # no sponsor box above the picks until a real sponsor is booked (the /sponsor/ page still shows the example)
 # Dated launches / major releases for /new/, newest first. Every entry was checked against the linked source on NEW_UPDATED.
 # (key, name, product/official url, iso date, source url, use-case slug, one-line description). Not catalog tools: T and UC stay frozen.
@@ -564,6 +564,20 @@ XL = {"en":0, "pt-BR":1, "es":2}
 def price_html(t, lang):  # one dated price line for a pick, from extras.PRICES (en/pt-BR/es only)
     if lang not in XL or t not in extras.PRICES: return ""
     return f'<p class="price"><b>{e(extras.LABELS[lang][0])}:</b> {e(extras.PRICES[t][XL[lang]])}</p>'
+PICK_NOTES = {  # (slug, tool): {lang: (dated label, text, source name, source url)}: short dated notes under one pick (en/pt-BR/es)
+ ("best-ai-coding-agents", "opencode"): {
+  "en": ("Oct 2026", "OpenCode's free models now require OpenCode 1.18 or newer. If an older build shows \"OpenCode 1.18.0 or newer is required to use the free tier\", upgrade to OpenCode v2.",
+         "Source", "OpenCode free tier issue #59387", "https://github.com/anomalyco/opencode/issues/59387"),
+  "pt-BR": ("Out. de 2026", "Os modelos gratuitos do OpenCode agora exigem o OpenCode 1.18 ou mais recente. Se uma versão antiga mostrar \"OpenCode 1.18.0 or newer is required to use the free tier\", atualize para o OpenCode v2.",
+            "Fonte", "issue #59387 do OpenCode sobre o plano gratuito", "https://github.com/anomalyco/opencode/issues/59387"),
+  "es": ("Oct. de 2026", "Los modelos gratuitos de OpenCode ahora requieren OpenCode 1.18 o posterior. Si una versión anterior muestra \"OpenCode 1.18.0 or newer is required to use the free tier\", actualiza a OpenCode v2.",
+         "Fuente", "issue #59387 de OpenCode sobre el plan gratuito", "https://github.com/anomalyco/opencode/issues/59387")},
+}
+def note_html(slug, t, lang):  # one dated note for a pick on one page, from PICK_NOTES
+    n = PICK_NOTES.get((slug, t), {}).get(lang)
+    if not n: return ""
+    d, txt, sl, sn, su = n
+    return f'<p class="price"><b>{e(d)}:</b> {e(txt)} <small class="muted">{e(sl)}: <a href="{su}" rel="noopener" target="_blank">{e(sn)}</a></small></p>'
 def guide_html(slug, tools, lang, L=None):  # 'How to choose' block + price-check note
     out = ""
     g = extras.GUIDES.get(slug, {}).get(lang)
@@ -613,7 +627,7 @@ page("use-cases/index.html","AI tool use cases — Tool Use Cases","Browse AI to
  {"@context":"https://schema.org","@type":"ItemList","name":"AI tool use cases","itemListElement":[{"@type":"ListItem","position":i,"name":u[1],"url":f"{BASE}use-cases/{u[0]}/"} for i,u in enumerate(UC,1)]}])
 
 for slug,title,blurb,tools in UC:
-    items = "".join(f'<li class="card f"><h3>{i}. {tool_link(t)}</h3><p class="what">{e(T[t][2])}</p><p class="verdict"><b>Verdict:</b> {e(v)}</p>{price_html(t,"en")}</li>' for i,(t,v) in enumerate(tools,1))
+    items = "".join(f'<li class="card f"><h3>{i}. {tool_link(t)}</h3><p class="what">{e(T[t][2])}</p><p class="verdict"><b>Verdict:</b> {e(v)}</p>{price_html(t,"en")}{note_html(slug,t,"en")}</li>' for i,(t,v) in enumerate(tools,1))
     rel = related(slug, tools)
     relhtml = ('<h2>Related use cases</h2><ul>' + "".join(f'<li><a href="@R/use-cases/{s2}/index.html">{e(t2)}</a></li>' for s2,t2 in rel) + '</ul>') if rel else ""
     page(f"use-cases/{slug}/index.html",uc_title(title),uc_desc(blurb,tools),f"""
@@ -772,7 +786,7 @@ def build_locale(L):
     pg("use-cases", "use-cases/index.html", CARDS=cards, ld=[crumbs_l((U["use_cases"],"use-cases/")), coll_l("CollectionPage",*LD["uc_coll"],"use-cases/"), itemlist])
     for (slug,_,_,tools) in UC:
         title, blurb, verdicts = L.UC[slug]
-        items = "".join(f'<li class="card f"><h3>{i}. {tool_link(t)}</h3><p class="what">{e(L.TOOLS[t])}</p><p class="verdict"><b>{e(U["verdict"])}</b> {e(v)}</p>{price_html(t, L.CODE)}</li>' for i,((t,_),v) in enumerate(zip(tools,verdicts),1))
+        items = "".join(f'<li class="card f"><h3>{i}. {tool_link(t)}</h3><p class="what">{e(L.TOOLS[t])}</p><p class="verdict"><b>{e(U["verdict"])}</b> {e(v)}</p>{price_html(t, L.CODE)}{note_html(slug, t, L.CODE)}</li>' for i,((t,_),v) in enumerate(zip(tools,verdicts),1))
         rel = related(slug, tools)
         relhtml = (f'<h2>{e(U["related"])}</h2><ul>' + "".join(f'<li><a href="@R/{P}use-cases/{s2}/index.html">{e(ut[s2][0])}</a></li>' for s2,_ in rel) + '</ul>') if rel else ""
         page(f"{P}use-cases/{slug}/index.html", title_l(title), desc_l(blurb, tools), f"""

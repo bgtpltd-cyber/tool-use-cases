@@ -152,7 +152,7 @@ UC = {  # slug: (title, blurb, [verdicts in the same order as the English picks]
   "টাস্কগুলো cloud-এ parallel চালাতে দিয়ে দিন, তারপর তৈরি হওয়া PRs রিভিউ করুন।",
   "Copilot-এর coding agent GitHub issues থেকে কাজ করে — আপনার টিম যদি GitHub-এই থাকে তাহলে একদম মানানসই।",
   "পুরো tickets শুরু থেকে শেষ পর্যন্ত দিয়ে দেওয়ার জন্য বানানো; দামি, টিমের জন্য।",
-  "ফ্রি, open-source আর নিয়মিত develop হচ্ছে; যেকোনো model ব্যবহার করুন, local-ও, বা আপনার আগের Claude, ChatGPT বা Copilot plan।"]),
+  "ফ্রি, open-source আর নিয়মিত develop হচ্ছে; যেকোনো model ব্যবহার করুন, local-ও, বা আপনার আগের ChatGPT Plus/Pro বা GitHub Copilot plan।"]),
  "best-ai-for-fixing-broken-code": ("ভাঙা কোড আর errors ঠিক করার সেরা AI", "Stack trace পেস্ট করুন, fix পান। এমন টুলস যারা শুধু কোড বানাতে নয়, debugging-এও ভালো।", [
   "Error-এর সঙ্গে দরকারি ফাইলগুলো পেস্ট করুন; আসল root cause নিয়ে ভাবতে খুব পোক্ত।",
   "পুরো প্রজেক্টের context নিয়ে সেখানেই fix করে — বারবার copy-paste করতে হয় না।",

@@ -158,7 +158,7 @@ UC = {  # slug: (title, blurb, [verdicts in the same order as the English picks]
   "Delegue tarefas para rodar em paralelo na nuvem e revise os PRs que saem delas.",
   "O agente de código do Copilot trabalha a partir de issues do GitHub — encaixe natural se o seu time vive no GitHub.",
   "Feito para delegar tickets inteiros de ponta a ponta; mais caro e voltado para times.",
-  "Gratuito, open source e em desenvolvimento ativo; use qualquer modelo, inclusive locais, ou o plano que você já tem do Claude, ChatGPT ou Copilot."]),
+  "Gratuito, open source e em desenvolvimento ativo; use qualquer modelo, inclusive locais, ou a assinatura que você já tem do ChatGPT Plus/Pro ou do GitHub Copilot."]),
  "best-ai-for-fixing-broken-code": ("Melhor IA para corrigir código quebrado e erros", "Cole o stack trace e receba a correção. Ferramentas boas em debugar, não só em gerar código.", [
   "Cole o erro junto com os arquivos relevantes; é forte em raciocinar sobre a verdadeira causa raiz.",
   "Corrige ali mesmo, com o contexto completo do projeto — sem ficar copiando e colando para lá e para cá.",
