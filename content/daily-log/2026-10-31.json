@@ -19,7 +19,7 @@
     {
       "type": "Breaking change",
       "tool": "Bolt.new",
-      "what": "Since Oct 30, 2026, new Bolt database tables are private by default and your app needs explicit permissions to read or write them; existing databases are not affected.",
+      "what": "Starting Oct 30, 2026, new Bolt database tables are private by default, so your app needs explicit permissions to read or write them; existing databases are not affected.",
       "source_name": "Bolt release notes, Oct 26 - Nov 1",
       "source_url": "https://support.bolt.new/release-notes",
       "checked": "08:06 PM",
