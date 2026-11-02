@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-02",
+  "items": [
+    {
+      "type": "Deadline",
+      "tool": "Jules",
+      "what": "Nine days left to keep working in Jules: sessions can continue until Nov 11, 2026, then Jules turns read-only until it shuts down on Dec 31, 2026.",
+      "source_name": "Jules changelog: Jules Turndown (Oct 29, 2026)",
+      "source_url": "https://jules.google/docs/changelog/",
+      "checked": "10:01 AM",
+      "test": "Install Jules Tools (npm install -g @google/jules), run jules login, and export your settings, memories and sessions now; move open tasks to another coding agent before Nov 11.",
+      "use_case": "best-ai-coding-agents",
+      "deadlines": [
+        {"date": "2026-11-11", "label": "Jules: last day to continue sessions (read-only after)"},
+        {"date": "2026-12-31", "label": "Jules shuts down"}
+      ]
+    },
+    {
+      "type": "Price change",
+      "tool": "Bolt.new",
+      "what": "Since Nov 1, 2026, Link (by Stripe) bills Bolt plan and domain subscriptions. Plans and token allowances are unchanged, but Link adds sales tax or VAT where your region requires it.",
+      "source_name": "Bolt release notes, Oct 12 - 18: Billing through Link starts November 1",
+      "source_url": "https://support.bolt.new/release-notes",
+      "checked": "10:01 AM",
+      "test": "Check your next Bolt invoice for added tax. If you pay in a local currency instead of USD, expect the charge to move with the exchange rate.",
+      "use_case": "best-ai-for-vibe-coding"
+    },
+    {
+      "type": "Breaking change",
+      "tool": "Bolt.new",
+      "what": "Bolt database tables created after Oct 30, 2026 are private by default, so your app needs explicit permissions to read or write them. Existing databases are not affected.",
+      "source_name": "Bolt release notes, Oct 26 - Nov 1",
+      "source_url": "https://support.bolt.new/release-notes",
+      "checked": "10:01 AM",
+      "test": "Create a new table in a test project and read and write it from the app. If you get a database permissions error, ask Bolt to fix the table permissions.",
+      "use_case": "best-ai-for-vibe-coding"
+    },
+    {
+      "type": "Deadline",
+      "tool": "Claude Code",
+      "what": "Fast mode for Claude Opus 4.8 was deprecated on Oct 30, 2026 and will be removed on Nov 30, 2026. After that, fast mode requests on Opus 4.8 return an error instead of falling back.",
+      "source_name": "Claude Code changelog, 2.1.316",
+      "source_url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
+      "checked": "10:01 AM",
+      "test": "Search your scripts, settings and API calls for fast mode on Opus 4.8 (speed: \"fast\" with claude-opus-4-8) and switch them to Opus 5.5 before Nov 30.",
+      "use_case": "best-ai-coding-agents",
+      "deadlines": [
+        {"date": "2026-11-30", "label": "Claude: fast mode for Opus 4.8 removed"}
+      ]
+    }
+  ]
+}
