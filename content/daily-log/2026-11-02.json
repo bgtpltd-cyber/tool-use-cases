@@ -11,7 +11,7 @@
       "test": "Install Jules Tools (npm install -g @google/jules), run jules login, and export your settings, memories and sessions now; move open tasks to another coding agent before Nov 11.",
       "use_case": "best-ai-coding-agents",
       "deadlines": [
-        {"date": "2026-11-11", "label": "Jules: last day to continue sessions (read-only after)"},
+        {"date": "2026-11-11", "label": "last day to continue sessions (read-only after)"},
         {"date": "2026-12-31", "label": "Jules shuts down"}
       ]
     },
@@ -45,7 +45,7 @@
       "test": "Search your scripts, settings and API calls for fast mode on Opus 4.8 (speed: \"fast\" with claude-opus-4-8) and switch them to Opus 5.5 before Nov 30.",
       "use_case": "best-ai-coding-agents",
       "deadlines": [
-        {"date": "2026-11-30", "label": "Claude: fast mode for Opus 4.8 removed"}
+        {"date": "2026-11-30", "label": "fast mode for Opus 4.8 removed"}
       ]
     }
   ]
