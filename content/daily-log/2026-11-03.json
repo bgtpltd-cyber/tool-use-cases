@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-03",
+  "items": [
+    {
+      "type": "Deadline",
+      "tool": "GitHub Actions",
+      "what": "Starting Dec 2, 2026, GitHub Actions will block pull_request_target events by default in all public repositories unless an Actions event policy allows them. Brownouts run Nov 9 and Nov 16, 16:00-18:00 UTC.",
+      "source_name": "GitHub changelog: pull_request_target blocked by default December 2 (Nov 2, 2026)",
+      "source_url": "https://github.blog/changelog/2026-11-02-pull_request_target-blocked-by-default-december-2/",
+      "checked": "10:10 AM",
+      "test": "Before Nov 9, use Insights to find workflow runs the rule would block, including AI agent or PR-review bots on pull_request_target. Allow the ones you need in an Actions event policy, or move them off that trigger.",
+      "use_case": "best-ai-coding-agents",
+      "deadlines": [
+        {"date": "2026-11-09", "label": "GitHub Actions pull_request_target brownout (16:00-18:00 UTC)"},
+        {"date": "2026-11-16", "label": "GitHub Actions pull_request_target brownout (16:00-18:00 UTC)"},
+        {"date": "2026-12-02", "label": "pull_request_target blocked by default in public repos"}
+      ]
+    },
+    {
+      "type": "Price change",
+      "tool": "Gemini API",
+      "what": "gemini-2.5-pro is deprecated. Effective Dec 1, 2026, all API requests to gemini-2.5-pro automatically route to gemini-3.8-flash and are billed at Gemini 3.8 Flash rates, with breaking API changes.",
+      "source_name": "Gemini API release notes, November 2, 2026",
+      "source_url": "https://ai.google.dev/gemini-api/docs/changelog",
+      "checked": "10:10 AM",
+      "test": "Search your code for gemini-2.5-pro, switch it to gemini-3.8-flash before Dec 1, and test function calling, thought_signature handling, thinking_level (replaces thinking_budget) and any sampling parameters or prefilled model turns.",
+      "use_case": "best-ai-for-agent-frameworks",
+      "deadlines": [
+        {"date": "2026-12-01", "label": "gemini-2.5-pro and gemini-2.5-flash requests auto-route and bill at new model rates"}
+      ]
+    },
+    {
+      "type": "Price change",
+      "tool": "Gemini API",
+      "what": "gemini-2.5-flash is deprecated. Effective Dec 1, 2026, all API requests to gemini-2.5-flash automatically route to gemini-3.5-flash-lite and are billed at Gemini 3.5 Flash-Lite rates, with breaking API changes.",
+      "source_name": "Gemini API release notes, November 2, 2026",
+      "source_url": "https://ai.google.dev/gemini-api/docs/changelog",
+      "checked": "10:10 AM",
+      "test": "Search your code for gemini-2.5-flash, switch it to gemini-3.5-flash-lite before Dec 1, and rerun your evals: the same breaking changes apply (thought_signature validation, thinking_level, removed sampling parameters and prefill).",
+      "use_case": "best-ai-for-chatbots-rag"
+    }
+  ]
+}
