@@ -4,7 +4,7 @@
 # HARD RULE: no hands-on test results, benchmarks, quotes or numbers we did not verify. No affiliate links.
 # Localized pages (pt-BR, es, Indian languages, ja) do not use this file; they keep their translated content.
 
-CHECKED = "2026-10-31"  # date every row, FAQ fact and news item below was verified
+CHECKED = "2026-11-04"  # date every row, FAQ fact and news item below was verified
 
 # rows: (tool name, official pricing/source URL we checked, role or "", best for, free tier, entry price, when not to use it)
 # news: (iso date, tool, plain-text fact, source name, source URL)
@@ -46,7 +46,7 @@ UPGRADES["best-ai-for-vibe-coding"] = {
   ("What is the best AI tool for vibe coding?",
    "Cursor, if you can work in a code editor or expect the project to grow. If you have never coded, start with Lovable or Bolt.new, which build a web app from a description in the browser."),
   ("Can I vibe code for free?",
-   "Yes, to try an idea. As of Oct 31, 2026, Cursor, Lovable, Bolt.new and v0 all have free plans with limits: Bolt.new's includes 1M tokens a month, Lovable's gives 5 build credits a day (up to 30 a month), and v0's allows 7 messages a day. Replit's pricing page lists no free plan."),
+   "Yes, to try an idea. As of Nov 4, 2026, Cursor, Lovable, Bolt.new and v0 all have free plans with limits: Bolt.new's includes 1M tokens a month, Lovable's gives 5 build credits a day (up to 30 a month), and v0's allows 7 messages a day. Replit's pricing page lists no free plan."),
   ("Lovable or Bolt.new: which should I use?",
    "Both build full web apps from a description, and both have free plans. Lovable Pro starts at $25/mo for 100 credits; Bolt.new Pro is $25/mo billed monthly with 10M tokens and your own domain. We have not run a head-to-head test, so try the same idea on both free plans and keep the one whose result you would rather keep editing."),
   ("When should I move from an app builder to Cursor?",
