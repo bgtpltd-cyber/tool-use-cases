@@ -181,7 +181,7 @@ UC = {  # slug: (title, blurb, [verdicts in the same order as the English picks]
   "La mejor opción si tus notas y documentos ya están en Notion.",
   "Pule tus textos en cualquier lugar donde escribas: navegador, email, documentos.",
   "Práctico dentro de Google Docs y Gmail."]),
- "best-ai-for-research": ("Mejor IA para investigar", "Encuentra fuentes, léelas y resúmelas, con citas que puedes verificar.", [
+ "best-ai-for-research": ("Mejor IA para investigar", "Encuentra fuentes, léelas y resúmelas, con citas que puedes verificar. Veredictos sobre Perplexity, Gemini Notebook (antes NotebookLM), ChatGPT y más.", [
   "Respuestas rápidas y con fuentes desde la web en tiempo real; la opción de referencia para investigaciones rápidas.",
   "Sube tus propias fuentes y obtén respuestas basadas en ellas (y resúmenes en audio).",
   "El modo de investigación profunda (deep research) genera informes largos y con fuentes sobre un tema.",

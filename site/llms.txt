@@ -76,7 +76,7 @@ Versão completa do site em português brasileiro, com os mesmos casos de uso, e
 - [Melhor IA para prototipar jogos](https://tools.lalipublications.com/pt/use-cases/best-ai-for-game-prototyping/): Coloque uma ideia jogável na tela rápido — código, arte, 3D e música.
 - [Melhor IA para vídeo e YouTube](https://tools.lalipublications.com/pt/use-cases/best-ai-for-video-youtube/): Gere cenas, edite mais rápido, coloque voz e corte tudo em Shorts.
 - [Melhores assistentes de escrita com IA](https://tools.lalipublications.com/pt/use-cases/best-ai-writing-assistants/): Rascunhar, editar e reescrever — documentos, posts de blog, READMEs, e-mails.
-- [Melhor IA para pesquisa](https://tools.lalipublications.com/pt/use-cases/best-ai-for-research/): Encontre fontes, leia e resuma — com citações que você pode conferir.
+- [Melhor IA para pesquisa](https://tools.lalipublications.com/pt/use-cases/best-ai-for-research/): Encontre fontes, leia e resuma — com citações que você pode conferir. Veredictos sobre Perplexity, Gemini Notebook (antigo NotebookLM), ChatGPT e mais.
 - [Melhor IA para gerar imagens](https://tools.lalipublications.com/pt/use-cases/best-ai-image-generation/): Thumbnails, arte conceitual, mockups, memes.
 - [Melhores ferramentas para rodar IA localmente](https://tools.lalipublications.com/pt/use-cases/best-ai-for-running-local-models/): IA privada e sem custo de uso, na sua própria máquina.
 - [Melhor IA para fluxos de automação](https://tools.lalipublications.com/pt/use-cases/best-ai-for-automation-workflows/): Conecte seus apps e deixe a IA cuidar das etapas repetitivas — triggers, agentes e código de integração.
@@ -115,7 +115,7 @@ Versión completa del sitio en español, con los mismos casos de uso, recomendac
 - [Mejor IA para prototipar juegos](https://tools.lalipublications.com/es/use-cases/best-ai-for-game-prototyping/): Pon una idea jugable en pantalla rápido: código, arte, 3D y música.
 - [Mejor IA para video y YouTube](https://tools.lalipublications.com/es/use-cases/best-ai-for-video-youtube/): Genera tomas, edita más rápido, ponle voz y córtalo en Shorts.
 - [Mejores asistentes de escritura con IA](https://tools.lalipublications.com/es/use-cases/best-ai-writing-assistants/): Redactar, editar y reescribir: documentos, posts de blog, READMEs, emails.
-- [Mejor IA para investigar](https://tools.lalipublications.com/es/use-cases/best-ai-for-research/): Encuentra fuentes, léelas y resúmelas, con citas que puedes verificar.
+- [Mejor IA para investigar](https://tools.lalipublications.com/es/use-cases/best-ai-for-research/): Encuentra fuentes, léelas y resúmelas, con citas que puedes verificar. Veredictos sobre Perplexity, Gemini Notebook (antes NotebookLM), ChatGPT y más.
 - [Mejor IA para generar imágenes](https://tools.lalipublications.com/es/use-cases/best-ai-image-generation/): Miniaturas, arte conceptual, mockups, memes.
 - [Mejores herramientas para ejecutar IA en local](https://tools.lalipublications.com/es/use-cases/best-ai-for-running-local-models/): IA privada y sin pagar por uso, en tu propia máquina.
 - [Mejor IA para flujos de automatización](https://tools.lalipublications.com/es/use-cases/best-ai-for-automation-workflows/): Conecta tus apps y deja que la IA se encargue de los pasos repetitivos: triggers, agentes y código de integración.
