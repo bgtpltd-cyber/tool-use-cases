@@ -345,6 +345,8 @@ MONTHS = ['ജനുവരി', 'ഫെബ്രുവരി', 'മാർച്�
 DATE_MD = '{m} {d}'
 DATE_MDY = '{y} {m} {d}'
 RELEASES = {
+ 'copilot-xcode-assistant': 'ഇനി GitHub Copilot നേരിട്ട് Xcode-ന്റെ built-in coding assistant-ൽ ഉപയോഗിക്കാം, Xcode 27.3 beta മുതൽ, macOS Tahoe 26.6 അല്ലെങ്കിൽ പുതിയതിൽ. Setup ചെയ്യാൻ Xcode > Settings > Intelligence തുറക്കുക. എല്ലാ Copilot plans-ഉം supported, പ്രത്യേക Copilot for Xcode extension-ഉം ലഭ്യമായി തുടരും.',
+ 'mcp-servers-2-3': 'Model Context Protocol-ന്റെ official reference servers-ന് പുതിയ release. filesystem server-ൽ append_file, copy_file, --read-only mode, --confine-roots; fetch-ൽ --allowed-hosts allowlist, configurable timeout; git-ൽ git_merge, git_remote; time-ൽ get_time_ago.',
  'copilot-fusion': 'ഓരോ task-നും model തിരഞ്ഞെടുക്കുന്നതിന് പകരം Copilot Fusion തിരഞ്ഞെടുക്കൂ; Copilot ജോലി വിവിധ models-ലേക്ക് നിങ്ങൾക്കായി വിഭജിക്കുന്നു. GitHub പറയുന്നതനുസരിച്ച് Artificial Analysis Coding Agent Index-ൽ Fusion Max, Opus 5.5 Max ഉള്ള Claude Code-നേക്കാൾ രണ്ട് points മാത്രം പിന്നിൽ, ഓരോ task-നും ശരാശരി API ചെലവിന്റെ ഏകദേശം പകുതിക്ക്. എല്ലാവർക്കും ലഭ്യം.',
  'github-agentic-workflows': 'Issue triage, CI failure analysis, docs updates, test writing പോലുള്ള automations ലളിതമായ Markdown files-ൽ എഴുതൂ; അവ Copilot അല്ലെങ്കിൽ നിങ്ങളുടെ സ്വന്തം coding agent പ്രവർത്തിപ്പിക്കുന്ന standard GitHub Actions ആയി compile ചെയ്യപ്പെടുന്നു. Open source, എല്ലാവർക്കും ലഭ്യം, default ആയി read-only, sandboxed.',
  'github-replica': 'GitHub Design-ന്റെ open-source (MIT) AI prototyping tool: GitHub Copilot app-ൽ നിങ്ങളുടെ idea വിവരിക്കൂ, നിങ്ങളുടെ സ്വന്തം design system components കൊണ്ട് നിർമ്മിച്ച interactive prototype നേടൂ. Comments-നായി prototypes optional self-hosted Replica Hub-ൽ share ചെയ്യൂ.',

@@ -303,13 +303,17 @@ UC = [
   ("mem","Personal notes that organize themselves; skip it for team wikis.")]),
 ]
 
-NEW_UPDATED = "2026-10-29"  # shown as "Last updated" on /new/ (all locales)
+NEW_UPDATED = "2026-11-05"  # shown as "Last updated" on /new/ (all locales)
 REVIEWED = "2026-10-22"  # date every pick on every use-case page was last re-verified (full scan, Oct 22, 2026); bump only after a full re-check
-SITE_UPDATED = "2026-11-04"  # sitemap <lastmod> for pages without their own date; bump when you redeploy changed content
+SITE_UPDATED = "2026-11-05"  # sitemap <lastmod> for pages without their own date; bump when you redeploy changed content
 SHOW_SPONSOR_SLOT = False  # no sponsor box above the picks until a real sponsor is booked (the /sponsor/ page still shows the example)
 # Dated launches / major releases for /new/, newest first. Every entry was checked against the linked source on NEW_UPDATED.
 # (key, name, product/official url, iso date, source url, use-case slug, one-line description). Not catalog tools: T and UC stay frozen.
 RELEASES = [
+ ("copilot-xcode-assistant", "GitHub Copilot in Xcode's coding assistant (public preview)", "https://github.com/features/copilot", "2026-11-04", "https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant", "best-ai-coding-agents",
+  "Use GitHub Copilot directly in Xcode's built-in coding assistant, starting with Xcode 27.3 beta on macOS Tahoe 26.6 or later. Set it up under Xcode > Settings > Intelligence. All Copilot plans are supported, and the separate Copilot for Xcode extension stays available."),
+ ("mcp-servers-2-3", "MCP reference servers v2.3.0", "https://github.com/modelcontextprotocol/servers", "2026-11-04", "https://github.com/modelcontextprotocol/servers/releases/tag/v2.3.0", "best-ai-for-agent-frameworks",
+  "The official Model Context Protocol reference servers got a new release. The filesystem server adds append_file, copy_file, a --read-only mode and --confine-roots; fetch adds a --allowed-hosts allowlist and a configurable timeout; git adds git_merge and git_remote; time adds get_time_ago."),
  ("copilot-fusion", "GitHub Copilot Fusion", "https://github.com/features/copilot", "2026-10-28", "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion/", "best-ai-coding-agents",
   "Instead of picking a model for each task, choose Copilot Fusion and Copilot routes the work across models for you. GitHub says Fusion Max scored within two points of Claude Code with Opus 5.5 Max on the Artificial Analysis Coding Agent Index, at about half the average API cost per task. Generally available."),
  ("github-agentic-workflows", "GitHub Agentic Workflows", "https://github.github.com/gh-aw/", "2026-10-28", "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/", "best-ai-for-automation-workflows",

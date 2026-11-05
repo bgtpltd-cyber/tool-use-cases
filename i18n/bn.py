@@ -345,6 +345,8 @@ MONTHS = ['জানুয়ারি', 'ফেব্রুয়ারি', '�
 DATE_MD = '{d} {m}'
 DATE_MDY = '{d} {m}, {y}'
 RELEASES = {
+ 'copilot-xcode-assistant': 'এখন GitHub Copilot সরাসরি Xcode-এর built-in coding assistant-এ ব্যবহার করুন, Xcode 27.3 beta থেকে, macOS Tahoe 26.6 বা নতুন সংস্করণে। Setup করতে Xcode > Settings > Intelligence খুলুন। সব Copilot plan supported, আর আলাদা Copilot for Xcode extension-ও থাকছে।',
+ 'mcp-servers-2-3': 'Model Context Protocol-এর official reference servers-এর নতুন release। filesystem server-এ append_file, copy_file, --read-only mode ও --confine-roots যোগ হয়েছে; fetch-এ --allowed-hosts allowlist ও configurable timeout; git-এ git_merge ও git_remote; time-এ get_time_ago।',
  'copilot-fusion': 'প্রতিটি task-এর জন্য model বাছাই না করে Copilot Fusion বেছে নিন, Copilot নিজেই কাজটি বিভিন্ন model-এ ভাগ করে দেয়। GitHub-এর মতে Artificial Analysis Coding Agent Index-এ Fusion Max, Opus 5.5 Max সহ Claude Code-এর চেয়ে মাত্র দুই পয়েন্ট পিছিয়ে ছিল, প্রতি task-এ প্রায় অর্ধেক গড় API খরচে। সবার জন্য উপলব্ধ।',
  'github-agentic-workflows': 'Issue triage, CI failure analysis, docs update আর test লেখার মতো automation সাধারণ Markdown file-এ লিখুন; সেগুলো standard GitHub Actions-এ compile হয়, যা Copilot বা আপনার নিজের coding agent চালায়। Open source, সবার জন্য উপলব্ধ, আর default-ভাবে read-only ও sandboxed।',
  'github-replica': 'GitHub Design-এর open-source (MIT) AI prototyping tool: GitHub Copilot app-এ আপনার idea লিখুন আর নিজের design system-এর component দিয়ে তৈরি interactive prototype পান। মন্তব্যের জন্য prototype ঐচ্ছিক self-hosted Replica Hub-এ share করুন।',

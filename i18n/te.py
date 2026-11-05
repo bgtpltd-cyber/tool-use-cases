@@ -345,6 +345,8 @@ MONTHS = ['జనవరి', 'ఫిబ్రవరి', 'మార్చి', '
 DATE_MD = '{m} {d}'
 DATE_MDY = '{m} {d}, {y}'
 RELEASES = {
+ 'copilot-xcode-assistant': 'ఇప్పుడు GitHub Copilot ను నేరుగా Xcode built-in coding assistant లో వాడండి, Xcode 27.3 beta నుండి, macOS Tahoe 26.6 లేదా కొత్త వెర్షన్\u200cలో. Setup కోసం Xcode > Settings > Intelligence తెరవండి. అన్ని Copilot plans supported, వేరే Copilot for Xcode extension కూడా అందుబాటులో ఉంటుంది.',
+ 'mcp-servers-2-3': 'Model Context Protocol official reference servers కొత్త release. filesystem server కు append_file, copy_file, --read-only mode, --confine-roots వచ్చాయి; fetch కు --allowed-hosts allowlist, configurable timeout; git కు git_merge, git_remote; time కు get_time_ago.',
  'copilot-fusion': 'ప్రతి task కి model ఎంచుకునే బదులు Copilot Fusion ఎంచుకోండి; Copilot పనిని వేర్వేరు models మధ్య మీ కోసం పంచుతుంది. GitHub ప్రకారం Artificial Analysis Coding Agent Index లో Fusion Max, Opus 5.5 Max తో Claude Code కంటే రెండు points మాత్రమే తక్కువ, ఒక్కో task కి సగటు API ఖర్చులో దాదాపు సగానికే. అందరికీ అందుబాటులో ఉంది.',
  'github-agentic-workflows': 'Issue triage, CI failure analysis, docs updates, test writing వంటి automations ని సాధారణ Markdown files లో రాయండి; అవి Copilot లేదా మీ సొంత coding agent నడిపే standard GitHub Actions గా compile అవుతాయి. Open source, అందరికీ అందుబాటులో ఉంది, default గా read-only మరియు sandboxed.',
  'github-replica': 'GitHub Design నుంచి open-source (MIT) AI prototyping tool: GitHub Copilot app లో మీ idea చెప్పండి, మీ సొంత design system components తో తయారైన interactive prototype పొందండి. Comments కోసం prototypes ని optional self-hosted Replica Hub లో share చేయండి.',

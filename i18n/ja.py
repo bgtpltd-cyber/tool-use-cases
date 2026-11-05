@@ -345,6 +345,8 @@ MONTHS = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月'
 DATE_MD = '{m}{d}日'
 DATE_MDY = '{y}年{m}{d}日'
 RELEASES = {
+ 'copilot-xcode-assistant': 'GitHub CopilotをXcodeの組み込みコーディングアシスタントで直接使えるようになりました。Xcode 27.3 beta以降、macOS Tahoe 26.6以降が必要です。Xcode > Settings > Intelligenceで設定します。すべてのCopilotプランに対応し、別のCopilot for Xcode拡張機能も引き続き利用できます。',
+ 'mcp-servers-2-3': 'Model Context Protocol公式リファレンスサーバーの新リリース。filesystemサーバーにappend_file、copy_file、--read-onlyモード、--confine-rootsが追加。fetchに--allowed-hostsの許可リストとタイムアウト設定、gitにgit_mergeとgit_remote、timeにget_time_agoが追加されました。',
  'copilot-fusion': 'タスクごとにモデルを選ぶ代わりにCopilot Fusionを選ぶと、Copilotが作業を複数のモデルに振り分けてくれます。GitHubによると、Fusion MaxはArtificial Analysis Coding Agent IndexでOpus 5.5 Max搭載のClaude Codeとの差が2ポイント以内で、タスクあたりの平均APIコストは約半分でした。一般提供中。',
  'github-agentic-workflows': 'Issueのトリアージ、CI失敗の分析、ドキュメント更新、テスト作成などの自動化をシンプルなMarkdownファイルで書くと、Copilotや自前のコーディングエージェントが実行する標準のGitHub Actionsにコンパイルされます。オープンソースで一般提供中、デフォルトで読み取り専用かつサンドボックス内で動作します。',
  'github-replica': 'GitHub Designによるオープンソース(MIT)のAIプロトタイピングツール。GitHub Copilotアプリでアイデアを説明すると、自社デザインシステムのコンポーネントで作られたインタラクティブなプロトタイプができます。任意のセルフホスト型Replica Hubで共有してコメントを集められます。',

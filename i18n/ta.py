@@ -345,6 +345,8 @@ MONTHS = ['ஜனவரி', 'பிப்ரவரி', 'மார்ச்', '
 DATE_MD = '{m} {d}'
 DATE_MDY = '{m} {d}, {y}'
 RELEASES = {
+ 'copilot-xcode-assistant': 'இப்போது GitHub Copilot-ஐ நேரடியாக Xcode-இன் built-in coding assistant-இல் பயன்படுத்தலாம், Xcode 27.3 beta முதல், macOS Tahoe 26.6 அல்லது புதிய பதிப்பில். Setup செய்ய Xcode > Settings > Intelligence திறக்கவும். எல்லா Copilot plans-உம் supported, தனி Copilot for Xcode extension-உம் தொடர்ந்து கிடைக்கும்.',
+ 'mcp-servers-2-3': 'Model Context Protocol-இன் official reference servers-க்கு புதிய release. filesystem server-இல் append_file, copy_file, --read-only mode, --confine-roots; fetch-இல் --allowed-hosts allowlist, configurable timeout; git-இல் git_merge, git_remote; time-இல் get_time_ago.',
  'copilot-fusion': 'ஒவ்வொரு task-க்கும் model தேர்வு செய்வதற்குப் பதிலாக Copilot Fusion-ஐத் தேர்வு செய்யுங்கள்; Copilot வேலையை பல models-க்கு உங்களுக்காகப் பகிர்ந்து அளிக்கிறது. GitHub கூற்றுப்படி Artificial Analysis Coding Agent Index-இல் Fusion Max, Opus 5.5 Max உடன் Claude Code-ஐ விட இரண்டு points மட்டுமே குறைவு, ஒரு task-க்கு சராசரி API செலவில் சுமார் பாதியில். அனைவருக்கும் கிடைக்கிறது.',
  'github-agentic-workflows': 'Issue triage, CI failure analysis, docs updates, test writing போன்ற automations-ஐ எளிய Markdown files-இல் எழுதுங்கள்; அவை Copilot அல்லது உங்கள் சொந்த coding agent இயக்கும் standard GitHub Actions ஆக compile ஆகின்றன. Open source, அனைவருக்கும் கிடைக்கிறது, default-ஆக read-only மற்றும் sandboxed.',
  'github-replica': 'GitHub Design உருவாக்கிய open-source (MIT) AI prototyping tool: GitHub Copilot app-இல் உங்கள் idea-வை விவரியுங்கள், உங்கள் சொந்த design system components-இல் உருவான interactive prototype-ஐப் பெறுங்கள். கருத்துகளுக்காக prototypes-ஐ optional self-hosted Replica Hub-இல் share செய்யுங்கள்.',
