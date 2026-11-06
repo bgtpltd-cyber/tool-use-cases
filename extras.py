@@ -1,6 +1,6 @@
 """Verified, dated extras for use-case pages (en, pt-BR, es only; noindexed locales show none).
 PRICES: copied from each tool's official pricing page (or, for open-source tools, its official repo license) on price_date(tool). Re-check before changing the date.
-GUIDES: 'how to choose' blocks for the top 5 pages, built only from the picks' verdicts and the verified prices/facts below."""
+GUIDES: 'how to choose' blocks for selected pages, built only from the picks' verdicts and the verified prices/facts below."""
 PRICES_CHECKED = "2026-10-22"  # default check date for PRICES entries not listed in PRICE_DATES
 # tool: (en, pt-BR, es, official pricing source)
 PRICES = {
@@ -32,13 +32,13 @@ PRICES = {
            "Plano grátis com cota leve. Os agentes na nuvem (Devin Cloud) começam no Pro, a US$ 20/mês; Teams a partir de US$ 80/mês.",
            "Plan gratuito con una cuota ligera. Los agentes en la nube (Devin Cloud) empiezan en Pro, a 20 US$/mes; Teams desde 80 US$/mes.",
            "https://devin.ai/pricing"),
- "claude-code": ("Included with Claude Pro ($20/mo, or $17/mo billed yearly) and Max (from $100/mo). Not on the free plan.",
-                 "Incluído no Claude Pro (US$ 20/mês, ou US$ 17/mês no anual) e no Max (a partir de US$ 100/mês). Não está no plano grátis.",
-                 "Incluido en Claude Pro (20 US$/mes, o 17 US$/mes en anual) y en Max (desde 100 US$/mes). No está en el plan gratuito.",
+ "claude-code": ("Included with Claude Pro ($20/mo, or $17/mo billed yearly), Max ($100/mo) and Ultra ($200/mo). Not on the free plan.",
+                 "Incluído no Claude Pro (US$ 20/mês, ou US$ 17/mês no anual), no Max (US$ 100/mês) e no Ultra (US$ 200/mês). Não está no plano grátis.",
+                 "Incluido en Claude Pro (20 US$/mes, o 17 US$/mes en anual), Max (100 US$/mes) y Ultra (200 US$/mes). No está en el plan gratuito.",
                  "https://claude.com/pricing"),
- "claude": ("Free plan. Pro $20/mo ($17/mo billed yearly); Max from $100/mo.",
-            "Plano grátis. Pro: US$ 20/mês (US$ 17/mês no anual); Max a partir de US$ 100/mês.",
-            "Plan gratuito. Pro: 20 US$/mes (17 US$/mes en anual); Max desde 100 US$/mes.",
+ "claude": ("Free plan. Pro $20/mo ($17/mo billed yearly); Max $100/mo; Ultra $200/mo.",
+            "Plano grátis. Pro: US$ 20/mês (US$ 17/mês no anual); Max: US$ 100/mês; Ultra: US$ 200/mês.",
+            "Plan gratuito. Pro: 20 US$/mes (17 US$/mes en anual); Max: 100 US$/mes; Ultra: 200 US$/mes.",
             "https://claude.com/pricing"),
  "codex": ("Limited use on ChatGPT's free plan; ChatGPT Plus ($20/mo) for regular coding sessions. With an API key, API pricing applies.",
            "Uso limitado no plano grátis do ChatGPT; o ChatGPT Plus (US$ 20/mês) cobre sessões de código frequentes. Com chave de API, vale o preço da API.",
@@ -133,6 +133,10 @@ PRICES = {
    "Plano Basic grátis, com uso limitado do Research Agent e dos relatórios. Plus a partir de US$ 11 por usuário/mês no anual.",
    "Plan Basic gratuito, con uso limitado del Research Agent y de los informes. Plus desde 11 US$ por usuario/mes en anual.",
    "https://elicit.com/pricing"),
+ "perplexity": ("Free plan with limited Pro Search and Research. Pro $20/mo ($17/mo billed yearly / $200 a year); Max $200/mo ($167/mo billed yearly / $2,000 a year).",
+   "Plano grátis com Pro Search e Research limitados. Pro: US$ 20/mês (US$ 17/mês no anual / US$ 200 por ano); Max: US$ 200/mês (US$ 167/mês no anual / US$ 2.000 por ano).",
+   "Plan gratuito con Pro Search e Research limitados. Pro: 20 US$/mes (17 US$/mes en anual / 200 US$ al año); Max: 200 US$/mes (167 US$/mes en anual / 2.000 US$ al año).",
+   "https://www.perplexity.ai/hub/pricing"),
  "grok": ("Paid plans are one subscription shared with X and Cursor: Plus $8/mo, Premium $30/mo, Super $100/mo, Ultra $200/mo (monthly billing; yearly is cheaper).",
    "Os planos pagos são uma assinatura só, compartilhada com o X e o Cursor: Plus US$ 8/mês, Premium US$ 30/mês, Super US$ 100/mês, Ultra US$ 200/mês (no mensal; o anual sai mais barato).",
    "Los planes de pago son una sola suscripción compartida con X y Cursor: Plus 8 US$/mes, Premium 30 US$/mes, Super 100 US$/mes, Ultra 200 US$/mes (pago mensual; el anual sale más barato).",
@@ -274,7 +278,8 @@ PRICES = {
    "Plan gratuito. Mem Plus: 9 US$/mes; Mem Pro: 29 US$/mes.",
    "https://get.mem.ai/pricing"),
 }
-PRICE_DATES = {k: "2026-10-23" for k in ['notion-ai', 'gemini', 'notebooklm', 'midjourney', 'ideogram', 'grammarly', 'elicit', 'grok', 'n8n', 'make', 'zapier', 'framer', 'figma', 'uizard', 'aiva', 'clearscope', 'julius', 'beautiful-ai', 'tripo', 'rodin', 'fireflies', 'otter', 'grain', 'langchain', 'llamaindex', 'langgraph', 'crewai', 'ms-agent-framework', 'openai-agents', 'ollama', 'wxt', 'vercel', 'netlify', 'railway', 'looka', 'helpscout', 'firecrawl', 'apify', 'browserbase', 'postman', 'bruno', 'mem']}  # entries checked on their official pricing page / repo on Oct 23, 2026
+PRICE_DATES = {k: "2026-10-23" for k in ['notion-ai', 'midjourney', 'ideogram', 'grammarly', 'grok', 'n8n', 'make', 'zapier', 'framer', 'figma', 'uizard', 'aiva', 'clearscope', 'julius', 'beautiful-ai', 'tripo', 'rodin', 'fireflies', 'otter', 'grain', 'langchain', 'llamaindex', 'langgraph', 'crewai', 'ms-agent-framework', 'openai-agents', 'ollama', 'wxt', 'vercel', 'netlify', 'railway', 'looka', 'helpscout', 'firecrawl', 'apify', 'browserbase', 'postman', 'bruno', 'mem']}  # entries checked on their official pricing page / repo on Oct 23, 2026
+PRICE_DATES.update({k: "2026-11-06" for k in ['claude', 'claude-code', 'perplexity', 'gemini', 'notebooklm', 'elicit']})  # re-checked Nov 6, 2026 on official pricing pages (Perplexity also confirmed via Perplexity Help Center plan prices)
 def price_date(t): return PRICE_DATES.get(t, PRICES_CHECKED)
 LABELS = {"en": ("Price", "Prices checked", "on each tool's official pricing page. They change often, so the official page wins.", "How to choose"),
           "pt-BR": ("Preço", "Preços conferidos em", "na página oficial de preços de cada ferramenta. Eles mudam com frequência; vale sempre a página oficial.", "Como escolher"),
@@ -350,19 +355,19 @@ GUIDES = {
 <li><b>One error and a few files:</b> paste them into @T(claude) or @T(chatgpt). Both have free plans.</li>
 <li><b>Fix it where the red squiggle is:</b> @T(copilot) (free plan available) or @T(cursor).</li>
 <li><b>Errors that only show up in production:</b> @T(sentry). Its Developer plan is free for one user.</li>
-<li><b>A failing test suite:</b> @T(claude-code) can run the tests and iterate until they pass. It needs Claude Pro or Max.</li>
+<li><b>A failing test suite:</b> @T(claude-code) can run the tests and iterate until they pass. It needs Claude Pro, Max or Ultra.</li>
 </ul>""",
   "pt-BR": """<ul>
 <li><b>Um erro e poucos arquivos:</b> cole tudo no @T(claude) ou no @T(chatgpt). Os dois têm plano grátis.</li>
 <li><b>Corrigir onde está o sublinhado vermelho:</b> @T(copilot) (tem plano grátis) ou @T(cursor).</li>
 <li><b>Erros que só aparecem em produção:</b> @T(sentry). O plano Developer é grátis para um usuário.</li>
-<li><b>Uma suíte de testes falhando:</b> o @T(claude-code) roda os testes e repete até passarem. Exige Claude Pro ou Max.</li>
+<li><b>Uma suíte de testes falhando:</b> o @T(claude-code) roda os testes e repete até passarem. Exige Claude Pro, Max ou Ultra.</li>
 </ul>""",
   "es": """<ul>
 <li><b>Un error y pocos archivos:</b> pégalos en @T(claude) o en @T(chatgpt). Los dos tienen plan gratuito.</li>
 <li><b>Arreglarlo donde está el subrayado rojo:</b> @T(copilot) (tiene plan gratuito) o @T(cursor).</li>
 <li><b>Errores que solo aparecen en producción:</b> @T(sentry). Su plan Developer es gratis para un usuario.</li>
-<li><b>Una batería de tests que falla:</b> @T(claude-code) ejecuta los tests y repite hasta que pasan. Requiere Claude Pro o Max.</li>
+<li><b>Una batería de tests que falla:</b> @T(claude-code) ejecuta los tests y repite hasta que pasan. Requiere Claude Pro, Max o Ultra.</li>
 </ul>"""},
  "best-ai-for-game-prototyping": {
   "en": """<ul>
@@ -413,5 +418,27 @@ GUIDES = {
 <li><b>Shorts a partir de vídeos largos:</b> @T(opus) (prueba gratuita y luego desde 15 US$/mes).</li>
 <li><b>Edición diaria sin gastar:</b> @T(capcut). Los subtítulos automáticos requieren Pro.</li>
 <li><b>Sin salir en cámara:</b> avatares de @T(heygen) (plan gratuito; Creator desde 29 US$/mes).</li>
+</ul>"""},
+ "best-ai-for-research": {
+  "en": """<ul>
+<li><b>Fast answers with citations from the live web:</b> @T(perplexity). Free plan available; Pro is $20/mo ($17/mo billed yearly).</li>
+<li><b>Your own PDFs and notes:</b> @T(notebooklm) (free with a Google Account). Grounded answers and audio overviews from sources you upload.</li>
+<li><b>Long, cited reports on one topic:</b> @T(chatgpt) Deep Research or @T(gemini) Deep Research. Both have free plans; Gemini Deep Research is on the free Gemini plan.</li>
+<li><b>Academic papers and literature reviews:</b> @T(elicit). Free Basic plan; Plus from $11 per user/mo billed yearly.</li>
+<li><b>What people are saying right now on X:</b> @T(grok).</li>
+</ul>""",
+  "pt-BR": """<ul>
+<li><b>Respostas rápidas com citações da web ao vivo:</b> @T(perplexity). Tem plano grátis; o Pro custa US$ 20/mês (US$ 17/mês no anual).</li>
+<li><b>Seus próprios PDFs e anotações:</b> @T(notebooklm) (grátis com uma Conta Google). Respostas ancoradas nas fontes que você envia, mais audio overviews.</li>
+<li><b>Relatórios longos e citados sobre um tema:</b> Deep Research do @T(chatgpt) ou Deep Research do @T(gemini). Os dois têm plano grátis; o Deep Research do Gemini está no plano grátis do Gemini.</li>
+<li><b>Artigos acadêmicos e revisões de literatura:</b> @T(elicit). Plano Basic grátis; Plus a partir de US$ 11 por usuário/mês no anual.</li>
+<li><b>O que as pessoas estão dizendo agora no X:</b> @T(grok).</li>
+</ul>""",
+  "es": """<ul>
+<li><b>Respuestas rápidas con citas de la web en vivo:</b> @T(perplexity). Tiene plan gratuito; Pro cuesta 20 US$/mes (17 US$/mes en anual).</li>
+<li><b>Tus propios PDFs y notas:</b> @T(notebooklm) (gratis con una cuenta de Google). Respuestas ancladas a las fuentes que subes, más audio overviews.</li>
+<li><b>Informes largos y citados sobre un tema:</b> Deep Research de @T(chatgpt) o Deep Research de @T(gemini). Ambos tienen plan gratuito; Deep Research de Gemini está en el plan gratuito de Gemini.</li>
+<li><b>Artículos académicos y revisiones de literatura:</b> @T(elicit). Plan Basic gratuito; Plus desde 11 US$ por usuario/mes en anual.</li>
+<li><b>Lo que la gente está diciendo ahora en X:</b> @T(grok).</li>
 </ul>"""},
 }
