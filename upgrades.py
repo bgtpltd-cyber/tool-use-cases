@@ -4,7 +4,7 @@
 # HARD RULE: no hands-on test results, benchmarks, quotes or numbers we did not verify. No affiliate links.
 # Localized pages (pt-BR, es, Indian languages, ja) do not use this file; they keep their translated content.
 
-CHECKED = "2026-11-04"  # date every row, FAQ fact and news item below was verified
+CHECKED = "2026-11-06"  # date every row, FAQ fact and news item below was verified
 
 # rows: (tool name, official pricing/source URL we checked, role or "", best for, free tier, entry price, when not to use it)
 # news: (iso date, tool, plain-text fact, source name, source URL)
@@ -103,7 +103,7 @@ UPGRADES["best-ai-coding-agents"] = {
   ("What is the best AI coding agent?",
    "Claude Code is our top pick for multi-file changes from the terminal. If you prefer to review each change in an editor, use Cursor. If you want to pay nothing, use OpenCode."),
   ("Is Claude Code free?",
-   "No. As of Oct 31, 2026, Claude Code is not included in Claude's free plan. It comes with Claude Pro ($20/mo, or $17/mo billed yearly) and with Max (from $100/mo)."),
+   "No. As of Nov 6, 2026, Claude Code is not included in Claude's free plan. It comes with Claude Pro ($20/mo, or $17/mo billed yearly) and with Max (from $100/mo)."),
   ("Is there a free AI coding agent?",
    "Yes. OpenCode is free and open source (MIT) and includes free models. GitHub Copilot's free plan includes agent mode and the CLI with limited use, Cursor's free plan includes limited agent requests, and ChatGPT Free includes Codex in the desktop app, subject to rollout."),
   ("Claude Code, Cursor or Codex: which should I use?",
