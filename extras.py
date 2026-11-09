@@ -442,4 +442,29 @@ GUIDES = {
 <li><b>Artículos académicos y revisiones de literatura:</b> @T(elicit). Plan Basic gratuito; Plus desde 11 US$ por usuario/mes en anual.</li>
 <li><b>Lo que la gente está diciendo ahora en X:</b> @T(grok).</li>
 </ul>"""},
+ "best-ai-for-agent-frameworks": {
+  "en": """<ul>
+<li><b>First agent, want to ship this week:</b> @T(openai-agents). Small API with tools, handoffs and tracing built in; it comes in Python and TypeScript.</li>
+<li><b>Long-running agents that must survive retries and wait for a human:</b> @T(langgraph). You define the steps and state yourself, so it's more work up front but easier to debug in production. Also available in TypeScript.</li>
+<li><b>Quick multi-agent prototype with roles like "researcher" and "writer":</b> @T(crewai). Fastest to a demo; plan to add guardrails before you rely on it.</li>
+<li><b>Your team is on Azure or .NET:</b> @T(ms-agent-framework), Microsoft's successor to AutoGen and Semantic Kernel, in Python and .NET.</li>
+<li><b>Whatever you pick:</b> build your tools as @T(mcp) servers so you can move them to another framework later.</li>
+</ul>
+<p><small>All four frameworks are open source under the MIT license, so the cost is the models you call. Licenses and languages checked on each project's official GitHub repository on Nov 9, 2026.</small></p>""",
+  "pt-BR": """<ul>
+<li><b>Primeiro agente, quer colocar no ar esta semana:</b> @T(openai-agents). API pequena com ferramentas, handoffs e tracing embutidos; existe em Python e TypeScript.</li>
+<li><b>Agentes de longa duração que precisam sobreviver a novas tentativas e esperar uma pessoa:</b> @T(langgraph). Você define os passos e o estado, então dá mais trabalho no início, mas é mais fácil depurar em produção. Também existe em TypeScript.</li>
+<li><b>Protótipo rápido com vários agentes em papéis como "pesquisador" e "redator":</b> @T(crewai). O caminho mais rápido para uma demo; adicione controles antes de depender dele.</li>
+<li><b>Sua equipe usa Azure ou .NET:</b> @T(ms-agent-framework), sucessor da Microsoft para AutoGen e Semantic Kernel, em Python e .NET.</li>
+<li><b>Seja qual for a escolha:</b> crie suas ferramentas como servidores @T(mcp) para poder levá-las a outro framework depois.</li>
+</ul>
+<p><small>Os quatro frameworks são open source sob a licença MIT; o custo são os modelos que você chama. Licenças e linguagens conferidas no repositório oficial de cada projeto no GitHub em 9 de nov. de 2026.</small></p>""",
+  "es": """<ul>
+<li><b>Primer agente y quieres lanzarlo esta semana:</b> @T(openai-agents). API pequeña con herramientas, handoffs y tracing integrados; existe en Python y TypeScript.</li>
+<li><b>Agentes de larga duración que deben sobrevivir a reintentos y esperar a una persona:</b> @T(langgraph). Tú defines los pasos y el estado, así que cuesta más al principio, pero es más fácil de depurar en producción. También existe en TypeScript.</li>
+<li><b>Prototipo rápido con varios agentes en roles como "investigador" y "redactor":</b> @T(crewai). El camino más rápido a una demo; añade controles antes de depender de él.</li>
+<li><b>Tu equipo usa Azure o .NET:</b> @T(ms-agent-framework), el sucesor de Microsoft para AutoGen y Semantic Kernel, en Python y .NET.</li>
+<li><b>Elijas lo que elijas:</b> crea tus herramientas como servidores @T(mcp) para poder llevarlas a otro framework más adelante.</li>
+</ul>
+<p><small>Los cuatro frameworks son de código abierto con licencia MIT; el coste son los modelos que llamas. Licencias y lenguajes comprobados en el repositorio oficial de cada proyecto en GitHub el 9 de nov. de 2026.</small></p>"""},
 }
