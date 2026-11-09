@@ -1,0 +1,23 @@
+{"date": "2026-11-09", "items": [
+ {"type": "Breaking change", "tool": "Claude Code",
+  "what": "In 2.1.319 (Nov 6, 2026), auto mode with telemetry or feature flags off, including behind LLM gateways, asks about or denies calls the server can't check, with no fallback to the built-in classifier.",
+  "source_name": "Claude Code release v2.1.319",
+  "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.319",
+  "checked": "10:08 AM",
+  "test": "If you run Claude Code in auto mode behind a gateway or with telemetry off, run an unattended task and watch for new prompts or denials. Set CLAUDE_CODE_AUTO_MODE_SERVER=0 to keep the built-in classifier (Bedrock, Vertex and Foundry are unchanged).",
+  "use_case": "best-ai-coding-agents"},
+ {"type": "Breaking change", "tool": "Claude Code",
+  "what": "In 2.1.319 (Nov 6, 2026), self-paced /loop ends when a turn finishes without rescheduling, instead of scheduling a fallback wakeup.",
+  "source_name": "Claude Code release v2.1.319",
+  "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.319",
+  "checked": "10:08 AM",
+  "test": "If you rely on self-paced /loop to keep checking on its own, confirm it still runs after a turn that doesn't reschedule. Set CLAUDE_CODE_LOOP_KEEPALIVE=1 to keep the old behavior.",
+  "use_case": "best-ai-coding-agents"},
+ {"type": "Breaking change", "tool": "GitHub Copilot CLI",
+  "what": "In 1.0.108 (Nov 9, 2026), creating or resuming an SDK session, or replacing its tools, with two custom tools of the same name is now an error.",
+  "source_name": "GitHub Copilot CLI release v1.0.108",
+  "source_url": "https://github.com/github/copilot-cli/releases/tag/v1.0.108",
+  "checked": "10:09 AM",
+  "test": "If you build on the Copilot SDK, check that every custom tool you register has a unique name, then create and resume a session to confirm it starts.",
+  "use_case": "best-ai-coding-agents"}
+]}
