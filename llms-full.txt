@@ -51,6 +51,7 @@ Our angle: tool choice by job-to-be-done for vibe coders. Each use-case page lis
 - [Tool Picks Weekly #1: Your vibe-coded app can now talk, search and scrape](https://tools.lalipublications.com/newsletter/issue-1/) (Oct 19, 2026)
 - [Tool Picks Weekly #2: Five AI picks you can start for free](https://tools.lalipublications.com/newsletter/issue-2/) (Oct 26, 2026)
 - [Tool Picks Weekly #3: Multi-model routing, Markdown repo agents & a Gemini privacy change](https://tools.lalipublications.com/newsletter/issue-3/) (Oct 29, 2026)
+- [Tool Picks Weekly #4: Your unattended agents changed this week. Check them before December](https://tools.lalipublications.com/newsletter/issue-4/) (Nov 9, 2026)
 - [About](https://tools.lalipublications.com/about/)
 
 ## Contact
