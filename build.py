@@ -716,6 +716,8 @@ ISSUES = [  # (number, slug, iso date, display date, subject, preview, content f
   "Build, hand off, prototype and run models locally before you pay for anything.", "content/newsletter/issue-2.md"),
  (3, "issue-3", "2026-10-29", "Oct 29, 2026", "Tool Picks Weekly #3: Multi-model routing, Markdown repo agents & a Gemini privacy change",
   "Copilot Fusion, Agentic Workflows, Replica, Replit Cloud Agents, why new Gemini API projects now store your requests, and what else shipped Oct 26–28.", "content/newsletter/issue-3.md"),
+ (4, "issue-4", "2026-11-09", "Nov 9, 2026", "Tool Picks Weekly #4: Your unattended agents changed this week. Check them before December",
+  "pull_request_target brownouts, Gemini 2.5 Dec 1 reroutes, Claude Code 2.1.319, OpenCode 2.2.6, Codex 0.167.0, and Cursor Live Apps—each with what to test.", "content/newsletter/issue-4.md"),
 ]
 SIGNOFF = "Tool Use Cases / Lali Publications\nlarrys@lalipublications.com"
 def issue_web_md(fn):
