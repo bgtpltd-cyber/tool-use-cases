@@ -467,4 +467,26 @@ GUIDES = {
 <li><b>Elijas lo que elijas:</b> crea tus herramientas como servidores @T(mcp) para poder llevarlas a otro framework más adelante.</li>
 </ul>
 <p><small>Los cuatro frameworks son de código abierto con licencia MIT; el coste son los modelos que llamas. Licencias y lenguajes comprobados en el repositorio oficial de cada proyecto en GitHub el 9 de nov. de 2026.</small></p>"""},
+ "best-ai-for-running-local-models": {
+  "en": """<ul>
+<li><b>First time running a model on your own machine:</b> @T(ollama). One command downloads and runs an open model, and it serves a local API other tools can use.</li>
+<li><b>You want strong reasoning without sending data to a cloud API:</b> run an open-weight @T(deepseek) model through Ollama. Pick a model size that fits your RAM or GPU memory.</li>
+<li><b>An offline coding agent:</b> point @T(opencode) at your Ollama server. Both projects document this setup.</li>
+<li><b>Images, not text:</b> @T(sd). Most people run it through ComfyUI; plan on a capable GPU and some tinkering.</li>
+</ul>
+<p><small>Ollama and OpenCode are open source under the MIT license, and ComfyUI under GPL-3.0, so running them costs nothing beyond your hardware. Licenses checked on each project's official GitHub repository, and the Ollama setup on the Ollama and OpenCode docs, on Nov 10, 2026.</small></p>""",
+  "pt-BR": """<ul>
+<li><b>Primeira vez rodando um modelo na sua própria máquina:</b> @T(ollama). Um comando baixa e roda um modelo aberto, e ele oferece uma API local que outras ferramentas podem usar.</li>
+<li><b>Você quer bom raciocínio sem enviar dados para uma API na nuvem:</b> rode um modelo de pesos abertos da @T(deepseek) pelo Ollama. Escolha um tamanho de modelo que caiba na sua RAM ou na memória da GPU.</li>
+<li><b>Um agente de programação offline:</b> aponte o @T(opencode) para o seu servidor Ollama. Os dois projetos documentam essa configuração.</li>
+<li><b>Imagens, não texto:</b> @T(sd). A maioria roda pelo ComfyUI; conte com uma boa GPU e algum ajuste.</li>
+</ul>
+<p><small>Ollama e OpenCode são open source sob a licença MIT, e o ComfyUI sob a GPL-3.0; rodar custa apenas o seu hardware. Licenças conferidas no repositório oficial de cada projeto no GitHub, e a configuração com Ollama na documentação do Ollama e do OpenCode, em 10 de nov. de 2026.</small></p>""",
+  "es": """<ul>
+<li><b>Primera vez ejecutando un modelo en tu propia máquina:</b> @T(ollama). Un comando descarga y ejecuta un modelo abierto, y ofrece una API local que otras herramientas pueden usar.</li>
+<li><b>Quieres buen razonamiento sin enviar datos a una API en la nube:</b> ejecuta un modelo de pesos abiertos de @T(deepseek) con Ollama. Elige un tamaño de modelo que quepa en tu RAM o en la memoria de la GPU.</li>
+<li><b>Un agente de programación sin conexión:</b> conecta @T(opencode) a tu servidor Ollama. Ambos proyectos documentan esta configuración.</li>
+<li><b>Imágenes, no texto:</b> @T(sd). La mayoría lo ejecuta con ComfyUI; cuenta con una buena GPU y algo de ajuste.</li>
+</ul>
+<p><small>Ollama y OpenCode son de código abierto con licencia MIT, y ComfyUI con GPL-3.0; ejecutarlos solo cuesta tu hardware. Licencias comprobadas en el repositorio oficial de cada proyecto en GitHub, y la configuración con Ollama en la documentación de Ollama y OpenCode, el 10 de nov. de 2026.</small></p>"""},
 }
