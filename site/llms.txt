@@ -43,6 +43,8 @@ Our angle: tool choice by job-to-be-done for vibe coders. Each use-case page lis
 - [New & trending](https://tools.lalipublications.com/new/)
 - [Newsletter](https://tools.lalipublications.com/newsletter/)
 - [Agent Backbone — Production AI Agent Evaluation Rubric & Weekly Reliability Briefing](https://tools.lalipublications.com/agent-backbone/): Free 4-criteria weighted evaluation rubric, 5 high-frequency failure modes + deterministic fixes, and 8-question regression test template
+- [Issue #3: Evaluate Your AI Agent in 30 Minutes — Agent Backbone](https://tools.lalipublications.com/agent-backbone/issue-3/) (Nov 10, 2026)
+- [Agent Backbone Issue #3 scorecard (CSV)](https://tools.lalipublications.com/agent-backbone/agent-reliability-scorecard.csv)
 - [Issue #2: 7 Ways MCP and Retry Plumbing Quietly Break Production Agents — Agent Backbone](https://tools.lalipublications.com/agent-backbone/issue-2/) (Oct 31, 2026)
 - [Agent Backbone Issue #2 (PDF)](https://tools.lalipublications.com/agent-backbone/agent-backbone-issue-2.pdf)
 - [Issue #1: 5 Ways Production AI Agents Quietly Break (And the Deterministic Fixes) — Agent Backbone](https://tools.lalipublications.com/agent-backbone/issue-1/) (Oct 28, 2026)

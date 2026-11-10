@@ -14,6 +14,12 @@ ISSUE2_DISPLAY = "Oct 31, 2026"
 ISSUE2_PDF_FILENAME = "agent-backbone-issue-2.pdf"
 ISSUE2_MD = "content/agent-backbone/issue-2.md"
 
+# Issue #3 (pure editorial)
+ISSUE3_ISO = "2026-11-10"
+ISSUE3_DISPLAY = "Nov 10, 2026"
+ISSUE3_MD = "content/agent-backbone/issue-3.md"
+ISSUE3_CSV_FILENAME = "agent-reliability-scorecard.csv"
+
 AB_TITLE = "Agent Backbone — Production AI Agent Evaluation Rubric & Weekly Reliability Briefing"
 AB_DESC = "Free production AI agent evaluation rubric (4 weighted criteria, 1–5 scoring scale), 5 high-frequency failure modes with deterministic fixes, 8-question regression test template, and the Agent Backbone reliability briefing."
 
@@ -24,6 +30,10 @@ AB_ISSUE1_DESC = "Agent Backbone Briefing Issue #1: How to diagnose and fix sile
 AB_ISSUE2_TITLE = "Issue #2: 7 Ways MCP and Retry Plumbing Quietly Break Production Agents — Agent Backbone"
 AB_ISSUE2_FEED_TITLE = "Agent Backbone #2: 7 Ways MCP and Retry Plumbing Quietly Break Production Agents"
 AB_ISSUE2_DESC = "Agent Backbone Briefing Issue #2: duplicate tool calls on disconnect, retrying non-retryable errors, subagents blind to late MCP servers, lost cancellations, hung workers, stale-commit reviews, and silent model rerouting, with deterministic fixes and an 8-test fault-injection block."
+
+AB_ISSUE3_TITLE = "Issue #3: Evaluate Your AI Agent in 30 Minutes — Agent Backbone"
+AB_ISSUE3_FEED_TITLE = "Agent Backbone #3: Evaluate Your AI Agent in 30 Minutes"
+AB_ISSUE3_DESC = "Agent Backbone Briefing Issue #3: a 30-minute routine to evaluate a support, chat, or coding agent with 15-20 real questions, a weighted 1-5 rubric with an accuracy gate, an 8-question regression block, and a free scorecard CSV."
 
 
 def ab_signup_form(id_attr="", heading="Get the Agent Backbone Briefing & Rubric Updates (Free)", subcopy="One practical reliability briefing each week: production agent failure modes, deterministic guardrails, and evaluation templates. Free from Tool Use Cases (Lali Publications).", button_label="Subscribe & Get Updates"):
@@ -50,7 +60,7 @@ AB_UC_CALLOUT_SLUGS = {
 
 AB_UC_CALLOUT = """<div class="cta"><b>Shipping an AI agent in production?</b> Use our free <a href="@R/agent-backbone/index.html">Agent Backbone — Production AI Agent Evaluation Rubric &amp; Weekly Reliability Briefing</a>: a 4-criteria weighted scoring framework, 5 high-frequency failure modes with deterministic fixes, and a fixed 8-question regression test template.</div>"""
 
-AB_NL_CALLOUT = f"""<div class="cta"><b>Building or operating production AI agents?</b> Read <a href="@R/agent-backbone/index.html">Agent Backbone — Production AI Agent Evaluation Rubric &amp; Weekly Reliability Briefing</a>, including the latest <a href="@R/agent-backbone/issue-2/index.html">Issue #2: 7 Ways MCP and Retry Plumbing Quietly Break Production Agents</a>, <a href="@R/agent-backbone/issue-1/index.html">Issue #1: 5 Ways Production AI Agents Quietly Break (And the Deterministic Fixes)</a>, and the <a href="@R/agent-backbone/{PDF_FILENAME}">free downloadable PDF rubric</a>.</div>"""
+AB_NL_CALLOUT = f"""<div class="cta"><b>Building or operating production AI agents?</b> Read <a href="@R/agent-backbone/index.html">Agent Backbone — Production AI Agent Evaluation Rubric &amp; Weekly Reliability Briefing</a>, including the latest <a href="@R/agent-backbone/issue-3/index.html">Issue #3: Evaluate Your AI Agent in 30 Minutes</a>, <a href="@R/agent-backbone/issue-2/index.html">Issue #2: 7 Ways MCP and Retry Plumbing Quietly Break Production Agents</a>, <a href="@R/agent-backbone/issue-1/index.html">Issue #1: 5 Ways Production AI Agents Quietly Break (And the Deterministic Fixes)</a>, and the <a href="@R/agent-backbone/{PDF_FILENAME}">free downloadable PDF rubric</a>.</div>"""
 
 
 ISSUE_1_ARTICLE_HTML = f"""<article class="issue" id="issue-1">
@@ -108,8 +118,16 @@ ISSUE_1_ARTICLE_HTML = f"""<article class="issue" id="issue-1">
 
 
 
+def _issue_md(rel):
+    return open(os.path.join(os.path.dirname(os.path.abspath(__file__)), rel)).read()
+
+
 def _issue2_md():
-    return open(os.path.join(os.path.dirname(os.path.abspath(__file__)), ISSUE2_MD)).read()
+    return _issue_md(ISSUE2_MD)
+
+
+def _issue3_md():
+    return _issue_md(ISSUE3_MD)
 
 
 def _own_url(m):  # absolute links to this site -> relative @R paths
@@ -119,8 +137,7 @@ def _own_url(m):  # absolute links to this site -> relative @R paths
     return "@R/" + path
 
 
-def issue2_article_html():
-    text = _issue2_md()
+def issue_article_html(text):
     text = re.sub(r"(?m)^   (?=([-*]|\d+\.) )", "    ", text)  # python-markdown needs 4-space nesting
     lines, out, infence = text.splitlines(), [], False
     for ln in lines:  # blank line before lists and fences (same preprocessing as the PDF build)
@@ -147,6 +164,14 @@ def issue2_article_html():
     return h
 
 
+def issue2_article_html():
+    return issue_article_html(_issue2_md())
+
+
+def issue3_article_html():
+    return issue_article_html(_issue3_md())
+
+
 AB_ISSUE2_PDF_BOX = f"""<div class="cta" id="download-pdf-issue-2">
 <p style="margin:0 0 10px"><b>Want an offline copy for your team's reliability review?</b> Grab the full Issue #2 in one printable PDF: the 7 failure modes checklist, every Preferred vs. Rejected snippet, the 8-question fault-injection regression block, and the primary sources (14 pages, no login required):</p>
 <p style="margin:0"><a class="btn" href="@R/agent-backbone/{ISSUE2_PDF_FILENAME}" download="{ISSUE2_PDF_FILENAME}">Download Free PDF: Agent Backbone Issue #2 (PDF)</a></p>
@@ -157,9 +182,26 @@ ISSUE_2_ARTICLE_HTML = f"""<article class="issue" id="issue-2">
 {issue2_article_html()}
 </article>"""
 
+AB_ISSUE3_CSV_BOX = f"""<div class="cta" id="download-scorecard">
+<p style="margin:0 0 10px"><b>Want a spreadsheet you can score in?</b> Download the free Agent Reliability Scorecard (CSV, no signup): the four criteria and 1-to-5 anchors, a run-info row, and a blank 20-row test set with a self-calculating weighted score and accuracy gate. Open it in Google Sheets (File &gt; Import) or Excel:</p>
+<p style="margin:0"><a class="btn" href="@R/agent-backbone/{ISSUE3_CSV_FILENAME}" download="{ISSUE3_CSV_FILENAME}">Download Free Scorecard (CSV)</a></p>
+</div>"""
+
+ISSUE_3_ARTICLE_HTML = f"""<article class="issue" id="issue-3">
+<p class="muted"><small><time datetime="{ISSUE3_ISO}">{ISSUE3_DISPLAY}</time> · Agent Backbone Briefing #3 · Published by Lali Publications</small></p>
+{issue3_article_html()}
+</article>"""
+
+AB_ISSUE3_LISTING = f"""<div class="card" id="issue-3-listing">
+<h3><a href="@R/agent-backbone/issue-3/index.html">Issue #3: Evaluate Your AI Agent in 30 Minutes</a></h3>
+<p class="muted"><small><time datetime="{ISSUE3_ISO}">{ISSUE3_DISPLAY}</time> · Latest issue · Published by Lali Publications</small></p>
+<p>A 30-minute routine any small team can run on a chat, support, or coding agent with a spreadsheet: a fixed 15-to-20-question test set, a 1-to-5 rubric with a hard accuracy gate, two Preferred vs. Rejected worked examples, a deterministic fixes checklist, and an 8-question regression block. Recent changes were re-checked against official sources on November 10, 2026.</p>
+<p style="margin:0"><a class="btn" href="@R/agent-backbone/issue-3/index.html">Read Issue #3</a> <a href="@R/agent-backbone/{ISSUE3_CSV_FILENAME}" download="{ISSUE3_CSV_FILENAME}">Download the free scorecard (CSV)</a></p>
+</div>"""
+
 AB_ISSUE2_LISTING = f"""<div class="card" id="issue-2-listing">
 <h3><a href="@R/agent-backbone/issue-2/index.html">Issue #2: 7 Ways MCP and Retry Plumbing Quietly Break Production Agents</a></h3>
-<p class="muted"><small><time datetime="{ISSUE2_ISO}">{ISSUE2_DISPLAY}</time> · Latest issue · Published by Lali Publications</small></p>
+<p class="muted"><small><time datetime="{ISSUE2_ISO}">{ISSUE2_DISPLAY}</time> · Published by Lali Publications</small></p>
 <p>Duplicate tool calls on mid-call disconnects, retrying what the server said not to retry, subagents blind to late-connecting MCP servers, cancellations that never reach the server, hung workers, stale-commit code reviews, and silent model rerouting. Each failure mode is verified against public releases dated Oct 21–28, 2026, with deterministic fixes and an 8-question fault-injection regression block.</p>
 <p style="margin:0"><a class="btn" href="@R/agent-backbone/issue-2/index.html">Read Issue #2</a> <a href="@R/agent-backbone/{ISSUE2_PDF_FILENAME}" download="{ISSUE2_PDF_FILENAME}">Download the free Issue #2 PDF</a></p>
 </div>"""
@@ -168,7 +210,7 @@ AB_ISSUE2_LISTING = f"""<div class="card" id="issue-2-listing">
 AB_BODY = f"""<p><small><a href="@R/index.html">Tool Use Cases</a> / <a href="@R/newsletter/index.html">Newsletter</a> / Agent Backbone</small></p>
 <h1>Agent Backbone — Production AI Agent Evaluation Rubric &amp; Weekly Reliability Briefing</h1>
 <p class="lede">A free, deterministic evaluation framework for builders, solo developers, and small teams running customer support, voice, coding, or workflow AI agents in production. Score real outputs across 4 weighted criteria, fix the 5 highest-frequency production failure modes, and lock in reliability with a fixed 8-question regression suite.</p>
-<p class="byline muted"><small>Published <time datetime="{PUBLISHED_ISO}">{PUBLISHED_DISPLAY}</time> by Tool Use Cases (Lali Publications) · Free open rubric &amp; weekly briefing (<a href="@R/agent-backbone/issue-2/index.html">read the latest, Issue #2</a>, <a href="#issue-1">jump to Issue #1</a>, <a href="#regression-template">the 8-question test template</a>, or <a href="@R/agent-backbone/{PDF_FILENAME}" download="{PDF_FILENAME}">download the free PDF</a>)</small></p>
+<p class="byline muted"><small>Published <time datetime="{PUBLISHED_ISO}">{PUBLISHED_DISPLAY}</time> by Tool Use Cases (Lali Publications) · Free open rubric &amp; weekly briefing (<a href="@R/agent-backbone/issue-3/index.html">read the latest, Issue #3</a>, <a href="@R/agent-backbone/issue-2/index.html">Issue #2</a>, <a href="#issue-1">jump to Issue #1</a>, <a href="#regression-template">the 8-question test template</a>, or <a href="@R/agent-backbone/{PDF_FILENAME}" download="{PDF_FILENAME}">download the free PDF</a>)</small></p>
 
 {AB_PDF_DOWNLOAD_BOX}
 
@@ -355,6 +397,8 @@ AB_BODY = f"""<p><small><a href="@R/index.html">Tool Use Cases</a> / <a href="@R
 <h2 id="briefing-archive">4. Agent Backbone Weekly Reliability Briefing — All Issues</h2>
 <p>The latest issue is listed first. Read Issue #1 in full below (or open the standalone permalink at <a href="@R/agent-backbone/issue-1/index.html">Agent Backbone Briefing #1</a>).</p>
 
+{AB_ISSUE3_LISTING}
+
 {AB_ISSUE2_LISTING}
 
 
@@ -385,7 +429,7 @@ AB_ISSUE1_BODY = f"""<p><small><a href="@R/index.html">Tool Use Cases</a> / <a h
 <b>Read the full evaluation framework:</b> See the complete <a href="@R/agent-backbone/index.html">4-Criteria Weighted Production Agent Evaluation Rubric &amp; 8-Question Regression Test Template</a> on the Agent Backbone hub page, or <a href="@R/agent-backbone/{PDF_FILENAME}" download="{PDF_FILENAME}">download the free printable PDF</a>.
 </div>
 
-<div class="cta"><b>Next issue:</b> <a href="@R/agent-backbone/issue-2/index.html">Agent Backbone #2: 7 Ways MCP and Retry Plumbing Quietly Break Production Agents</a>: duplicate tool calls, retry storms, late MCP connects, lost cancellations, hung workers, stale-commit reviews, and silent model rerouting.</div>
+<div class="cta"><b>Latest issue:</b> <a href="@R/agent-backbone/issue-3/index.html">Agent Backbone #3: Evaluate Your AI Agent in 30 Minutes</a> — a 30-minute spreadsheet routine, an accuracy gate, and an 8-question regression block. <b>Previous:</b> <a href="@R/agent-backbone/issue-2/index.html">Agent Backbone #2: 7 Ways MCP and Retry Plumbing Quietly Break Production Agents</a>.</div>
 
 {ab_signup_form(' id="signup-bottom"', heading="Subscribe to Agent Backbone (Free)", subcopy="One high-signal email each week on production AI agent evaluation and reliability.", button_label="Subscribe Free")}
 """
@@ -394,7 +438,7 @@ AB_ISSUE1_BODY = f"""<p><small><a href="@R/index.html">Tool Use Cases</a> / <a h
 AB_ISSUE2_BODY = f"""<p><small><a href="@R/index.html">Tool Use Cases</a> / <a href="@R/agent-backbone/index.html">Agent Backbone Rubric &amp; Briefing</a> / Issue #2</small></p>
 <h1>Agent Backbone #2: 7 Ways MCP and Retry Plumbing Quietly Break Production Agents</h1>
 <p class="lede">Duplicate side effects, retry storms, tools a subagent can't see, cancellations that never arrive, hung callers, stale-commit reviews, and silent model swaps: the transport and orchestration bugs behind week-three production failures, and the deterministic fixes.</p>
-<p class="byline muted"><small>Published <time datetime="{ISSUE2_ISO}">{ISSUE2_DISPLAY}</time> by Lali Publications · <a href="@R/agent-backbone/issue-1/index.html">Previous issue: #1</a> · <a href="@R/agent-backbone/{ISSUE2_PDF_FILENAME}" download="{ISSUE2_PDF_FILENAME}">Download the free PDF</a></small></p>
+<p class="byline muted"><small>Published <time datetime="{ISSUE2_ISO}">{ISSUE2_DISPLAY}</time> by Lali Publications · <a href="@R/agent-backbone/issue-3/index.html">Latest issue: #3</a> · <a href="@R/agent-backbone/issue-1/index.html">Previous issue: #1</a> · <a href="@R/agent-backbone/{ISSUE2_PDF_FILENAME}" download="{ISSUE2_PDF_FILENAME}">Download the free PDF</a></small></p>
 
 {AB_ISSUE2_PDF_BOX}
 
@@ -403,7 +447,26 @@ AB_ISSUE2_BODY = f"""<p><small><a href="@R/index.html">Tool Use Cases</a> / <a h
 {ISSUE_2_ARTICLE_HTML}
 
 <div class="cta">
-<b>Keep reading:</b> <a href="@R/agent-backbone/issue-1/index.html">Agent Backbone #1: 5 Ways Production AI Agents Quietly Break (And the Deterministic Fixes)</a> covers the conversation-level failures, and the <a href="@R/agent-backbone/index.html">Agent Backbone hub</a> has the full 4-criteria rubric and 8-question regression template (or <a href="@R/agent-backbone/{PDF_FILENAME}" download="{PDF_FILENAME}">download the rubric PDF</a>). <a href="@R/newsletter/issue-3/index.html">Tool Picks Weekly #3</a> previewed this issue alongside the week's tool launches.
+<b>Keep reading:</b> the latest issue is <a href="@R/agent-backbone/issue-3/index.html">Agent Backbone #3: Evaluate Your AI Agent in 30 Minutes</a>. <a href="@R/agent-backbone/issue-1/index.html">Agent Backbone #1: 5 Ways Production AI Agents Quietly Break (And the Deterministic Fixes)</a> covers the conversation-level failures, and the <a href="@R/agent-backbone/index.html">Agent Backbone hub</a> has the full 4-criteria rubric and 8-question regression template (or <a href="@R/agent-backbone/{PDF_FILENAME}" download="{PDF_FILENAME}">download the rubric PDF</a>). <a href="@R/newsletter/issue-4/index.html">Tool Picks Weekly #4</a> covers this week's unattended-agent changes.
+</div>
+
+{ab_signup_form(' id="signup-bottom"', heading="Subscribe to Agent Backbone (Free)", subcopy="One high-signal email each week on production AI agent evaluation and reliability.", button_label="Subscribe Free")}
+"""
+
+
+AB_ISSUE3_BODY = f"""<p><small><a href="@R/index.html">Tool Use Cases</a> / <a href="@R/agent-backbone/index.html">Agent Backbone Rubric &amp; Briefing</a> / Issue #3</small></p>
+<h1>Agent Backbone #3: Evaluate Your AI Agent in 30 Minutes</h1>
+<p class="lede">A 30-minute routine to evaluate a support, chat, or coding agent: a fixed test set, a weighted 1-to-5 rubric with a hard accuracy gate, two Preferred vs. Rejected examples, and an 8-question regression block you re-run after every change.</p>
+<p class="byline muted"><small>Published <time datetime="{ISSUE3_ISO}">{ISSUE3_DISPLAY}</time> by Lali Publications · <a href="@R/agent-backbone/issue-2/index.html">Previous issue: #2</a> · <a href="@R/agent-backbone/{ISSUE3_CSV_FILENAME}" download="{ISSUE3_CSV_FILENAME}">Download the free scorecard (CSV)</a></small></p>
+
+{AB_ISSUE3_CSV_BOX}
+
+{ab_signup_form(' id="signup-top"', heading="Get the Agent Backbone Briefing + Free Evaluation Rubric", subcopy="Weekly production AI agent failure modes, deterministic fixes, and our 4-criteria evaluation rubric. Free from Lali Publications.")}
+
+{ISSUE_3_ARTICLE_HTML}
+
+<div class="cta">
+<b>Keep reading:</b> <a href="@R/agent-backbone/issue-2/index.html">Agent Backbone #2: 7 Ways MCP and Retry Plumbing Quietly Break Production Agents</a> covers transport and retry failures, <a href="@R/agent-backbone/issue-1/index.html">Agent Backbone #1</a> covers conversation-level failures, and the <a href="@R/agent-backbone/index.html">Agent Backbone hub</a> has the full 4-criteria rubric and 8-question regression template (or <a href="@R/agent-backbone/{PDF_FILENAME}" download="{PDF_FILENAME}">download the rubric PDF</a>). <a href="@R/newsletter/issue-4/index.html">Tool Picks Weekly #4</a> covers this week's unattended-agent changes.
 </div>
 
 {ab_signup_form(' id="signup-bottom"', heading="Subscribe to Agent Backbone (Free)", subcopy="One high-signal email each week on production AI agent evaluation and reliability.", button_label="Subscribe Free")}
