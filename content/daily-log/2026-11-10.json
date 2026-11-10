@@ -1,0 +1,23 @@
+{"date": "2026-11-10", "items": [
+ {"type": "Price change", "tool": "Claude Code",
+  "what": "In 2.1.321 (Nov 9, 2026), Claude Fable 5.2 (claude-fable-5-2) is added and is now the default Fable model: 1M context, $8/$40 per Mtok with $0.20/Mtok cache reads.",
+  "source_name": "Claude Code release v2.1.321",
+  "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.321",
+  "checked": "10:21 AM",
+  "test": "If you pick Fable without pinning a version, run /model or check your usage after updating to confirm which model you're on, and re-check your per-task cost against the new rates.",
+  "use_case": "best-ai-coding-agents"},
+ {"type": "Breaking change", "tool": "OpenCode",
+  "what": "In 2.2.7 (Nov 10, 2026), ImageResponse.image is removed from @opencode/ai; read response.images[0] instead.",
+  "source_name": "OpenCode release v2.2.7",
+  "source_url": "https://github.com/anomalyco/opencode/releases/tag/v2.2.7",
+  "checked": "10:21 AM",
+  "test": "If your code imports @opencode/ai, search it for .image on image responses and switch to response.images[0] before upgrading.",
+  "use_case": "best-ai-coding-agents"},
+ {"type": "Breaking change", "tool": "OpenCode",
+  "what": "In 2.2.7 (Nov 10, 2026), on a Location still loading plugins, SDK agent.list returns the agents loaded so far, and integration.list, usage.limits, vcs.init, rpc.call and artifact.* no longer wait up to 5 seconds.",
+  "source_name": "OpenCode release v2.2.7",
+  "source_url": "https://github.com/anomalyco/opencode/releases/tag/v2.2.7",
+  "checked": "10:21 AM",
+  "test": "If your SDK client lists agents or integrations right after startup, check that plugin-provided entries still show up; refresh on the matching *.updated event.",
+  "use_case": "best-ai-coding-agents"}
+]}
