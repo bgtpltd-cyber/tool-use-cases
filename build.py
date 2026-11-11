@@ -596,7 +596,7 @@ def guide_html(slug, tools, lang, L=None):  # 'How to choose' block + price-chec
 def upgrade_html(slug):  # English-only (upgrades.py): dated comparison table, recent dated changes, 'What we checked' note
     U = upgrades.UPGRADES.get(slug)
     if not U: return ""
-    d = upgrades.CHECKED; dt = f'<time datetime="{d}">{e(date_mdy(d))}</time>'
+    d = (U or {}).get('checked', upgrades.CHECKED); dt = f'<time datetime="{d}">{e(date_mdy(d))}</time>'
     rows = "".join(f'<tr><th scope="row"><a href="{url}" rel="noopener" target="_blank">{e(n)}</a>' + (f'<br><small class="muted">{e(role)}</small>' if role else "") +
                    f'</th><td>{e(job)}</td><td>{e(free)}</td><td>{e(entry)}</td><td>{e(nw)}</td></tr>' for n,url,role,job,free,entry,nw in U["rows"])
     out = (f'<h2 id="compare">Comparison table (Updated Nov 2026)</h2><p class="muted"><small>Free tiers and entry prices verified against each vendor\'s official pricing page or docs on {dt}. '
@@ -666,7 +666,7 @@ for slug,title,blurb,tools in UC:
 <h2>FAQ</h2>{"".join(f'<h3>{e(q)}</h3><p>{e(a)}</p>' for q,a in faqs)}
 {ab.AB_UC_CALLOUT if slug in ab.AB_UC_CALLOUT_SLUGS else ""}{relhtml}<p><a href="@R/use-cases/index.html">Browse all use cases →</a></p>""", ld=[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
      {"@type":"ListItem","position":1,"name":"Home","item":BASE},{"@type":"ListItem","position":2,"name":"Use cases","item":BASE+"use-cases/"},{"@type":"ListItem","position":3,"name":title,"item":f"{BASE}use-cases/{slug}/"}]},
-     {"@context":"https://schema.org","@type":"ItemList","name":title,"description":blurb,"url":f"{BASE}use-cases/{slug}/","itemListElement":[{"@type":"ListItem","position":i,"name":T[t][0],"url":T[t][1]} for i,(t,v) in enumerate(tools,1)]}, page_ld(uc_title(title), f"{BASE}use-cases/{slug}/", modified=upgrades.CHECKED if slug in upgrades.UPGRADES else None),
+     {"@context":"https://schema.org","@type":"ItemList","name":title,"description":blurb,"url":f"{BASE}use-cases/{slug}/","itemListElement":[{"@type":"ListItem","position":i,"name":T[t][0],"url":T[t][1]} for i,(t,v) in enumerate(tools,1)]}, page_ld(uc_title(title), f"{BASE}use-cases/{slug}/", modified=upgrades.UPGRADES[slug].get("checked", upgrades.CHECKED) if slug in upgrades.UPGRADES else None),
      {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in faqs]}])
 
 uses = {}

@@ -60,9 +60,9 @@ PRICES = {
             "Plano Developer grátis para um usuário. Team a partir de US$ 26/mês no anual.",
             "Plan Developer gratuito para un usuario. Team desde 26 US$/mes en anual.",
             "https://sentry.io/pricing"),
- "rosebud": ("Free plan starts you with 8,000 credits, no card needed. Paid plans include Pro at $50/mo.",
-             "O plano grátis começa com 8.000 créditos, sem cartão. Entre os planos pagos está o Pro, a US$ 50/mês.",
-             "El plan gratuito empieza con 8.000 créditos, sin tarjeta. Entre los planes de pago está Pro, a 50 US$/mes.",
+ "rosebud": ("Free plan starts you with 10,000 credits, no card needed. Paid plans include Pro at $50/mo.",
+             "O plano grátis começa com 10.000 créditos, sem cartão. Entre os planos pagos está o Pro, a US$ 50/mês.",
+             "El plan gratuito empieza con 10.000 créditos, sin tarjeta. Entre los planes de pago está Pro, a 50 US$/mes.",
              "https://rosebud.ai/pricing"),
  "scenario": ("Free plan outputs are for personal and evaluation use only. Paid plans from $15/mo (Starter).",
               "O que você gera no plano grátis é só para uso pessoal e avaliação. Planos pagos a partir de US$ 15/mês (Starter).",
@@ -372,7 +372,7 @@ GUIDES = {
 </ul>"""},
  "best-ai-for-game-prototyping": {
   "en": """<ul>
-<li><b>A playable browser game from a prompt:</b> @T(rosebud). The free plan starts you with 8,000 credits.</li>
+<li><b>A playable browser game from a prompt:</b> @T(rosebud). The free plan starts you with 10,000 credits.</li>
 <li><b>A real engine (Godot, Unity, Phaser):</b> @T(cursor) writes the scripts while you play-test.</li>
 <li><b>Art you plan to sell:</b> @T(scenario) keeps a consistent style, but free-plan outputs are for personal and evaluation use only, so budget for a paid plan.</li>
 <li><b>3D blockouts:</b> @T(meshy) (100 free credits a month). <b>Music:</b> @T(suno). <b>Voices and sound effects:</b> @T(elevenlabs). All three have free plans.</li>
@@ -380,7 +380,7 @@ GUIDES = {
 <p><b>Also worth a look:</b> <a href="https://gdevelop.io" rel="noopener" target="_blank">GDevelop</a>, a free, open-source, no-code game engine with AI assistance, if you'd rather not write engine code at all.</p>
 <p><b>Free quick tests from Google (checked Oct 23, 2026):</b> <a href="https://gemini.google/overview/canvas/" rel="noopener" target="_blank">Gemini Canvas</a>, available to all Gemini users, turns a prompt into a small working game you can share by link, and <a href="https://aistudio.google.com/vibe-code" rel="noopener" target="_blank">Google AI Studio</a>'s Build mode has a gallery of 2D and 3D games you can remix.</p>""",
   "pt-BR": """<ul>
-<li><b>Um jogo jogável no navegador a partir de um prompt:</b> @T(rosebud). O plano grátis começa com 8.000 créditos.</li>
+<li><b>Um jogo jogável no navegador a partir de um prompt:</b> @T(rosebud). O plano grátis começa com 10.000 créditos.</li>
 <li><b>Uma engine de verdade (Godot, Unity, Phaser):</b> o @T(cursor) escreve os scripts enquanto você testa.</li>
 <li><b>Arte que você pretende vender:</b> o @T(scenario) mantém um estilo consistente, mas o que sai do plano grátis é só para uso pessoal e avaliação; reserve verba para um plano pago.</li>
 <li><b>Blocos 3D:</b> @T(meshy) (100 créditos grátis por mês). <b>Música:</b> @T(suno). <b>Vozes e efeitos sonoros:</b> @T(elevenlabs). Os três têm plano grátis.</li>
@@ -388,7 +388,7 @@ GUIDES = {
 <p><b>Vale olhar também:</b> o <a href="https://gdevelop.io" rel="noopener" target="_blank">GDevelop</a>, uma engine de jogos grátis, open source e no-code, com assistência de IA, se você prefere não escrever código de engine.</p>
 <p><b>Testes rápidos e grátis do Google (conferidos em 23 de out. de 2026):</b> o <a href="https://gemini.google/overview/canvas/" rel="noopener" target="_blank">Gemini Canvas</a>, disponível para todos os usuários do Gemini, transforma um prompt em um pequeno jogo funcionando que você compartilha por link, e o modo Build do <a href="https://aistudio.google.com/vibe-code" rel="noopener" target="_blank">Google AI Studio</a> tem uma galeria de jogos 2D e 3D para remixar.</p>""",
   "es": """<ul>
-<li><b>Un juego jugable en el navegador a partir de un prompt:</b> @T(rosebud). El plan gratuito empieza con 8.000 créditos.</li>
+<li><b>Un juego jugable en el navegador a partir de un prompt:</b> @T(rosebud). El plan gratuito empieza con 10.000 créditos.</li>
 <li><b>Un motor de verdad (Godot, Unity, Phaser):</b> @T(cursor) escribe los scripts mientras tú pruebas el juego.</li>
 <li><b>Arte que piensas vender:</b> @T(scenario) mantiene un estilo coherente, pero lo que generas en el plan gratuito es solo para uso personal y de evaluación; reserva presupuesto para un plan de pago.</li>
 <li><b>Bloques 3D:</b> @T(meshy) (100 créditos gratis al mes). <b>Música:</b> @T(suno). <b>Voces y efectos de sonido:</b> @T(elevenlabs). Los tres tienen plan gratuito.</li>

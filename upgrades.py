@@ -135,12 +135,13 @@ UPGRADES["best-ai-coding-agents"] = {
 }
 
 UPGRADES["best-ai-for-game-prototyping"] = {
- "quick": "Rosebud is our top pick for getting a playable browser game from a prompt, and its free plan starts you with 8,000 credits. "
+ "checked": "2026-11-11",  # per-page override: this page was re-verified Nov 11, 2026
+ "quick": "Rosebud is our top pick for getting a playable browser game from a prompt, and its free plan starts you with 10,000 credits. "
           "Use Cursor if you are working in a real engine such as Godot, Unity or Phaser, or GDevelop if you want a free, open-source no-code engine.",
  "rows": [
   ("Rosebud", "https://rosebud.ai/pricing", "Top pick",
    "A playable browser game from a text prompt",
-   "Yes: starts with 8,000 credits, no card needed; credits refill weekly in eligible regions",
+   "Yes: starts with 10,000 credits, no card needed; credits refill weekly in eligible regions",
    "Indie Dev $15/mo. Commercial rights start on 10x Dev ($30/mo); code download and Windows export start on Pro ($50/mo).",
    "You plan to sell the game but won't pay $30/mo or more: commercial rights start on 10x Dev."),
   ("Cursor", "https://cursor.com/pricing", "Runner-up",
@@ -151,7 +152,7 @@ UPGRADES["best-ai-for-game-prototyping"] = {
   ("GDevelop", "https://gdevelop.io/pricing", "Free option",
    "A free, open-source no-code game engine with AI help",
    "Yes: the editor and engine are open source (MIT); free accounts get 40 AI credits a month and 3 cloud projects",
-   "Silver $7.99/mo ($54.99/yr), with 200 AI credits a week",
+   "Silver $7.99/mo, with 200 AI credits a week",
    "You'd rather write code in an engine such as Godot or Unity."),
   ("Meshy", "https://www.meshy.ai/pricing", "",
    "Quick text- or image-to-3D props and characters to block out levels",
@@ -168,7 +169,7 @@ UPGRADES["best-ai-for-game-prototyping"] = {
   ("What is the best AI for game prototyping?",
    "Rosebud, if you want a playable browser game from a prompt. If you are working in a real engine such as Godot, Unity or Phaser, use Cursor to write the scripts while you play-test. For art and sound, add Scenario, Meshy, Suno or ElevenLabs as needed."),
   ("Can I make a game prototype with AI for free?",
-   "Yes. As of Oct 31, 2026, Rosebud's free plan starts you with 8,000 credits and no card, GDevelop's open-source engine is free with 40 AI credits a month, and Cursor, Meshy and Scenario all have free plans with limits."),
+   "Yes. As of Nov 11, 2026, Rosebud's free plan starts you with 10,000 credits and no card, GDevelop's open-source engine is free with 40 AI credits a month, and Cursor, Meshy and Scenario all have free plans with limits."),
   ("Can I sell a game I make with these free plans?",
    "Check each license first. Rosebud includes commercial rights from the 10x Dev plan ($30/mo). Scenario's free-plan outputs are for personal and evaluation use only. Meshy's free-plan models are CC BY 4.0, which allows commercial use with attribution. GDevelop's engine is open source (MIT), and its pricing page says an account used for a company with more than $50,000 a year in revenue must be on the Pro plan."),
   ("Rosebud or GDevelop: which should I start with?",
