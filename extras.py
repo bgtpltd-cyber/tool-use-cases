@@ -489,4 +489,29 @@ GUIDES = {
 <li><b>Imágenes, no texto:</b> @T(sd). La mayoría lo ejecuta con ComfyUI; cuenta con una buena GPU y algo de ajuste.</li>
 </ul>
 <p><small>Ollama y OpenCode son de código abierto con licencia MIT, y ComfyUI con GPL-3.0; ejecutarlos solo cuesta tu hardware. Licencias comprobadas en el repositorio oficial de cada proyecto en GitHub, y la configuración con Ollama en la documentación de Ollama y OpenCode, el 10 de nov. de 2026.</small></p>"""},
+ "best-ai-for-scraping": {
+  "en": """<ul>
+<li><b>You need clean page text for an LLM or a RAG pipeline:</b> @T(firecrawl). It returns clean Markdown or structured data, and its docs list a keyless MCP server URL for Search, Scrape and Parse that Claude Code, Codex CLI, Cursor and OpenCode can add.</li>
+<li><b>A common site (maps, social, e-commerce):</b> check the Apify Store first. @T(apify) listed 117,381 Actors on Nov 11, 2026, so a ready-made scraper may already exist.</li>
+<li><b>The page needs a login, clicks or a real browser:</b> @T(browserbase) with its open-source Stagehand framework.</li>
+<li><b>An unusual one-off site:</b> have @T(claude-code) or @T(cursor) write and debug a small scraper against the real page.</li>
+<li><b>Whatever you pick:</b> read the site's terms and robots.txt before you scrape it.</li>
+</ul>
+<p><small>Firecrawl is open source under AGPL-3.0 and Stagehand under MIT (official GitHub repositories); the MCP setup is from the Firecrawl docs and the Actor count from the Apify Store. All checked Nov 11, 2026.</small></p>""",
+  "pt-BR": """<ul>
+<li><b>Você precisa de texto limpo das páginas para um LLM ou um pipeline de RAG:</b> @T(firecrawl). Ele devolve Markdown limpo ou dados estruturados, e a documentação traz a URL de um servidor MCP sem chave para Search, Scrape e Parse, que Claude Code, Codex CLI, Cursor e OpenCode podem adicionar.</li>
+<li><b>Um site comum (mapas, redes sociais, e-commerce):</b> veja primeiro a Apify Store. A @T(apify) listava 117.381 Actors em 11 de nov. de 2026, então talvez já exista um scraper pronto.</li>
+<li><b>A página exige login, cliques ou um navegador de verdade:</b> @T(browserbase) com o framework open source Stagehand.</li>
+<li><b>Um site incomum, de uso único:</b> peça ao @T(claude-code) ou ao @T(cursor) para escrever e depurar um pequeno scraper na página real.</li>
+<li><b>Seja qual for a escolha:</b> leia os termos do site e o robots.txt antes de fazer scraping.</li>
+</ul>
+<p><small>O Firecrawl é open source sob a AGPL-3.0 e o Stagehand sob a MIT (repositórios oficiais no GitHub); a configuração MCP vem da documentação do Firecrawl e o número de Actors da Apify Store. Tudo conferido em 11 de nov. de 2026.</small></p>""",
+  "es": """<ul>
+<li><b>Necesitas texto limpio de las páginas para un LLM o un pipeline de RAG:</b> @T(firecrawl). Devuelve Markdown limpio o datos estructurados, y su documentación indica la URL de un servidor MCP sin clave para Search, Scrape y Parse que Claude Code, Codex CLI, Cursor y OpenCode pueden añadir.</li>
+<li><b>Un sitio común (mapas, redes sociales, e-commerce):</b> revisa primero la Apify Store. @T(apify) listaba 117.381 Actors el 11 de nov. de 2026, así que quizá ya exista un scraper listo.</li>
+<li><b>La página requiere inicio de sesión, clics o un navegador real:</b> @T(browserbase) con su framework de código abierto Stagehand.</li>
+<li><b>Un sitio poco común, de una sola vez:</b> pide a @T(claude-code) o a @T(cursor) que escriban y depuren un pequeño scraper contra la página real.</li>
+<li><b>Elijas lo que elijas:</b> lee los términos del sitio y su robots.txt antes de hacer scraping.</li>
+</ul>
+<p><small>Firecrawl es de código abierto con licencia AGPL-3.0 y Stagehand con MIT (repositorios oficiales en GitHub); la configuración MCP proviene de la documentación de Firecrawl y el número de Actors de la Apify Store. Todo comprobado el 11 de nov. de 2026.</small></p>"""},
 }
