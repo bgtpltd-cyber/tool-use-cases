@@ -1,0 +1,23 @@
+{"date": "2026-11-11", "items": [
+ {"type": "Breaking change", "tool": "MCP servers (server-filesystem)",
+  "what": "v2.4.0 (Nov 11, 2026) fixes two vulnerabilities in @modelcontextprotocol/server-filesystem 2.3.0. Package managers rank 2.3.0 below every 2025.x and 2026.x date version, so they won't offer it as an upgrade.",
+  "source_name": "modelcontextprotocol/servers release v2.4.0",
+  "source_url": "https://github.com/modelcontextprotocol/servers/releases/tag/v2.4.0",
+  "checked": "10:17 AM",
+  "test": "If you run a date version of server-filesystem, install it explicitly: npm install @modelcontextprotocol/server-filesystem@2.3.0, then confirm the version your MCP client launches.",
+  "use_case": "best-ai-for-agent-frameworks"},
+ {"type": "Breaking change", "tool": "MCP servers (mcp-server-git)",
+  "what": "mcp-server-git 2026.11.11 (in v2.4.0) stops a repository's own Git config from making the server run a program, and refuses a Git older than 2.31.",
+  "source_name": "modelcontextprotocol/servers release v2.4.0",
+  "source_url": "https://github.com/modelcontextprotocol/servers/releases/tag/v2.4.0",
+  "checked": "10:17 AM",
+  "test": "Run git --version on every machine or image that runs mcp-server-git; upgrade Git to 2.31 or newer before moving to 2026.11.11.",
+  "use_case": "best-ai-for-agent-frameworks"},
+ {"type": "Breaking change", "tool": "MCP servers (mcp-server-fetch)",
+  "what": "mcp-server-fetch 2026.11.11 (in v2.4.0) now refuses IPv6 site-local fec0::/10 and other IPv6 addresses outside 2000::/3 without an IPv4 address, and matches robots.txt against the resolved path.",
+  "source_name": "modelcontextprotocol/servers release v2.4.0",
+  "source_url": "https://github.com/modelcontextprotocol/servers/releases/tag/v2.4.0",
+  "checked": "10:17 AM",
+  "test": "After upgrading, re-run any fetch calls that hit internal IPv6 hosts or paths like //private; expect them to be refused now.",
+  "use_case": "best-ai-for-agent-frameworks"}
+]}
