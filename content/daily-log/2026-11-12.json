@@ -1,0 +1,23 @@
+{"date": "2026-11-12", "items": [
+ {"type": "Breaking change", "tool": "Codex",
+  "what": "In rust-v0.167.2 (Nov 11, 2026), Codex now sends tool updates incrementally by default on Google Cloud Vertex AI.",
+  "source_name": "openai/codex release rust-v0.167.2",
+  "source_url": "https://github.com/openai/codex/releases/tag/rust-v0.167.2",
+  "checked": "10:20 AM",
+  "test": "If you run Codex on Vertex AI, run a tool-heavy task after upgrading and check tool calls still complete. The release notes give the opt-out: set incremental_tools_legacy_gcp = false under [features] in config.toml.",
+  "use_case": "best-ai-coding-agents"},
+ {"type": "Breaking change", "tool": "LangGraph CLI",
+  "what": "In langgraph-cli 0.4.43 (Nov 12, 2026), the discontinued local debugger image is removed: langgraph up --debugger-port now returns \"No such option\". New --studio-url and --api-url flags point to hosted Studio.",
+  "source_name": "langchain-ai/langgraph PR #8543 (shipped in cli==0.4.43)",
+  "source_url": "https://github.com/langchain-ai/langgraph/pull/8543",
+  "checked": "10:22 AM",
+  "test": "Search your scripts, Makefiles and CI for --debugger-port and remove it before upgrading; use the printed Studio link, or --studio-url and --api-url, instead.",
+  "use_case": "best-ai-for-agent-frameworks"},
+ {"type": "Breaking change", "tool": "CrewAI",
+  "what": "In crewAI 1.15.40 (Nov 11, 2026), openai, azure and openrouter embedders use a native OpenAI function: no CHROMA_OPENAI_API_KEY fallback, and empty input raises ValueError instead of returning [].",
+  "source_name": "crewAIInc/crewAI PR #8934 (shipped in 1.15.40)",
+  "source_url": "https://github.com/crewAIInc/crewAI/pull/8934",
+  "checked": "10:23 AM",
+  "test": "If your embedder key lives only in CHROMA_OPENAI_API_KEY, move it to api_key, EMBEDDINGS_OPENAI_API_KEY or OPENAI_API_KEY, then run Knowledge or RAG with an empty document to see how your code handles the new ValueError.",
+  "use_case": "best-ai-for-agent-frameworks"}
+]}
