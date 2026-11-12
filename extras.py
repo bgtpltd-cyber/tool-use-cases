@@ -241,9 +241,9 @@ PRICES = {
    "Plano grátis para sempre, com limites mensais rígidos, então não gera cobranças. Personal: US$ 9/mês; Pro: US$ 20/mês com membros ilimitados.",
    "Plan gratuito para siempre, con límites mensuales fijos, así que no genera cargos. Personal: 9 US$/mes; Pro: 20 US$/mes con miembros ilimitados.",
    "https://www.netlify.com/pricing/"),
- "railway": ("30-day free trial with $5 of credits, no card needed. Hobby has a $5/mo minimum that includes $5 of usage; Pro includes $20 of usage a month.",
-   "Teste grátis de 30 dias com US$ 5 em créditos, sem cartão. O Hobby tem mínimo de US$ 5/mês, que inclui US$ 5 de uso; o Pro inclui US$ 20 de uso por mês.",
-   "Prueba gratuita de 30 días con 5 US$ en créditos, sin tarjeta. Hobby tiene un mínimo de 5 US$/mes que incluye 5 US$ de uso; Pro incluye 20 US$ de uso al mes.",
+ "railway": ("30-day free trial with $5 of credits, no card needed, then a Free plan with $1 of usage a month. Hobby $5/mo including $5 of usage; Pro $20/mo per workspace including $20 of usage.",
+   "Teste grátis de 30 dias com US$ 5 em créditos, sem cartão, e depois um plano Free com US$ 1 de uso por mês. Hobby: US$ 5/mês com US$ 5 de uso incluídos; Pro: US$ 20/mês por workspace com US$ 20 de uso incluídos.",
+   "Prueba gratuita de 30 días con 5 US$ en créditos, sin tarjeta, y después un plan Free con 1 US$ de uso al mes. Hobby: 5 US$/mes con 5 US$ de uso incluidos; Pro: 20 US$/mes por workspace con 20 US$ de uso incluidos.",
    "https://railway.com/pricing"),
  "looka": ("Making and browsing logos is free. Logo files from $35 one-time (one PNG); Premium package $72; Brand Kit $96/yr.",
    "Criar e explorar logos é grátis. Arquivos do logo a partir de US$ 35 em pagamento único (um PNG); pacote Premium US$ 72; Brand Kit US$ 96/ano.",
@@ -280,6 +280,7 @@ PRICES = {
 }
 PRICE_DATES = {k: "2026-10-23" for k in ['notion-ai', 'midjourney', 'ideogram', 'grammarly', 'grok', 'n8n', 'make', 'zapier', 'framer', 'figma', 'uizard', 'aiva', 'clearscope', 'julius', 'beautiful-ai', 'tripo', 'rodin', 'fireflies', 'otter', 'grain', 'langchain', 'llamaindex', 'langgraph', 'crewai', 'ms-agent-framework', 'openai-agents', 'ollama', 'wxt', 'vercel', 'netlify', 'railway', 'looka', 'helpscout', 'firecrawl', 'apify', 'browserbase', 'postman', 'bruno', 'mem']}  # entries checked on their official pricing page / repo on Oct 23, 2026
 PRICE_DATES.update({k: "2026-11-06" for k in ['claude', 'claude-code', 'perplexity', 'gemini', 'notebooklm', 'elicit']})  # re-checked Nov 6, 2026 on official pricing pages (Perplexity also confirmed via Perplexity Help Center plan prices)
+PRICE_DATES.update({k: "2026-11-12" for k in ['vercel', 'netlify', 'railway']})  # re-checked Nov 12, 2026 on official pricing pages
 def price_date(t): return PRICE_DATES.get(t, PRICES_CHECKED)
 LABELS = {"en": ("Price", "Prices checked", "on each tool's official pricing page. They change often, so the official page wins.", "How to choose"),
           "pt-BR": ("Preço", "Preços conferidos em", "na página oficial de preços de cada ferramenta. Eles mudam com frequência; vale sempre a página oficial.", "Como escolher"),
@@ -514,4 +515,29 @@ GUIDES = {
 <li><b>Elijas lo que elijas:</b> lee los términos del sitio y su robots.txt antes de hacer scraping.</li>
 </ul>
 <p><small>Firecrawl es de código abierto con licencia AGPL-3.0 y Stagehand con MIT (repositorios oficiales en GitHub); la configuración MCP proviene de la documentación de Firecrawl y el número de Actors de la Apify Store. Todo comprobado el 11 de nov. de 2026.</small></p>"""},
+ "best-ai-for-deploy-hosting": {
+  "en": """<ul>
+<li><b>A Next.js or React app, or anything from v0:</b> @T(vercel). Its pricing page says <code>vercel deploy --temporary</code> deploys a project with no sign-up; the free Hobby plan is for personal, non-commercial use, so plan on Pro ($20/mo) for a business.</li>
+<li><b>A static site or simple app on a budget:</b> @T(netlify). The Free plan has a 300-credit limit, and a production deploy costs 15 credits, so batch your changes instead of deploying every small edit.</li>
+<li><b>A backend, database or background worker:</b> @T(railway). Billing is per second for what you use; the Free plan includes $1 of usage a month and Hobby $5.</li>
+<li><b>A Docker app, or users in several regions:</b> @T(fly), if you're fine with a bit more setup.</li>
+<li><b>You never want to touch deploy settings:</b> build and host in one place on @T(replit).</li>
+</ul>
+<p><small>Vercel, Netlify and Railway plan details checked on each official pricing page on Nov 12, 2026.</small></p>""",
+  "pt-BR": """<ul>
+<li><b>Um app Next.js ou React, ou qualquer coisa feita no v0:</b> @T(vercel). A página de preços diz que <code>vercel deploy --temporary</code> publica um projeto sem cadastro; o plano Hobby grátis é para uso pessoal e não comercial, então conte com o Pro (US$ 20/mês) para um negócio.</li>
+<li><b>Um site estático ou app simples com pouco orçamento:</b> @T(netlify). O plano Free tem limite de 300 créditos, e cada deploy de produção custa 15 créditos, então junte as mudanças em vez de publicar cada pequena edição.</li>
+<li><b>Um backend, banco de dados ou worker em segundo plano:</b> @T(railway). A cobrança é por segundo de uso; o plano Free inclui US$ 1 de uso por mês e o Hobby, US$ 5.</li>
+<li><b>Um app em Docker, ou usuários em várias regiões:</b> @T(fly), se você aceitar um pouco mais de configuração.</li>
+<li><b>Você nunca quer mexer em configuração de deploy:</b> crie e hospede no mesmo lugar com o @T(replit).</li>
+</ul>
+<p><small>Detalhes dos planos da Vercel, Netlify e Railway conferidos na página oficial de preços de cada uma em 12 de nov. de 2026.</small></p>""",
+  "es": """<ul>
+<li><b>Una app Next.js o React, o cualquier cosa hecha con v0:</b> @T(vercel). Su página de precios dice que <code>vercel deploy --temporary</code> publica un proyecto sin registrarse; el plan Hobby gratuito es para uso personal y no comercial, así que cuenta con Pro (20 US$/mes) para un negocio.</li>
+<li><b>Un sitio estático o una app sencilla con poco presupuesto:</b> @T(netlify). El plan Free tiene un límite de 300 créditos y cada deploy de producción cuesta 15 créditos, así que agrupa los cambios en lugar de publicar cada pequeña edición.</li>
+<li><b>Un backend, una base de datos o un worker en segundo plano:</b> @T(railway). Cobra por segundo de uso; el plan Free incluye 1 US$ de uso al mes y Hobby, 5 US$.</li>
+<li><b>Una app en Docker, o usuarios en varias regiones:</b> @T(fly), si no te importa algo más de configuración.</li>
+<li><b>No quieres tocar nunca la configuración de deploy:</b> crea y aloja en un mismo sitio con @T(replit).</li>
+</ul>
+<p><small>Detalles de los planes de Vercel, Netlify y Railway comprobados en la página oficial de precios de cada una el 12 de nov. de 2026.</small></p>"""},
 }
