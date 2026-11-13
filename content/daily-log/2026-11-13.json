@@ -1,0 +1,23 @@
+{"date": "2026-11-13", "items": [
+ {"type": "Breaking change", "tool": "Codex",
+  "what": "In rust-v0.169.0 (Nov 13, 2026), codex exec keeps project configuration and MCP servers disabled in untrusted directories, even with --sandbox workspace-write.",
+  "source_name": "openai/codex release rust-v0.169.0",
+  "source_url": "https://github.com/openai/codex/releases/tag/rust-v0.169.0",
+  "checked": "10:18 AM",
+  "test": "If CI runs codex exec in a fresh checkout and relies on project config or MCP servers, run it after upgrading and check they load. The release notes say to use --trust with codex exec or codex review to explicitly save project trust.",
+  "use_case": "best-ai-coding-agents"},
+ {"type": "Breaking change", "tool": "OpenCode",
+  "what": "In v2.3.0 (Nov 13, 2026), subagents run in the background by default: they return immediately and report back when idle. Transcript verbosity also now defaults to low.",
+  "source_name": "anomalyco/opencode release v2.3.0",
+  "source_url": "https://github.com/anomalyco/opencode/releases/tag/v2.3.0",
+  "checked": "10:18 AM",
+  "test": "If a workflow expects a subagent's result before the next step, run it after upgrading and check the order still holds. To see every tool step again, set session.verbosity to medium or high; an existing setting is kept.",
+  "use_case": "best-ai-coding-agents"},
+ {"type": "Breaking change", "tool": "Claude Code",
+  "what": "In v2.1.323 (Nov 12, 2026), plugin.json accepts engines[\"claude-code\"]: plugins outside their stated Claude Code version range are not installed, updated or loaded.",
+  "source_name": "anthropics/claude-code release v2.1.323",
+  "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.323",
+  "checked": "10:18 AM",
+  "test": "If you publish a plugin, set an engines[\"claude-code\"] range you have tested and run claude plugin validate; if you install plugins, check after upgrading that the ones you rely on still load.",
+  "use_case": "best-ai-coding-agents"}
+]}
