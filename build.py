@@ -305,7 +305,7 @@ UC = [
 
 NEW_UPDATED = "2026-11-05"  # shown as "Last updated" on /new/ (all locales)
 REVIEWED = "2026-10-22"  # date every pick on every use-case page was last re-verified (full scan, Oct 22, 2026); bump only after a full re-check
-SITE_UPDATED = "2026-11-12"  # sitemap <lastmod> for pages without their own date; bump when you redeploy changed content
+SITE_UPDATED = "2026-11-13"  # sitemap <lastmod> for pages without their own date; bump when you redeploy changed content
 SHOW_SPONSOR_SLOT = False  # no sponsor box above the picks until a real sponsor is booked (the /sponsor/ page still shows the example)
 # Dated launches / major releases for /new/, newest first. Every entry was checked against the linked source on NEW_UPDATED.
 # (key, name, product/official url, iso date, source url, use-case slug, one-line description). Not catalog tools: T and UC stay frozen.
@@ -682,10 +682,24 @@ def release_card(r, desc, fits, src, uc_title, P=""):
             f'<p><small>{e(fits)}{"" if fits.endswith("：") else " "}<a href="@R/{P}use-cases/{uc}/index.html">{e(uc_title)}</a> · <a href="{srcurl}" rel="noopener" target="_blank">{e(src)}</a></small></p></div>')
 nl = "".join(release_card(r, r[6], "Fits:", "Source", UCT[r[5]]).replace("{DATE}", date_md(r[3])) for r in RELEASES)
 earlier = "".join(f'<li id="new-{s}">{tool_link(s)} — {e(n)}</li>' for s,n in NEW)
+# October 2026 release tracker: finished, QA'd files live in content/tracker/2026-10/ (rows.html + CSV). Do NOT regenerate from the draft script.
+TRK_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "content", "tracker", "2026-10")
+import csv as _csv
+TRK_ROWS = open(os.path.join(TRK_DIR, "rows.html"), encoding="utf-8").read()
+TRK_N = len(list(_csv.reader(open(os.path.join(TRK_DIR, "tracker-2026-10.csv"), newline="", encoding="utf-8")))) - 1
+assert TRK_N == TRK_ROWS.count("<tr>"), "tracker CSV and HTML row counts differ"
+TRK_PUBLISHED = "2026-11-13"
 page("new/index.html","New & trending AI tools — Tool Use Cases","New AI tool releases for builders, dated and sourced: coding agents, models, video, image and voice tools, matched to the job they fit.",f"""
 <h1>New releases &amp; trending</h1><p class="lede">AI tool launches and major releases from the last six weeks that matter to builders. Each one is dated, linked to its official announcement and matched to the use case it fits.</p>
-<p class="muted">Last updated: <time datetime="{NEW_UPDATED}">{date_mdy(NEW_UPDATED)}</time></p><div class="grid">{nl}</div>
+<p class="muted">Last updated: <time datetime="{NEW_UPDATED}">{date_mdy(NEW_UPDATED)}</time></p><p><a href="@R/tracker/2026-10/index.html"><b>October 2026 AI tool release tracker</b></a>: {TRK_N} dated, sourced releases, price changes and deprecation deadlines, with a CSV download.</p><div class="grid">{nl}</div>
 <h2>Earlier</h2><p class="muted"><small>Launches we featured before this update. They're no longer new, but still worth knowing.</small></p><ul>{earlier}</ul>""", ld=[crumbs(("New & trending","new/")), coll("CollectionPage","New & trending AI tools","Dated, sourced AI tool releases for builders.","new/")])
+
+page("tracker/2026-10/index.html", "October 2026 AI tool release tracker — Tool Use Cases", f"{TRK_N} dated, sourced AI tool releases, price changes and deprecation deadlines from October 2026, from official vendor sources. Pacific Time. CSV download.", f"""
+<h1>October 2026 AI tool release tracker</h1><p class="lede">{TRK_N} entries from official vendor sources. Dates are in Pacific Time; the line under each date says what the date is based on. Lali Publications. Download: <a href="tracker-2026-10.csv">CSV</a>.</p>
+<p class="muted"><small>Checked against vendor changelogs, release notes, GitHub releases, npm and pricing pages on Nov 12, 2026. Coverage is thinner before Oct 20. Nothing here is sponsored.</small></p>
+<div style="overflow-x:auto"><table><thead><tr><th>Tool</th><th>Date</th><th>What shipped</th><th>Price or limit change</th><th>Deprecation deadline</th><th>Source</th></tr></thead><tbody>{TRK_ROWS}</tbody></table></div>
+<p><a href="@R/new/index.html">← New releases &amp; daily log</a></p>""", ld=[crumbs(("New & trending","new/"),("October 2026 release tracker","tracker/2026-10/")), {"@context":"https://schema.org","@type":"Dataset","name":"October 2026 AI tool release tracker","description":f"{TRK_N} dated, sourced AI tool releases, price changes and deprecation deadlines, October 2026 (Pacific Time).","url":BASE+"tracker/2026-10/","inLanguage":"en","datePublished":TRK_PUBLISHED,"dateModified":TRK_PUBLISHED,"creator":{"@type":"Organization","name":"Lali Publications"},"license":BASE+"tracker/2026-10/","distribution":[{"@type":"DataDownload","encodingFormat":"text/csv","contentUrl":BASE+"tracker/2026-10/tracker-2026-10.csv"}]}])
+shutil.copy(os.path.join(TRK_DIR, "tracker-2026-10.csv"), os.path.join(OUT, "tracker", "2026-10", "tracker-2026-10.csv"))
 
 if SHOW_SPONSOR_SLOT:
     page("sponsor/index.html","Sponsor Tool Use Cases — feature your AI tool","Tool makers can sponsor a clearly labeled featured slot at the top of relevant use-case pages.",f"""
@@ -856,7 +870,7 @@ def build_locale(L):
 """)
     return [P+k for k in localized_paths()]
 
-urls = ["index.html","newsletter/index.html","agent-backbone/index.html","agent-backbone/issue-1/index.html","agent-backbone/issue-2/index.html","agent-backbone/issue-3/index.html","use-cases/index.html","tools/index.html","new/index.html"]+(["sponsor/index.html"] if SHOW_SPONSOR_SLOT else [])+["about/index.html"]+[f"newsletter/{i[1]}/index.html" for i in ISSUES]+[f"use-cases/{u[0]}/index.html" for u in UC]
+urls = ["index.html","newsletter/index.html","agent-backbone/index.html","agent-backbone/issue-1/index.html","agent-backbone/issue-2/index.html","agent-backbone/issue-3/index.html","use-cases/index.html","tools/index.html","new/index.html","tracker/2026-10/index.html"]+(["sponsor/index.html"] if SHOW_SPONSOR_SLOT else [])+["about/index.html"]+[f"newsletter/{i[1]}/index.html" for i in ISSUES]+[f"use-cases/{u[0]}/index.html" for u in UC]
 open(f"{OUT}/CNAME","w").write("tools.lalipublications.com\n")
 full = [canon(u) for u in urls]
 open(f"{OUT}/robots.txt","w").write(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n")

@@ -18,7 +18,7 @@
     {
       "type": "Price change",
       "tool": "Bolt.new",
-      "what": "Since Nov 1, 2026, Link (by Stripe) bills Bolt plan and domain subscriptions. Plans and token allowances are unchanged, but Link adds sales tax or VAT where your region requires it.",
+      "what": "Since Nov 1, 2026, Link bills Bolt plan and domain subscriptions. Plans and token allowances are unchanged, but Link adds sales tax or VAT where your region requires it.",
       "source_name": "Bolt release notes, Oct 12 - 18: Billing through Link starts November 1",
       "source_url": "https://support.bolt.new/release-notes",
       "checked": "10:01 AM",
