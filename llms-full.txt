@@ -41,6 +41,10 @@ Our angle: tool choice by job-to-be-done for vibe coders. Each use-case page lis
 
 - [All tools A-Z](https://tools.lalipublications.com/tools/)
 - [New & trending](https://tools.lalipublications.com/new/)
+- [Daily builder log](https://tools.lalipublications.com/new/#daily-log): weekday log of verified breaking changes, deadlines and price changes for AI coding tools, with sources and check times (Pacific Time)
+- [Daily builder log RSS](https://tools.lalipublications.com/new/daily.xml)
+- [October 2026 AI tool release tracker](https://tools.lalipublications.com/tracker/2026-10/): 48 dated, sourced AI tool releases, price changes and deprecation deadlines
+- [October 2026 tracker (CSV)](https://tools.lalipublications.com/tracker/2026-10/tracker-2026-10.csv)
 - [Newsletter](https://tools.lalipublications.com/newsletter/)
 - [Agent Backbone — Production AI Agent Evaluation Rubric & Weekly Reliability Briefing](https://tools.lalipublications.com/agent-backbone/): Free 4-criteria weighted evaluation rubric, 5 high-frequency failure modes + deterministic fixes, and 8-question regression test template
 - [Issue #3: Evaluate Your AI Agent in 30 Minutes — Agent Backbone](https://tools.lalipublications.com/agent-backbone/issue-3/) (Nov 10, 2026)
