@@ -1,0 +1,41 @@
+{
+ "date": "2026-11-16",
+ "items": [
+  {
+   "type": "Breaking change",
+   "tool": "Claude Code",
+   "what": "In v2.1.325 (Nov 13, 2026), sandboxed Bash commands follow the normal permission flow by default instead of running without prompts, and scheduled tasks and /loop ask before running a skill that declares allowed-tools or hooks.",
+   "source_name": "anthropics/claude-code release v2.1.325",
+   "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.325",
+   "checked": "10:25 AM",
+   "test": "If you rely on sandboxed commands or scheduled tasks running unattended, run one after upgrading and watch for new prompts. To keep the old sandbox behavior, set sandbox.autoAllowBashIfSandboxed: true; to let a scheduled task run a skill, add Skill(name) to permissions.allow.",
+   "use_case": "best-ai-coding-agents"
+  },
+  {
+   "type": "Deadline",
+   "tool": "GitHub Copilot",
+   "what": "GitHub said on Nov 13, 2026 that Claude Fable 5, Claude Haiku 4.5, Gemini 3.8 Flash, Gemini 4 Argon, Grok 4.6 and Kimi K3 leave all Copilot experiences on Dec 14, 2026 (Haiku 4.5 stays for individual annual-plan subscribers).",
+   "source_name": "GitHub changelog: Upcoming deprecation of selected GitHub Copilot models in December (Nov 13, 2026)",
+   "source_url": "https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december",
+   "checked": "10:25 AM",
+   "test": "Search Copilot settings, custom agents, CLI scripts and SDK code for those model names and switch before Dec 14 to the suggested replacements: Claude Fable 5.2, Claude Haiku 5.5, Gemini 4 Hydrogen, Gemini 4 Carbon or Grok 4.7. Admins who turned off default model enablement must enable the replacements.",
+   "use_case": "best-ai-coding-agents",
+   "deadlines": [
+    {
+     "date": "2026-12-14",
+     "label": "six Copilot models deprecated (Claude Fable 5, Claude Haiku 4.5, Gemini 3.8 Flash, Gemini 4 Argon, Grok 4.6, Kimi K3)"
+    }
+   ]
+  },
+  {
+   "type": "Breaking change",
+   "tool": "GitHub Copilot CLI",
+   "what": "In 1.0.112 (Nov 13, 2026), the CLI uses each model's recommended context window by default, keeping any context size you chose explicitly. copilot -p \"/compact\" --silent no longer prints the compaction result line to stdout.",
+   "source_name": "github/copilot-cli release v1.0.112",
+   "source_url": "https://github.com/github/copilot-cli/releases/tag/v1.0.112",
+   "checked": "10:25 AM",
+   "test": "If you budget AI credits per session, check /context after upgrading to see the new window size. If a script parses the output of copilot -p \"/compact\" --silent, run it and confirm it no longer expects the compaction line.",
+   "use_case": "best-ai-coding-agents"
+  }
+ ]
+}

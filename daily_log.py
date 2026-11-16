@@ -1,4 +1,4 @@
-"""Daily builder log for English /new/ (test: weekdays Nov 2-13, 2026).
+"""Daily builder log for English /new/ (weekdays; started Nov 2, 2026).
 
 Reads one JSON file per day from content/daily-log/YYYY-MM-DD.json (schema and routine steps:
 content/daily-log/README.md), validates it, then, after build.py has written the site:
@@ -20,7 +20,7 @@ DATA = os.path.join(HERE, "content", "daily-log")
 TYPES = ("Breaking change", "Deadline", "Price change")
 TYPE_COLOR = {"Breaking change": "#b42318", "Deadline": "#c08a00", "Price change": "#0b5cad"}
 NO_CHANGES = "No verified changes today."
-NOTE = "Daily log test, Nov 2\u201313, 2026. Weekdays only. Only verified breaking changes, deadlines and price changes."
+NOTE = "Updated on weekdays. Only verified breaking changes, deadlines and price changes."
 FEED_PATH = "new/daily.xml"
 FEED_TITLE = "Tool Use Cases: Daily builder log"
 CHECKED_RE = re.compile(r"^(0[1-9]|1[0-2]):[0-5]\d (AM|PM)$")
@@ -112,7 +112,7 @@ def section_html(days, today, uc_titles, base):
         tag = ' <span class="badge" style="background:#555">Format preview</span>' if day["preview"] else ""
         out.append(f'<article class="dl-day" id="{a}" aria-label="Daily builder log, {mdy(day["date"])}"><h3><time datetime="{a}">{long_date(day["date"])}</time>{tag} <a class="dl-perma" href="#{a}">Permalink</a></h3>')
         if day["preview"]:
-            out.append('<p class="muted"><small>Format preview, checked before the test starts. The daily log runs on weekdays from Nov 2 to Nov 13, 2026.</small></p>')
+            out.append('<p class="muted"><small>Format preview, checked before the daily log started on Nov 2, 2026.</small></p>')
         if day["no_changes"]:
             out.append(f'<p>{NO_CHANGES} <small class="muted">Checked {e(day["checked"])} PT</small></p>')
         else:

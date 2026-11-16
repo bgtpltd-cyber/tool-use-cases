@@ -1,6 +1,6 @@
 # Daily builder log (English /new/ only)
 
-Test run: weekdays, Nov 2–13, 2026. Only verified **breaking changes**, **deadlines** and **price changes**.
+Runs on weekdays (started Nov 2, 2026; paused Nov 13 and resumed Nov 16, 2026). Only verified **breaking changes**, **deadlines** and **price changes**.
 `daily_log.py` reads one JSON file per day from this folder and, after `build.py` writes the site, adds:
 
 - the "Daily builder log" section at the top of `site/new/index.html` (note, Deadlines strip, days newest first, each with an `id="YYYY-MM-DD"` anchor and a Permalink)
