@@ -578,6 +578,21 @@ PICK_NOTES = {  # (slug, tool): {lang: (dated label, text, source name, source u
   "es": ("Oct. de 2026", "Los modelos gratuitos de OpenCode ahora requieren OpenCode 1.18 o posterior. Si una versión anterior muestra \"OpenCode 1.18.0 or newer is required to use the free tier\", actualiza a OpenCode v2.",
          "Fuente", "issue #59387 de OpenCode sobre el plan gratuito", "https://github.com/anomalyco/opencode/issues/59387")},
 }
+# Extra FAQ items for localized pages that use the fixed 3-question template (pt-BR, es).
+# Inserted before the paid-placements question. English upgraded pages already carry these in upgrades.py.
+# Do not add other locales here.
+FAQ_EXTRA = {
+ "best-ai-coding-agents": {
+  "pt-BR": [
+   ("Quais modelos do GitHub Copilot serão desativados em 14 de dezembro de 2026?",
+    "O GitHub anunciou em 13 de novembro de 2026 que Claude Fable 5, Claude Haiku 4.5, Gemini 3.8 Flash, Gemini 4 Argon, Grok 4.6 e Kimi K3 serão desativados no Copilot Chat, nas edições inline, no modo agente e nas conclusões de código em 14 de dezembro de 2026. Mude para as substituições sugeridas, como Claude Fable 5.2, Claude Haiku 5.5, Gemini 4 Hydrogen, Gemini 4 Carbon ou Grok 4.7, antes dessa data. O Claude Haiku 4.5 continua disponível para assinantes individuais em planos anuais."),
+  ],
+  "es": [
+   ("¿Qué modelos de GitHub Copilot se retiran el 14 de diciembre de 2026?",
+    "GitHub anunció el 13 de noviembre de 2026 que Claude Fable 5, Claude Haiku 4.5, Gemini 3.8 Flash, Gemini 4 Argon, Grok 4.6 y Kimi K3 se retirarán de Copilot Chat, las ediciones inline, el modo agente y las completaciones de código el 14 de diciembre de 2026. Cambia a los reemplazos sugeridos, como Claude Fable 5.2, Claude Haiku 5.5, Gemini 4 Hydrogen, Gemini 4 Carbon o Grok 4.7, antes de esa fecha. Claude Haiku 4.5 sigue disponible para suscriptores individuales en planes anuales."),
+  ],
+ }
+}
 def note_html(slug, t, lang):  # one dated note for a pick on one page, from PICK_NOTES
     n = PICK_NOTES.get((slug, t), {}).get(lang)
     if not n: return ""
@@ -785,18 +800,22 @@ def quick_l(L, tools, verdicts):  # localized Quick answer, same logic as Englis
     U = L.UI; n = T[tools[0][0]][0]
     lead = f"{n}." if tools[0][1].startswith(("Top pick","The default pick")) else U["quick_top"].format(tool=n)
     return f'<p class="quick"><b>{e(U["quick_label"])}:</b> {e(lead)} {e(verdicts[0])}</p>'
-def uc_faq_l(L, title, tools, verdicts):  # localized Q&A built only from our translated picks and verdicts
+def uc_faq_l(L, title, tools, verdicts, slug=None):  # localized Q&A built only from our translated picks and verdicts
     U = L.UI
     alts = "; ".join(f"{T[t][0]}: {v.rstrip('.')}" for (t,_),v in zip(tools[1:], verdicts[1:])) + "."
-    return [(U["faq_q_top"].format(title=title), f"{T[tools[0][0]][0]}. {verdicts[0]}"),
+    faqs = [(U["faq_q_top"].format(title=title), f"{T[tools[0][0]][0]}. {verdicts[0]}"),
             (U["faq_q_alts"].format(title=title), U["faq_a_alts"].format(alts=alts)),
             (U["faq_q_paid"], U["faq_a_paid"])]
-def faq_html_l(L, title, tools, verdicts):
+    extra = FAQ_EXTRA.get(slug, {}).get(L.CODE, [])
+    if extra:  # page-specific questions go before the paid-placements closer
+        faqs = faqs[:-1] + list(extra) + faqs[-1:]
+    return faqs
+def faq_html_l(L, title, tools, verdicts, slug=None):
     if not has_faq(L): return ""
-    return f'<h2>{e(L.UI["faq_h2"])}</h2>' + "".join(f'<h3>{e(q)}</h3><p>{e(a)}</p>' for q,a in uc_faq_l(L, title, tools, verdicts)) + "\n"
-def faq_ld_l(L, title, tools, verdicts):
+    return f'<h2>{e(L.UI["faq_h2"])}</h2>' + "".join(f'<h3>{e(q)}</h3><p>{e(a)}</p>' for q,a in uc_faq_l(L, title, tools, verdicts, slug)) + "\n"
+def faq_ld_l(L, title, tools, verdicts, slug=None):
     if not has_faq(L): return []
-    return [{"@context":"https://schema.org","@type":"FAQPage","inLanguage":L.CODE,"mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in uc_faq_l(L, title, tools, verdicts)]}]
+    return [{"@context":"https://schema.org","@type":"FAQPage","inLanguage":L.CODE,"mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in uc_faq_l(L, title, tools, verdicts, slug)]}]
 def build_locale(L):
     check_locale(L); U, P, LD = L.UI, L.PREFIX, L.LD
     def crumbs_l(*pairs):
@@ -839,8 +858,8 @@ def build_locale(L):
 {byline(L)}{quick_l(L, tools, verdicts)}{scard if SHOW_SPONSOR_SLOT else ""}<h2>{e(U["our_picks"])}</h2><ol class="tools">{items}</ol>
 {guide_html(slug, tools, L.CODE, L)}
 <p class="muted"><small>{e(U["disclaimer"])}</small></p>
-{faq_html_l(L, title, tools, verdicts)}{relhtml}<p><a href="@R/{P}use-cases/index.html">{e(U["browse_all"])}</a></p>""", L=L, ld=[crumbs_l((U["use_cases"],"use-cases/"),(title,f"use-cases/{slug}/")),
-         {"@context":"https://schema.org","@type":"ItemList","name":title,"description":blurb,"url":f"{BASE}{P}use-cases/{slug}/","inLanguage":L.CODE,"itemListElement":[{"@type":"ListItem","position":i,"name":T[t][0],"url":T[t][1]} for i,((t,_),v) in enumerate(zip(tools,verdicts),1)]}, page_ld(title_l(title), f"{BASE}{P}use-cases/{slug}/", L.CODE)] + faq_ld_l(L, title, tools, verdicts))
+{faq_html_l(L, title, tools, verdicts, slug)}{relhtml}<p><a href="@R/{P}use-cases/index.html">{e(U["browse_all"])}</a></p>""", L=L, ld=[crumbs_l((U["use_cases"],"use-cases/"),(title,f"use-cases/{slug}/")),
+         {"@context":"https://schema.org","@type":"ItemList","name":title,"description":blurb,"url":f"{BASE}{P}use-cases/{slug}/","inLanguage":L.CODE,"itemListElement":[{"@type":"ListItem","position":i,"name":T[t][0],"url":T[t][1]} for i,((t,_),v) in enumerate(zip(tools,verdicts),1)]}, page_ld(title_l(title), f"{BASE}{P}use-cases/{slug}/", L.CODE)] + faq_ld_l(L, title, tools, verdicts, slug))
     rows = "".join(f'<div class="card f"><h3>{tool_link(s)}</h3><p class="what">{e(L.TOOLS[s])}</p><p><small>{" · ".join(f"<a href=@R/{P}use-cases/{u}/index.html>{e(ut[u][0])}</a>" for u,_ in uses.get(s,[]))}</small></p></div>' for s in sorted(T,key=lambda k:T[k][0].lower()))
     pg("tools", "tools/index.html", ROWS=rows, ld=[crumbs_l((LD["tools_crumb"],"tools/")), coll_l("CollectionPage",*LD["tools_coll"],"tools/")])
     newcards = "".join(release_card(r, L.RELEASES[r[0]], U["fits"], U["source"], ut[r[5]][0], P).replace("{DATE}", e(date_md(r[3], L))) for r in RELEASES)
