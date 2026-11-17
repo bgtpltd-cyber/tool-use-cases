@@ -1,0 +1,45 @@
+{
+ "date": "2026-11-17",
+ "items": [
+  {
+   "type": "Breaking change",
+   "tool": "GitHub Copilot",
+   "what": "As of Nov 16, 2026, Claude Opus 4.8, Claude Opus 5 and GPT-5.6 Terra are deprecated across most Copilot experiences, including Chat, inline edits, agent mode and code completions (Opus 4.8 stays for individual annual-plan subscribers).",
+   "source_name": "GitHub changelog: GitHub Copilot models deprecated on November 16, 2026",
+   "source_url": "https://github.blog/changelog/2026-11-16-github-copilot-models-deprecated-on-november-16-2026",
+   "checked": "10:24 AM",
+   "test": "Search custom agents, CLI scripts and SDK code for those model names and switch to the suggested alternatives: Claude Opus 5.5 for both Opus models, GPT-6.1 Sol or GPT-6 Luna for GPT-5.6 Terra. Admins who turned off default model enablement must enable the alternatives.",
+   "use_case": "best-ai-coding-agents"
+  },
+  {
+   "type": "Breaking change",
+   "tool": "Visual Studio Code",
+   "what": "VS Code 1.146 deprecates the Local harness for Copilot agent sessions; GitHub said on Nov 16, 2026 it will be removed in February 2027. The Copilot harness, the default for new sessions since VS Code 1.143, replaces it.",
+   "source_name": "GitHub changelog: VS Code retires the Local harness in February 2027 (Nov 16, 2026)",
+   "source_url": "https://github.blog/changelog/2026-11-16-vs-code-retires-the-local-harness-in-february-2027",
+   "checked": "10:24 AM",
+   "test": "Start a new session and pick Copilot under Session Target, then check your customizations still work: switching harnesses doesn't convert every customization. Admins: test permission controls and sandbox settings with the Copilot harness; the vscode.temporaryDefaultToLocalHarness exception goes away too.",
+   "use_case": "best-ai-coding-agents"
+  },
+  {
+   "type": "Breaking change",
+   "tool": "Claude Code",
+   "what": "v2.1.326 (Nov 16, 2026) stops sandboxed commands on macOS, Linux and WSL from writing to some sensitive home folders by default, and sessions with no mode set start in auto mode, not Manual, when your organization's policy hasn't loaded.",
+   "source_name": "anthropics/claude-code release v2.1.326",
+   "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.326",
+   "checked": "10:22 AM",
+   "test": "Re-run any sandboxed task that writes under your home folder; if it now fails, allow the folder with sandbox.filesystem.allowWrite in user or managed settings. If you have hooks that print \"decision\": \"block\", check they don't now block calls they used to let through.",
+   "use_case": "best-ai-coding-agents"
+  },
+  {
+   "type": "Breaking change",
+   "tool": "OpenCode",
+   "what": "Desktop v1.19.6 (Nov 17, 2026) offers OpenCode 1 users the upgrade to OpenCode 2.0, which installs only when you choose Restart to upgrade, Upgrade on quit or Later. Sessions, projects and settings are kept, but plugins made for OpenCode 1 need an update.",
+   "source_name": "anomalyco/opencode release v1.19.6",
+   "source_url": "https://github.com/anomalyco/opencode/releases/tag/v1.19.6",
+   "checked": "10:23 AM",
+   "test": "Before you accept the upgrade, list the plugins you use and check each one has an OpenCode 2 version. Pick Later if one doesn't.",
+   "use_case": "best-ai-coding-agents"
+  }
+ ]
+}

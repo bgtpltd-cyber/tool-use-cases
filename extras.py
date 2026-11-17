@@ -281,6 +281,7 @@ PRICES = {
 PRICE_DATES = {k: "2026-10-23" for k in ['notion-ai', 'midjourney', 'ideogram', 'grammarly', 'grok', 'n8n', 'make', 'zapier', 'framer', 'figma', 'uizard', 'aiva', 'clearscope', 'julius', 'beautiful-ai', 'tripo', 'rodin', 'fireflies', 'otter', 'grain', 'langchain', 'llamaindex', 'langgraph', 'crewai', 'ms-agent-framework', 'openai-agents', 'ollama', 'wxt', 'vercel', 'netlify', 'railway', 'looka', 'helpscout', 'firecrawl', 'apify', 'browserbase', 'postman', 'bruno', 'mem']}  # entries checked on their official pricing page / repo on Oct 23, 2026
 PRICE_DATES.update({k: "2026-11-06" for k in ['claude', 'claude-code', 'perplexity', 'gemini', 'notebooklm', 'elicit']})  # re-checked Nov 6, 2026 on official pricing pages (Perplexity also confirmed via Perplexity Help Center plan prices)
 PRICE_DATES.update({k: "2026-11-12" for k in ['vercel', 'netlify', 'railway']})  # re-checked Nov 12, 2026 on official pricing pages
+PRICE_DATES.update({k: "2026-11-17" for k in ['postman', 'bruno']})  # re-checked Nov 17, 2026 on official pricing pages (prices unchanged; Postman Free lists 100 AI credits)
 def price_date(t): return PRICE_DATES.get(t, PRICES_CHECKED)
 LABELS = {"en": ("Price", "Prices checked", "on each tool's official pricing page. They change often, so the official page wins.", "How to choose"),
           "pt-BR": ("Preço", "Preços conferidos em", "na página oficial de preços de cada ferramenta. Eles mudam com frequência; vale sempre a página oficial.", "Como escolher"),
@@ -515,6 +516,32 @@ GUIDES = {
 <li><b>Elijas lo que elijas:</b> lee los términos del sitio y su robots.txt antes de hacer scraping.</li>
 </ul>
 <p><small>Firecrawl es de código abierto con licencia AGPL-3.0 y Stagehand con MIT (repositorios oficiales en GitHub); la configuración MCP proviene de la documentación de Firecrawl y el número de Actors de la Apify Store. Todo comprobado el 11 de nov. de 2026.</small></p>"""},
+ "best-ai-for-api-testing": {
+  "en": """<ul>
+<li><b>Your team already keeps its APIs in Postman:</b> stay in @T(postman). The Free plan includes 100 AI credits; Solo ($9/mo billed yearly) gives 400 AI credits a month, and Team is $19 per user/mo billed yearly.</li>
+<li><b>You want collections in git and no cloud account:</b> use @T(bruno). Its open-source app is free, and its plain-file collections sit next to your code, where an AI editor can read and update them.</li>
+<li><b>The tests live in your codebase (pytest, Jest and similar):</b> have @T(cursor) write and fix them next to the API code, and run them in your normal test command.</li>
+<li><b>You have a spec or a failing response but no tool set up:</b> paste the OpenAPI spec or the error into @T(claude) for test cases and edge cases, or into @T(chatgpt) for quick test scripts and mock data.</li>
+<li><b>Before you trust generated tests:</b> run them against a test environment first and check each assertion matches the documented behavior, not just what the API returns today.</li>
+</ul>
+<p><small>Postman and Bruno plan details checked on each official pricing page on Nov 17, 2026.</small></p>""",
+  "pt-BR": """<ul>
+<li><b>Seu time já guarda as APIs no Postman:</b> continue no @T(postman). O plano Free inclui 100 créditos de IA; o Solo (US$ 9/mês no anual) dá 400 créditos de IA por mês, e o Team custa US$ 19 por usuário/mês no anual.</li>
+<li><b>Você quer as coleções no git e sem conta na nuvem:</b> use o @T(bruno). O app open source é grátis, e as coleções em arquivos simples ficam junto do seu código, onde um editor com IA consegue lê-las e atualizá-las.</li>
+<li><b>Os testes ficam no seu código (pytest, Jest e parecidos):</b> peça ao @T(cursor) para escrevê-los e corrigi-los ao lado do código da API e rode-os no seu comando de testes de sempre.</li>
+<li><b>Você tem uma spec ou uma resposta com erro, mas nenhuma ferramenta configurada:</b> cole a spec OpenAPI ou o erro no @T(claude) para gerar casos de teste e casos-limite, ou no @T(chatgpt) para scripts de teste rápidos e dados de exemplo.</li>
+<li><b>Antes de confiar em testes gerados:</b> rode-os primeiro num ambiente de teste e confira se cada asserção bate com o comportamento documentado, e não só com o que a API responde hoje.</li>
+</ul>
+<p><small>Detalhes dos planos do Postman e do Bruno conferidos na página oficial de preços de cada um em 17 de nov. de 2026.</small></p>""",
+  "es": """<ul>
+<li><b>Tu equipo ya tiene sus APIs en Postman:</b> quédate en @T(postman). El plan Free incluye 100 créditos de IA; Solo (9 US$/mes en anual) da 400 créditos de IA al mes, y Team cuesta 19 US$ por usuario/mes en anual.</li>
+<li><b>Quieres las colecciones en git y sin cuenta en la nube:</b> usa @T(bruno). Su app de código abierto es gratis, y sus colecciones en archivos simples viven junto a tu código, donde un editor con IA puede leerlas y actualizarlas.</li>
+<li><b>Los tests viven en tu código (pytest, Jest y similares):</b> pide a @T(cursor) que los escriba y los corrija junto al código de la API, y ejecútalos con tu comando de tests habitual.</li>
+<li><b>Tienes una spec o una respuesta con error, pero ninguna herramienta configurada:</b> pega la spec OpenAPI o el error en @T(claude) para obtener casos de prueba y casos límite, o en @T(chatgpt) para scripts de prueba rápidos y datos de ejemplo.</li>
+<li><b>Antes de fiarte de tests generados:</b> ejecútalos primero en un entorno de pruebas y comprueba que cada aserción coincide con el comportamiento documentado, no solo con lo que la API responde hoy.</li>
+</ul>
+<p><small>Detalles de los planes de Postman y Bruno comprobados en la página oficial de precios de cada uno el 17 de nov. de 2026.</small></p>""",
+ },
  "best-ai-for-deploy-hosting": {
   "en": """<ul>
 <li><b>A Next.js or React app, or anything from v0:</b> @T(vercel). Its pricing page says <code>vercel deploy --temporary</code> deploys a project with no sign-up; the free Hobby plan is for personal, non-commercial use, so plan on Pro ($20/mo) for a business.</li>
