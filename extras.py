@@ -281,7 +281,8 @@ PRICES = {
 PRICE_DATES = {k: "2026-10-23" for k in ['notion-ai', 'midjourney', 'ideogram', 'grammarly', 'grok', 'n8n', 'make', 'zapier', 'framer', 'figma', 'uizard', 'aiva', 'clearscope', 'julius', 'beautiful-ai', 'tripo', 'rodin', 'fireflies', 'otter', 'grain', 'langchain', 'llamaindex', 'langgraph', 'crewai', 'ms-agent-framework', 'openai-agents', 'ollama', 'wxt', 'vercel', 'netlify', 'railway', 'looka', 'helpscout', 'firecrawl', 'apify', 'browserbase', 'postman', 'bruno', 'mem']}  # entries checked on their official pricing page / repo on Oct 23, 2026
 PRICE_DATES.update({k: "2026-11-06" for k in ['claude', 'claude-code', 'perplexity', 'gemini', 'notebooklm', 'elicit']})  # re-checked Nov 6, 2026 on official pricing pages (Perplexity also confirmed via Perplexity Help Center plan prices)
 PRICE_DATES.update({k: "2026-11-12" for k in ['vercel', 'netlify', 'railway']})  # re-checked Nov 12, 2026 on official pricing pages
-PRICE_DATES.update({k: "2026-11-17" for k in ['postman', 'bruno']})  # re-checked Nov 17, 2026 on official pricing pages (prices unchanged; Postman Free lists 100 AI credits)
+PRICE_DATES.update({k: "2026-11-17" for k in ['postman', 'bruno']})
+PRICE_DATES.update({k: "2026-11-18" for k in ['claude', 'langchain', 'llamaindex']})  # re-checked Nov 18, 2026: Claude prices unchanged on claude.com/pricing; LangChain and LlamaIndex MIT on official GitHub repos  # re-checked Nov 17, 2026 on official pricing pages (prices unchanged; Postman Free lists 100 AI credits)
 def price_date(t): return PRICE_DATES.get(t, PRICES_CHECKED)
 LABELS = {"en": ("Price", "Prices checked", "on each tool's official pricing page. They change often, so the official page wins.", "How to choose"),
           "pt-BR": ("Preço", "Preços conferidos em", "na página oficial de preços de cada ferramenta. Eles mudam com frequência; vale sempre a página oficial.", "Como escolher"),
@@ -567,4 +568,29 @@ GUIDES = {
 <li><b>No quieres tocar nunca la configuración de deploy:</b> crea y aloja en un mismo sitio con @T(replit).</li>
 </ul>
 <p><small>Detalles de los planes de Vercel, Netlify y Railway comprobados en la página oficial de precios de cada una el 12 de nov. de 2026.</small></p>"""},
+ "best-ai-for-chatbots-rag": {
+  "en": """<ul>
+<li><b>A team assistant over your docs, inside a chat app:</b> a @T(claude) Project. The free plan allows up to 5 Projects; sharing a Project with teammates needs a Team or Enterprise plan (Team from $20 per seat a month billed yearly, $25 billed monthly).</li>
+<li><b>Your team already works in ChatGPT:</b> a @T(chatgpt) Project with your files and instructions. Don't build a new custom GPT: OpenAI plans to retire custom GPTs on Dec 11, 2026, and points ongoing work to Projects and shared, tool-connected GPTs to plugins.</li>
+<li><b>Grounded answers for yourself, with zero setup:</b> @T(notebooklm), free with a Google Account. It is for personal research, not for embedding on a site.</li>
+<li><b>A chatbot on your own site or app:</b> you need code. Use @T(llamaindex) when ingesting and retrieving messy documents is the hard part, and @T(langchain) when you need many integrations. Both are open source under the MIT license.</li>
+<li><b>A small custom bot without a framework:</b> have @T(cursor) or @T(claude-code) write a lean RAG app, then test it with real questions from your users before launch.</li>
+</ul>
+<p><small>Claude Project limits and Team prices are from Claude's pricing page, the custom GPT retirement date from the OpenAI Help Center, and the MIT licenses from the official GitHub repositories. All checked Nov 18, 2026.</small></p>""",
+  "pt-BR": """<ul>
+<li><b>Um assistente da equipe que responde com base nos seus documentos, dentro de um app de chat:</b> um Project do @T(claude). O plano grátis permite até 5 Projects; compartilhar um Project com colegas exige o plano Team ou Enterprise (Team a partir de US$ 20 por usuário/mês no anual, US$ 25 no mensal).</li>
+<li><b>Sua equipe já trabalha no ChatGPT:</b> um Project do @T(chatgpt) com seus arquivos e instruções. Não crie um GPT personalizado novo: a OpenAI planeja aposentar os GPTs personalizados em 11 de dez. de 2026 e indica Projects para trabalho contínuo e plugins para GPTs compartilhados ou conectados a ferramentas.</li>
+<li><b>Respostas baseadas nas suas fontes, só para você, sem configurar nada:</b> @T(notebooklm), grátis com uma Conta do Google. Serve para pesquisa pessoal, não para incorporar num site.</li>
+<li><b>Um chatbot no seu próprio site ou app:</b> aí precisa de código. Use @T(llamaindex) quando a parte difícil é ingerir e recuperar documentos bagunçados, e @T(langchain) quando você precisa de muitas integrações. Os dois são open source sob a licença MIT.</li>
+<li><b>Um bot pequeno e sob medida, sem framework:</b> peça ao @T(cursor) ou ao @T(claude-code) um app de RAG enxuto e teste com perguntas reais dos seus usuários antes de lançar.</li>
+</ul>
+<p><small>Limites de Projects e preços do Team conferidos na página de preços do Claude, a data de aposentadoria dos GPTs personalizados na Central de Ajuda da OpenAI e as licenças MIT nos repositórios oficiais no GitHub. Tudo conferido em 18 de nov. de 2026.</small></p>""",
+  "es": """<ul>
+<li><b>Un asistente de equipo que responde a partir de tus documentos, dentro de una app de chat:</b> un Project de @T(claude). El plan gratuito permite hasta 5 Projects; compartir un Project con compañeros requiere el plan Team o Enterprise (Team desde 20 US$ por usuario al mes en anual, 25 US$ en mensual).</li>
+<li><b>Tu equipo ya trabaja en ChatGPT:</b> un Project de @T(chatgpt) con tus archivos e instrucciones. No crees un GPT personalizado nuevo: OpenAI planea retirar los GPT personalizados el 11 de dic. de 2026 y recomienda Projects para el trabajo continuo y plugins para los GPT compartidos o conectados a herramientas.</li>
+<li><b>Respuestas basadas en tus fuentes, solo para ti y sin configurar nada:</b> @T(notebooklm), gratis con una Cuenta de Google. Sirve para investigación personal, no para integrarlo en un sitio.</li>
+<li><b>Un chatbot en tu propio sitio o app:</b> ahí necesitas código. Usa @T(llamaindex) cuando lo difícil es ingerir y recuperar documentos desordenados, y @T(langchain) cuando necesitas muchas integraciones. Los dos son de código abierto con licencia MIT.</li>
+<li><b>Un bot pequeño a medida, sin framework:</b> pide a @T(cursor) o a @T(claude-code) una app de RAG sencilla y pruébala con preguntas reales de tus usuarios antes de lanzarla.</li>
+</ul>
+<p><small>Límites de Projects y precios de Team comprobados en la página de precios de Claude, la fecha de retirada de los GPT personalizados en el Centro de ayuda de OpenAI y las licencias MIT en los repositorios oficiales de GitHub. Todo comprobado el 18 de nov. de 2026.</small></p>"""},
 }

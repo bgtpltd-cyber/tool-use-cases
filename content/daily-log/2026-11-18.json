@@ -1,0 +1,35 @@
+{
+ "date": "2026-11-18",
+ "items": [
+  {
+   "type": "Breaking change",
+   "tool": "MCP reference servers",
+   "what": "Release v2.5.0 (Nov 18, 2026) fixes 8 security vulnerabilities in the Git, Filesystem and Everything servers. The Git server now turns off Git's auto maintenance and lazy fetching, and sets diff.submodule to short, for every Git command it runs.",
+   "source_name": "modelcontextprotocol/servers release v2.5.0",
+   "source_url": "https://github.com/modelcontextprotocol/servers/releases/tag/v2.5.0",
+   "checked": "10:16 AM",
+   "test": "Upgrade mcp-server-git to 2026.11.18, server-filesystem to 2.4.0 and server-everything to 2.3.1. If you are on a date-versioned server-filesystem (2025.x or 2026.x), npm won't offer 2.4.0 as an upgrade: install @modelcontextprotocol/server-filesystem@2.4.0 explicitly.",
+   "use_case": "best-ai-for-agent-frameworks"
+  },
+  {
+   "type": "Breaking change",
+   "tool": "OpenAI Agents SDK",
+   "what": "Python SDK v0.25.0 (Nov 17, 2026) removes the Runloop sandbox provider.",
+   "source_name": "openai/openai-agents-python release v0.25.0",
+   "source_url": "https://github.com/openai/openai-agents-python/releases/tag/v0.25.0",
+   "checked": "10:16 AM",
+   "test": "Search your code for Runloop before upgrading. If your agents run in a Runloop sandbox, pin openai-agents below 0.25.0 until you move them to another sandbox provider.",
+   "use_case": "best-ai-for-agent-frameworks"
+  },
+  {
+   "type": "Breaking change",
+   "tool": "Claude Code",
+   "what": "v2.1.327 (Nov 17, 2026): nested commands that don't get the session's token no longer inherit CLAUDE_CODE_OAUTH_SCOPES, and WebFetch now refuses URLs over 2,000 characters before any permission prompt.",
+   "source_name": "anthropics/claude-code release v2.1.327",
+   "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.327",
+   "checked": "10:16 AM",
+   "test": "If scripts or nested claude calls relied on the inherited OAuth scopes, set CLAUDE_CODE_OAUTH_SCOPES on those commands yourself. Check any workflow that fetches very long URLs (signed links, long query strings).",
+   "use_case": "best-ai-coding-agents"
+  }
+ ]
+}
