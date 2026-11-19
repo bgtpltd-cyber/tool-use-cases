@@ -281,8 +281,9 @@ PRICES = {
 PRICE_DATES = {k: "2026-10-23" for k in ['notion-ai', 'midjourney', 'ideogram', 'grammarly', 'grok', 'n8n', 'make', 'zapier', 'framer', 'figma', 'uizard', 'aiva', 'clearscope', 'julius', 'beautiful-ai', 'tripo', 'rodin', 'fireflies', 'otter', 'grain', 'langchain', 'llamaindex', 'langgraph', 'crewai', 'ms-agent-framework', 'openai-agents', 'ollama', 'wxt', 'vercel', 'netlify', 'railway', 'looka', 'helpscout', 'firecrawl', 'apify', 'browserbase', 'postman', 'bruno', 'mem']}  # entries checked on their official pricing page / repo on Oct 23, 2026
 PRICE_DATES.update({k: "2026-11-06" for k in ['claude', 'claude-code', 'perplexity', 'gemini', 'notebooklm', 'elicit']})  # re-checked Nov 6, 2026 on official pricing pages (Perplexity also confirmed via Perplexity Help Center plan prices)
 PRICE_DATES.update({k: "2026-11-12" for k in ['vercel', 'netlify', 'railway']})  # re-checked Nov 12, 2026 on official pricing pages
-PRICE_DATES.update({k: "2026-11-17" for k in ['postman', 'bruno']})
-PRICE_DATES.update({k: "2026-11-18" for k in ['claude', 'langchain', 'llamaindex']})  # re-checked Nov 18, 2026: Claude prices unchanged on claude.com/pricing; LangChain and LlamaIndex MIT on official GitHub repos  # re-checked Nov 17, 2026 on official pricing pages (prices unchanged; Postman Free lists 100 AI credits)
+PRICE_DATES.update({k: "2026-11-17" for k in ['postman', 'bruno']})  # re-checked Nov 17, 2026 on official pricing pages (prices unchanged; Postman Free lists 100 AI credits)
+PRICE_DATES.update({k: "2026-11-18" for k in ['claude', 'langchain', 'llamaindex']})  # re-checked Nov 18, 2026: Claude prices unchanged on claude.com/pricing; LangChain and LlamaIndex MIT on official GitHub repos
+PRICE_DATES.update({k: "2026-11-19" for k in ['n8n', 'make', 'zapier']})  # re-checked Nov 19, 2026 on official pricing pages (unchanged: n8n Cloud Starter 240/yr and Pro 10k 600/yr in EUR, Make Free 1,000 credits/mo, Zapier Free 100 tasks/mo and Professional from $19.99/mo)
 def price_date(t): return PRICE_DATES.get(t, PRICES_CHECKED)
 LABELS = {"en": ("Price", "Prices checked", "on each tool's official pricing page. They change often, so the official page wins.", "How to choose"),
           "pt-BR": ("Preço", "Preços conferidos em", "na página oficial de preços de cada ferramenta. Eles mudam com frequência; vale sempre a página oficial.", "Como escolher"),
@@ -593,4 +594,29 @@ GUIDES = {
 <li><b>Un bot pequeño a medida, sin framework:</b> pide a @T(cursor) o a @T(claude-code) una app de RAG sencilla y pruébala con preguntas reales de tus usuarios antes de lanzarla.</li>
 </ul>
 <p><small>Límites de Projects y precios de Team comprobados en la página de precios de Claude, la fecha de retirada de los GPT personalizados en el Centro de ayuda de OpenAI y las licencias MIT en los repositorios oficiales de GitHub. Todo comprobado el 18 de nov. de 2026.</small></p>"""},
+ "best-ai-for-automation-workflows": {
+  "en": """<ul>
+<li><b>You want the easiest setup and your apps are mainstream:</b> @T(zapier). The free plan gives 100 tasks a month with two-step Zaps; multi-step Zaps need Professional, from $19.99 a month. Costs climb with task volume, so check your monthly run count first.</li>
+<li><b>Your flows branch a lot and budget matters:</b> @T(make). The free plan includes 1,000 credits a month. Most actions use 1 credit, while router and error-handler modules use none, so complex branching stays cheap.</li>
+<li><b>You are a builder and want AI agents or your data on your own server:</b> @T(n8n). The self-hosted Community Edition is free. On n8n Cloud you pay per workflow execution rather than per step, and Starter and Pro are capped with no overage fees.</li>
+<li><b>No-code hits a wall:</b> have @T(claude-code) write the script or webhook handler, then call it from your workflow.</li>
+<li><b>A one-off, multi-step web task:</b> @T(manus) can do it once. Don't use it for anything that has to run reliably on a schedule.</li>
+</ul>
+<p><small>Plan details for Zapier, Make and n8n checked on each official pricing page on Nov 19, 2026.</small></p>""",
+  "pt-BR": """<ul>
+<li><b>Você quer a configuração mais fácil e usa apps populares:</b> @T(zapier). O plano grátis dá 100 tarefas por mês com Zaps de dois passos; Zaps com vários passos exigem o Professional, a partir de US$ 19,99 por mês. O custo sobe com o volume de tarefas, então confira antes quantas execuções você faz por mês.</li>
+<li><b>Seus fluxos têm muitas ramificações e o orçamento importa:</b> @T(make). O plano grátis inclui 1.000 créditos por mês. A maioria das ações usa 1 crédito, e os módulos de roteador e de tratamento de erros não usam nenhum, então fluxos complexos continuam baratos.</li>
+<li><b>Você é builder e quer agentes de IA ou seus dados no seu próprio servidor:</b> @T(n8n). A Community Edition, auto-hospedada, é grátis. No n8n Cloud você paga por execução do workflow, não por passo, e os planos Starter e Pro têm limite fixo, sem cobrança de excedente.</li>
+<li><b>O no-code chegou ao limite:</b> peça ao @T(claude-code) o script ou o handler de webhook e chame-o a partir do seu workflow.</li>
+<li><b>Uma tarefa web pontual com vários passos:</b> o @T(manus) resolve uma vez. Não use para nada que precise rodar de forma confiável num agendamento.</li>
+</ul>
+<p><small>Detalhes dos planos do Zapier, do Make e do n8n conferidos na página oficial de preços de cada um em 19 de nov. de 2026.</small></p>""",
+  "es": """<ul>
+<li><b>Quieres la configuración más fácil y usas apps populares:</b> @T(zapier). El plan gratuito da 100 tareas al mes con Zaps de dos pasos; los Zaps de varios pasos requieren Professional, desde 19,99 US$ al mes. El coste sube con el volumen de tareas, así que revisa antes cuántas ejecuciones haces al mes.</li>
+<li><b>Tus flujos tienen muchas ramas y el presupuesto importa:</b> @T(make). El plan gratuito incluye 1.000 créditos al mes. La mayoría de las acciones usan 1 crédito, y los módulos de router y de gestión de errores no usan ninguno, así que los flujos complejos siguen siendo baratos.</li>
+<li><b>Eres builder y quieres agentes de IA o tus datos en tu propio servidor:</b> @T(n8n). La Community Edition, autoalojada, es gratis. En n8n Cloud pagas por ejecución del workflow, no por paso, y los planes Starter y Pro tienen un tope fijo, sin cargos por exceso.</li>
+<li><b>El no-code llega a su límite:</b> pide a @T(claude-code) el script o el handler de webhook y llámalo desde tu workflow.</li>
+<li><b>Una tarea web puntual de varios pasos:</b> @T(manus) la resuelve una vez. No lo uses para nada que deba ejecutarse de forma fiable con una programación.</li>
+</ul>
+<p><small>Detalles de los planes de Zapier, Make y n8n comprobados en la página oficial de precios de cada uno el 19 de nov. de 2026.</small></p>"""},
 }

@@ -1,0 +1,35 @@
+{
+ "date": "2026-11-19",
+ "items": [
+  {
+   "type": "Breaking change",
+   "tool": "OpenCode",
+   "what": "v2.3.1 (Nov 17, 2026): shell commands still running at their timeout now move to the background instead of being killed, timeout: 0 now means the 120-second default, and background compaction is on by default.",
+   "source_name": "anomalyco/opencode release v2.3.1",
+   "source_url": "https://github.com/anomalyco/opencode/releases/tag/v2.3.1",
+   "checked": "10:25 AM",
+   "test": "If a script used timeout: 0 to wait forever, set an explicit timeout. Background compaction can spend tokens on a summary you never use; set compaction.background: false to turn it off. v2.3.2 also stops GPT-6.2 models re-billing the system prompt every step.",
+   "use_case": "best-ai-coding-agents"
+  },
+  {
+   "type": "Breaking change",
+   "tool": "Claude Code",
+   "what": "v2.1.328 (Nov 18, 2026) adds auto mode for Opus 4.6 and Sonnet 4.6 on Amazon Bedrock, Google Cloud's Agent Platform, Microsoft Foundry and the Claude apps gateway; interactive sessions with no permission mode set now start in it.",
+   "source_name": "anthropics/claude-code release v2.1.328",
+   "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.328",
+   "checked": "10:25 AM",
+   "test": "On a cloud provider, set a permission mode in settings if you want prompts as before. mcp_tool hooks can now use \"onFailure\": \"block\", so a failing hook stops the action instead of letting it through.",
+   "use_case": "best-ai-coding-agents"
+  },
+  {
+   "type": "Breaking change",
+   "tool": "VS Code",
+   "what": "1.147 (Nov 18, 2026) deprecates VS Code desktop on macOS Ventura and Sonoma and on 32-bit ARM Linux, and removes the experimental AI usage stats in the Status Bar (editor.aiStats.enabled).",
+   "source_name": "VS Code 1.147 release notes",
+   "source_url": "https://code.visualstudio.com/updates/v1_147",
+   "checked": "10:25 AM",
+   "test": "If your team or CI runs VS Code on macOS 13 or 14 or on 32-bit ARM Linux (for example 32-bit Raspberry Pi OS), plan an OS upgrade now. Remove editor.aiStats.enabled from shared settings. The Local harness is still set for removal in February 2027.",
+   "use_case": "best-ai-coding-agents"
+  }
+ ]
+}
