@@ -284,6 +284,7 @@ PRICE_DATES.update({k: "2026-11-12" for k in ['vercel', 'netlify', 'railway']}) 
 PRICE_DATES.update({k: "2026-11-17" for k in ['postman', 'bruno']})  # re-checked Nov 17, 2026 on official pricing pages (prices unchanged; Postman Free lists 100 AI credits)
 PRICE_DATES.update({k: "2026-11-18" for k in ['claude', 'langchain', 'llamaindex']})  # re-checked Nov 18, 2026: Claude prices unchanged on claude.com/pricing; LangChain and LlamaIndex MIT on official GitHub repos
 PRICE_DATES.update({k: "2026-11-19" for k in ['n8n', 'make', 'zapier']})  # re-checked Nov 19, 2026 on official pricing pages (unchanged: n8n Cloud Starter 240/yr and Pro 10k 600/yr in EUR, Make Free 1,000 credits/mo, Zapier Free 100 tasks/mo and Professional from $19.99/mo)
+PRICE_DATES.update({k: "2026-11-20" for k in ['wxt']})  # re-checked Nov 20, 2026: WXT still MIT on its official GitHub repo (latest release v0.21.5, Oct 26, 2026)
 def price_date(t): return PRICE_DATES.get(t, PRICES_CHECKED)
 LABELS = {"en": ("Price", "Prices checked", "on each tool's official pricing page. They change often, so the official page wins.", "How to choose"),
           "pt-BR": ("Preço", "Preços conferidos em", "na página oficial de preços de cada ferramenta. Eles mudam com frequência; vale sempre a página oficial.", "Como escolher"),
@@ -619,4 +620,32 @@ GUIDES = {
 <li><b>Una tarea web puntual de varios pasos:</b> @T(manus) la resuelve una vez. No lo uses para nada que deba ejecutarse de forma fiable con una programación.</li>
 </ul>
 <p><small>Detalles de los planes de Zapier, Make y n8n comprobados en la página oficial de precios de cada uno el 19 de nov. de 2026.</small></p>"""},
+ "best-ai-for-chrome-extensions": {
+  "en": """<ul>
+<li><b>You want a working extension today and will test it as you go:</b> @T(cursor). Ask for a Manifest V3 extension, load it unpacked from chrome://extensions, and paste any error from the extension's service worker console back into the chat.</li>
+<li><b>You want the whole project scaffolded, permissions included:</b> @T(claude-code). Have it explain every entry in <code>permissions</code> and <code>host_permissions</code>, and remove what you don't need before you publish.</li>
+<li><b>It's a tiny one-file tool for yourself:</b> @T(chatgpt) is enough. Reject any answer with <code>"manifest_version": 2</code> or a background page: Chrome has disabled Manifest V2 extensions for all users since Chrome 138, and the Chrome Web Store removed the remaining ones on Aug 31, 2026.</li>
+<li><b>You plan to ship to more than one browser or keep it for years:</b> start from @T(wxt), then let your AI tool fill it in. It is MIT-licensed, supports all browsers and both MV2 and MV3, and its latest release is v0.21.5 (Oct 26, 2026).</li>
+<li><b>You'd rather write the code yourself:</b> @T(copilot) autocompletes <code>chrome.*</code> API calls in VS Code.</li>
+</ul>
+<p>To publish on the Chrome Web Store you need a developer account and a one-time registration fee.</p>
+<p><small>Manifest V2 timeline and Chrome Web Store registration checked on developer.chrome.com; WXT license, README and release on its official GitHub repo. All checked on Nov 20, 2026.</small></p>""",
+  "pt-BR": """<ul>
+<li><b>Você quer uma extensão funcionando hoje e vai testando no caminho:</b> @T(cursor). Peça uma extensão Manifest V3, carregue-a sem compactação em chrome://extensions e cole no chat qualquer erro do console do service worker da extensão.</li>
+<li><b>Você quer o projeto inteiro estruturado, com permissões:</b> @T(claude-code). Peça que explique cada item de <code>permissions</code> e <code>host_permissions</code> e remova o que você não usa antes de publicar.</li>
+<li><b>É uma ferramenta pequena, de um arquivo, só para você:</b> o @T(chatgpt) basta. Descarte qualquer resposta com <code>"manifest_version": 2</code> ou background page: o Chrome desativou as extensões Manifest V2 para todos os usuários desde o Chrome 138, e a Chrome Web Store removeu as restantes em 31 de ago. de 2026.</li>
+<li><b>Você pretende lançar em mais de um navegador ou manter por anos:</b> comece pelo @T(wxt) e deixe sua ferramenta de IA completar. Tem licença MIT, suporta todos os navegadores e tanto MV2 quanto MV3, e a versão mais recente é a v0.21.5 (26 de out. de 2026).</li>
+<li><b>Você prefere escrever o código você mesmo:</b> o @T(copilot) autocompleta chamadas da API <code>chrome.*</code> no VS Code.</li>
+</ul>
+<p>Para publicar na Chrome Web Store você precisa de uma conta de desenvolvedor e de uma taxa de registro única.</p>
+<p><small>Cronograma do Manifest V2 e registro na Chrome Web Store conferidos em developer.chrome.com; licença, README e versão do WXT no repositório oficial no GitHub. Tudo conferido em 20 de nov. de 2026.</small></p>""",
+  "es": """<ul>
+<li><b>Quieres una extensión funcionando hoy y vas probando sobre la marcha:</b> @T(cursor). Pide una extensión Manifest V3, cárgala descomprimida desde chrome://extensions y pega en el chat cualquier error de la consola del service worker de la extensión.</li>
+<li><b>Quieres todo el proyecto estructurado, permisos incluidos:</b> @T(claude-code). Pídele que explique cada entrada de <code>permissions</code> y <code>host_permissions</code> y quita lo que no necesites antes de publicar.</li>
+<li><b>Es una herramienta pequeña de un solo archivo para ti:</b> con @T(chatgpt) basta. Descarta cualquier respuesta con <code>"manifest_version": 2</code> o una background page: Chrome tiene desactivadas las extensiones Manifest V2 para todos los usuarios desde Chrome 138, y la Chrome Web Store retiró las que quedaban el 31 de ago. de 2026.</li>
+<li><b>Piensas publicarla en más de un navegador o mantenerla durante años:</b> empieza con @T(wxt) y deja que tu herramienta de IA la complete. Tiene licencia MIT, es compatible con todos los navegadores y con MV2 y MV3, y su versión más reciente es la v0.21.5 (26 de oct. de 2026).</li>
+<li><b>Prefieres escribir el código tú mismo:</b> @T(copilot) autocompleta llamadas a la API <code>chrome.*</code> en VS Code.</li>
+</ul>
+<p>Para publicar en la Chrome Web Store necesitas una cuenta de desarrollador y pagar una tarifa de registro única.</p>
+<p><small>Calendario de Manifest V2 y registro en la Chrome Web Store comprobados en developer.chrome.com; licencia, README y versión de WXT en su repositorio oficial de GitHub. Todo comprobado el 20 de nov. de 2026.</small></p>"""},
 }

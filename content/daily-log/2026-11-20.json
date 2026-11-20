@@ -1,0 +1,35 @@
+{
+ "date": "2026-11-20",
+ "items": [
+  {
+   "type": "Breaking change",
+   "tool": "Gemini CLI",
+   "what": "v0.70.0 (Nov 19, 2026) skips system-level MCP servers whose local command, script or parent folder is writable by non-admin users, with a startup security warning, and extension link prompts now default to No.",
+   "source_name": "google-gemini/gemini-cli release v0.70.0 (PR #30283)",
+   "source_url": "https://github.com/google-gemini/gemini-cli/pull/30283",
+   "checked": "10:23 AM",
+   "test": "If you ship MCP servers through /etc/gemini-cli/settings.json or system-defaults.json, make the command and its folder root-owned and not group- or world-writable, then confirm the server still loads. Scripts that run gemini extensions link without a TTY now need --consent.",
+   "use_case": "best-ai-coding-agents"
+  },
+  {
+   "type": "Breaking change",
+   "tool": "Codex",
+   "what": "CLI 0.171.0 (Nov 19, 2026) adds GPT-6.2 Sol and Astra to the model catalog with Sol as the default catalog selection, and turns the TUI workspace (document, image and subagent previews) on by default.",
+   "source_name": "openai/codex release rust-v0.171.0",
+   "source_url": "https://github.com/openai/codex/releases/tag/rust-v0.171.0",
+   "checked": "10:23 AM",
+   "test": "If you rely on the catalog default, pin your model in config.toml so runs and costs don't change under you. Check that the new TUI layout still works in narrow terminals and over SSH.",
+   "use_case": "best-ai-coding-agents"
+  },
+  {
+   "type": "Breaking change",
+   "tool": "Claude Code",
+   "what": "v2.1.329 (Nov 19, 2026) shows where a folder's hooks are declared in the trust dialog, warns when managed-settings hooks fail to load, and fixes ~/.claude.json being reset to defaults after a network stall or file lock.",
+   "source_name": "anthropics/claude-code release v2.1.329",
+   "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.329",
+   "checked": "10:23 AM",
+   "test": "Re-open trusted repos and read the hooks location before accepting. If your org pushes hooks through managed settings, look for the new load-failure warning. /code-review <pr number> now reads the PR with gh pr diff, so make sure gh is installed and signed in.",
+   "use_case": "best-ai-coding-agents"
+  }
+ ]
+}
