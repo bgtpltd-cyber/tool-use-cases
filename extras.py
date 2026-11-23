@@ -285,6 +285,7 @@ PRICE_DATES.update({k: "2026-11-17" for k in ['postman', 'bruno']})  # re-checke
 PRICE_DATES.update({k: "2026-11-18" for k in ['claude', 'langchain', 'llamaindex']})  # re-checked Nov 18, 2026: Claude prices unchanged on claude.com/pricing; LangChain and LlamaIndex MIT on official GitHub repos
 PRICE_DATES.update({k: "2026-11-19" for k in ['n8n', 'make', 'zapier']})  # re-checked Nov 19, 2026 on official pricing pages (unchanged: n8n Cloud Starter 240/yr and Pro 10k 600/yr in EUR, Make Free 1,000 credits/mo, Zapier Free 100 tasks/mo and Professional from $19.99/mo)
 PRICE_DATES.update({k: "2026-11-20" for k in ['wxt']})  # re-checked Nov 20, 2026: WXT still MIT on its official GitHub repo (latest release v0.21.5, Oct 26, 2026)
+PRICE_DATES.update({k: "2026-11-23" for k in ['fireflies', 'otter', 'grain', 'notion-ai']})  # re-checked Nov 23, 2026 on official pricing pages (unchanged: Fireflies Pro $10/seat yearly or $18 monthly, Business $19 yearly; Otter Basic free with 300 min/mo, Pro $8.33 yearly or $16.99 monthly, Business $19.99 yearly; Grain free for individuals, team seats $19; Notion AI Meeting Notes on Business $20/member yearly)
 def price_date(t): return PRICE_DATES.get(t, PRICES_CHECKED)
 LABELS = {"en": ("Price", "Prices checked", "on each tool's official pricing page. They change often, so the official page wins.", "How to choose"),
           "pt-BR": ("Preço", "Preços conferidos em", "na página oficial de preços de cada ferramenta. Eles mudam com frequência; vale sempre a página oficial.", "Como escolher"),
@@ -648,4 +649,32 @@ GUIDES = {
 </ul>
 <p>Para publicar en la Chrome Web Store necesitas una cuenta de desarrollador y pagar una tarifa de registro única.</p>
 <p><small>Calendario de Manifest V2 y registro en la Chrome Web Store comprobados en developer.chrome.com; licencia, README y versión de WXT en su repositorio oficial de GitHub. Todo comprobado el 20 de nov. de 2026.</small></p>"""},
+ "best-ai-for-meeting-notes": {
+  "en": """<ul>
+<li><b>You want every call recorded without thinking about it:</b> @T(fireflies). Its bot joins Zoom, Google Meet and Teams calls. The Free plan has unlimited transcription but only limited AI summaries and 400 minutes of storage per team, so most teams end up on Pro ($10 per seat/mo billed yearly, $18 monthly).</li>
+<li><b>You want live captions and the most usable free plan:</b> @T(otter). Basic is free with 300 transcription minutes a month and 3 lifetime file imports; Pro is $8.33 per user/mo billed yearly ($16.99 monthly).</li>
+<li><b>You run sales or customer calls and share moments, not full notes:</b> @T(grain). It is free for individuals; team seats start at $19 per seat/mo.</li>
+<li><b>Your team already writes everything in Notion and doesn't want a bot in the call:</b> @T(notion-ai). AI Meeting Notes is fully included only on the Business plan ($20 per member/mo billed yearly); Free and Plus get a limited trial.</li>
+<li><b>You already have a transcript and just want better notes:</b> paste it into @T(claude) and ask for decisions, owners and due dates. It won't record anything for you.</li>
+</ul>
+<p>Whatever you pick, tell people the call is being recorded and check your company's rules on storing transcripts. To turn notes into docs your team keeps, see <a href="@R/use-cases/best-ai-for-notion-docs/index.html">Best AI for notes and docs</a>.</p>
+<p><small>Fireflies, Otter, Grain and Notion plans checked on each official pricing page on Nov 23, 2026.</small></p>""",
+  "pt-BR": """<ul>
+<li><b>Você quer todas as chamadas gravadas sem precisar lembrar:</b> @T(fireflies). O bot entra em chamadas no Zoom, Google Meet e Teams. O plano Free tem transcrição ilimitada, mas resumos com IA limitados e 400 minutos de armazenamento por equipe, então a maioria das equipes acaba no Pro (US$ 10 por assento/mês no anual, US$ 18 no mensal).</li>
+<li><b>Você quer legenda ao vivo e o plano grátis mais útil:</b> @T(otter). O Basic é grátis, com 300 minutos de transcrição por mês e 3 importações de arquivo no total; o Pro custa US$ 8,33 por usuário/mês no anual (US$ 16,99 no mensal).</li>
+<li><b>Você faz chamadas de vendas ou com clientes e compartilha trechos, não a ata inteira:</b> @T(grain). É grátis para uso individual; os assentos de equipe começam em US$ 19 por assento/mês.</li>
+<li><b>Sua equipe já escreve tudo no Notion e não quer um bot na chamada:</b> @T(notion-ai). O AI Meeting Notes completo só vem no plano Business (US$ 20 por membro/mês no anual); Free e Plus têm só um teste limitado.</li>
+<li><b>Você já tem a transcrição e só quer notas melhores:</b> cole no @T(claude) e peça decisões, responsáveis e prazos. Ele não grava nada por você.</li>
+</ul>
+<p>Seja qual for a escolha, avise que a chamada está sendo gravada e confira as regras da sua empresa sobre guardar transcrições. Para transformar as notas em documentos da equipe, veja <a href="@R/pt/use-cases/best-ai-for-notion-docs/index.html">Melhor IA para notas e documentos</a>.</p>
+<p><small>Planos do Fireflies, Otter, Grain e Notion conferidos na página oficial de preços de cada um em 23 de nov. de 2026.</small></p>""",
+  "es": """<ul>
+<li><b>Quieres grabar todas las llamadas sin tener que acordarte:</b> @T(fireflies). Su bot entra en llamadas de Zoom, Google Meet y Teams. El plan Free tiene transcripción ilimitada, pero resúmenes con IA limitados y 400 minutos de almacenamiento por equipo, así que la mayoría de los equipos termina en Pro (10 US$ por asiento/mes en anual, 18 US$ mensual).</li>
+<li><b>Quieres subtítulos en vivo y el plan gratuito más útil:</b> @T(otter). Basic es gratis, con 300 minutos de transcripción al mes y 3 importaciones de archivos en total; Pro cuesta 8,33 US$ por usuario/mes en anual (16,99 US$ mensual).</li>
+<li><b>Haces llamadas de ventas o con clientes y compartes fragmentos, no el acta completa:</b> @T(grain). Es gratis para uso individual; los asientos de equipo empiezan en 19 US$ por asiento/mes.</li>
+<li><b>Tu equipo ya lo escribe todo en Notion y no quiere un bot en la llamada:</b> @T(notion-ai). AI Meeting Notes completo solo viene en el plan Business (20 US$ por miembro/mes en anual); Free y Plus tienen solo una prueba limitada.</li>
+<li><b>Ya tienes la transcripción y solo quieres mejores notas:</b> pégala en @T(claude) y pide decisiones, responsables y fechas. No graba nada por ti.</li>
+</ul>
+<p>Elijas lo que elijas, avisa de que la llamada se está grabando y revisa las normas de tu empresa sobre guardar transcripciones. Para convertir las notas en documentos del equipo, mira <a href="@R/es/use-cases/best-ai-for-notion-docs/index.html">Mejor IA para notas y documentos</a>.</p>
+<p><small>Planes de Fireflies, Otter, Grain y Notion comprobados en la página oficial de precios de cada uno el 23 de nov. de 2026.</small></p>"""},
 }

@@ -1,0 +1,35 @@
+{
+ "date": "2026-11-23",
+ "items": [
+  {
+   "type": "Breaking change",
+   "tool": "OpenCode",
+   "what": "v2.4.0 (Nov 23, 2026): the GitHub Copilot provider no longer reads GITHUB_TOKEN, plugins pinned to @latest or a version range now update themselves every 24 hours, and MCP servers are probed on the newest protocol first.",
+   "source_name": "anomalyco/opencode release v2.4.0 (Upgrade notes)",
+   "source_url": "https://github.com/anomalyco/opencode/releases/tag/v2.4.0",
+   "checked": "10:25 AM",
+   "test": "If CI uses Copilot through OpenCode, set COPILOT_GITHUB_TOKEN instead of GITHUB_TOKEN. Pin plugins to an exact version if you don't want silent updates, and set protocol: \"legacy\" on any MCP server that stops connecting. On macOS 12, go straight to v2.4.1, which fixes messages failing to save.",
+   "use_case": "best-ai-coding-agents"
+  },
+  {
+   "type": "Breaking change",
+   "tool": "Cline",
+   "what": "v4.1.27 (Nov 20, 2026): with no saved model, the Cline provider now starts on the first free model instead of Claude Sonnet 5.5, default models change for 67 other providers, and read_files results are no longer cut to 8k characters.",
+   "source_name": "cline/cline release v4.1.27",
+   "source_url": "https://github.com/cline/cline/releases/tag/v4.1.27",
+   "checked": "10:25 AM",
+   "test": "Open the model picker in every workspace that never saved a model and pick the one you expect. Full-size file reads send more tokens per task, so watch cost on large files.",
+   "use_case": "best-ai-coding-agents"
+  },
+  {
+   "type": "Breaking change",
+   "tool": "Claude Code",
+   "what": "v2.1.330 (Nov 20, 2026) adds sign-in to Enterprise Admin Console organizations, which then apply org settings and their cloud provider or gateway, and fixes ExitWorktree deleting a worktree another running session was using.",
+   "source_name": "anthropics/claude-code release v2.1.330",
+   "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.330",
+   "checked": "10:25 AM",
+   "test": "On an Enterprise org, run claude auth login again and confirm which provider and settings now apply. If you run parallel sessions in worktrees, upgrade before using the worktree exit dialog. This release also restores the automatic retry when max_tokens exceeds a model's limit, which 2.1.329 had removed.",
+   "use_case": "best-ai-coding-agents"
+  }
+ ]
+}
