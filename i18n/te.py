@@ -136,6 +136,7 @@ TOOLS = {
  "bruno": "Open-source, offline API client, collectionsని gitలో సాధారణ ఫైల్స్‌గా దాచుకుంటుంది.",
  "coda": "Doc, spreadsheet కలిసిన workspace (గతంలో Coda), tables, automations, బిల్ట్-ఇన్ AIతో.",
  "mem": "మూతపడుతున్న AI notes యాప్: 18 డిసెంబర్ 2026 నుంచి read-only, 15 జనవరి 2027న మూసివేత.",
+ "onenote-word-copilot": "OneNote, Word లోపల Copilot: notes ను summarize, organize చేస్తుంది, మీ Microsoft 365 ఫైళ్లు ఉన్న చోటే docs draft లేదా rewrite చేస్తుంది.",
 }
 
 UC = {  # slug: (title, blurb, [verdicts in the same order as the English picks])
@@ -323,8 +324,8 @@ UC = {  # slug: (title, blurb, [verdicts in the same order as the English picks]
   "మీ workspace Notionలో ఉంటే టాప్ పిక్: AI writing, అన్ని పేజీలపై Q&A, meeting notes, అన్నీ ఒకే చోట.",
   "Docs అసలు రాయడానికి, ఎడిట్ చేయడానికి బెస్ట్; Projects రెఫరెన్స్ మెటీరియల్‌ని దగ్గరగా ఉంచుతాయి.",
   "Docs draft చేయడానికి, మళ్లీ structure చేయడానికి versatile; మొదటి outline నుంచి పూర్తి rewrite వరకు.",
-  "మీ docs నిజానికి tables, automations ఉన్న చిన్న యాప్‌లైతే ఇది ఎంచుకోండి.",
-  "మూతపడుతోంది: 18 డిసెంబర్ 2026 నుంచి notes చదవడానికి మాత్రమే ఉంటాయి, 15 జనవరి 2027న Mem మూతపడుతుంది. ఇక్కడ మొదలుపెట్టకండి; ఇప్పటికే వాడుతుంటే ఇప్పుడే export చేసుకోండి."]),
+  "మీ notes, Word docs ఇప్పటికే Microsoft 365లో ఉంటే బెస్ట్. OneNote, Word లో Copilot Personal, Family, Premium, Proలో ఉంటుంది (AI సబ్‌స్క్రిప్షన్ యజమానికి మాత్రమే), business Copilot ప్లాన్‌లలో కూడా.",
+  "మీ docs నిజానికి tables, automations ఉన్న చిన్న యాప్‌లైతే ఇది ఎంచుకోండి."]),
 }
 
 NEW = {

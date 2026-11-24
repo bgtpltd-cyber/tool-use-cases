@@ -136,6 +136,7 @@ TOOLS = {
  "bruno": "Cliente de APIs open source y offline que guarda las colecciones como archivos simples en git.",
  "coda": "Workspace que mezcla documento y hoja de cálculo (antes Coda), con tablas, automatizaciones e IA integrada.",
  "mem": "App de notas con IA que va a cerrar: solo lectura desde el 18 de dic. de 2026 y cerrada el 15 de ene. de 2027.",
+ "onenote-word-copilot": "Copilot dentro de OneNote y Word: resume y organiza notas, y redacta o reescribe documentos donde ya están tus archivos de Microsoft 365.",
 }
 
 UC = {  # slug: (title, blurb, [verdicts in the same order as the English picks])
@@ -323,8 +324,8 @@ UC = {  # slug: (title, blurb, [verdicts in the same order as the English picks]
   "Opción n.º 1 si tu workspace está en Notion: escritura con IA, preguntas y respuestas entre páginas y notas de reuniones en un solo lugar.",
   "El mejor redactor y editor para los documentos en sí; los Projects mantienen el material de referencia a mano.",
   "Versátil para redactar y reestructurar documentos, desde el primer esquema hasta la reescritura completa.",
-  "Elígelo cuando tus documentos son en realidad mini apps con tablas y automatizaciones.",
-  "Va a cerrar: las notas pasan a solo lectura el 18 de dic. de 2026 y Mem cierra el 15 de ene. de 2027. No empieces aquí; si ya lo usas, exporta tus notas ahora."]),
+  "La mejor opción si tus notas y documentos de Word ya están en Microsoft 365. Copilot en OneNote y Word viene en Personal, Family, Premium y Pro (la IA es solo para el titular de la suscripción) y en los planes Copilot para empresas.",
+  "Elígelo cuando tus documentos son en realidad mini apps con tablas y automatizaciones."]),
 }
 
 NEW = {

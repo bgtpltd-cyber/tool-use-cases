@@ -136,6 +136,7 @@ TOOLS = {
  "bruno": "Open-source, offline API client, collections ಅನ್ನು git ನಲ್ಲಿ ಸಾಮಾನ್ಯ ಫೈಲ್‌ಗಳಾಗಿ ಇಡುತ್ತದೆ.",
  "coda": "Doc ಮತ್ತು spreadsheet ಒಂದಾದ workspace (ಹಿಂದೆ Coda), tables, automations ಮತ್ತು ಬಿಲ್ಟ್-ಇನ್ AI ಜೊತೆ.",
  "mem": "ಮುಚ್ಚುತ್ತಿರುವ AI notes ಆ್ಯಪ್: 18 ಡಿಸೆಂಬರ್ 2026 ರಿಂದ read-only, 15 ಜನವರಿ 2027 ರಂದು ಮುಚ್ಚುತ್ತದೆ.",
+ "onenote-word-copilot": "OneNote ಮತ್ತು Word ಒಳಗೆ Copilot: notes ಅನ್ನು summarize ಮತ್ತು organize ಮಾಡುತ್ತದೆ, ನಿಮ್ಮ Microsoft 365 ಫೈಲ್‌ಗಳಿರುವಲ್ಲೇ docs draft ಅಥವಾ rewrite ಮಾಡುತ್ತದೆ.",
 }
 
 UC = {  # slug: (title, blurb, [verdicts in the same order as the English picks])
@@ -323,8 +324,8 @@ UC = {  # slug: (title, blurb, [verdicts in the same order as the English picks]
   "ನಿಮ್ಮ workspace Notion ನಲ್ಲಿದ್ದರೆ ಟಾಪ್ ಪಿಕ್: AI writing, ಎಲ್ಲಾ ಪೇಜ್‌ಗಳಲ್ಲಿ Q&A ಮತ್ತು meeting notes, ಎಲ್ಲವೂ ಒಂದೇ ಕಡೆ.",
   "Docs ಅನ್ನು ನಿಜವಾಗಿ ಬರೆಯಲು ಮತ್ತು ಎಡಿಟ್ ಮಾಡಲು ಬೆಸ್ಟ್; Projects ರೆಫರೆನ್ಸ್ ಮೆಟೀರಿಯಲ್ ಅನ್ನು ಕೈಗೆ ಸಿಗುವಂತೆ ಇಡುತ್ತವೆ.",
   "Docs draft ಮಾಡಲು ಮತ್ತು ಮರುರಚಿಸಲು versatile; ಮೊದಲ outline ನಿಂದ ಪೂರ್ಣ rewrite ವರೆಗೆ.",
-  "ನಿಮ್ಮ docs ನಿಜಕ್ಕೂ tables ಮತ್ತು automations ಇರುವ ಚಿಕ್ಕ ಆ್ಯಪ್‌ಗಳಾಗಿದ್ದರೆ ಇದನ್ನು ಆರಿಸಿ.",
-  "ಮುಚ್ಚುತ್ತಿದೆ: 18 ಡಿಸೆಂಬರ್ 2026 ರಿಂದ notes ಓದಲು ಮಾತ್ರ ಸಾಧ್ಯ, 15 ಜನವರಿ 2027 ರಂದು Mem ಮುಚ್ಚಲಿದೆ. ಇಲ್ಲಿ ಶುರು ಮಾಡಬೇಡಿ; ಈಗಾಗಲೇ ಬಳಸುತ್ತಿದ್ದರೆ ಈಗಲೇ export ಮಾಡಿಕೊಳ್ಳಿ."]),
+  "ನಿಮ್ಮ notes ಮತ್ತು Word docs ಈಗಾಗಲೇ Microsoft 365 ನಲ್ಲಿದ್ದರೆ ಉತ್ತಮ. OneNote ಮತ್ತು Word ನಲ್ಲಿನ Copilot Personal, Family, Premium ಮತ್ತು Pro ನಲ್ಲಿ ಸೇರಿದೆ (AI ಚಂದಾದಾರರ ಮಾಲೀಕರಿಗೆ ಮಾತ್ರ), business Copilot ಯೋಜನೆಗಳಲ್ಲಿಯೂ.",
+  "ನಿಮ್ಮ docs ನಿಜಕ್ಕೂ tables ಮತ್ತು automations ಇರುವ ಚಿಕ್ಕ ಆ್ಯಪ್‌ಗಳಾಗಿದ್ದರೆ ಇದನ್ನು ಆರಿಸಿ."]),
 }
 
 NEW = {

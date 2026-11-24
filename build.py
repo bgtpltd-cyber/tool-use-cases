@@ -112,6 +112,7 @@ T = {  # slug: (name, url, what it is)
  "bruno": ("Bruno", "https://www.usebruno.com", "Open-source, offline API client that stores collections as plain files in git."),
  "coda": ("Superhuman Docs (formerly Coda)", "https://superhuman.com/docs", "Doc-meets-spreadsheet workspace (formerly Coda) with tables, automations and built-in AI."),
  "mem": ("Mem", "https://mem.ai", "AI notes app that is shutting down: read-only from Dec 18, 2026, closed on Jan 15, 2027."),
+ "onenote-word-copilot": ("Microsoft 365 Copilot (OneNote and Word)", "https://www.microsoft.com/en-us/microsoft-365/copilot", "Copilot inside OneNote and Word: summarize and organize notes, and draft or rewrite documents where your Microsoft 365 files already live."),
 }
 
 UC = [
@@ -299,8 +300,8 @@ UC = [
   ("notion-ai","Top pick if your workspace is in Notion: AI writing, Q&A across pages and meeting notes in one place."),
   ("claude","Best writer and editor for the docs themselves; Projects keep reference material handy."),
   ("chatgpt","Versatile for drafting and restructuring docs, from first outline to full rewrite."),
-  ("coda","Pick it when your docs are really mini-apps with tables and automations."),
-  ("mem","Shutting down: notes go read-only Dec 18, 2026 and Mem closes Jan 15, 2027. Don't start here; if you already use it, export your notes now.")]),
+  ("onenote-word-copilot","Best if your notes and Word docs already live in Microsoft 365. Copilot in OneNote and Word is included with Personal, Family, Premium and Pro (AI for the subscription owner only), and with business Copilot plans."),
+  ("coda","Pick it when your docs are really mini-apps with tables and automations.")]),
 ]
 
 NEW_UPDATED = "2026-11-05"  # shown as "Last updated" on /new/ (all locales)
@@ -598,6 +599,27 @@ def note_html(slug, t, lang):  # one dated note for a pick on one page, from PIC
     if not n: return ""
     d, txt, sl, sn, su = n
     return f'<p class="price"><b>{e(d)}:</b> {e(txt)} <small class="muted">{e(sl)}: <a href="{su}" rel="noopener" target="_blank">{e(sn)}</a></small></p>'
+
+# Short note under the ranked picks on selected pages (all locales). Not a pick.
+UC_AFTER_PICKS = {
+ "best-ai-for-notion-docs": {
+  "en": "Mem is shutting down. Notes go read-only on Dec 18, 2026, and the service closes on Jan 15, 2027. Don't start there; if you already use it, export your notes now.",
+  "pt-BR": "O Mem está encerrando. As notas ficam só leitura em 18 de dez. de 2026, e o serviço fecha em 15 de jan. de 2027. Não comece por ele; se você já usa, exporte suas notas agora.",
+  "es": "Mem está cerrando. Las notas pasan a solo lectura el 18 de dic. de 2026, y el servicio cierra el 15 de ene. de 2027. No empieces ahí; si ya lo usas, exporta tus notas ahora.",
+  "hi": "Mem बंद हो रहा है। 18 दिसंबर 2026 से notes सिर्फ़ पढ़े जा सकेंगे, और सेवा 15 जनवरी 2027 को बंद हो जाएगी। यहाँ से शुरुआत न करें; अगर आप पहले से इस्तेमाल करते हैं, तो अभी export कर लें।",
+  "bn": "Mem বন্ধ হতে চলেছে। 18 ডিসেম্বর 2026 থেকে notes শুধু পড়া যাবে, আর পরিষেবা 15 জানুয়ারি 2027-এ বন্ধ হবে। এখান থেকে শুরু করবেন না; আগে থেকে ব্যবহার করলে এখনই export করে নিন।",
+  "te": "Mem మూతపడుతోంది. 18 డిసెంబర్ 2026 నుంచి notes చదవడానికి మాత్రమే ఉంటాయి, సర్వీస్ 15 జనవరి 2027న మూసివేత. ఇక్కడ మొదలుపెట్టకండి; ఇప్పటికే వాడుతుంటే ఇప్పుడే export చేసుకోండి.",
+  "mr": "Mem बंद होत आहे. 18 डिसेंबर 2026 पासून notes फक्त वाचता येतील, आणि सेवा 15 जानेवारी 2027 ला बंद होईल. इथे सुरुवात करू नका; आधीपासून वापरत असाल तर आताच export करा.",
+  "ta": "Mem மூடப்படுகிறது. 18 டிசம்பர் 2026 முதல் notes-ஐப் படிக்க மட்டுமே முடியும், சேவை 15 ஜனவரி 2027 அன்று மூடப்படும். இங்கே தொடங்க வேண்டாம்; ஏற்கெனவே பயன்படுத்தினால் இப்போதே export செய்துகொள்ளுங்கள்.",
+  "kn": "Mem ಮುಚ್ಚುತ್ತಿದೆ. 18 ಡಿಸೆಂಬರ್ 2026 ರಿಂದ notes ಓದಲು ಮಾತ್ರ ಇರುತ್ತವೆ, ಮತ್ತು ಸೇವೆ 15 ಜನವರಿ 2027 ರಂದು ಮುಚ್ಚುತ್ತದೆ. ಇಲ್ಲಿ ಪ್ರಾರಂಭಿಸಬೇಡಿ; ಈಗಾಗಲೇ ಬಳಸುತ್ತಿದ್ದರೆ ಈಗಲೇ export ಮಾಡಿ.",
+  "ml": "Mem അടച്ചുപൂട്ടുന്നു. 2026 ഡിസംബർ 18 മുതൽ notes വായിക്കാൻ മാത്രമേ കഴിയൂ, സേവനം 2027 ജനുവരി 15-ന് അടയ്ക്കും. ഇവിടെ തുടങ്ങരുത്; ഇപ്പോൾ ഉപയോഗിക്കുന്നുണ്ടെങ്കിൽ ഉടൻ export ചെയ്യുക.",
+  "ja": "Memはサービス終了予定です。2026年12月18日からメモは閲覧のみになり、2027年1月15日に終了します。新しく使い始めるのは避け、利用中なら今のうちにエクスポートしましょう。",
+ }
+}
+def after_picks_html(slug, lang):
+    txt = UC_AFTER_PICKS.get(slug, {}).get(lang)
+    if not txt: return ""
+    return f'<p class="muted"><small>{e(txt)}</small></p>'
 def guide_html(slug, tools, lang, L=None):  # 'How to choose' block + price-check note
     out = ""
     g = extras.GUIDES.get(slug, {}).get(lang)
@@ -676,7 +698,7 @@ for slug,title,blurb,tools in UC:
 <p><small><a href="@R/use-cases/index.html">Use cases</a> /</small></p><h1>{e(title)}</h1><p class="lede">{e(blurb)}</p>
 {byline()}<p class="quick"><b>Quick answer:</b> {e(uc_quick(tools, slug))}</p>
 {SPONSOR_CARD if SHOW_SPONSOR_SLOT else ""}<h2>Our picks</h2><ol class="tools">{items}</ol>
-{upgrade_html(slug)}{guide_html(slug, tools, "en")}
+{after_picks_html(slug, "en")}{upgrade_html(slug)}{guide_html(slug, tools, "en")}
 <p class="muted"><small>Picks are editorial and not paid. Pricing and features change often — check each official site.</small></p>
 <h2>FAQ</h2>{"".join(f'<h3>{e(q)}</h3><p>{e(a)}</p>' for q,a in faqs)}
 {ab.AB_UC_CALLOUT if slug in ab.AB_UC_CALLOUT_SLUGS else ""}{relhtml}<p><a href="@R/use-cases/index.html">Browse all use cases →</a></p>""", ld=[{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
@@ -856,7 +878,7 @@ def build_locale(L):
         page(f"{P}use-cases/{slug}/index.html", title_l(title), desc_l(blurb, tools), f"""
 <p><small><a href="@R/{P}use-cases/index.html">{e(U["use_cases"])}</a> /</small></p><h1>{e(title)}</h1><p class="lede">{e(blurb)}</p>
 {byline(L)}{quick_l(L, tools, verdicts)}{scard if SHOW_SPONSOR_SLOT else ""}<h2>{e(U["our_picks"])}</h2><ol class="tools">{items}</ol>
-{guide_html(slug, tools, L.CODE, L)}
+{after_picks_html(slug, L.CODE)}{guide_html(slug, tools, L.CODE, L)}
 <p class="muted"><small>{e(U["disclaimer"])}</small></p>
 {faq_html_l(L, title, tools, verdicts, slug)}{relhtml}<p><a href="@R/{P}use-cases/index.html">{e(U["browse_all"])}</a></p>""", L=L, ld=[crumbs_l((U["use_cases"],"use-cases/"),(title,f"use-cases/{slug}/")),
          {"@context":"https://schema.org","@type":"ItemList","name":title,"description":blurb,"url":f"{BASE}{P}use-cases/{slug}/","inLanguage":L.CODE,"itemListElement":[{"@type":"ListItem","position":i,"name":T[t][0],"url":T[t][1]} for i,((t,_),v) in enumerate(zip(tools,verdicts),1)]}, page_ld(title_l(title), f"{BASE}{P}use-cases/{slug}/", L.CODE)] + faq_ld_l(L, title, tools, verdicts, slug))

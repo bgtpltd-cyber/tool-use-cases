@@ -136,6 +136,7 @@ TOOLS = {
  "bruno": "Open-source, offline API client, যা collections-কে git-এ সাধারণ ফাইল হিসেবে রাখে।",
  "coda": "Doc আর spreadsheet মেলানো workspace (আগে Coda), tables, automations আর বিল্ট-ইন AI সহ।",
  "mem": "বন্ধ হতে চলা AI notes অ্যাপ: 18 ডিসেম্বর 2026 থেকে read-only, 15 জানুয়ারি 2027-এ বন্ধ।",
+ "onenote-word-copilot": "OneNote আর Word-এর ভেতরে Copilot: notes summarize আর organize করে, এবং যেখানে আপনার Microsoft 365 ফাইল আগে থেকেই আছে সেখানেই docs-এর draft বা rewrite করে।",
 }
 
 UC = {  # slug: (title, blurb, [verdicts in the same order as the English picks])
@@ -323,8 +324,8 @@ UC = {  # slug: (title, blurb, [verdicts in the same order as the English picks]
   "টপ পিক, যদি আপনার workspace Notion-এ হয়: AI writing, সব পেজ জুড়ে Q&A আর meeting notes, সব এক জায়গায়।",
   "Docs-এর আসল লেখা আর এডিটিংয়ের জন্য সেরা; Projects রেফারেন্স মেটেরিয়াল হাতের কাছে রাখে।",
   "Docs-এর draft বানানো আর নতুন করে সাজানোয় versatile, প্রথম outline থেকে পুরো rewrite পর্যন্ত।",
-  "এটা বাছুন যখন আপনার docs আসলে tables আর automations সহ ছোট ছোট অ্যাপ।",
-  "বন্ধ হয়ে যাচ্ছে: 18 ডিসেম্বর 2026 থেকে নোট শুধু পড়া যাবে, আর 15 জানুয়ারি 2027-এ Mem বন্ধ হবে। এখান থেকে শুরু করবেন না; আগে থেকেই ব্যবহার করলে এখনই export করে নিন।"]),
+  "সেরা, যদি আপনার notes আর Word docs আগে থেকেই Microsoft 365-এ থাকে। OneNote আর Word-এর Copilot Personal, Family, Premium আর Pro-তে অন্তর্ভুক্ত (AI শুধু সাবস্ক্রিপশনের মালিকের জন্য), আর business Copilot প্ল্যানেও।",
+  "এটা বাছুন যখন আপনার docs আসলে tables আর automations সহ ছোট ছোট অ্যাপ।"]),
 }
 
 NEW = {

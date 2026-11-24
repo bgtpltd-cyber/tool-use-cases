@@ -136,6 +136,7 @@ TOOLS = {
  "bruno": "Open-source, offline API client, जो collections git मध्ये साध्या फाइल्सच्या रूपात ठेवतो.",
  "coda": "Doc आणि spreadsheet एकत्र करणारं workspace (पूर्वीचं Coda), tables, automations आणि बिल्ट-इन AI सह.",
  "mem": "बंद होत असलेलं AI notes ॲप: 18 डिसेंबर 2026 पासून read-only आणि 15 जानेवारी 2027 ला बंद.",
+ "onenote-word-copilot": "OneNote आणि Word मधला Copilot: notes summarize आणि organize करतो, आणि तुमच्या Microsoft 365 फाइल्स जिथे आहेत तिथेच docs चा draft किंवा rewrite करतो.",
 }
 
 UC = {  # slug: (title, blurb, [verdicts in the same order as the English picks])
@@ -323,8 +324,8 @@ UC = {  # slug: (title, blurb, [verdicts in the same order as the English picks]
   "तुमचं workspace Notion मध्ये असेल तर टॉप पिक: AI writing, सगळ्या पेजेसवर Q&A आणि meeting notes, सगळं एकाच ठिकाणी.",
   "Docs च्या प्रत्यक्ष लेखन आणि एडिटिंगसाठी सगळ्यात चांगला; Projects रेफरन्स मटेरियल हाताशी ठेवतात.",
   "Docs चा draft बनवण्यासाठी आणि त्यांची पुन्हा मांडणी करण्यासाठी versatile, पहिल्या outline पासून पूर्ण rewrite पर्यंत.",
-  "तुमचे docs खरंतर tables आणि automations असलेली छोटी ॲप्स असतील तेव्हा हे निवडा.",
-  "बंद होत आहे: 18 डिसेंबर 2026 पासून नोट्स फक्त वाचता येतील आणि 15 जानेवारी 2027 ला Mem बंद होईल. इथून सुरुवात करू नका; आधीपासून वापरत असाल तर आत्ताच export करा."]),
+  "तुमच्या notes आणि Word docs आधीपासून Microsoft 365 मध्ये असतील तर सर्वोत्तम. OneNote आणि Word मधला Copilot Personal, Family, Premium आणि Pro मध्ये येतो (AI फक्त सब्सक्रिप्शनच्या मालकासाठी), आणि business Copilot प्लानमध्येही.",
+  "तुमचे docs खरंतर tables आणि automations असलेली छोटी ॲप्स असतील तेव्हा हे निवडा."]),
 }
 
 NEW = {
