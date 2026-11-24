@@ -273,9 +273,9 @@ PRICES = {
    "O app open source é grátis. Pro: US$ 6 e Ultimate: US$ 11 por usuário/mês, no anual.",
    "La app de código abierto es gratis. Pro: 6 US$ y Ultimate: 11 US$ por usuario/mes, en anual.",
    "https://www.usebruno.com/pricing"),
- "mem": ("Free plan. Mem Plus $9/mo; Mem Pro $29/mo.",
-   "Plano grátis. Mem Plus: US$ 9/mês; Mem Pro: US$ 29/mês.",
-   "Plan gratuito. Mem Plus: 9 US$/mes; Mem Pro: 29 US$/mes.",
+ "mem": ("No new paid subscriptions and all charging paused: Mem is winding down. Notes go read-only Dec 18, 2026; Mem shuts down Jan 15, 2027.",
+   "Sem novas assinaturas pagas e cobranças suspensas: o Mem está encerrando. As notas ficam só leitura em 18 de dez. de 2026; o Mem fecha em 15 de jan. de 2027.",
+   "Sin nuevas suscripciones de pago y cobros pausados: Mem está cerrando. Las notas pasan a solo lectura el 18 de dic. de 2026; Mem cierra el 15 de ene. de 2027.",
    "https://get.mem.ai/pricing"),
 }
 PRICE_DATES = {k: "2026-10-23" for k in ['notion-ai', 'midjourney', 'ideogram', 'grammarly', 'grok', 'n8n', 'make', 'zapier', 'framer', 'figma', 'uizard', 'aiva', 'clearscope', 'julius', 'beautiful-ai', 'tripo', 'rodin', 'fireflies', 'otter', 'grain', 'langchain', 'llamaindex', 'langgraph', 'crewai', 'ms-agent-framework', 'openai-agents', 'ollama', 'wxt', 'vercel', 'netlify', 'railway', 'looka', 'helpscout', 'firecrawl', 'apify', 'browserbase', 'postman', 'bruno', 'mem']}  # entries checked on their official pricing page / repo on Oct 23, 2026
@@ -286,6 +286,7 @@ PRICE_DATES.update({k: "2026-11-18" for k in ['claude', 'langchain', 'llamaindex
 PRICE_DATES.update({k: "2026-11-19" for k in ['n8n', 'make', 'zapier']})  # re-checked Nov 19, 2026 on official pricing pages (unchanged: n8n Cloud Starter 240/yr and Pro 10k 600/yr in EUR, Make Free 1,000 credits/mo, Zapier Free 100 tasks/mo and Professional from $19.99/mo)
 PRICE_DATES.update({k: "2026-11-20" for k in ['wxt']})  # re-checked Nov 20, 2026: WXT still MIT on its official GitHub repo (latest release v0.21.5, Oct 26, 2026)
 PRICE_DATES.update({k: "2026-11-23" for k in ['fireflies', 'otter', 'grain', 'notion-ai']})  # re-checked Nov 23, 2026 on official pricing pages (unchanged: Fireflies Pro $10/seat yearly or $18 monthly, Business $19 yearly; Otter Basic free with 300 min/mo, Pro $8.33 yearly or $16.99 monthly, Business $19.99 yearly; Grain free for individuals, team seats $19; Notion AI Meeting Notes on Business $20/member yearly)
+PRICE_DATES.update({k: "2026-11-24" for k in ['mem', 'notion-ai']})  # re-checked Nov 24, 2026: get.mem.ai/pricing and the Nov 16, 2026 shutdown post (no new paid plans, read-only Dec 18, 2026, shutdown Jan 15, 2027); notion.com/pricing unchanged (Plus $10, Business $20 per member/mo billed yearly; Custom Agents free to try, then $10 per 1,000 Notion credits)
 def price_date(t): return PRICE_DATES.get(t, PRICES_CHECKED)
 LABELS = {"en": ("Price", "Prices checked", "on each tool's official pricing page. They change often, so the official page wins.", "How to choose"),
           "pt-BR": ("Preço", "Preços conferidos em", "na página oficial de preços de cada ferramenta. Eles mudam com frequência; vale sempre a página oficial.", "Como escolher"),
@@ -677,4 +678,32 @@ GUIDES = {
 </ul>
 <p>Elijas lo que elijas, avisa de que la llamada se está grabando y revisa las normas de tu empresa sobre guardar transcripciones. Para convertir las notas en documentos del equipo, mira <a href="@R/es/use-cases/best-ai-for-notion-docs/index.html">Mejor IA para notas y documentos</a>.</p>
 <p><small>Planes de Fireflies, Otter, Grain y Notion comprobados en la página oficial de precios de cada uno el 23 de nov. de 2026.</small></p>"""},
+ "best-ai-for-notion-docs": {
+  "en": """<ul>
+<li><b>Your team's wiki and docs already live in Notion:</b> @T(notion-ai). Free and Plus only include a trial; full Notion AI (Notion Agent, AI Meeting Notes) is on Business at $20 per member/mo billed yearly. Custom Agents are free to try, then $10 per 1,000 Notion credits.</li>
+<li><b>Your docs are really trackers, tables and automations:</b> @T(coda). You pay only for Doc Makers; Editors and Viewers are free. Its Docs AI assistant is included on paid plans while in beta, with limited trials on Free.</li>
+<li><b>You need one long doc written or rewritten well:</b> @T(claude). Put your reference files in a Project so every draft uses them, then paste the result into your wiki.</li>
+<li><b>You mostly restructure: outlines, summaries, tables from messy notes:</b> @T(chatgpt). It works with any tool because you paste in and paste out.</li>
+<li><b>You wanted a personal notes app that organizes itself:</b> don't start on @T(mem). It stopped new paid plans, notes go read-only on Dec 18, 2026 and it shuts down on Jan 15, 2027. If you use it now, export from Settings → Exports before then.</li>
+</ul>
+<p>Pick the tool where your docs already live; moving a team wiki is the expensive part, not the AI. To turn calls into notes, see <a href="@R/use-cases/best-ai-for-meeting-notes/index.html">Best AI for meeting notes</a>.</p>
+<p><small>Notion plans checked on notion.com/pricing, Superhuman Docs billing on coda.io/pricing, and Mem's dates on its pricing page and Nov 16, 2026 shutdown post. All checked on Nov 24, 2026.</small></p>""",
+  "pt-BR": """<ul>
+<li><b>A wiki e os documentos do seu time já estão no Notion:</b> @T(notion-ai). Free e Plus têm só um teste; o Notion AI completo (Notion Agent, AI Meeting Notes) vem no Business, a US$ 20 por membro/mês no anual. Os Custom Agents são grátis para testar e depois custam US$ 10 por 1.000 créditos do Notion.</li>
+<li><b>Seus documentos são, na prática, trackers, tabelas e automações:</b> @T(coda). Você só paga pelos Doc Makers; Editors e Viewers são grátis. O assistente Docs AI vem incluído nos planos pagos enquanto está em beta, com testes limitados no Free.</li>
+<li><b>Você precisa de um documento longo bem escrito ou reescrito:</b> @T(claude). Coloque os arquivos de referência em um Project para que todo rascunho os use e depois cole o resultado na sua wiki.</li>
+<li><b>Você mais reorganiza: estruturas, resumos e tabelas a partir de notas bagunçadas:</b> @T(chatgpt). Funciona com qualquer ferramenta, porque você cola o texto e copia o resultado.</li>
+<li><b>Você queria um app de notas pessoais que se organiza sozinho:</b> não comece pelo @T(mem). Ele parou de vender planos pagos, as notas ficam só leitura em 18 de dez. de 2026 e ele fecha em 15 de jan. de 2027. Se você usa hoje, exporte em Settings → Exports antes disso.</li>
+</ul>
+<p>Escolha a ferramenta onde seus documentos já estão; o caro é mudar a wiki do time de lugar, não a IA. Para transformar chamadas em notas, veja <a href="@R/pt/use-cases/best-ai-for-meeting-notes/index.html">Melhor IA para notas de reunião</a>.</p>
+<p><small>Planos do Notion conferidos em notion.com/pricing, cobrança do Superhuman Docs em coda.io/pricing e datas do Mem na página de preços e no anúncio de encerramento de 16 de nov. de 2026. Tudo conferido em 24 de nov. de 2026.</small></p>""",
+  "es": """<ul>
+<li><b>La wiki y los documentos de tu equipo ya están en Notion:</b> @T(notion-ai). Free y Plus solo incluyen una prueba; Notion AI completo (Notion Agent, AI Meeting Notes) viene en Business, a 20 US$ por miembro/mes en anual. Los Custom Agents se pueden probar gratis y luego cuestan 10 US$ por 1.000 créditos de Notion.</li>
+<li><b>Tus documentos son en realidad trackers, tablas y automatizaciones:</b> @T(coda). Solo pagas por los Doc Makers; Editors y Viewers son gratis. El asistente Docs AI viene incluido en los planes de pago mientras está en beta, con pruebas limitadas en Free.</li>
+<li><b>Necesitas un documento largo bien escrito o reescrito:</b> @T(claude). Pon tus archivos de referencia en un Project para que cada borrador los use y luego pega el resultado en tu wiki.</li>
+<li><b>Sobre todo reorganizas: esquemas, resúmenes y tablas a partir de notas desordenadas:</b> @T(chatgpt). Funciona con cualquier herramienta, porque pegas el texto y copias el resultado.</li>
+<li><b>Querías una app de notas personales que se organice sola:</b> no empieces con @T(mem). Dejó de vender planes de pago, las notas pasan a solo lectura el 18 de dic. de 2026 y cierra el 15 de ene. de 2027. Si lo usas hoy, exporta desde Settings → Exports antes de esa fecha.</li>
+</ul>
+<p>Elige la herramienta donde ya están tus documentos; lo caro es mudar la wiki del equipo, no la IA. Para convertir llamadas en notas, mira <a href="@R/es/use-cases/best-ai-for-meeting-notes/index.html">Mejor IA para notas de reuniones</a>.</p>
+<p><small>Planes de Notion comprobados en notion.com/pricing, facturación de Superhuman Docs en coda.io/pricing y fechas de Mem en su página de precios y en el anuncio de cierre del 16 de nov. de 2026. Todo comprobado el 24 de nov. de 2026.</small></p>"""},
 }

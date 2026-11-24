@@ -135,7 +135,7 @@ TOOLS = {
  "postman": "Requests உருவாக்கி test செய்யும் API platform; உங்கள் collections முழுவதும் AI-யுடன் வேலை செய்யும் Agent Mode உடன்.",
  "bruno": "Open-source, offline API client, collections-ஐ git-இல் சாதாரண files-ஆக வைத்திருக்கும்.",
  "coda": "Doc-உம் spreadsheet-உம் இணைந்த workspace (முன்பு Coda); tables, automations, built-in AI உடன்.",
- "mem": "Notes-ஐத் தானாக ஒழுங்குபடுத்தி, அவற்றுடன் chat செய்ய விடும் AI notes app.",
+ "mem": "மூடப்படும் AI notes app: 18 டிசம்பர் 2026 முதல் read-only, 15 ஜனவரி 2027 அன்று மூடல்.",
 }
 
 UC = {  # slug: (title, blurb, [verdicts in the same order as the English picks])
@@ -324,7 +324,7 @@ UC = {  # slug: (title, blurb, [verdicts in the same order as the English picks]
   "Docs-ஐ உண்மையில் எழுதவும் edit செய்யவும் சிறந்தது; Projects reference material-ஐக் கையருகே வைத்திருக்கும்.",
   "Docs-ஐ draft செய்யவும் மறுசீரமைக்கவும் versatile; முதல் outline முதல் முழு rewrite வரை.",
   "உங்கள் docs உண்மையில் tables, automations உள்ள சின்ன apps என்றால் இதைத் தேர்ந்தெடுங்கள்.",
-  "தானாக ஒழுங்காகும் personal notes; team wikis-க்குத் தவிர்த்துவிடுங்கள்."]),
+  "மூடப்படுகிறது: 18 டிசம்பர் 2026 முதல் notes-ஐப் படிக்க மட்டுமே முடியும், 15 ஜனவரி 2027 அன்று Mem மூடப்படும். இங்கே தொடங்க வேண்டாம்; ஏற்கெனவே பயன்படுத்தினால் இப்போதே export செய்துகொள்ளுங்கள்."]),
 }
 
 NEW = {

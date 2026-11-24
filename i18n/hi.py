@@ -135,7 +135,7 @@ TOOLS = {
  "postman": "Requests बनाने और टेस्ट करने का API प्लेटफ़ॉर्म, Agent Mode के साथ जो आपके सभी collections पर AI से काम करता है।",
  "bruno": "Open-source, offline API client, जो collections को git में सादी फ़ाइलों की तरह रखता है।",
  "coda": "Doc और spreadsheet का मेल वाला workspace (पहले Coda), tables, automations और बिल्ट-इन AI के साथ।",
- "mem": "AI notes ऐप, जो notes को अपने-आप organize करता है और आपको उनसे chat करने देता है।",
+ "mem": "AI notes ऐप जो बंद हो रहा है: 18 दिसंबर 2026 से read-only और 15 जनवरी 2027 को बंद।",
 }
 
 UC = {  # slug: (title, blurb, [verdicts in the same order as the English picks])
@@ -324,7 +324,7 @@ UC = {  # slug: (title, blurb, [verdicts in the same order as the English picks]
   "Docs की असली लिखाई और एडिटिंग के लिए सबसे अच्छा; Projects reference मटीरियल को हाथ के पास रखते हैं।",
   "Docs का draft बनाने और उन्हें दोबारा structure करने में versatile, पहली outline से पूरे rewrite तक।",
   "इसे चुनें जब आपके docs असल में tables और automations वाले छोटे-छोटे ऐप्स हों।",
-  "Personal notes जो अपने-आप organize हो जाते हैं; टीम wikis के लिए छोड़ दें।"]),
+  "बंद हो रहा है: 18 दिसंबर 2026 से notes सिर्फ़ पढ़े जा सकेंगे और 15 जनवरी 2027 को Mem बंद हो जाएगा। यहाँ से शुरुआत न करें; अगर आप पहले से इस्तेमाल करते हैं, तो अभी export कर लें।"]),
 }
 
 NEW = {

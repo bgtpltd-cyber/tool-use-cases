@@ -111,7 +111,7 @@ T = {  # slug: (name, url, what it is)
  "postman": ("Postman", "https://www.postman.com", "API platform for building and testing requests, with an AI Agent Mode that works across your collections."),
  "bruno": ("Bruno", "https://www.usebruno.com", "Open-source, offline API client that stores collections as plain files in git."),
  "coda": ("Superhuman Docs (formerly Coda)", "https://superhuman.com/docs", "Doc-meets-spreadsheet workspace (formerly Coda) with tables, automations and built-in AI."),
- "mem": ("Mem", "https://mem.ai", "AI notes app that auto-organizes notes and lets you chat with them."),
+ "mem": ("Mem", "https://mem.ai", "AI notes app that is shutting down: read-only from Dec 18, 2026, closed on Jan 15, 2027."),
 }
 
 UC = [
@@ -300,12 +300,12 @@ UC = [
   ("claude","Best writer and editor for the docs themselves; Projects keep reference material handy."),
   ("chatgpt","Versatile for drafting and restructuring docs, from first outline to full rewrite."),
   ("coda","Pick it when your docs are really mini-apps with tables and automations."),
-  ("mem","Personal notes that organize themselves; skip it for team wikis.")]),
+  ("mem","Shutting down: notes go read-only Dec 18, 2026 and Mem closes Jan 15, 2027. Don't start here; if you already use it, export your notes now.")]),
 ]
 
 NEW_UPDATED = "2026-11-05"  # shown as "Last updated" on /new/ (all locales)
 REVIEWED = "2026-10-22"  # date every pick on every use-case page was last re-verified (full scan, Oct 22, 2026); bump only after a full re-check
-SITE_UPDATED = "2026-11-23"  # sitemap <lastmod> for pages without their own date; bump when you redeploy changed content
+SITE_UPDATED = "2026-11-24"  # sitemap <lastmod> for pages without their own date; bump when you redeploy changed content
 SHOW_SPONSOR_SLOT = False  # no sponsor box above the picks until a real sponsor is booked (the /sponsor/ page still shows the example)
 # Dated launches / major releases for /new/, newest first. Every entry was checked against the linked source on NEW_UPDATED.
 # (key, name, product/official url, iso date, source url, use-case slug, one-line description). Not catalog tools: T and UC stay frozen.

@@ -1,0 +1,48 @@
+{
+ "date": "2026-11-24",
+ "items": [
+  {
+   "type": "Deadline",
+   "tool": "Claude Code",
+   "what": "v2.1.331 (Nov 23, 2026) says that on or after Nov 30, 2026, plugin marketplaces listed in managed extraKnownMarketplaces will auto-update by default. It also fixes MCP tool calls hanging up to 30 minutes on some malformed server replies.",
+   "source_name": "anthropics/claude-code release v2.1.331",
+   "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.331",
+   "checked": "10:16 AM",
+   "test": "If you manage Claude Code settings for a team, decide which marketplaces should stay frozen and set \"autoUpdate\": false on those entries before Nov 30. Run claude doctor, which now reports whether the API can be reached.",
+   "use_case": "best-ai-coding-agents",
+   "deadlines": [
+    {"date": "2026-11-30", "label": "managed plugin marketplaces auto-update by default (on or after this date)"}
+   ]
+  },
+  {
+   "type": "Breaking change",
+   "tool": "GitHub Copilot CLI",
+   "what": "v1.0.115 (Nov 24, 2026) turns on Windows sandbox package queries by default, and an empty --available-tools value now gives the model no tools instead of every tool.",
+   "source_name": "github/copilot-cli release v1.0.115",
+   "source_url": "https://github.com/github/copilot-cli/releases/tag/v1.0.115",
+   "checked": "10:16 AM",
+   "test": "Check scripts that pass --available-tools= or --available-tools '' and expect the full tool set; they now run with none. On Windows, set sandbox.userPolicy.capabilities to [] if you want to keep package queries off.",
+   "use_case": "best-ai-coding-agents"
+  },
+  {
+   "type": "Breaking change",
+   "tool": "Codex CLI",
+   "what": "rust-v0.172.0 (Nov 23, 2026): optional stdio MCP servers with cached tool lists now start on their first tool call by default, codex exec resume restores saved sandbox permissions and working directory, and the code_mode_host_grpc setting is deprecated.",
+   "source_name": "openai/codex release rust-v0.172.0",
+   "source_url": "https://github.com/openai/codex/releases/tag/rust-v0.172.0",
+   "checked": "10:16 AM",
+   "test": "If a script relies on an optional MCP server being up at session start, call one of its tools first or mark it required. Re-run any codex exec resume jobs that passed different sandbox flags and confirm the permissions you expect. Remove code_mode_host_grpc from config.toml.",
+   "use_case": "best-ai-coding-agents"
+  },
+  {
+   "type": "Breaking change",
+   "tool": "OpenAI Agents SDK",
+   "what": "v0.26.0 (Nov 24, 2026): Docker sandboxes now reject InContainerMountStrategy, even read-only, on create and resume, and the experimental Codex tool no longer opens a local image just because the model supplied its path.",
+   "source_name": "openai/openai-agents-python release v0.26.0",
+   "source_url": "https://github.com/openai/openai-agents-python/releases/tag/v0.26.0",
+   "checked": "10:16 AM",
+   "test": "Before upgrading, start fresh Docker sessions with a revised manifest instead of resuming old ones or old RunState. If you use the Codex tool with images, grant a named reference for each trusted image.",
+   "use_case": "best-ai-for-agent-frameworks"
+  }
+ ]
+}

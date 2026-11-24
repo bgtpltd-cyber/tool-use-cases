@@ -141,7 +141,7 @@ TOOLS = {
  "postman": "Plataforma de APIs para montar e testar requisições, com o Agent Mode, um modo de IA que trabalha em todas as suas coleções.",
  "bruno": "Cliente de API open source e offline que guarda as coleções como arquivos simples no git.",
  "coda": "Workspace que mistura documento e planilha (antigo Coda), com tabelas, automações e IA integrada.",
- "mem": "App de notas com IA que organiza as notas automaticamente e deixa você conversar com elas.",
+ "mem": "App de notas com IA que vai encerrar: só leitura a partir de 18 de dez. de 2026 e fechado em 15 de jan. de 2027.",
 }
 
 UC = {  # slug: (title, blurb, [verdicts in the same order as the English picks])
@@ -330,7 +330,7 @@ UC = {  # slug: (title, blurb, [verdicts in the same order as the English picks]
   "O melhor redator e editor para os documentos em si; os Projects deixam o material de referência sempre à mão.",
   "Versátil para rascunhar e reestruturar documentos, do primeiro esboço à reescrita completa.",
   "Escolha quando seus documentos são, na prática, mini-apps com tabelas e automações.",
-  "Notas pessoais que se organizam sozinhas; não é para wikis de time."]),
+  "Vai encerrar: as notas ficam só leitura em 18 de dez. de 2026 e o Mem fecha em 15 de jan. de 2027. Não comece por aqui; se você já usa, exporte suas notas agora."]),
 }
 
 NEW = {
