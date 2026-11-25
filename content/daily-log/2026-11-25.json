@@ -1,0 +1,35 @@
+{
+ "date": "2026-11-25",
+ "items": [
+  {
+   "type": "Breaking change",
+   "tool": "Claude Code",
+   "what": "v2.1.332 (Nov 24, 2026) adds MCP-server skills (beta) and a PreSkillShellCommand hook, renames desktop Code tab OpenTelemetry service.name to claude-code-desktop, and lets CLAUDE_CODE_OAUTH_TOKEN start with oat02- as well as oat01-.",
+   "source_name": "anthropics/claude-code release v2.1.332",
+   "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.332",
+   "checked": "10:17 AM",
+   "test": "Update OTel dashboards keyed on service.name claude-code (or set OTEL_SERVICE_NAME), and proxy rules or log scrubbers that only match oat01-. Rename any of your own skills called computer-use on Macs with computer use on.",
+   "use_case": "best-ai-coding-agents"
+  },
+  {
+   "type": "Breaking change",
+   "tool": "GitHub Copilot CLI",
+   "what": "v1.0.116 (Nov 25, 2026): plan approval no longer offers fleet mode (start it with /fleet), experimental extensions' Load Only settings migrate to Disabled, and a new env setting passes variables to every process Copilot starts.",
+   "source_name": "github/copilot-cli release v1.0.116",
+   "source_url": "https://github.com/github/copilot-cli/releases/tag/v1.0.116",
+   "checked": "10:18 AM",
+   "test": "Re-enable any experimental extension you had on Load Only, since it is now Disabled. If your workflow approved plans into fleet mode, start it with /fleet instead. Move per-tool env workarounds into the env setting.",
+   "use_case": "best-ai-coding-agents"
+  },
+  {
+   "type": "Breaking change",
+   "tool": "Visual Studio Code",
+   "what": "1.148 (Nov 25, 2026): in Copilot harness sessions, sudo -A, ssh and git password prompts now appear as a question in chat instead of failing; prompts nobody can answer, as in Autopilot, are canceled.",
+   "source_name": "VS Code 1.148 release notes",
+   "source_url": "https://code.visualstudio.com/updates/v1_148",
+   "checked": "10:20 AM",
+   "test": "Run an agent task that uses ssh or git over SSH and confirm the chat prompt appears. For unattended runs, use keys or credential helpers, or set chat.agentHost.copilot.shellAuthentication.enabled to false. The Local harness is still due for removal in February 2027.",
+   "use_case": "best-ai-coding-agents"
+  }
+ ]
+}
