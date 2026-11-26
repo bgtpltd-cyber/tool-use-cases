@@ -1,0 +1,37 @@
+{
+ "date": "2026-11-26",
+ "items": [
+  {
+   "type": "Breaking change",
+   "tool": "OpenCode",
+   "what": "v2.4.2 (Nov 25, 2026): \"Always allow\" on a web fetch now allows that site only instead of every URL, failed automation runs no longer stop the schedule, and an automation shell command past its timeout now fails instead of backgrounding.",
+   "source_name": "anomalyco/opencode release v2.4.2",
+   "source_url": "https://github.com/anomalyco/opencode/releases/tag/v2.4.2",
+   "checked": "10:21 AM",
+   "test": "Expect new approval prompts for sites you used to allow with one click (approvals saved before 2.4.2 are unchanged). Check automations that time out on long shell commands, and note that sending to an archived session now unarchives it.",
+   "use_case": "best-ai-coding-agents"
+  },
+  {
+   "type": "Breaking change",
+   "tool": "Cline",
+   "what": "v4.1.28 and CLI v3.0.76 (Nov 26, 2026) drop deprecated OpenAI model ids from the picker, including gpt-4o, gpt-4.1, gpt-5, gpt-5-mini, gpt-5.1, gpt-5.3-codex, o3 and o3-pro; gpt-5.3-codex-spark is gone for ChatGPT subscriptions.",
+   "source_name": "cline/cline release v4.1.28",
+   "source_url": "https://github.com/cline/cline/releases/tag/v4.1.28",
+   "checked": "10:21 AM",
+   "test": "If a Cline or Cline CLI config or script names one of these models, switch it to a current OpenAI model and run one task to confirm it still starts.",
+   "use_case": "best-ai-coding-agents"
+  },
+  {
+   "type": "Deadline",
+   "tool": "GitHub Copilot code review",
+   "what": "From Dec 30, 2026, Copilot code reviews for licensed members are billed to the organization that owns the repo when no billing choice is saved (Copilot Business and Enterprise). Saved Member or Organization choices stay.",
+   "source_name": "GitHub Changelog: Copilot code review billing will default to the organization (Nov 25, 2026)",
+   "source_url": "https://github.blog/changelog/2026-11-25-copilot-code-review-billing-will-default-to-the-organization",
+   "checked": "10:21 AM",
+   "test": "To keep reviews on members' Copilot entitlements, select Member in your organization or enterprise Copilot policy settings before Dec 30. Organization billing needs AI Credits paid usage and can raise spending.",
+   "deadlines": [
+    {"date": "2026-12-30", "label": "Copilot code review billing defaults to the organization"}
+   ]
+  }
+ ]
+}
