@@ -306,7 +306,7 @@ UC = [
 
 NEW_UPDATED = "2026-11-05"  # shown as "Last updated" on /new/ (all locales)
 REVIEWED = "2026-10-22"  # date every pick on every use-case page was last re-verified (full scan, Oct 22, 2026); bump only after a full re-check
-SITE_UPDATED = "2026-11-26"  # sitemap <lastmod> for pages without their own date; bump when you redeploy changed content
+SITE_UPDATED = "2026-11-27"  # sitemap <lastmod> for pages without their own date; bump when you redeploy changed content
 SHOW_SPONSOR_SLOT = False  # no sponsor box above the picks until a real sponsor is booked (the /sponsor/ page still shows the example)
 # Dated launches / major releases for /new/, newest first. Every entry was checked against the linked source on NEW_UPDATED.
 # (key, name, product/official url, iso date, source url, use-case slug, one-line description). Not catalog tools: T and UC stay frozen.
@@ -627,7 +627,8 @@ def guide_html(slug, tools, lang, L=None):  # 'How to choose' block + price-chec
     if lang in XL and any(t in extras.PRICES for t,_ in tools):
         lb = extras.LABELS[lang]
         ds = sorted({extras.price_date(t) for t,_ in tools if t in extras.PRICES})  # each price line's own check date
-        dt = {"en":" and ","pt-BR":" e ","es":" y "}[lang].join(f'<time datetime="{d}">{e(date_mdy(d, L))}</time>' for d in ds)
+        tl = [f'<time datetime="{d}">{e(date_mdy(d, L))}</time>' for d in ds]
+        dt = (", ".join(tl[:-1]) + {"en":" and ","pt-BR":" e ","es":" y "}[lang] + tl[-1]) if len(tl) > 1 else tl[0]  # "A, B and C" instead of "A and B and C"
         out += f'<p class="muted"><small>{e(lb[1])} {dt} {e(lb[2])}</small></p>'
     return out
 def upgrade_html(slug):  # English-only (upgrades.py): dated comparison table, recent dated changes, 'What we checked' note

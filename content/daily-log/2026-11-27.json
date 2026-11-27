@@ -1,0 +1,35 @@
+{
+ "date": "2026-11-27",
+ "items": [
+  {
+   "type": "Breaking change",
+   "tool": "MCP reference servers",
+   "what": "Release v2.6.0 (Nov 27, 2026) fixes 8 vulnerabilities in the Git, Memory and Fetch servers. The Git server now refuses a --repository root whose .git file names another Git directory, and git_merge refuses merges that would overwrite ignored files.",
+   "source_name": "modelcontextprotocol/servers release v2.6.0",
+   "source_url": "https://github.com/modelcontextprotocol/servers/releases/tag/v2.6.0",
+   "checked": "10:31 AM",
+   "test": "Upgrade mcp-server-git and mcp-server-fetch to 2026.11.27 and server-memory to 2.2.2 (on Windows, also server-filesystem to 2.4.1). npm won't offer 2.2.2 over a date-versioned server-memory, so install @modelcontextprotocol/server-memory@2.2.2 explicitly.",
+   "use_case": "best-ai-for-agent-frameworks"
+  },
+  {
+   "type": "Breaking change",
+   "tool": "GitHub Copilot CLI",
+   "what": "v1.0.117 (Nov 27, 2026): approving an MCP server's tools no longer also approves built-in requests (shell commands, memory stores) when the server's name matches a built-in permission type, and autopilot now asks before launching each extension.",
+   "source_name": "github/copilot-cli release v1.0.117",
+   "source_url": "https://github.com/github/copilot-cli/releases/tag/v1.0.117",
+   "checked": "10:31 AM",
+   "test": "Expect new prompts for shell commands in sessions that relied on an MCP approval, and for extensions in autopilot runs. Behind a TLS-intercepting proxy, set sandbox.userPolicy.network.extraCaCertificates so sandboxed commands trust your CA.",
+   "use_case": "best-ai-coding-agents"
+  },
+  {
+   "type": "Breaking change",
+   "tool": "Kilo Code",
+   "what": "Release v7.8.40 (Nov 27, 2026): in VS Code, auto-approve is now a user-level setting only, and a shell command that prints an environment file now asks first. In the CLI, the explore subagent asks before reading secret environment files.",
+   "source_name": "Kilo-Org/kilocode release v7.8.40",
+   "source_url": "https://github.com/Kilo-Org/kilocode/releases/tag/v7.8.40",
+   "checked": "10:33 AM",
+   "test": "If a project relied on a workspace-level auto-approve setting, set it again in your user settings. Expect new approval prompts in runs that read or print .env files.",
+   "use_case": "best-ai-coding-agents"
+  }
+ ]
+}
